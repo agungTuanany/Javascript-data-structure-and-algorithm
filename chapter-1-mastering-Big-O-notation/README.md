@@ -3,6 +3,7 @@
 ## Table of Contents
 1.  [Module Introduction](#module-introduction)
 2.  [What is Good Code](#what-is-good-code)
+3.  [Big-O Scalability](#big-o-scalability)
 
 <br/>
 
@@ -51,8 +52,6 @@ We also going to talk about readable code throughout this entire course, but
 touch upon it a little bit more in the next section. For now, because this is
 the Big-O section, we're focusing on this idea of scalable code. What does this
 really mean thug?
-
-
 <br/>
 
 ![chapter-1-2.gif](./images/gif/chapter-1-2.gif "What is good code")
@@ -81,6 +80,88 @@ We have an example of instruction that we're giving our computer called
 run a certain problem through a function or a task? How can we measure the Big-0
 with this findNemo function? Or the efficiency of this function?.
 
+```javascript
+function findNemo(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+        };
+    };
+};
+```
+
 We're going to try and measure the performance of findNemo function and see what
 happens when the arrays gets larger. We're going to tie things together as to
 what scaleable means, and how Big-O allows us to measure the scalability.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Big-O Scalability
+
+
+How we make sure that there is a away for use to measure in terms of efficiency?
+What is good code? And what is bad code? And what is code that can scale? That
+as the numbers of arrays or inputs increases. it doesn't slow down more and
+more.
+
+**_Big-O notation is the language we use for talking about how long algorithm takes
+to run_**. We can compare two different algorithms or in this case functions using
+Big-O and say which one is better then the other when it came to scale?
+Regardless of our computer differences. We can measure Big-O like this chart,
+<br/>
+
+![chapter-1-1.png](./images/chapter-1-1.png "Big-O Scalability")
+<br />
+
+When we talk about Big-O and scalability of code, we simply mean when we grow
+bigger and bigger with our input, how much does the algorithm or function slow
+down? If the list of characters let's say **Elements** here that is "nemo", so
+characters in finding "nemo" in our array as that increases how many more
+**Operations** do we have to do? That's all it is.
+
+This is what we call _algorithmic efficiency_. Big-O allow us to explain this
+concept. Remember how in our function we initially had an array of just one
+which is `const nemo = {"nemo"}` so that the number of **Elements** or number of
+inputs in a function. As we increase that array to have more characters and then
+we created that massive array of "100000" `const largeArray = new
+Array(100000).fill("nemo")`. As that array increases, you saw that the number of
+**Operations** or the number of things we do in the loop increased over and
+over; And different functions have different Big-O complexities. That is these
+number **Operations** can increase really really fast like like `O(n!)` which is
+not good, and things that are quite good actually `O(n)` don't increase as much.
+
+We're going to look at examples of different ones and how to actually measure
+into Big-O complexity chart, and what this entire notation means.
+
+**_Just remember this point_**, when we talk about Big-O and scalability of code we
+simply mean when we grow bigger and bigger with our input; **_How much does the
+algorithm slow down. The less it slows down or the slower it slows the better it
+is_**.
+
+```javascript
+const measureTime = (array) => {
+
+    const start = new Date();
+    const hrstart = process.hrtime()
+    const end = new Date() - start;
+    const hrend = process.hrtime(hrstart);
+
+    findNemo(array);
+
+    console.info("Execution time: %dms", end);
+    console.info("Execution time (hr): %ds %dms", hrend[0], hrend[1]/1000000);
+};
+```
+
+Instead of using `performance.now()` or in NodeJS `process.hrtime()` to measure
+the efficiency of our functions, we can just **_calculate how many operations
+a computer has to perform_**, because each operations takes time on a computer.
+**_Big-O allows us and concerns us with how many steps it takes in
+a functions_**.
+
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
