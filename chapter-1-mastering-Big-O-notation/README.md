@@ -4,6 +4,7 @@
 1.  [Module Introduction](#module-introduction)
 2.  [What is Good Code](#what-is-good-code)
 3.  [Big-O Scalability](#big-o-scalability)
+4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
 
 <br/>
 
@@ -165,3 +166,43 @@ a functions_**.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Big-O Cheat Sheet
+
+### - Big Os -
+
+**O(1)** Constant -- No loops <br/>
+**O(log N)** Logarithmic -- Usually searching algorithm `log n` if they are sorted (Binary search) <br/>
+**O(n)** Linear -- for loops, while loops through `n` items <br/>
+**O(n log(n))** Log Linear -- Usually sorting operations <br/>
+**O(n^2)**  Quadratic  -- Every element in a collection needs ti be compared to ever other element. Two nested loops<br/>
+**O(2^n)** Exponential -- Recursive algorithms that solves a problem of size `N`  <br/>
+**O(n!)** Factorial -- You are adding a loop for every elements <br/>
+
+**NOTE:** <br/>
+**_Iterating through half a collection is still O(n)_** <br/>
+**_Two separate collections: O(a * b)_** <br/>
+
+
+### - What can cause time in a function? -
+
+Operations (+, -, *, /) <br/>
+Comparison (<, >, ==) <br/>
+Looping (for, while) <br/>
+Outside Function call (function()) <br/>
+
+### - Rule Book -
+
+**Rule 1:** Always worst Case <br/>
+**Rule 2:** Remove Constant <br/>
+**Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` <br/>
+`+` for steps in order <br/>
+`*` for nesteds steps
+**Rule 4:** Drop Non-dominant terms
+
+### - What causes Space complexity?-
+
+Variables <br/>
+Data Structure <br/>
+Function Call <br/>
+Allocation <br/>
