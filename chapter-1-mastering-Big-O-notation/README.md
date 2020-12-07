@@ -5,8 +5,9 @@
 2.  [What is Good Code](#what-is-good-code)
 3.  [Big-O Scalability](#big-o-scalability)
 4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
-5.  [O(n)](#O(n))
-6.  [O(1)](#O(1))
+5.  [Linear - O(n)](#Olinear-(n))
+6.  [Constant - O(1)](#constantO(1))
+7.  [Big-O Exercise-1](#big-o-exercise-1)
 
 <br/>
 
@@ -213,7 +214,7 @@ Allocation <br/>
 <br/>
 <br/>
 
-## O(n)
+## Linear - O(n)
 
 What would you say if I asked you what is the Big-O of the function
 [findNemo](./findNemo.js)?
@@ -235,15 +236,15 @@ function findNemo(array) {
 
 As we said a **_runtime_** is simply how long something takes to run. How does
 this function and its runtime grow as our input increases. As our inputs goes
-from just a single item in an array `const nemo`, to 10 items in array `const
-everyone1 / everyone2` to 100.000 `const largeArray`. How does the efficiency of
-this function increase?.
+from just a single item in an array `nemo`, to 10 items in array ` everyone1
+| everyone2` to 100.000 `largeArray`. How does the efficiency of this
+function increase?.
 <br/>
 
 ![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
 <br />
 
-> The above diagram is linear. As our number input `(Elements)` increase the >number of `Operations` increase as well.
+> The above diagram is linear. As our number input `(Elements)` increase the number of `Operations` increase as well.
 
 <br/>
 
@@ -262,7 +263,7 @@ And if we had the `const largeArray` arrays this `n` just be `O(100000)` <br/>
 As the inputs increase, you see that the number of `Operations` increase
 linearly with it. `O(n)` it's probably the most common Big-O notation you'll
 find if we go back to the [Big-O Complexity Chart](#big-o-scalability) you can
-see that `O(n)` is in the yellow region, that's as `fair`. As the number of
+see that `O(n)` is in the yellow region, that's as _fair_. As the number of
 elements increase, you see that is just a straight line. The number of
 `Operations` increases by the same  amount, because; Keep this in mind, **_Big-O
 doesn't measure things in seconds_**, Instead we're **_focusing on how quickly
@@ -314,7 +315,7 @@ number of `Operations` increase; And that is `O(n)` - linear-time.
 <br/>
 <br/>
 
-## O(1)
+## Constant - O(1)
 
 What happen if we have a function like this,
 
@@ -352,7 +353,6 @@ question here, what if we do something different? If we have a function like
 below,
 
 ```javascript
-
 const boxes = [1, 2, 3, ,4, 5, 6];
 
 function logFirstTwoBoxes(boxes) {
@@ -367,7 +367,6 @@ How do we measure the Big-O of above function? What's the number of operation in
 the function? Well we have
 
 ```javascript
-
 function logFirstTwoBoxes(boxes) {
     console.log(boxes[0])       // O(1)
     console.log(boxes[1])       // O(1)
@@ -379,7 +378,6 @@ logFirstTwoBoxes(boxes);        // O(2)
 Each time the `logFirstTwoBoxes` function runs two operations. So this function
 in total is actually running `O` of `2` operations every time. So no matter how
 big the boxes get, the number of operations here is going to be two.
-
 
 If we looks at the graph,
 <br/>
@@ -409,3 +407,27 @@ a bit of fun exercise to really solidify our knowledge.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Big-O Exercise-1
+
+```javascript
+// What is the Big O of the below function? (Hint, you may want to go line by line)
+function funChallenge(input) {
+  let a = 10;                                       // 0(1)
+
+  a = 50 + 3;                                       // 0(1)
+
+    for (let i = 0; i < input.length; i++) {        // O(n)
+        anotherFunction();                          // O(n)
+        let stranger = true;                        // O(n)
+        a++;                                        // O(n)
+
+    };
+      return a;                                     // O(1)
+};
+
+// Answer
+// 3 + n + n + n === 3 + 4n
+// Big-O (3 + 4n)
+// Big- O(n)
+```
