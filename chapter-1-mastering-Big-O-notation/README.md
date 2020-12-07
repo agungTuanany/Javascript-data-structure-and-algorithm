@@ -5,6 +5,7 @@
 2.  [What is Good Code](#what-is-good-code)
 3.  [Big-O Scalability](#big-o-scalability)
 4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
+5.  [O(n)](#O(n))
 
 <br/>
 
@@ -113,7 +114,7 @@ Big-O and say which one is better then the other when it came to scale?
 Regardless of our computer differences. We can measure Big-O like this chart,
 <br/>
 
-![chapter-1-1.png](./images/chapter-1-1.png "Big-O Scalability")
+![chapter-1-1.png](./images/chapter-1-1.png "Big-O complexity Chart graph")
 <br />
 
 When we talk about Big-O and scalability of code, we simply mean when we grow
@@ -206,3 +207,107 @@ Variables <br/>
 Data Structure <br/>
 Function Call <br/>
 Allocation <br/>
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## O(n)
+
+What would you say if I asked you what is the Big-O of the function
+[findNemo](./findNemo.js)?
+
+```javascript
+const nemo = ["nemo"];
+const everyone1 = ["dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
+const everyone2 = ["dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank", "nemo"]
+const largeArray = new Array(100000).fill("nemo")
+
+function findNemo(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+        };
+    };
+};
+```
+
+As we said a **_runtime_** is simply how long something takes to run. How does
+this function and its runtime grow as our input increases. As our inputs goes
+from just a single item in an array `const nemo`, to 10 items in array `const
+everyone1 / everyone2` to 100.000 `const largeArray`. How does the efficiency of
+this function increase?.
+<br/>
+
+![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
+<br />
+
+> The above diagram is linear. As our number input `(Elements)` increase the >number of `Operations` increase as well.
+
+<br/>
+
+We say that the `findNemo` functions has a Big-O notation of `O(n)` or we call
+_Linear Time_. It takes linear time to find a `nemo`.
+
+Where this `n` come from? This `n` can be anything really. It's just an
+arbitrary letter, and we usually give `n` when it comes to Big-O. This is just
+a standard that you'll see across the board and simply means _the Big-O depends
+on the number of the inputs_.
+
+If we just had the `nemo` array `const nemo` this `n` would just be `O(1)`; <br/>
+If we had the `const everyone1 or const everyone2` array this `n` just be `O(10)`; <br/>
+And if we had the `const largeArray` arrays this `n` just be `O(100000)` <br/>
+
+As the inputs increase, you see that the number of `Operations` increase
+linearly with it. `O(n)` it's probably the most common Big-O notation you'll
+find if we go back to the [graph](chapter-1-1.png) you can see that `O(n)`  is
+in the yellow region, that's as `fair`. As the number of elements increase, you
+see that is just a straight line. The number of `Operations` increases by the
+same  amount, because; Keep this in mind, **_Big-O doesn't measure things in
+seconds_**, Instead we're **_focusing on how quickly our runtime grows_**.
+
+We simply do this by using the size of the input, which we call `n` and compared
+to the number of `Operations` that increase. **_That's what scalability
+means_**, as things grow larger and larger, does it scale?
+
+So the `findNemo` function is `O` of `n` and linear time. Another way to think
+about it is this,
+<br/>
+
+![chapter-1-4.gif](./images/gif/chapter-1-4.gif "O(n) single element")
+<br />
+
+If we have the compression algorithm, let's say this `function()` is the little
+compression, and the `Input` is the little box, what's the Big-O notation of
+this function? Well if we had one element it will just compress one item.
+<br/>
+
+![chapter-1-5.gif](./images/gif/chapter-1-5.gif "O(n) multiple elements")
+<br />
+
+If we have multiple elements, again we still have to run each box through the
+compression algorithm to compress the box.
+
+```javascript
+//ES5
+function compressAllBoxes(boxes) {
+    boxes.forEach(function(box) => {
+        console.log(box);
+    });
+};
+
+// ES6
+const compressAllBoxes = boxes => {
+    boxes.forEach(box => console.log(box));
+};
+```
+
+If we look at the function for the compress boxes while we're using ES5 and ES6
+syntax above, we're essentially looping through each box, and in our case we're
+just console logging it. But as you can see here, that all of these all we're
+doing as the input increases; the number of boxes increases `(Elements)`, the
+number of `Operations` increase; And that is `O(n)` - linear-time.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
