@@ -5,9 +5,10 @@
 2.  [What is Good Code](#what-is-good-code)
 3.  [Big-O Scalability](#big-o-scalability)
 4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
-5.  [Linear - O(n)](#Olinear-(n))
-6.  [Constant - O(1)](#constantO(1))
+5.  [Linear - O(n)](#linear-O(n))
+6.  [Constant - O(1)](#constant-O(1))
 7.  [Big-O Exercise-1](#big-o-exercise-1)
+7.  [Big-O Exercise-2](#big-o-exercise-2)
 
 <br/>
 
@@ -429,5 +430,43 @@ function funChallenge(input) {
 // Answer
 // 3 + n + n + n === 3 + 4n
 // Big-O (3 + 4n)
-// Big- O(n)
+// Big-O: O(n)
 ```
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Big-O Exercise-2
+```javascript
+// What is the Big O of the below function? (Hint, you may want to go line by line)
+function anotherFunChallenge(input) {
+    let a = 5;                              // O(1)
+    let b = 10;                             // O(1)
+    let c = 50;                             // O(1)
+
+    for (let i = 0; i < input; i++) {
+        let x = i + 1;                      // O(n)
+        let y = i + 2;                      // O(n)
+        let z = i + 3;                      // O(n)
+    };
+
+    for (let j = 0; j < input; j++) {
+        let p = j * 2;                      // O(n)
+        let q = j * 2;                      // O(n)
+    };
+    let whoAmI = "I don't know";            // O(1)
+}
+    // Answer
+    // 4 + n + n + n + n + n === 4 + 5n
+    // Big-O (4 + 5n)
+    // Big- O(n)
+
+    // Or if we include for-loop
+    // 4 + n + n + n + n + n + n + n === 4 + 7n
+    // Big-O (4 + 7n)
+    // Big-O: O(n)
+```
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>

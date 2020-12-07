@@ -54,6 +54,45 @@ function funChallenge(input) {
 
     };
       return a;                                     // O(1)
+
+    // Answer
+    // 3 + n + n + n === 3 + 4n
+    // Big-O (3 + 4n)
+    // Big- O(n)
 };
 
-funChallenge(2);
+// funChallenge(2);
+
+// Big-O Exercise - 1
+// What is the Big O of the below function? (Hint, you may want to go line by line)
+function anotherFunChallenge(input) {
+    let a = 5;                              // O(1)
+    let b = 10;                             // O(1)
+    let c = 50;                             // O(1)
+
+    for (let i = 0; i < input; i++) {
+        let x = i + 1;                      // O(n)
+        let y = i + 2;                      // O(n)
+        let z = i + 3;                      // O(n)
+        console.log(x, y, z)
+    };
+
+    for (let j = 0; j < input; j++) {
+        let p = j * 2;                      // O(n)
+        let q = j * 2;                      // O(n)
+        console.log(p, q)
+    };
+    let whoAmI = "I don't know";            // O(1)
+
+    // Answer
+    // 4 + n + n + n + n + n
+    // Big-O (4 + 5n)
+    // Big- O(n)
+
+    // Or if we include for-loop
+    // 4 + n + n + n + n + n + n + n === 4 + 7n
+    // Big-O (4 + 7n)
+    // Big-O: O(n)
+}
+
+anotherFunChallenge(3)
