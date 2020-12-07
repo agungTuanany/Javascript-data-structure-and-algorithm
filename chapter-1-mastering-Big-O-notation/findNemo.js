@@ -2,18 +2,23 @@ const nemo = ["nemo"];
 
 const everyone1 = ["dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
 const everyone2 = ["dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank", "nemo"]
+const everyone3 = ["nemo", "dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
 
 const largeArray = new Array(100000).fill("nemo")
 
 function findNemo(array) {
     for (let i = 0; i < array.length; i++) {
+        console.log("running")
         if (array[i] === "nemo") {
             console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+
+            break;
         };
     };
 };
 
 // findNemo(nemo);
+findNemo(everyone1);
 
 const measureTime = (array) => {
 
@@ -95,4 +100,4 @@ function anotherFunChallenge(input) {
     // Big-O: O(n)
 }
 
-anotherFunChallenge(3)
+// anotherFunChallenge(3)

@@ -10,6 +10,7 @@
 7.  [Big-O Exercise-1](#big-o-exercise-1)
 8.  [Big-O Exercise-2](#big-o-exercise-2)
 9.  [Simplifying Big-O](#simplifying-big-o)
+10. [Big-O Rule 1](#big-o-rule-1)
 
 <br/>
 
@@ -484,10 +485,122 @@ function anotherFunChallenge(input) {
 
 When we talk about Big-O in interviews most of the time you're only going to give
 one of Big-Os kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`. You're most
-likely never going to actually calculate precisely `O(3n)`, or `3n + 2 +1`; So how
-was I able to simplify the exercise and just say that they `O(m)`?. Luckily for
+likely never going to actually calculate precisely `O(3n)`, or `3n + 2 + 1`; So how
+was I able to simplify the exercise and just say that they `O(n)`?. Luckily for
 you, there are just several rules that we can follow when it came to the
 Big-O. Check the [cheatsheet Rule Book](#big-o-cheat-sheet)
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Big-O Rule 1
+
+### Worst Case
+
+Let's talk about the very first role when it comes to Big-O, that is worst case
+when calculating Big-O we always think about the worst case. What do I mean by
+that? Well if we go back to [findNemo](./findNemo.js) for example,
+
+```javascript
+const nemo = ["nemo"];
+
+const everyone1 = ["dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
+const everyone2 = ["dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank", "nemo"]
+
+function findNemo(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log("running")
+        if (array[i] === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+        };
+    };
+};
+
+findNemo(everyone1);
+
+// result
+// running
+// running
+// running
+// running
+// We found nemo at index "3"
+// running
+// running
+// running
+// running
+// running
+// running
+
+```
+
+The function is not efficient, Because if you look this function we're looping
+through the entire array to find `nemo`. Remember we had the `everyone1` array
+with about 19 different characters or objects. Well `nemo` was the fourth member
+on the array. And when we run this function we found `nemo`, but the funny
+things is this function **_ran 10 times not four times_**. We already find
+`nemo`, all after find `nemo` run pretty wasteful.
+
+We can make this function little bit more efficient, in JavaScript we can just
+have something called `break`
+
+```javascript
+const nemo = ["nemo"];
+
+const everyone1 = ["dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
+const everyone2 = ["dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank", "nemo"]
+const everyone3 = ["nemo", "dory", "bruce", "marlin", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
+
+function findNemo(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log("running")
+        if (array[i] === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+
+            break;
+        };
+    };
+};
+
+findNemo(everyone1);
+
+// result
+//running
+//running
+//running
+//running
+//We found nemo at index "3"
+```
+
+In our case, if a condition is met in our case if we find `nemo` just break out
+of this loop. Once we found `nemo` we're done, we're not going to loop through
+the rest of the items or array. Congratulation, we just made our code a little
+bit more efficient. That's a good thing right?
+
+Well, when it comes to Big-O, although this is important, when you write good
+code, this is something that we want to do. In the big schema thing Big-O only
+cares about the worst case, what is the worst case in here?
+
+The worst case is that `nemo` is set of being the fourth item it can at at the
+very end `everyone2`. So even we have the `break` statement, we're still going
+to run as 10 times, because `nemo` at the end of the array.
+
+The best case is if `nemo` at the very beginning `everyone3`, we only have to
+loop through it once. But worst case we're still going to have to go through 10
+loops, still is Big-O `O(n)`.
+
+So this is our very first rule, the very first rule is we always care about what
+is the worst case
+
+So this is our very first rule, the very first rule is _we always care about what
+is the worst case scenario_ because when we talk about scalability we can't just
+assume things are going well, even though the `findNemo` function might be of
+one if `nemo` is very first items in the array, it doesn't matter, in the grand
+scheme of things, because we can't be certain of what the input is going to be.
+We're going to assume that all of Big-O is of _Linear Time_, again if we're
+finding.
+
+**_In the end of the day, when we talk about Big-O we talk about worst case_**.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
