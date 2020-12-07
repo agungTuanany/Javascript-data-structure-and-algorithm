@@ -11,6 +11,7 @@
 8.  [Big-O Exercise-2](#big-o-exercise-2)
 9.  [Simplifying Big-O](#simplifying-big-o)
 10. [Big-O Rule 1](#big-o-rule-1)
+11. [Big-O Rule 2](#big-o-rule-2)
 
 <br/>
 
@@ -536,8 +537,8 @@ findNemo(everyone1);
 
 The function is not efficient, Because if you look this function we're looping
 through the entire array to find `nemo`. Remember we had the `everyone1` array
-with about 19 different characters or objects. Well `nemo` was the fourth member
-on the array. And when we run this function we found `nemo`, but the funny
+with about 10 different characters or objects. Well `nemo` was the _fourth member
+on the array_; And when we run this function we found `nemo`, but the funny
 things is this function **_ran 10 times not four times_**. We already find
 `nemo`, all after find `nemo` run pretty wasteful.
 
@@ -601,6 +602,131 @@ We're going to assume that all of Big-O is of _Linear Time_, again if we're
 finding.
 
 **_In the end of the day, when we talk about Big-O we talk about worst case_**.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Big-O Rule 2
+
+### Remove Constants
+
+#### Case - 1
+
+```javascript
+function printFirstItemThenFirstHalfThenSayHi100Times(items) {
+    console.log(items[0]);                              // O(1)
+
+    var middleIndex = Math.floor(items.length / 2);
+    var index = 0;
+
+    while (index < middleIndex) {
+        console.log(items[index]);                      // O(n/2)
+        index++;
+    };
+
+    for (var i = 0; i < 100; i++) {
+        console.log('hi');                              // )(100)
+    };
+
+};
+
+// O(n/2 + 101)
+```
+
+We have ridiculous functions in above
+`printFirstItemThenFirstHalfThenSayHi100Times`, probably not the best named
+function ever, but as the name describe all we're doing is we're going to
+console logging the first item in the array, and then we're going to print the
+first half of the items. So I'm finding the `middleIndex` of the items,
+`items.length` divided by `2`, and I use `Math.floor` as a way for use to make
+sure that we get a whole number, and we're going to say variable indexes `0`.
+
+We use `while-loop` here instead of a `for-loop` and I'm saying as long as
+`middleIndex` is greater than `0`, I want to console logging the items. So that
+means console log the first half of the item we had 10 items, (because `index`
+will increase by / every loop until index is 5) and then I'm going to do another
+`for-loop` and say I'm console logging `hi` a 100 times.
+
+What is the Big-O of this functions? Well looking over here it's going to be
+Big-O of:
+
+- we have 1 for just logging the first items.
+- we have half of whatever the items is. In this case `n` divided by `2` because
+    event thought we have a `for-loop` or `while-lop` we're only logging half
+    the items every time.
+- We doing `for-loop`, but again this is a bit tricky, we're not looping over
+    the items array we just have `100` no matter how big the items array is.
+    `for-loop` always be going to be a `100`
+
+> this is the Big-O of above function. O(n/2 + 101)
+
+Rule number two, states  we want to drop the constant. We simply saying we don't
+really care that this Big-O is actually. Remember we only care about the things
+that we saw on the [chart](#big-o-scalability) nothing specific like this `O(n/2 + 101)`
+
+So the `101` became a `1`
+> The Big-O mutate into `O(n/2 + 1)`
+
+And the `n/2` in the grand scheme of things we only care about when it scales,
+when the inputs are getting larger and larger. As `n` get bigger and bigger, we
+don't care adding an extra hundred because if `n` is a million adding an extra
+hundred on there another `100` steps doesn't really matter and same with
+dividing with `2`; as get larger an larger dividing by two has decreasingly
+significant effect. So we drop the constant and the Big-O notation become,
+
+> The Big-O mutate `O(n + 1)`
+
+Because `1` if `n` was a million is very  insignificant, we can drop `1` as
+well.
+> The Big-O mutate `O(n)`
+
+#### Case - 2
+
+```javascript
+function compressBoxesTwice(boxes) {
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+}
+```
+In case two, we have function `compressBoxesTwice`, where this function actually
+has two `for-loops` where it does the same thing but it's two `for-loops`? We
+have `O(n)` for each `for-loop`. Because these are two steps, while we add them
+together became `O(2n)`.
+
+> The Big-O is `O(2n)`
+
+But again, in an interview, this doesn't really matter, because we _drop the
+constant_ and if we drop what this function equate to? Well it's just `O(n)`.
+
+> The Big-O mutate `O(n)`.
+
+To prove it we see the graph below,
+<br/>
+
+![chapter-1-3.png](./images/chapter-1-3.png "Rule - 2 Case - 2")
+<br />
+
+We see that the `Elements` as the elements increase, we have two `Operations`,
+because we have two `for-loops`. If we have _two_ `Elements`, in that case we do
+_four_ `Operations`. If we have _three_ `Elements`, then we do _six_ `Operations`. You
+see how increases?
+
+The end of the day, even though the line is steeper we have a lot more
+operations to do. The way the line increases is still **_linear_**, and that's
+the _key_ here with Big-O, we don't really care about steep the line is. We care
+about how the line moves as our inputs `(Elements)` increase. It makes a whole
+our lives whole lot simpler doesn't it.
+
+**_So remember, drop the constant. You're never going to really see numbers in
+Big-O notation_**. Most likely the notations that we've seen in the past before,
+on our graph usually the only time you see numbers is when you have `O(1)`,
+`O(n^2)`, or `O(2^n)`, which we'll get get to later.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>

@@ -18,7 +18,7 @@ function findNemo(array) {
 };
 
 // findNemo(nemo);
-findNemo(everyone1);
+// findNemo(everyone1);
 
 const measureTime = (array) => {
 
@@ -101,3 +101,33 @@ function anotherFunChallenge(input) {
 }
 
 // anotherFunChallenge(3)
+
+
+function printFirstItemThenFirstHalfThenSayHi100Times(items) {
+    console.log(items[0]);                              // O(1)
+
+    var middleIndex = Math.floor(items.length / 2);
+    var index = 0;
+
+    while (index < middleIndex) {
+        console.log(items[index]);                      // O(n/2)
+        index++;
+    };
+
+    for (var i = 0; i < 100; i++) {
+        console.log('hi');                              // )(100)
+    };
+
+}; // O(n/2 + 101)
+
+printFirstItemThenFirstHalfThenSayHi100Times(5)
+
+function compressBoxesTwice(boxes) {
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+} // O(2n)
