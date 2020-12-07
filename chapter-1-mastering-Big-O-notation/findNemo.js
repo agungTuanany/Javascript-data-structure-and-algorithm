@@ -28,4 +28,14 @@ const measureTime = (array) => {
     console.info("Execution time (hr): %ds %dms", hrend[0], hrend[1]/1000000);
 };
 
-measureTime(everyone2);
+// measureTime(everyone2);
+
+
+const boxes = [1, 2, 3, ,4, 5, 6];
+
+function logFirstTwoBoxes(boxes) {
+    console.log(boxes[0])
+    console.log(boxes[1])
+}
+
+logFirstTwoBoxes(boxes);

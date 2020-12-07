@@ -6,6 +6,7 @@
 3.  [Big-O Scalability](#big-o-scalability)
 4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
 5.  [O(n)](#O(n))
+6.  [O(1)](#O(1))
 
 <br/>
 
@@ -105,7 +106,7 @@ what scaleable means, and how Big-O allows us to measure the scalability.
 
 How we make sure that there is a away for use to measure in terms of efficiency?
 What is good code? And what is bad code? And what is code that can scale? That
-as the numbers of arrays or inputs increases. it doesn't slow down more and
+as the numbers of arrays or inputs increases. It doesn't slow down more and
 more.
 
 **_Big-O notation is the language we use for talking about how long algorithm takes
@@ -198,7 +199,7 @@ Outside Function call (function()) <br/>
 **Rule 2:** Remove Constant <br/>
 **Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` <br/>
 `+` for steps in order <br/>
-`*` for nesteds steps
+`*` for nesteds steps <br/>
 **Rule 4:** Drop Non-dominant terms
 
 ### - What causes Space complexity?-
@@ -260,11 +261,12 @@ And if we had the `const largeArray` arrays this `n` just be `O(100000)` <br/>
 
 As the inputs increase, you see that the number of `Operations` increase
 linearly with it. `O(n)` it's probably the most common Big-O notation you'll
-find if we go back to the [graph](chapter-1-1.png) you can see that `O(n)`  is
-in the yellow region, that's as `fair`. As the number of elements increase, you
-see that is just a straight line. The number of `Operations` increases by the
-same  amount, because; Keep this in mind, **_Big-O doesn't measure things in
-seconds_**, Instead we're **_focusing on how quickly our runtime grows_**.
+find if we go back to the [Big-O Complexity Chart](#big-o-scalability) you can
+see that `O(n)` is in the yellow region, that's as `fair`. As the number of
+elements increase, you see that is just a straight line. The number of
+`Operations` increases by the same  amount, because; Keep this in mind, **_Big-O
+doesn't measure things in seconds_**, Instead we're **_focusing on how quickly
+our runtime grows_**.
 
 We simply do this by using the size of the input, which we call `n` and compared
 to the number of `Operations` that increase. **_That's what scalability
@@ -307,6 +309,102 @@ syntax above, we're essentially looping through each box, and in our case we're
 just console logging it. But as you can see here, that all of these all we're
 doing as the input increases; the number of boxes increases `(Elements)`, the
 number of `Operations` increase; And that is `O(n)` - linear-time.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## O(1)
+
+What happen if we have a function like this,
+
+```javascript
+function compressFirstBox(boxes) {
+    console.log(boxes[0]);
+};
+```
+
+A function that says `compressFirstBox` that receives an array of boxes, and
+this function simply has `console.log` boxes zero `boxes[0]`. So, that is it's
+logging out just the first item in the box. What would you say the Big-O of this
+function is? How many steps or operations does this function take if the boxes
+increase from 0 to maybe 10, to maybe 100, to maybe 100000? What would happen
+here?
+
+> This is what we call `0(1)` - Constant Time.
+
+That is no matter how many times the boxes increase or however many boxes we
+have we're always just grabbing the first item in the array.
+<br/>
+
+![chapter-1-6.gif](./images/gif/chapter-1-6.gif "O(1) - Constant Time")
+<br />
+
+If we look at this on a graph, If we have one element or one box we do one
+operation.  If we have three elements or three boxes we still do just one
+operation because we're just grabbing the first item (`Elements`) in the array.
+If we have five elements or five boxes or more boxes we just do have same number
+of `Operations`.
+
+It's not linear time like it was where it increases and increases with the
+number of `Operations`, the number of `Operations` just stay flat. But I have
+question here, what if we do something different? If we have a function like
+below,
+
+```javascript
+
+const boxes = [1, 2, 3, ,4, 5, 6];
+
+function logFirstTwoBoxes(boxes) {
+    console.log(boxes[0])
+    console.log(boxes[1])
+}
+
+logFirstTwoBoxes(boxes);
+```
+
+How do we measure the Big-O of above function? What's the number of operation in
+the function? Well we have
+
+```javascript
+
+function logFirstTwoBoxes(boxes) {
+    console.log(boxes[0])       // O(1)
+    console.log(boxes[1])       // O(1)
+}
+
+logFirstTwoBoxes(boxes);        // O(2)
+```
+
+Each time the `logFirstTwoBoxes` function runs two operations. So this function
+in total is actually running `O` of `2` operations every time. So no matter how
+big the boxes get, the number of operations here is going to be two.
+
+
+If we looks at the graph,
+<br/>
+
+![chapter-1-7.gif](./images/gif/chapter-1-7.gif "O(1) - Constant Time")
+<br />
+
+Instead of having `O` of `1`, like we have before, we have `0` of `2`, and then
+if we had three opertions it will just be `O` of `3`. But overall it's still
+a **_flat line_**, and this is something we're going to get into later on. But
+when it comes to constant time we don't care about the nitty gritty `O` of `1`,
+`O` of `2`, or `O` of `3`, or `O` of `100`. We round this down to just simply
+just saying `O` of `1`, that is we have _Constant Time_.
+
+In term of scalability it's a flat line. It doesn't matter how big our inputs
+are, we're always going to do the constant amount of time on a function. **_Keep
+in mind: Inputs can be any type of data. Not just arrays_**. If we look at
+[Big-O Complexity Chart](#big-o-scalability), we see that `O(1)` is the dark
+green area, it's excellent. We love`0(1)` because it's very scaleable right. It
+doesn't matter how many `Elements` we have it's always going to run the same.
+Predictability when it comes to computing is very very nice and `O(1)` is
+definitely excellent.
+
+So we've learned about linear time `O(n)`, and constant time `O(1)`. Let's do
+a bit of fun exercise to really solidify our knowledge.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
