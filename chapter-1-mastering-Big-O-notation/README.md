@@ -5,10 +5,11 @@
 2.  [What is Good Code](#what-is-good-code)
 3.  [Big-O Scalability](#big-o-scalability)
 4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
-5.  [Linear - O(n)](#linear-O(n))
-6.  [Constant - O(1)](#constant-O(1))
+5.  [Big-O Linear](#big-o-linear)
+6.  [Big-O Constant](#big-o-constant)
 7.  [Big-O Exercise-1](#big-o-exercise-1)
-7.  [Big-O Exercise-2](#big-o-exercise-2)
+8.  [Big-O Exercise-2](#big-o-exercise-2)
+9.  [Simplifying Big-O](#simplifying-big-o)
 
 <br/>
 
@@ -215,7 +216,9 @@ Allocation <br/>
 <br/>
 <br/>
 
-## Linear - O(n)
+## Big-O Linear
+
+### -- O(n) --
 
 What would you say if I asked you what is the Big-O of the function
 [findNemo](./findNemo.js)?
@@ -316,7 +319,9 @@ number of `Operations` increase; And that is `O(n)` - linear-time.
 <br/>
 <br/>
 
-## Constant - O(1)
+## Big-O Constant
+
+### -- n(1) --
 
 What happen if we have a function like this,
 
@@ -466,6 +471,23 @@ function anotherFunChallenge(input) {
     // Big-O (4 + 7n)
     // Big-O: O(n)
 ```
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Simplifying Big-O
+<br/>
+
+![chapter-1-2.png](./images/chapter-1-2.png "Simplifying Big-O")
+<br />
+
+When we talk about Big-O in interviews most of the time you're only going to give
+one of Big-Os kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`. You're most
+likely never going to actually calculate precisely `O(3n)`, or `3n + 2 +1`; So how
+was I able to simplify the exercise and just say that they `O(m)`?. Luckily for
+you, there are just several rules that we can follow when it came to the
+Big-O. Check the [cheatsheet Rule Book](#big-o-cheat-sheet)
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
