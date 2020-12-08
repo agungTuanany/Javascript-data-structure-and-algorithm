@@ -13,6 +13,7 @@
 10. [Big-O Rule 1](#big-o-rule-1)
 11. [Big-O Rule 2](#big-o-rule-2)
 12. [Big-O Rule 3](#big-o-rule-3)
+13. [Big-O Quadratic](#big-o-quadratic)
 
 <br/>
 
@@ -799,9 +800,95 @@ the Big-O of the function something like `O(a + b)`.
 Keep that in mind, just because you see two `for-loops` one after another,
 _doesn't mean that they're looping over the same items_. You might be asking
 your self, what happen if these `for-loop` are nested? So far we've only worked
-with loops that are one after another.
+with loops that are one after another. Well let's get into the next chapter and
+talk about another _common pattern_ we see with Big-O that is nested loops.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
 
+## Big-O Quadratic
+
+### O(n^2)
+
+One common interview question that you might get is something along the lines of
+log all pairs of arrays. What that's actually means?
+
+```javascript
+// Log all pairs of array
+const boxes = [1, 2, 3, 4, 5];
+
+
+function logAllPairsOfArray(array) {
+
+    for (let i = 0; i < array.length; i++) {
+
+        for (let j = 0; j < array.length; j++) {
+            console.log(array[i], array[j]);
+        };
+    };
+};
+
+// Big-O: O(n * n);
+
+logAllPairsOfArray(boxes2)
+```
+
+If we had an array, let's just say variable `boxes`, and this array is just
+contains boxes numbers. Now this array `boxes`, if I want to log all pairs, it
+means that I want to log the number `[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2,
+2], [2, 3], [2, 4], [2, 5]` so on and so forth, how would we go about doing
+that?
+
+What is the Big-O of the `logAllPairsOfArray`? This is something that you're
+going to see a lot of in interviews, end a _good rule of thumbs_ is if you see
+nested loops, that means instead of having two `for-loops` one after another,
+where we use _addition_ `+`, when you see loops that are nested we use
+_multiplication_ `*`.
+
+> So this becomes Big-O: O(n * n)
+
+Which when we multiply them becomes, `O` to the power of two.
+
+> Big-O mutated: O(n^2)
+
+If we take look in graph below,
+<br/>
+
+![chapter-1-8.gif](./images/gif/chapter-1-8.gif "Rule - 3 Quadratic")
+<br />
+
+That means, every time the number of `Elements` increase, let's say we have
+_two_ elements, we have _four_ `Operations` that we do; if we have _three_
+`Elements`, this actually increases quadratically. That means instead of _four_
+`Operations` we now have _nine_ `Operations` because we have _three_`Elements`
+to the power of _two_.
+
+You see here, how the line is now meant (indicate), _it increases well quite
+fast_.  If we go back to our [graph](#big-o-scalability), `O(n^2)` it `Horrible`
+as in it's pretty slow as the number of `Elements` increases the number
+`Operations` increases significantly.
+
+A lot of interview questions are questions that ask you to solve a problem
+initially `O(n^2)` and make it faster by perhaps making it into something that
+is a bit lower into `Bad`, `Fair`, `Good`, `Excellent`, but definitely not
+`Horrible`.
+
+If we go back to [rule number _three_](#big-o-rule-3), that we were discussing
+_different terms of inputs_, going back to that example we said `O(a + b)`,
+because we had _two_ different arrays or inputs. If the loops is actually
+nested, and there now one after another, the Big-O show would have been
+`O(a*b)`, that is rule number _three_ making sure to know that we have different
+arrays (inputs) that means different notation for each array, because we don't
+know the length.
+
+Easy rule of thumbs is, **_any step that happens in the same indentation one
+after another, you add `+`, and anything that happens with indentation that is
+nested, you multiply `*`_**. Again, different inputs should have different
+variables.
+
+Let's move on to the last Big-O rule.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>

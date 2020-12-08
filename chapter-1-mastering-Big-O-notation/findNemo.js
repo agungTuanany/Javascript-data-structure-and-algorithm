@@ -143,3 +143,39 @@ function compressBoxesTwice(boxes, boxes2) {
         console.log(boxes);                 // O(n)
     })
 }; // Big-O: O(a + b)
+
+const rule_3 = () => {
+
+    const boxes = [1, 2, 3, 4, 5];
+    const boxes2 = ["a", "b", "c", "d", "e"];
+
+    function printboxes(boxes, boxes2) {
+        boxes.forEach(box => {
+
+            boxes2.forEach(box2 => {
+                console.log(box, box2)
+            })
+        })
+    };
+
+    // printboxes(boxes, boxes)
+    console.log("=======")
+    // printboxes(boxes2, boxes2)
+    console.log("=======")
+    // Or
+
+    function logAllPairsOfArray(array) {
+
+        for (let i = 0; i < array.length; i++) {
+
+            for (let j = 0; j < array.length; j++) {
+                console.log(array[i], array[j]);
+            };
+        };
+    };
+
+    logAllPairsOfArray(boxes2)
+};
+
+rule_3()
+
