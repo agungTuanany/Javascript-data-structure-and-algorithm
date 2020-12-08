@@ -12,6 +12,7 @@
 9.  [Simplifying Big-O](#simplifying-big-o)
 10. [Big-O Rule 1](#big-o-rule-1)
 11. [Big-O Rule 2](#big-o-rule-2)
+12. [Big-O Rule 3](#big-o-rule-3)
 
 <br/>
 
@@ -731,3 +732,76 @@ on our graph usually the only time you see numbers is when you have `O(1)`,
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Big-O Rule 3
+
+### Different terms of inputs
+
+The third Big-O rule is the trickiest parts of an interview that a lot of people
+makes mistakes on, but once you understand it, it became really easy to spot.
+
+#### Example - 1
+
+```javascript
+function compressBoxesTwice(boxes) {
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+}
+
+// Big-O: O(2n)
+// Big-O mutate: O(n)
+```
+
+I have the exact same function we saw in the last video `compressBoxesTwice`. We
+have the boxes array and we just have two loops here, I'm using `for-each`
+syntax in JavaScript, but we're just looping twice over the same array. As
+I said before the Big-O of this is `O(2n)`, but because we drop constant it
+became `O(n)`.
+
+But the third rule states, that _different terms for inputs_ and what that means
+is? Well first all, let me ask you a question,
+
+```javascript
+// Function mutated
+function compressBoxesTwice(boxes, boxes2) {
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+
+    boxes2.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+}
+
+// Big-O: O(a + b)
+```
+
+What if here, I have `boxes` as the first parameters, and then we have `boxes2`
+, as the second parameters, and maybe this second `for-loop` actually loops over
+the second boxes, what happens here? What is the Big-O?
+
+During an interview, a lot of people trip up and say tat this is still `O(n)`,
+it's gonna be `O(2n)`, and drop the constants, this is right? No, because the
+third rule states that different terms for inputs; And remember `boxes` the
+first one and the second one are two different inputs. One could be a hundred
+items long, Another one can be just one item.
+
+So this first `for-loop` is going to depend on how big the first item (first
+parameter) or first inputs is; And then the second `for-loop` depends on how big
+item or input is; and `n` just arbitrary letter that we decided in. In this case
+the Big-O of the function something like `O(a + b)`.
+
+Keep that in mind, just because you see two `for-loops` one after another,
+_doesn't mean that they're looping over the same items_. You might be asking
+your self, what happen if these `for-loop` are nested? So far we've only worked
+with loops that are one after another.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+

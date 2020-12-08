@@ -120,7 +120,7 @@ function printFirstItemThenFirstHalfThenSayHi100Times(items) {
 
 }; // O(n/2 + 101)
 
-printFirstItemThenFirstHalfThenSayHi100Times(5)
+// printFirstItemThenFirstHalfThenSayHi100Times(5)
 
 function compressBoxesTwice(boxes) {
     boxes.forEach(function(boxes) {
@@ -131,3 +131,15 @@ function compressBoxesTwice(boxes) {
         console.log(boxes);                 // O(n)
     })
 } // O(2n)
+
+
+// Function mutated
+function compressBoxesTwice(boxes, boxes2) {
+    boxes.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+
+    boxes2.forEach(function(boxes) {
+        console.log(boxes);                 // O(n)
+    })
+}; // Big-O: O(a + b)
