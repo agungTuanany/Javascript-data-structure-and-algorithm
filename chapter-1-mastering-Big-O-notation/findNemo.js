@@ -149,6 +149,7 @@ const rule_3 = () => {
     const boxes = [1, 2, 3, 4, 5];
     const boxes2 = ["a", "b", "c", "d", "e"];
 
+
     function printboxes(boxes, boxes2) {
         boxes.forEach(box => {
 
@@ -164,6 +165,7 @@ const rule_3 = () => {
     console.log("=======")
     // Or
 
+    // ES5
     function logAllPairsOfArray(array) {
 
         for (let i = 0; i < array.length; i++) {
@@ -177,5 +179,28 @@ const rule_3 = () => {
     logAllPairsOfArray(boxes2)
 };
 
-rule_3()
+// rule_3()
+
+const rule_4 = () => {
+
+    const numbers = [1, 2, 3, 4, 5];
+    const numbers2 = ["a", "b", "c", "d", "e"];
+
+    function printAllNumbersThenAllPairSums(numbers) {
+
+        console.log("these are the numbers:");
+
+        numbers.forEach(number => console.log(number));
+
+        console.log("and these are their sums:");
+
+        numbers.forEach(firstNumber => {
+            numbers.forEach(secondNumber => console.log("==> sums:",firstNumber, "and", secondNumber, "are:",  firstNumber + secondNumber));
+        });
+    };
+
+    printAllNumbersThenAllPairSums(numbers)
+}
+
+rule_4()
 

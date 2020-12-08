@@ -14,6 +14,7 @@
 11. [Big-O Rule 2](#big-o-rule-2)
 12. [Big-O Rule 3](#big-o-rule-3)
 13. [Big-O Quadratic](#big-o-quadratic)
+14. [Big-O Rule 4](#big-o-rule-4)
 
 <br/>
 
@@ -848,7 +849,7 @@ _multiplication_ `*`.
 
 > So this becomes Big-O: O(n * n)
 
-Which when we multiply them becomes, `O` to the power of two.
+Which when we multiply them becomes, `O` to the `^2`.
 
 > Big-O mutated: O(n^2)
 
@@ -862,7 +863,7 @@ That means, every time the number of `Elements` increase, let's say we have
 _two_ elements, we have _four_ `Operations` that we do; if we have _three_
 `Elements`, this actually increases quadratically. That means instead of _four_
 `Operations` we now have _nine_ `Operations` because we have _three_`Elements`
-to the power of _two_.
+to the `^2`.
 
 You see here, how the line is now meant (indicate), _it increases well quite
 fast_.  If we go back to our [graph](#big-o-scalability), `O(n^2)` it `Horrible`
@@ -888,6 +889,137 @@ nested, you multiply `*`_**. Again, different inputs should have different
 variables.
 
 Let's move on to the last Big-O rule.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Big-O Rule 4
+
+### Drop Non Dominants terms
+
+#### Example - 1
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+function printAllNumbersThenAllPairSums(numbers) {
+
+    console.log("these are the numbers:");                              // O(1)
+
+    numbers.forEach(number => console.log(number));                     // O(n)
+
+    console.log("and these are their sums:");                           // O(1)
+
+    numbers.forEach(firstNumber => {
+
+        numbers.forEach(secondNumber => {
+            console.log("==> sums:" ,firstNumber, "and", secondNumber, "are:",  firstNumber + secondNumber); // O(n)
+        });
+    });
+};
+
+// Big-O: O(n + n^2)
+
+// result:
+// these are the numbers:
+// 1
+// 2
+// 3
+// 4
+// 5
+// and these are their sums:
+// ==> sums: 1 and 1 are: 2
+// ==> sums: 1 and 2 are: 3
+// ==> sums: 1 and 3 are: 4
+// ==> sums: 1 and 4 are: 5
+// ==> sums: 1 and 5 are: 6
+// ==> sums: 2 and 1 are: 3
+// ==> sums: 2 and 2 are: 4
+// ==> sums: 2 and 3 are: 5
+// ==> sums: 2 and 4 are: 6
+// ==> sums: 2 and 5 are: 7
+// ==> sums: 3 and 1 are: 4
+// ==> sums: 3 and 2 are: 5
+// ==> sums: 3 and 3 are: 6
+// ==> sums: 3 and 4 are: 7
+// ==> sums: 3 and 5 are: 8
+// ==> sums: 4 and 1 are: 5
+// ==> sums: 4 and 2 are: 6
+// ==> sums: 4 and 3 are: 7
+// ==> sums: 4 and 4 are: 8
+// ==> sums: 4 and 5 are: 9
+// ==> sums: 5 and 1 are: 6
+// ==> sums: 5 and 2 are: 7
+// ==> sums: 5 and 3 are: 8
+// ==> sums: 5 and 4 are: 9
+// ==> sums: 5 and 5 are: 10
+```
+
+We have a function `printAllNumbersThenAllPairSums`, let's see what this
+function does. Well, These function takes numbers and these numbers variable
+we're going to loop over them with `forEach-loop`; So again just looping over
+and logging out the numbers and then we have another steps, which should remind
+you that probably an _addition_ `+` that we're doing; we're adding another step
+and in here we're summing the pair sums, that is where adding each number one
+after another.
+
+
+We see the loops at result of this function, what do you think the Big-O
+notation here as well?
+
+So we can say that there is `O(n)` and then the second part which again is
+another step, so we're going to say _power_ of _two_, `O(n^2)`, cause we have _two_
+`for-loops` nested.
+
+> Big-O: O(n + n^2)
+
+But, rule number _four_ states that we want to _drop the non dominant terms_;
+That means we care about the most important terms, in this case, we actually
+drop the `n` and just have `n` to the _power_ of _two_, because the input
+increases the size of `n` to the _power_ of _two_ is way more important then the
+`n`. We always keep the dominant terms.
+
+> Big-O mutation: O(n^2)
+
+
+#### Example - 2
+
+What if we had a function that had a Big-O `O(x^2 + 3x + 100 + x/2)`? How do we
+simplify this, Based on the drop non dominant terms?
+
+> Big-O: `O(x^2 + 3x + 100 + x/2)`
+
+We only worry  about the most important dominant term, because `x` to the
+_power_ of _two_ `^2` is the most significant. That is if `x` is `5`, `5^2` is
+`25`; `5 * 3` is `15`; and `100`; and `5 \ 2` is `2.5`.
+
+In this case the dominant term is `100`; but remember with Big-O, we're worried
+about **_scale_**; And as thing go larger and larger and larger. So when `5` is
+become `500`, `500^2` is `250000`; `3 * 500` is only `1500`; and `100` is now
+insignificant; and `500 \ 2` is `250`.
+
+You see the `^2` has grown significantly more. Again because we're
+only worried about _scale_ here, we drop everything else, and we can just ignore
+it completely; and the Big-O Just became `O(x^2)`.
+
+> Big-O mutated: `O(x^2)`
+
+How nice is that, just makes things so much simpler. So there you have it; We
+have now a way to simplify everything. Now it makes sense if we go back to our
+past examples, why we've just the Big-O `O(n)`, and _because we don't care about
+the insignificant items_ only the most important ones.
+
+By the way, a fun little note here, **if we had another loop inside of _two_
+loops**, well this would become `O(^3)`, 99.99% of the time, that usually a bad
+idea. It scales really-really bad and most likely _you're doing something
+wrong_.
+
+We've gone over the _four rules_ and with this in mind, we're going to take
+a look at the [cheat-sheet](#big-o-cheat-sheet). So from now on, instead of
+having to calculate everything, and really look at every single detail of
+a function, you can right away figure out what the Big-O is, or what the time
+complexity of a function is.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
