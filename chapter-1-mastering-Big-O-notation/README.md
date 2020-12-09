@@ -19,6 +19,7 @@
 16. [Space Complexity](#space-complexity)
 17. [Exercise Space Scalability](#exercise-space-scalability)
 18. [Exercise Twitter](#exercise-twitter)
+19. [Optional JavaScript Loop](#optional-javascript-loop)
 
 <br/>
 
@@ -1312,6 +1313,7 @@ console.log(stringOne.length)
 
 // Big-O: O(1)
 
+// Result
 // 19
 ```
 
@@ -1320,22 +1322,87 @@ think the Big-O notation of this string? This is a bit trick question, and
 something that you might get asked in an interview, because the answer to this
 is _depends_ on the language that you working with.
 
-We need to know how the method works on the `stringOne` here, and that's built
+We need to know how the method works on the _string_ here, and that's built
 into JavaScript, and you'll a different built in method for your language, based
-on how the language is built, this `.legth` might go _one_ by _one_, and iterate
+on how the language is built, this `.length` might go _one_ by _one_, and iterate
 over each letter and count from `0` to all the way until `19`, but _JavaScript
 actually has got length property built in to each string_. So for JavaScript
 this `.length` property is **_just a simple lookup_**, it's not a function
-(method), we're not running this function (method) to calculate things, instead
+(method).
+
+We're not running this function (method) to calculate things, instead
 it's simply a property of an object. Because of that, again if you're not super
 familiar with JavaScript, this may be a little bit confusing, but don't stress
 out. The idea is, this operation in JavaScript is `0` constant time.
 
 Without knowing how your language works, you don't know how this property
-`.length` my work; perhaps if you had a method `.length()` how that might work;
+`.length` my work; perhaps if you had a method `(.length())` how that might
+work.
 
 But now you have a powerful foundation for pillar to start thinking about code
 in a different way. Start looking at _space_ and _time_ are something that are
 **_valuable_** to us as engineers as resources that we must be careful. We don't
 have infinite amount of resources, we have to be careful when we code, how we
 use up these resource (_space_), and that alone makes you a better engineers.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Optional JavaScript Loop
+
+I just want you to show a quick tips, especially for those that are familiar
+with JavaScript, that thee are many-many ways to do `loops` in JavaScript; And
+same with other languages as well, there many to do these loops.
+
+So, I just want to show you some quick ones, that you might see throughout the
+course, just so you're familiar with them.
+
+For example `findNemo` function that has a `for-loop` can also be written with
+something like `forEach` function.
+
+```javascript
+const findNemo2 = array => {
+
+    array.forEach(fish => {
+
+        if (fish === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+
+            break;
+        };
+    });
+};
+```
+
+There is also another way that we can do this in JavaScript with the `for-of-loop`.
+
+```javascript
+const findNemo3 = array => {
+
+    for (let fish of array) {
+        if (fish === "nemo") {
+            console.log(`We found ${array[i]} at index "${array.indexOf("nemo")}"`)
+
+             break;
+        };
+    };
+};
+```
+
+We have different way of solving problems. All of them are using loops, but you
+can see some are more readable than others, and that's something that we've
+encountered before right? Remember a good code means something that is scalable,
+but also something that is readable, depending on your situation and something
+we'll get into later on. How maintainable? And how other on your team can
+understand the code, there's different ways of doing things, so that it's easier
+to work with.
+
+I hope, if you see these syntax `forEach` or `for-of-loop` throughout this
+course, you're least familiar, that at the end of the day all we're doing is
+loops.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
