@@ -184,7 +184,6 @@ const rule_3 = () => {
 const rule_4 = () => {
 
     const numbers = [1, 2, 3, 4, 5];
-    const numbers2 = ["a", "b", "c", "d", "e"];
 
     function printAllNumbersThenAllPairSums(numbers) {
 
@@ -202,5 +201,28 @@ const rule_4 = () => {
     printAllNumbersThenAllPairSums(numbers)
 }
 
-rule_4()
+// rule_4()
 
+const spaceComplexity = () => {
+
+    //#5 Space complexity O(1)
+    function boooo(n) {
+        for (let i = 0; i < n; i++) {
+            console.log('booooo');
+        }
+    }
+
+    // #6 Space complexity O(n)
+    function arrayOfHiNTimes(n) {
+        var hiArray = [];
+        for (let i = 0; i < n.length; i++) {
+            hiArray[i] = 'hi';
+        }
+        return hiArray;
+    }
+
+    arrayOfHiNTimes(6)
+    console.log("===>")
+};
+
+spaceComplexity()

@@ -15,6 +15,7 @@
 12. [Big-O Rule 3](#big-o-rule-3)
 13. [Big-O Quadratic](#big-o-quadratic)
 14. [Big-O Rule 4](#big-o-rule-4)
+15. [Pillars Of Programming](#pillars-of-programming)
 
 <br/>
 
@@ -1020,6 +1021,66 @@ a look at the [cheat-sheet](#big-o-cheat-sheet). So from now on, instead of
 having to calculate everything, and really look at every single detail of
 a function, you can right away figure out what the Big-O is, or what the time
 complexity of a function is.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Pillars Of Programming
+<br/>
+
+![chapter-1-9.gif](./images/gif/chapter-1-9.gif "Pillar of programming 1")
+<br />
+
+By this point you should be able to talk a little bit especially about
+_scaleable_ right. Readable we're going to talk about in the next section, but
+scaleable we understood was Big-O right; Well, here's the thing don't hate me
+but i may have slightly lied or simplified things but not that much, so don't
+worry.
+
+When I say _scaleable_ there's actually _two_ things that we want to consider as
+_engineers_. One is **_speed_**; That's what we've been talking about up until
+now. How fast is our runtime on the code? How much time does it take for
+a function to run? How many operations does it cost?. Well there's another
+aspect when it comes to _machines_ to valuable resources, one is _time_ and
+_speed_ of our code, and the other one is **_memory_**. You see, computer have
+limited memory, back in the day when computers were just being born, memory was
+very-very expensive, we only have a little bit of it. As time has gone on, we
+have more and more memory but it's not infinite.
+
+Our computer run based on _speed_ which is usually dictated by the CPU, and
+_memory_ based on how much memory such as RAM the computer has. Those are two
+valuable resources.
+
+How can we talk about memory? We've talked about speed, what about _memory_; and
+the good news is, that memory is fairly simple, not as complicated as speed, it
+won't take us long to learn as much as we have about speed.
+<br/>
+
+![chapter-1-10.gif](./images/gif/chapter-1-10.gif "Pillar of programming 2")
+<br />
+
+Right now, which code is best can be answered with the three pillars of code?
+Something that I want you to take with you _for the rest of your career_, and
+something that's going to grow you as an engineer, because from now on when you
+write code, you're going to have these three things in mind.
+
+One, is you're going to **_write readable clean code_** that others can read,
+that is maintainable. The other one is **_Speed_**, the type of code that we
+call **_Time Complexity_**, has a Big-O time complexity that is efficient, it scales
+well; But we're going to talk about, quickly about this _third pillars_ and that
+is **_Memory_**. What's the memory usage of code? If it uses a lot of memory?
+That's not good. We might have limited memory on our machine. With this one, we
+use Big-O once again to talk about **_Space Complexity_**; The same notation but
+different topics. One is _space_, the other one is _time_; One is _speed_ the
+other one is _memory_.
+
+I'm gonna give you a quick little preview, most programming code solution,
+there's usually a trade-off between speed and memory. **_You want things go faster,
+well then you might have to sacrifice more memory. You want less memory, well
+then you might have to sacrifice with increased speed_**.
+
+Let's get into the nitty gritty of how we measure _space complexity_.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
