@@ -215,7 +215,7 @@ const spaceComplexity = () => {
     // #6 Space complexity O(n)
     function arrayOfHiNTimes(n) {
         var hiArray = [];
-        for (let i = 0; i < n.length; i++) {
+        for (let i = 0; i < n; i++) {
             hiArray[i] = 'hi';
         }
         return hiArray;

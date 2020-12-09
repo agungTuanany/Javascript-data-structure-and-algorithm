@@ -16,6 +16,7 @@
 13. [Big-O Quadratic](#big-o-quadratic)
 14. [Big-O Rule 4](#big-o-rule-4)
 15. [Pillars Of Programming](#pillars-of-programming)
+16. [Space Complexity](#space-complexity)
 
 <br/>
 
@@ -111,7 +112,6 @@ what scaleable means, and how Big-O allows us to measure the scalability.
 <br/>
 
 ## Big-O Scalability
-
 
 How we make sure that there is a away for use to measure in terms of efficiency?
 What is good code? And what is bad code? And what is code that can scale? That
@@ -1085,3 +1085,41 @@ Let's get into the nitty gritty of how we measure _space complexity_.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Space Complexity
+
+When a program executes, it has two ways to remember things, the **_heap_** and
+the **_stack_**. The _heap_ is usually where we _store variables that we assign
+values to_; and the _stack_ is usually where we keep _track of our function
+calls_.
+
+Sometimes we want to optimize for using less memory, instead of using less time.
+Talking about memory or space complexity is very similar to talking about the
+time cost. We simply look at the total size relative to the size of the input,
+and see how many new variables or new memory we're allocating; How much memory
+is being used?.
+
+
+Up to this point we've talked about time complexity, and how if we want to
+compress let's say some boxes, we just talked about how fast and many operations
+this would take. But in real life, there's this other factor of memory and we
+have this, we have this _pink_ little box of how much this functions can take?
+How much input it;s able to take?.
+
+For example, if we had a ton of boxes that we have to create to run this
+function, well has limited capacity and it might overflow. By the way things
+like Stack Overflow is something we're going to be talked about, and how it's an
+issue when it comes to memory; something we'll cover when we get into recursion.
+
+What causes this space complexity? Well luckily for you, I added to our [cheat
+sheet](#-whatcauses-space-complexity?-), what cause space complexity? `[1]`
+adding variables, `[2]` adding data structures like arrays, objects has-tables,
+`[3]` function calls, and `[4]` allocations.
+
+Next chapter, we'll go through some space complexity exercises, and figure out
+how we can give the Big-O notation to the subject.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
