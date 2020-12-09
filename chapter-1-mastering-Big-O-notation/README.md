@@ -18,6 +18,7 @@
 15. [Pillars Of Programming](#pillars-of-programming)
 16. [Space Complexity](#space-complexity)
 17. [Exercise Space Scalability](#exercise-space-scalability)
+18. [Exercise Twitter](#exercise-twitter)
 
 <br/>
 
@@ -1199,13 +1200,14 @@ If we called `arrayOfHiNTimes` return new array with _six items_ and each items
 just simply says `hi`. What is the _space complexity_ of this function
 `arrayOfHiNTimes`?
 
-Remember our cheat sheet, _variables, data structures, function calls,
-allocation_ those thing takes _space_ and in our case we created variables in
-our `loop` variable `let i = 0`, but we've also created data structures right?
-We created a new array. If we go back, in this function we've created a new
-array, and we fill this array with `n` loop's, again because of our rules when
-it comes to Big-O we ignore the constant time `let i = 0`; and instead this
-function becomes `O(n)`.
+Remember our cheat sheet, _variables, data structures, function calls, and
+allocation_; Those thing takes _space_ (memory); and in our case we created
+variables in our `loop` variable `let i = 0`, but we've also created data
+structures right? We created a new array.
+
+If we go back, in this function we've created a new array, and we fill this
+array with `n` loop's, again because of our rules when it comes to Big-O we
+ignore the constant time `let i = 0`; and instead this function becomes `O(n)`.
 
 > Space Complexity: `O(n)`
 
@@ -1227,3 +1229,113 @@ chapter.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Exercise Twitter
+
+Let's say you're working at Twitter, and I hope everybody knows Twitter here. If
+you working at Twitter and your boss asked you to build a feature perhaps
+a feature that allows anybody to click `next button` to their `name` and
+retrieve their most recent tweet and they're just tweet.  So that is their very
+first tweet and their very latest tweet based on Big-O notation and what we know
+about Big-O notation, what can we assume about this problem?
+
+
+```javascript
+// Find 1st, Find Nth...
+const array = ["hi", "tweet", "news"];
+
+console.log(array[0])                       // O(1)
+console.log(array[array.length - 1])        // O(1)
+
+// Space Complexity: O(1 + 1)
+// Space Complexity mutated: O(1)
+
+// Result
+// hi
+// news
+```
+
+Let's say a constant of array, and we'll have an array of tweets; And let's say
+we have three tweets here `const array = ["hi", "tweet", "news"]`. The index `0`
+is the oldest, and the index [2] is the most recent.
+
+If we have an array here, we know that it's going to take us if the tweets are
+stored in array, if we console logging `array[0]` we get the oldest tweet, if we
+logging `array[array.length - 1]` or `array[2]` we get the `news`, the most
+recent tweet; And because of the way arrays work.
+
+We know that both of these operation will `O(1)` for above log. So a total of
+`O(2)` operation; But we again use rule book and simplify it to constant time.
+
+So that great, we build a nice little simple Twitter application and we can get
+that information very easily.
+
+But now our boss comes back to us, and say hey I want you to compare the _dates_
+of tweets. So I want you to look at every tweet now within each array there's an
+_object_
+
+```javascript
+// Find 1st, Find Nth...
+const array = [{                            // O(n^2)
+    tweet: "hi",
+    date: 2012
+    }, {
+    tweet: "tweet",
+    date: 2014
+    }, {
+    tweet: "news",
+    date: 2015
+}];
+```
+
+Now, we have to compare each tweet with all the other tweets, and compare their
+data. What is the Big-O of this operation? Well, because we're comparing each
+item in the array with the other, we are doing the `neted loop` that's take
+`O(n^2)`. We know that this is going to take a lot, and fits a person that has
+a lot of tweets a lot of inputs in the array.
+
+This operation might cost us a lot of money at Twitter. So you might want to
+tell your boss, we might have an issue here, we might need to do something else,
+perhaps store the information in a better format, or do something different with
+our program in order to avoid something that might be inefficient, and might be
+expensive for the company.
+
+Just by thinking like this, now you have this ability to think long term, think
+scaleable code.
+
+By the way as the fun one, What happens if I ask you what is the operation an
+what's going to cost us If I have a string, and I `.length`.
+
+```javascript
+const stringOne = "helloWorldOnTheSame"
+console.log(stringOne.length)
+
+// Big-O: O(1)
+
+// 19
+```
+
+What is the length of our `stringOne`? that is `19` items in string. What do you
+think the Big-O notation of this string? This is a bit trick question, and
+something that you might get asked in an interview, because the answer to this
+is _depends_ on the language that you working with.
+
+We need to know how the method works on the `stringOne` here, and that's built
+into JavaScript, and you'll a different built in method for your language, based
+on how the language is built, this `.legth` might go _one_ by _one_, and iterate
+over each letter and count from `0` to all the way until `19`, but _JavaScript
+actually has got length property built in to each string_. So for JavaScript
+this `.length` property is **_just a simple lookup_**, it's not a function
+(method), we're not running this function (method) to calculate things, instead
+it's simply a property of an object. Because of that, again if you're not super
+familiar with JavaScript, this may be a little bit confusing, but don't stress
+out. The idea is, this operation in JavaScript is `0` constant time.
+
+Without knowing how your language works, you don't know how this property
+`.length` my work; perhaps if you had a method `.length()` how that might work;
+
+But now you have a powerful foundation for pillar to start thinking about code
+in a different way. Start looking at _space_ and _time_ are something that are
+**_valuable_** to us as engineers as resources that we must be careful. We don't
+have infinite amount of resources, we have to be careful when we code, how we
+use up these resource (_space_), and that alone makes you a better engineers.

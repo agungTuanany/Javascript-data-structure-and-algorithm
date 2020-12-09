@@ -228,4 +228,17 @@ const spaceComplexity = () => {
     arrayOfHiNTimes(6)
 };
 
-spaceComplexity();
+// spaceComplexity();
+
+
+const exerciseTwitter = () => {
+
+    const array = ["hi", "tweet", "news"];
+
+    console.log(array[0])
+    console.log(array[array.length - 1])
+
+    console.log("helloWorldOnTheSame".length)
+};
+
+exerciseTwitter()
