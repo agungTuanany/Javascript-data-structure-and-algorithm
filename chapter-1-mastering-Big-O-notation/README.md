@@ -17,6 +17,7 @@
 14. [Big-O Rule 4](#big-o-rule-4)
 15. [Pillars Of Programming](#pillars-of-programming)
 16. [Space Complexity](#space-complexity)
+17. [Exercise Space Scalability](#exercise-space-scalability)
 
 <br/>
 
@@ -1105,6 +1106,10 @@ compress let's say some boxes, we just talked about how fast and many operations
 this would take. But in real life, there's this other factor of memory and we
 have this, we have this _pink_ little box of how much this functions can take?
 How much input it;s able to take?.
+<br/>
+
+![chapter-1-4.png](./images/chapter-1-4.png "Space Complexity (memory)")
+<br />
 
 For example, if we had a ton of boxes that we have to create to run this
 function, well has limited capacity and it might overflow. By the way things
@@ -1123,3 +1128,102 @@ how we can give the Big-O notation to the subject.
 <br/>
 <br/>
 
+## Exercise Space Scalability
+
+### Example - 1
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+//#5 Space complexity O(1)
+function boooo(n) {
+    for (let i = 0; i < n.length; i++) {
+        console.log(n[i], 'booooo');
+    }
+}
+
+// Space Complexity: O(1)
+
+boooo(numbers)
+// Result:
+// 1 booooo
+// 2 booooo
+// 3 booooo
+// 4 booooo
+// 5 booooo
+```
+
+We have function called `boooo`, we know that the _space complexity_ of this
+function or _time complexity_ of this function is `O(n)`. But when to _space
+complexity_ let's think about this,what is the _space complexity_ of this
+function?
+
+The one gotcha when it comes to _space complexity_ is that when we talk about
+_space complexity_ we're talking about **_additional space_**, so we don't
+include space taken up by the inputs. We don't really care how big the inputs
+`(Elements)` is, I mean we do care, but when it comes to the function `boooo` we
+don't really have a control over what sort of input it receives, we only have
+control of what happens inside of this function.
+
+Within this function `boooo` are, we adding any space, Well not really the only
+thing we're really doing is `let i = 0` variable, and that's it. Other then that
+we're not really adding any more memory. So this function `boooo` has a space
+complexity of  `O(1)`
+
+> Space Complexity: `O(1)`
+
+It's nice and simple.
+
+### Example - 2
+
+```javascript
+function arrayOfHiNTimes(n) {
+    var hiArray = [];               // SC O(n)
+    for (let i = 0; i < n; i++) {   // SC O(1)
+        hiArray[i] = 'hi';          // SC O(n)
+    }
+    return hiArray;
+}
+
+// Space Complexity: `O(n)`
+
+// Result
+// [ 'hi', 'hi', 'hi', 'hi', 'hi', 'hi'  ]
+```
+
+This time, we have a function `arrayOfHiNTimes`, that doing is creating a new
+array, and for the number of items in our input we're going to just fill up
+`hiArray` with repeatedly `hi` string.
+
+If we called `arrayOfHiNTimes` return new array with _six items_ and each items
+just simply says `hi`. What is the _space complexity_ of this function
+`arrayOfHiNTimes`?
+
+Remember our cheat sheet, _variables, data structures, function calls,
+allocation_ those thing takes _space_ and in our case we created variables in
+our `loop` variable `let i = 0`, but we've also created data structures right?
+We created a new array. If we go back, in this function we've created a new
+array, and we fill this array with `n` loop's, again because of our rules when
+it comes to Big-O we ignore the constant time `let i = 0`; and instead this
+function becomes `O(n)`.
+
+> Space Complexity: `O(n)`
+
+Because we're creating a new data structure and adding memory. So _each items is
+an additional memory space_ on our computer and times.
+
+You know what, That's pretty much it when it comes to _space complexity_.
+I think you're getting the idea, and we'll get a Little bit more into when we
+talk about recursion, but when it comes to _space complexity_ you're either
+adding additional memory that you need to use and that's sometimes a big
+concern, and sometimes there isn't, and something that comes up a lot in
+interviews; And something that we'll talk about in the next section that is
+sometimes _there's a tradeoff_ between _saving time_ and _saving space_.  You
+have to decide, which one you're optimizing for.
+
+Let's get into some fun examples based on what we've just learned in the next
+chapter.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>

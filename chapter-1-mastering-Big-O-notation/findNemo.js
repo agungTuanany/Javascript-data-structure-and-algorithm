@@ -205,10 +205,12 @@ const rule_4 = () => {
 
 const spaceComplexity = () => {
 
+    const numbers = [1, 2, 3, 4, 5];
+
     //#5 Space complexity O(1)
     function boooo(n) {
-        for (let i = 0; i < n; i++) {
-            console.log('booooo');
+        for (let i = 0; i < n.length; i++) {
+            console.log(n[i], 'booooo');
         }
     }
 
@@ -218,11 +220,12 @@ const spaceComplexity = () => {
         for (let i = 0; i < n; i++) {
             hiArray[i] = 'hi';
         }
+        console.log(hiArray)
         return hiArray;
     }
 
+    // boooo(numbers)
     arrayOfHiNTimes(6)
-    console.log("===>")
 };
 
-spaceComplexity()
+spaceComplexity();
