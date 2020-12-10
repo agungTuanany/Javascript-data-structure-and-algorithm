@@ -20,6 +20,7 @@
 17. [Exercise Space Scalability](#exercise-space-scalability)
 18. [Exercise Twitter](#exercise-twitter)
 19. [Optional JavaScript Loop](#optional-javascript-loop)
+20. [Module Summary](#module-summary)
 
 <br/>
 
@@ -214,7 +215,7 @@ Outside Function call (function()) <br/>
 `*` for nesteds steps <br/>
 **Rule 4:** Drop Non-dominant terms
 
-### - What causes Space complexity?-
+### - What causes Space complexity -
 
 Variables <br/>
 Data Structure <br/>
@@ -1020,7 +1021,7 @@ idea. It scales really-really bad and most likely _you're doing something
 wrong_.
 
 We've gone over the _four rules_ and with this in mind, we're going to take
-a look at the [cheat-sheet](#big-o-cheat-sheet). So from now on, instead of
+a look at the [cheat sheet](#big-o-cheat-sheet). So from now on, instead of
 having to calculate everything, and really look at every single detail of
 a function, you can right away figure out what the Big-O is, or what the time
 complexity of a function is.
@@ -1119,7 +1120,7 @@ like Stack Overflow is something we're going to be talked about, and how it's an
 issue when it comes to memory; something we'll cover when we get into recursion.
 
 What causes this space complexity? Well luckily for you, I added to our [cheat
-sheet](#-whatcauses-space-complexity?-), what cause space complexity? `[1]`
+sheet](#--what-causes-space-complexity--), what cause space complexity? `[1]`
 adding variables, `[2]` adding data structures like arrays, objects has-tables,
 `[3]` function calls, and `[4]` allocations.
 
@@ -1201,10 +1202,10 @@ If we called `arrayOfHiNTimes` return new array with _six items_ and each items
 just simply says `hi`. What is the _space complexity_ of this function
 `arrayOfHiNTimes`?
 
-Remember our cheat sheet, _variables, data structures, function calls, and
-allocation_; Those thing takes _space_ (memory); and in our case we created
-variables in our `loop` variable `let i = 0`, but we've also created data
-structures right? We created a new array.
+Remember our [cheat sheet](#--what-causes-Space-complexity--), _variables, data
+structures, function calls, and allocation_; Those thing takes _space_ (memory);
+and in our case we created variables in our `loop` variable `let i = 0`, but
+we've also created data structures right? We created a new array.
 
 If we go back, in this function we've created a new array, and we fill this
 array with `n` loop's, again because of our rules when it comes to Big-O we
@@ -1258,15 +1259,14 @@ console.log(array[array.length - 1])        // O(1)
 
 Let's say a constant of array, and we'll have an array of tweets; And let's say
 we have three tweets here `const array = ["hi", "tweet", "news"]`. The index `0`
-is the oldest, and the index [2] is the most recent.
+is the oldest, and the index `[2]` is the most recent.
 
 If we have an array here, we know that it's going to take us if the tweets are
 stored in array, if we console logging `array[0]` we get the oldest tweet, if we
 logging `array[array.length - 1]` or `array[2]` we get the `news`, the most
-recent tweet; And because of the way arrays work.
-
-We know that both of these operation will `O(1)` for above log. So a total of
-`O(2)` operation; But we again use rule book and simplify it to constant time.
+recent tweet; And because of the way arrays work.  We know that both of these
+operation will `O(1)` for above log. So a total of `O(2)` operation; But we
+again use rule book and simplify it to constant time.
 
 So that great, we build a nice little simple Twitter application and we can get
 that information very easily.
@@ -1406,3 +1406,79 @@ loops.
 <br/>
 <br/>
 
+## Module Summary
+
+Big-O says, which function algorithm or code is best? We learned that when it
+comes to _good code_ we're concerned about _readability_ and _scalability_ and
+Big-O allows us to measure the idea of scalable code.
+
+Why do we care? It's because, there is no such thing as a free lunch. You save
+time and money for a company, you're a superstar. Knowing how much time your
+code takes? How much memory it uses is very-very critical. Those are expensive
+things for a company or a product.
+
+Now Big-O is a very important concept, that you won't find in your day to day
+job, but it's something that should always be in back of our mind, and good
+developers and engineers always have this knowledge. That is why ti is such
+a popular topic during interviews.
+
+Big-O is used to describe how efficient we can run her code. It saves companies
+a lot of money, if people they hire know how to write efficient code.
+
+In this section we learned about the idea of _time complexity_ and _space
+complexity_, how we can use Big-O to measure both things. But each one is
+a tradeoff between the other, and Big-O describes the upper bound of our
+estimate.
+
+We're always looking at the _worst case scenario_. We want to be pessimistic and
+say, what is the worst case scenario here with our code? So we can be prepared
+when the time comes.
+
+Time Complexity and Space Complexity. Time is _how long it takes the algorithm
+to run_ and Space is _the memory is required by the algorithm_.
+
+The important thing that we learned here is, that Big-O is about how you can
+scale, it doesn't necessarily mean that `O(n)` is better than `O(n^2)`, because
+scalability wasn't the only factor rate. _Readability_ is something that we are
+concerned with as well.
+
+Sometimes Readability maybe matters more than scalability, maybe Time Complexity
+is less important than Space Complexity. That's something you want to be care
+full of.
+
+Now, **_with this newfound knowledge, premature optimization can be the root of all
+evil_**. It's a famous quote that a lot of developers know. Sometimes optimizing
+for Time or Space can negatively impact the readability of code.
+
+If you working at young startup for example, might be more important for you to
+write code that's easy to ship and perhaps easy to understand later. Perhaps not
+take as much time to write the code an think about the code and its implications
+for long term, because maybe this startup has limited budget and needs things
+done fast.
+
+That doesn't mean startup don't care about Big-O analysis. A great engineer at
+a startup or at big company knows how to strike the right balance between
+**_runtime_**, **_space_** and of course **_readability_**.
+
+The thing to keep in mind is that data needs to be sufficiently  big to talk
+about Big-O; it's about scaling. If your function is _linear time_, but the
+input is always let's say `7` items then the linear time algorithm might be
+better than the _constant time_ algorithm. So it really-really depends on your
+situation.
+
+I introduce Big-O here, because we're going to be using it through this course,
+and as we learn more about data structure and algorithms, we're going to learn
+more about Big-O and some other things we saw in this
+[graph](#big-o-scalability) that we haven't talked about; But I hope you now
+look at the code differently and you had a few 'aha' moments throughout this
+section.
+
+It's certainly my favorite section, and a great topic that really made me
+a better engineer once I learned this topic. SO I hope it did for you as well.
+At the end of this all, you have a way to look at code differently, and when
+someone says hey how good is my code? You have a nice way of looking at things
+and measuring things.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
