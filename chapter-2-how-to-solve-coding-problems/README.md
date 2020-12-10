@@ -4,6 +4,7 @@
 
 1.  [Module Introduction](#module-introduction)
 2.  [What Are Companies Looking For](#what-are-companies-looking-for)
+3.  [What We Need For Coding Interview](#what-we-need-for-coding-interview)
 
 <br/>
 
@@ -147,6 +148,64 @@ this_**, why are we learning this?, Why is this the answer to the problems?, Why
 is this answer better than the other?.
 
 Again, don't worry we're going to practice this muscle throughout.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## What We Need For Coding Interview
+<br/>
+
+![chapter-2-2.png](./images/chapter-2-2.png "What we need for coding interview")
+<br />
+
+In order to solve coding problems, we need to _learn these data structure_ and
+_these algorithm_. It doesn't look at bad does it? Here's the big secret, there
+are a lot more data structure than this graph, and a lot more algorithm than
+this. Just like when you learn a new language, you don't read through the
+dictionary and learn every single word in that dictionary, and that language.
+Instead you focus being able to communicate with others. You _only focus on
+things that are being used most of the time_.
+
+When it comes to data structures and algorithms, these are where you're going to
+get asked on interviews, because these are the ones that get used most and _90%_
+of the time to solve a really complex problem, you're only using these things.
+
+All you need is the base line skills, and companies just want to know that
+you've prepared for the interview and can succeed with their system.
+
+A lot of people complain about coding interviews, or white board interviews, and
+how useless they are, because they never use some of these algorithms or data
+structures_ in their day to day job. They're just a way to weed out people that
+aren't willing to work hard. Look at this as an advantage, not many people work
+on their interview questions. You're going to work harder than '99%' of the
+people out there, because you know that getting a good job will have a big
+impact on your life.
+
+As you see here, the good news is, that it's not as hard as you think. You just
+have to put time and effort into the right things, as long we learn our right
+data structures when and why to use them?, How to implement them?, How to solve
+problems with them? And same with algorithms, and we combine it with our [cheat
+sheet](./interview-cheatsheet.pdf) where we compare our code that is `[1]`
+readable, that is `[2]` memory efficient and time efficient using Big-O between
+these two, that's all interviews are, that's all coding interviews ask for.
+
+If we go back to [our outline of the
+course](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview) we're
+getting into the [technical interview
+section](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link)
+, we are going to go over the technical interview diagram, so it all makes
+sense. We're going to talk about `[x]` different data structures that we have,
+we going to talk about _Arrays_, _Tree_, _Stacks_, _Graph_, and a lot more. We
+are going to talk about the Big-O of each one of these data structures. We going
+to talk about different algorithms, when yo use what?, and like I said this is
+going to look overwhelming at first, but we're going to go through this step by
+step, so that at the end all of this makes sense to you.
+
+We also going to use a [cheat sheet](./interview-cheatsheet.pdf) to help us
+solve these coding problems. In this cheat sheet we've already covered the three
+pillars of good code, we already talked about what skills the interviewer is
+looking for, but we haven't talked about others parts.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
