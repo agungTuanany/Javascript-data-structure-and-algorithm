@@ -189,6 +189,10 @@ problems with them? And same with algorithms, and we combine it with our [cheat
 sheet](./interview-cheatsheet.pdf) where we compare our code that is `[1]`
 readable, that is `[2]` memory efficient and time efficient using Big-O between
 these two, that's all interviews are, that's all coding interviews ask for.
+<br/>
+
+![chapter-2-3.png](./images/chapter-2-3.png "Technical interview diagram")
+<br />
 
 If we go back to [our outline of the
 course](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview) we're
