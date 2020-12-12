@@ -5,6 +5,7 @@
 1.  [Module Introduction](#module-introduction)
 2.  [What is a Data Structure](#what-is-a-data-structure)
 3.  [How Computer Store Data](#how-computer-store-data)
+4.  [Data Structure In Different Languages](#data-structure-in-different-languages)
 
 <br/>
 
@@ -30,7 +31,6 @@ are able to make the right decision. This knowledge is extremely valuable.
 The longer you are on the field, the more and more you realize that you need
 these fundamental principle of data structures and algorithms in order to be
 a great developer or engineers.
-
 
 Over the next few sections, we have a long way to go to get familiar with data
 structures and algorithms, so can write a good programs. Let's get started.
@@ -303,3 +303,48 @@ to write great code.
 <br/>
 <br/>
 
+## Data Structure In Different Languages
+
+Each language has their **_own data-types or builtin data-types_**. JavaScript for
+example has _Numbers_, _Strings_, _Boolean_ and _Undefined_.
+
+Each language has **_data structures to organize these data-types_**; for
+example in JavaScript we have _arrays_, and _objects_ that we use and they are
+data-types.
+
+It allows us to structure and organize information such as our _primitive data
+types_ or even hold more complex one, like having an array that contains
+multiple object. We're going to talk about this in more detail.
+
+I want to show you hat we do have different languages that have different access
+to some data structures.
+<br/>
+
+![chapter-3-4.png](./images/chapter-3-4.png "Data structures in different languages")
+<br />
+
+You can see above, some of other languages that we can use in this course and
+whether they have them available. We see that Java has ArrayList, Linkedlist,
+Stacks, PriorityQueue, and many other types. Now doesn't that mean that if we're
+using JavaScript we can only use Arrays and Object? Well no, not really
+although these languages come with data structure built in. We can also built
+our own, and most languages have enough data structures and data-types or us to
+build and create our own data structures.
+
+If JavaScript doesn't have Stacks, well we can build one.
+
+To finish this section and finally dive in into our first data structure,
+I wanted to just remind you, that we have a [little
+map](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link/c25f98c73a03f5b1107cd0e2f4bce29c9d78e31655e55cb0b785d56f0036c9d1)
+of what we need to know for the coding interview. In this map, I have a little
+present emoji :gift: next to each one of the data structure that we're going to
+talk about. As you can see there aren't that many of them; and many of them are
+quite related or are  children of the other. Use this as reference for you to
+just draw map of how things are connected and what the data structure are that
+we're going to talk about.
+
+
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
