@@ -5,6 +5,7 @@
 1.  [Module Introduction](#module-introduction)
 2.  [What Are Companies Looking For](#what-are-companies-looking-for)
 3.  [What We Need For Coding Interview](#what-we-need-for-coding-interview)
+20. [Module Summary](#module-summary)
 
 <br/>
 
@@ -197,14 +198,14 @@ these two, that's all interviews are, that's all coding interviews ask for.
 If we go back to [our outline of the
 course](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview) we're
 getting into the [technical interview
-section](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link)
-, we are going to go over the technical interview diagram, so it all makes
-sense. We're going to talk about `[x]` different data structures that we have,
-we going to talk about _Arrays_, _Tree_, _Stacks_, _Graph_, and a lot more. We
-are going to talk about the Big-O of each one of these data structures. We going
-to talk about different algorithms, when yo use what?, and like I said this is
-going to look overwhelming at first, but we're going to go through this step by
-step, so that at the end all of this makes sense to you.
+section](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link),
+we are going to go over the technical interview diagram, so it all makes sense.
+We're going to talk about `[x]` different data structures that we have, we going
+to talk about _Arrays_, _Tree_, _Stacks_, _Graph_, and a lot more. We are going
+to talk about the Big-O of each one of these data structures. We going to talk
+about different algorithms, when yo use what?, and like I said this is going to
+look overwhelming at first, but we're going to go through this step by step, so
+that at the end all of this makes sense to you.
 
 We also going to use a [cheat sheet](./interview-cheatsheet.pdf) to help us
 solve these coding problems. In this cheat sheet we've already covered the three
@@ -214,3 +215,60 @@ looking for, but we haven't talked about others parts.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Module Summary
+
+One big misconception is that you're either a good problem solver or you aren't.
+As with anything, it's a muscle (memory) that you can train, that you can
+practice. With enough practice and knowing the tips and trick that we covered in
+this section you can solve problem a lot better, that shows the interviewer you
+know what you're talking about.
+
+The key in this section was this [cheat sheet](./interview-cheatsheet.pdf), the
+_step by step walk through of a problem_. We looked at how a [Google
+interview](./google-interview.js) might look like; And then we mimicked some of
+the techniques used there to solve our [own problem](./exercise-1.js). The idea
+was to show how you work, think out loud and try to comment the steps as you go
+along to solve a problem. _Communicating throughout the process_ as much as
+possible and not worrying about finishing a problem fast is the key to
+intervening in solving problems in an interview.
+
+Now we should have also gotten the idea that we don't want to memorize problems,
+because if you do a hundred problems and try to memorize them, well it won't
+really help you long term, but you're also taking a gamble right? You're hoping
+the interviewer asks you a question that you've seen before. Instead we want to
+take control of our destiny and practice, and be ready for anything by building
+the fundamentals.
+
+We talked about how by using the Big-O, and the lessons we learned here we can
+now move on to _data structure_ and _algorithms_, and use them during our code
+interviews.
+
+We also talked about some of the skills that interviewers are looking for, and
+demonstrated how it wasn't necessarily just coding skills. There's a lot of
+aspects that interviewers are looking for, and we cover these
+[items](#what-are-companies-looking-for) and how to show them during our
+practice interview question.
+
+Finally we're now ready to dive into the exciting part of [_data structures_ and
+_algorithms_](#what-we-need-for-coding-interview) we have nice foundation and we
+know that all we need is to learn these _data structure_ and _algorithm_ to
+really be interview ready.
+
+We're also going to be using the cheat sheet that I gave you in this throughout
+this course, and the foundation of this cheat sheet is the idea of _readability
+of code_, _Space Complexity of code_ and _Time Complexity of code_.
+
+Although we don't cover everything in [cheat sheet](./interview-cheatsheet.pdf),
+we have a few items here at the end. You'll see that as we go through the _data
+structures_ and _algorithms_ questions. Certain type of patterns will emerge
+that although questions maybe different in an interview usually the way to
+_optimize things_ or tricks to make your answer better can be narrowed down to
+specific steps. So don't get overwhelmed, there's an easy clear checklist and
+heuristic that we're going to go over later on.
+
+
+By this point, I think we're ready to move on to _data structures_ and
+_algorithms_. How do we write good code? Create good programs, create value for
+the companies that we're interviewing for.
+
