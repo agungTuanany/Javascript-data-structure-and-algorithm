@@ -6,6 +6,7 @@
 2.  [What is a Data Structure](#what-is-a-data-structure)
 3.  [How Computer Store Data](#how-computer-store-data)
 4.  [Data Structure In Different Languages](#data-structure-in-different-languages)
+5.  [Operations On Data Structures](#operations-on-data-structures)
 
 <br/>
 
@@ -343,7 +344,66 @@ quite related or are  children of the other. Use this as reference for you to
 just draw map of how things are connected and what the data structure are that
 we're going to talk about.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
 
+## Operations On Data Structures
+<br/>
+
+![chapter-3-5.gif](./images/gif/chapter-3-5.gif "Operations on data structures")
+<br />
+
+What are the various operations that can be performed on different data
+structures? Because as we learn in our previous lectures data structure are
+simply way to organize our data on our computers, and the data structures that
+we'll see throughout this course are simply variations of how we stored this
+data on our computers, this information; And each data structures has their
+tradeoffs some one good at certain operations, others are good at at other
+operations.
+
+One type of action that we're going to performed with data structures, well is
+**_Insertion_**, adding new data item in a given collection of items, such as
+adding the `1` _apple_ item and memory.
+
+Another type of action called **_Deletion_**, we want to sometimes delete data, such as
+remove `4` _mango_ from our list.
+
+Another type of action might be **_Traversal_**, we're going to see this a lot.
+Traversal simply means _access each data item_ exactly once so that it can be
+process.
+
+Another useful type of action is **_Searching_**, We want to find out the
+location of the _data item_ if it exists in a given collection.
+
+We also have things like **_Sorting_**, that is having data that is sorting.
+Kind of like it is on the left hand side over here versus the right hand side
+where there's not much sorting going on, at least from where we can see.
+
+Obviously he main one and probably the most important is **_Access_**, how do we
+access this data that we have on our computer?
+
+Each data structure that we're going to go through in this course will have
+different _pros_ and _cons_ for each one of these.
+<br/>
+
+![chapter-3-5.png](./images/chapter-3-5.png "Operations on Data structures")
+<br />
+
+
+If we take a look at out [Big-O cheat
+sheet](https://bigocheatsheet.com) we're very familiar with
+this diagram over here, or the graph; if we scroll down we have all these data
+structures that it lists and don't get to overwhelm, We're going to go over most
+of these data structures, and you see that _half of them are mainly trees_ and
+variations of trees; and within here, we see that each one of them has _Access_,
+_Search_, _Insertion_, _Deletion_, _Average_ and _Worst_ cases; And because we
+understand Big-O we can see that _which one good for what, and what is bad for
+what_.
+
+As we go through our data structures, we're going to over these pros and cons,
+so that you build the foundation to be able to decide which data structures
+should I use on next project.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
