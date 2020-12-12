@@ -272,3 +272,6 @@ By this point, I think we're ready to move on to _data structures_ and
 _algorithms_. How do we write good code? Create good programs, create value for
 the companies that we're interviewing for.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
