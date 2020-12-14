@@ -4,6 +4,7 @@
 
 1.  [Array Introduction](#array-introduction)
 2.  [Static vs Dynamic Arrays](#static-vs-dynamic-arrays)
+3.  [Optional Classes In JavaScript](#optional-classes-in-javascript)
 
 <br/>
 
@@ -233,8 +234,6 @@ const strings = ["x", "a", "alien", "b", "c", "d"];
 // [3]
 const strings = ["x", "a", "alien", "b", "c", "d"];         // O(n/2) => mutated into O(n)
 //index         [ 0 ,  1,     2,     3,   4,   5 ]
-
-
 ```
 
 What we've done here is If we go back to our variable `strings` we have the `x`
@@ -337,7 +336,7 @@ array_
 You see over dynamic array chart, how I have a point at`append* O(1)`, that is
 the same as the `.push()` command that we did in the previous lesson, But I have
 star `*` that says it can be `o(n)`, why is that? Well, if we remember our
-array.
+array,
 
 ```javascript
 const strings = ["a", "b", "c", "d"]
@@ -346,7 +345,7 @@ const strings = ["a", "b", "c", "d"]
 
 If underneath the hood JavaScript and our machine only created _four_ blocks of
 memory (shelf's) for this array, and we _add another letter_ underneath the hood
-because this a dynamic array, it's going tho loop over these items, copy them
+because this is a dynamic array, it's going tho loop over these items, copy them
 and move it to a different location with now _eight_ blocks of space (it usually
 doubles the space); So that we can keep adding after letter `e`, like empty
 space.
@@ -361,10 +360,469 @@ I wanted to show you they work, so that you have those fundamentals going forth,
 and understand when it comes to array, just because you're adding at the end
 using the `.push()` command, you can assume that it's `O(1)`  most of the times
 or constant time, but every once in while you might encounter a situation where
-it's all then linear time.
-
+it's `O(n)` linear time.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
 
+## Optional Classes In JavaScript
+
+Now as I said with both arrays and functions, these are advanced concepts you're
+probably not going to just get it 100% the first time around, but use these
+videos (lectures) as reference to come back as you progress through your career.
+
+In this optional videos, I'm going to talk about three things that are important
+with objects, we are going to talk about:
+
+1. [Reference Type](#reference-type)
+2. [Context](#context)
+3. [Instantiation](#instantiation)
+
+<br/>
+
+### Reference Type
+
+Let's get start with the first one, _reference type_, what I mean when I say
+reference type? Well, I wanted to see if you can guess what's going to happen
+when I do,
+
+> NOTE: Use browser console or NodeJS REPL
+
+```javascript
+[] === []               // false
+
+// OR
+console.log([] === []) // false
+```
+
+arrays equal array? `[] === []`, what do you think the answer is going to be?
+Well, the result is `false`, interesting,
+<br/>
+
+```javascript
+[1] === [1]             // false
+```
+
+What if I do `[1] === [1]` what do you think the result? The result is `false`,
+quite interesting. One more question,
+<br/>
+
+```javascript
+var object1 { value: 10 };
+var object2 = object1
+var object 3 = { value: 10 }
+
+console.log(object1 === object2)        // true
+console.log(object1 === object3)        // false
+```
+
+If I do `obejct1 === object3` I get `falae`, But why is that? We get `value: 10`
+for both, right? Let's pick something else,
+<br/>
+
+```javascript
+var object1 { value: 10 };
+var object2 = object1
+var object 3 = { value: 10 }
+
+object1.value = 15;
+object2.value;                          // 15
+object3.value                           // 10
+```
+If I do `object1.value = 15`, and now I do `object2.value` the result is `15`;
+But if I do `object3.value` the result is `10`, well how was confusing right?
+
+Let's look at what's actually going on; And this is the first topic we're
+talking about which is _reference type_, let's look at diagram,
+<br/>
+
+![chapter-4-1.gif](./images/gif/chapter-4-1.gif "Rerence type")
+<br />
+
+Objects are what's called the _referenced type_ in JavaScript, up until this
+point  all the others JavaScript types that we've learned including _Numbers_
+_Null_, we have _Undefined_, _Boolean_, _String_ even _Symbols_, they're all
+defined by the JavaScript programming language. So the person who wrote
+JavaScript ([Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)) and
+EcmaScript, the standard says, these are **_primitive types_**. We'll tell you
+what they are, now a _reference type_ which is a **_non primitive type_**, are
+not defined by the programming languages. What that mean is? That they're
+_created by the programmer_.
+
+So, let's look as an example, when I say `var number1 = 1`, JavaScript knows
+what `1` is it; It's a type of _Number_, and it's a primitive type, it's always
+the same thing, it's immutable every time it uses _one (**1**)_; That's the same
+one that JavaScript knows about. When I do `var number2 = 1`, it's using the
+same number _one (**1**)_ that JavaScript knows about.
+
+However, when we created `var object1 = {value: 10}`, `var object2 = object1`,
+`var object3 = { value: 10 }` well, those were _created by the programmer_, they
+are **_reference type_**.
+
+So, what we said was, I want `object1` create a new Object, well say the
+black-box or filling cabinet; and in it put value `10` into this black-box.
+
+`object2` says, I want you to just **_reference_**, and that's where the word
+comes form; reference `object1` saying "hey I want whatever s inside this
+black-box".
+
+When `object3` gets created, it's a _new object_, because we have
+the new brackets `{}`, and it's saying put value in the new black-box.
+
+Essentially what we're doing is saying, when we create a variable `object1`
+we're storing just a reference to an address to where storing the value `10`
+which is `Box1`, so we're saying `object1`, I'm just letting you know that this
+is the address of all the content that you want, and that's in `Box1`.
+
+`object2` is saying, I want whatever is in `object1`, and we look in `object1`,
+and `object1` just has the information of `Box1`, so it references that.
+
+In `Object3`, creates a new object, so it's saying, I'm going to put my contents
+in `Box3`, and I'm just going to have the address of the box saying `Box3`.
+
+So, going back to our example, this makes sense, when we change `object1.value
+= 15` we change the content of `Box1`; So, when we do `object2.value` which is
+referencing the same box as `object1` that's is `15`, but `object3.value`
+doesn't change, because that's interesting in a completely different box, it's
+`Box3`.
+
+Going back to first example `[] === []`, well as I mentioned in previous
+lectures (videos), **_arrays are just objects_** at the end of the day. So, when
+you create an array `[] ===`, it's same thing creating a box, a data structure;
+and `=== []` it create a second data structure.
+
+So that is a **_reference type_**. A very important concept, but I think you get it
+right? Let's get to next one, this gets little tricky here.
+
+###  Context
+
+This one's called **_context_**; and _context_ get confused a lot with
+**_scope_**. If you remember we said that _scope_ is created when it see `{}`.
+
+```javascript
+function b() {
+    let a = 4;
+}
+
+console.log(a)      // ReferenceError: `a` is not defined
+```
+
+If we create a function, as soon as we create that function there is a _new
+scope_ that's created. So we can have new variable `let a = a`  that lives
+within this universe, it doesn't know anything about the **_root scope_**
+(global scope) which is over outside the function. If I logging variable `a`
+outside the function, it will return `ReferenceError` because it doesn't exist,
+
+So that's **_scope_**.
+
+#### Context - example 1
+
+```javascript
+// at browser console
+console.log(this)                   // Window {...}
+
+console.log(this === Window)        // true
+
+this.alert("hello");
+
+.alert("hello");
+```
+
+Now, how it's _context_ different, _context_ tells you **_where we are within
+the object_**. Let me explain if we `console.log(this)`, `this` probably the
+most confusing word that a lot of people have trouble and even people that have
+been in the industry for years, still have a difficult time with `this`, but
+let's see what it is; `this` will result a `Window` object. So just double check
+if I logging `this === Window` I get the result `true`.
+
+So, what `this` means is, **_what is the object environment that we're in right
+now?_**, the best way to think about it is, what is to the left of the ` -.` dot?; So,
+right now I'm able to do `.alert()` because I'm inside the `Window` object. So
+doing `Window.alert()` or `.alert()` is the same thing.
+
+Now, why that is important? Well when we get to _instantiation_  I'll show you
+why it is, but it's very important concept when you see again and again. But
+remember, `this` just **_refers to what object it's inside of_**.
+
+#### Context - example 2
+
+```javascript
+function a() {
+    console.log(this);
+};
+
+a()         // Window {...}
+
+window.a()
+```
+
+I do `function a()` within this function I do  `console.log(this)`; If I call
+`a()` what do you think happens? Still `Window` object, `this` is still refers
+to the function. If you remember, that's because I said it has to be what object
+we're inside of right now.
+
+Technically `function a()` I can go `window.a()` to run the function. So the
+left of the `-.` dot, that the Window. In order to create a new value for `this` you
+have to do something like,
+
+```javascript
+const object4 = {
+    a: function() {
+        console.log(this)
+    }
+}
+
+object4.a()             // { a: [Function: a]  }
+```
+
+I run `object4.a()` now `this` is the object which is refer to `object4`.
+
+So, why is that important for us? Well, first of all you'll see it and other
+codebases, so it's good to know, but it's really important when we do
+instantiation. Instantiation is when you make **_a copy of an object_** and
+**_reuse the code_**.
+
+Imagine you're building a big multiplayer game online, and this
+game's going to have many's player you can have, like _wizard_, _trolls_,
+_warlocks_, _elves_; Now if you had to create an object for every single
+players, that's a lot of repeated code, that's a lot of hassle, and that's a lot
+of your time, and it's not very efficient. to solve that, you can do something
+called instantiation, you're making instances or **_multiple copies of an object_**.
+
+Let me show you how we do instantiation in JavaScript again.
+
+### Instantiation
+
+This is going to look a little bit weird at first, just like `for-loops` did,
+just like function did at beginning; but it's just the syntax, and you'll get
+used to it.
+
+```javascript
+class Player {
+    constructor(name, type) {
+        this.name = name;
+        this.type = type;
+    };
+
+    introduce() {
+        console.log(`Hi I am {this.name}, I'm a ${this.type}`);
+    }
+}
+```
+
+Let's say, we have a class named `Player`. Now you see the new syntax already,
+and I capitalize a class. Now think of a class as something that I want to make
+copy of it. If I ever want to make a copy of an object, it's a good idea to do
+something like this (use `class` keyword), so that well you'll see how easy it
+is to copy this.
+
+We do class `Player`, and within here we'll say `constructor()`. Let's give it
+this `Player` can have a `name` and `type`, and within the constructor,
+`this.name` he calls `name`; and `this.type` he calls `type`.
+
+Constructor, when you create class `Player`, class says, "every time I'm
+making a copy of a `Player`, the first thing that gets run is the `constructor()`
+function"; and this `constructor()` function is going to create these properties
+`(name, type)` on the player object.
+
+Now I can create anything that I want for the `Player`. Let's say we want to
+create a _method_ such as `introduce()` that console logs `${this.name},
+${this.type}`. What I'm saying, this `Player` class, any player that I create
+will always be able to introduce himself, and they all also have `this.name` and
+`this.type`.
+
+The reason we use `this` here, is that when we create a player we can access the
+`name` and `type` property. I'll show you later on how that works; But this is
+just a syntax, you're going to get used to, in order to access the `Player` and
+make copies of it; You'll have to run a constructor, which is all the properties
+and methods that you want the player to have. You can also create methods that
+players can have and any time you want to access a property within the
+constructor, we'll use `this.name` into use `introduce()` method. What I have to
+do, is I'll have to write `this.introduce()`.
+
+OK, so we have a player, but when we're building our multiplayer game, we want
+to a new copy of `Player` class built add onto it. Let's say we want to create
+a _wizard_ player.
+
+```javascript
+class Wizard extends Player {
+    constructor(name, type) {
+        super(name, type)
+    };
+
+    introduce() {
+        console.log(`WEEEE I'm a `this.type);
+    };
+};
+```
+
+`class Wizard extends Player`, What is this code saying? This code saying,
+I want `Wizard` to extend whatever a `Player` has. So I want to add on top
+whatever player has;
+
+Again because `Wizard` is a class it we'll have to do with `constructor()`, this
+`Wizard` is going to accept `name` and `type`. Within constructor, this is
+a tricky part, any time we `extends` something, we need to also call the
+constructor function of the `Player` (parent class).
+
+We have to do something called `super()` with the properties that we want to
+pass to the constructor, in this case is `name` and `type`, I know this is
+little bit confusing, it's just something you have to do. Whenever you `extends`
+a class you want to use `super()` so that you essentially have access to
+`this.name` and `this.type` from class `Player`.
+
+We also want with the `Wizard` class to have a `play()` function (method) and
+the `play()` function was just console logging `Weee I'm a ${this.type}`.
+
+Now we have a `Wizard`, what the power? What the reason to instantiate `Wizard`
+from `Player`? Instead of constantly creating players, and then saying that they
+are wizard and then can play. Now I can say,
+
+```javascript
+const wizard1 = new Wizard("shelly", "Healer");
+```
+
+If I want to create a new Wizard, I'll just say,
+
+```javascript
+const wizard2 = new Wizard("Shawn", "Dark Magic");
+```
+
+So, let's go through it, and make sure we understand everything. As we've learn
+let's use `console.log()` on,
+
+```javascript
+// Instantiation
+class Player {
+
+    constructor(name, type) {
+        console.log("===> Player", this);           // [1]
+        this.name = name;
+        this.type = type;
+    };
+
+    introduce() {
+        console.log(`Hi I am ${this.name}, I'm a %{this.type}`);
+    };
+};
+
+class Wizard extends Player {
+    constructor(name, type) {
+        // console.log("===> Wizard", this);        // [2] ReferenceError
+        super(name, type);
+        console.log("===> Wizard:", this);           // [3] ===> Wizard: Wizard { name: 'Shelly', type: 'Healer' }
+
+    };
+
+    play() {
+        console.log(`WEEEE I'm a ${this.type}`);
+    };
+};
+
+const wizard1 = new Wizard("Shelly", "Healer");
+const wizard2 = new Wizard("Shawn", "Dark Magic");
+
+// Result
+// ===> Wizard {}
+// ===> Wizard {}
+
+wizard1.play()                                      // WEEEE I'm a Healer.
+wizard1.introduce()                                 // Hi I am Shelly, I'm a Healer
+
+wizard2.introduce()                                 // Hi I am Shawn, I'm a Dark Magic
+```
+`[1]` What `console.log(this)` give us? We get `Wizard {...}` object. Let's go
+trough everything here. I say, we have a class `Player`; then a class `Wizard`
+extends `Player`; and then we have two variables `wizard1` and `wizard2`.
+
+Now, the program's going to see the `new` keyword, anytime it sees `new` keyword
+it says, "oh we're creating a new `Wizard`, and this `Wizard` is going to have
+two parameters `("Shelly", "Helear")`". So it's going to go to the `Wizard`
+class again, because it has `new` keyword, and says "I want to extends
+`Player`"; It's going to the `Wizard` constructor and it's going to see
+`super()`;
+
+What `super()` does? It's takes us up to the constructor of `Player`; and run the
+constructor `Player`.
+
+Now, it's attached `this` in `console.log(this)` as the `Wizard`, and then
+run `introduce()` function from `Player` class; and run the `play()` function
+from `Wizard` class.
+
+Now, if I go to `wizard1.play()` i get `WEEEE I'm a Healer`, because _Shelly_ is
+a _Healer_; But I also have access to `wizard1.introduce()` with result `Hi
+I am Shelly, I'm a Healer`
+
+We also have access to `wizard2.introduce()` it's give us back the result `Hi
+I am Shawn, I'm a Dark Magic`.
+
+`[2]` what the result of `console.log(==> Wizard, this)`? I get,
+
+> ReferenceError: Must call super constructor in derived class before accessing
+> 'this' or returning from derived constructor
+
+What that saying is, that in order for me to access `this` on `Wizard` class to
+get `this.type` I have to call `super`, which run the `Player` constructor. So,
+that's what `super` is doing. It's sound kind of weird, but it just something
+that you need.
+
+`[3]` If I put `this` after `super` keyword, it should return for us `===>
+Wizard Wizard { name: 'Shelly', type: 'Healer'  }`
+
+The keyword `class`, `exteds`, `super` is actually new syntax on _ES6_, that
+you'll see a lot on ReactJS. Back in the day this is how we used to do it,
+
+```javascript
+// Classical inheritance
+var Player = function(name, type) {
+    this.name - nmae;
+    this.type = type;
+}
+
+Player.prototype.introduce = function() {
+    console.log(`Hi I am ${this.name}, I'm a ${this.type}`);
+}
+
+var wizard1 = new Player("Shelly", "Healer");
+var wizard2 = new Player("Shawn"m "Dark Magic");
+
+wizard1.play = function() {
+    console.log(`WEEEE I'm a ${this.type}`);
+}
+
+wizard2.play = function() {
+    console.log(`WEEEE I'm a ${this.type}`);
+}
+```
+
+The exact same code I have up there `class Player{...}`, it's called _Classical
+inheritance_, it doesn't look too bad, but you see that there's `prototype`
+keyword, which it's another thing that you'll see in JavaScript, and to be
+honest with you, you shouldn't really use _Classical inheritance_, it doesn't
+look very nice. You see that, we have to attach `.play()` to both `Wizard`, it
+just doesn't look as nice as `instantiation`.
+
+Once you get used to everything, it's not too bad. All we're saying is, as soon
+as we say `class` we say, "hey, we probably going to make a copy of object.". So
+we want to make copies of `Player`, we want to make copies of `Wizard`, and
+that's called **_instantiation_**.
+
+When I do the `new` keyword, I say, "make an instance of `Wizard`", and `Wizard`
+uses some functionality from the `Player` and adds its own little `play()`
+function as well.
+
+Holly moly, that was a lot, like I said, this section is something that you'll
+have to come back to, and you won't  get it right away. It's really-really hard
+to fully understand the topic without actually having to use it in real life.
+
+Just keep this in mind every time you hear somebody talk about **_reference
+type_**m or **_context_**, or even **_scope_**  or **_instantiation_**
+something; Well these are the things that they're talking about. Objects are
+really-really complicated, they're really hard, but with that, it gives us
+a lot of power. Good luck.
+
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
