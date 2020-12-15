@@ -5,6 +5,7 @@
 1.  [Array Introduction](#array-introduction)
 2.  [Static vs Dynamic Arrays](#static-vs-dynamic-arrays)
 3.  [Optional Classes In JavaScript](#optional-classes-in-javascript)
+4.  [Implementing An Array](#Implementing-An-Array)
 
 <br/>
 
@@ -770,7 +771,7 @@ that you need.
 `[3]` If I put `this` after `super` keyword, it should return for us `===>
 Wizard Wizard { name: 'Shelly', type: 'Healer'  }`
 
-The keyword `class`, `exteds`, `super` is actually new syntax on _ES6_, that
+The keyword `class`, `extends`, `super` is actually new syntax on _ES6_, that
 you'll see a lot on ReactJS. Back in the day this is how we used to do it,
 
 ```javascript
@@ -812,16 +813,358 @@ When I do the `new` keyword, I say, "make an instance of `Wizard`", and `Wizard`
 uses some functionality from the `Player` and adds its own little `play()`
 function as well.
 
-Holly moly, that was a lot, like I said, this section is something that you'll
+Holly moly that was a lot, like I said. This section is something that you'll
 have to come back to, and you won't  get it right away. It's really-really hard
 to fully understand the topic without actually having to use it in real life.
 
 Just keep this in mind every time you hear somebody talk about **_reference
-type_**m or **_context_**, or even **_scope_**  or **_instantiation_**
+type_**, or **_context_**, or even **_scope_**  or **_instantiation_**
 something; Well these are the things that they're talking about. Objects are
 really-really complicated, they're really hard, but with that, it gives us
 a lot of power. Good luck.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Implementing An Array
+<br/>
+
+![chapter-4-4.png](./images/chapter-4-4.png "Implementing an array")
+<br />
+
+Now that we know how to use arrays where they're fast, where they're slow. We're
+going to get into a part that is not crucial for interviews, but it's good to
+understand how they work, and how to build an array.
+
+Most likely in an interview, you won't get asked "Hey, build the array from the
+beginning". But I do want to build those foundations for you, so that we
+understand arrays from a fundamentals level.
+
+So, let's build an arrays ourselves. In this lectures (videos) we're going to be
+using the `class` syntax in JavaScript. So we're going to create an array class,
+even though with JavaScript and many other languages we can just do `const
+a = []` and we've created an array.
+
+Let see if we can build one of our own. Because as you'll find out as we go
+through this course, _data structures_ are simply things that we can build from
+scratch. We can create whatever _data structures_ we want, we can create our won
+_data structures_.  The most common _data structures_ are well-known and are
+already implemented in most languages, because they're so useful. But you are
+able to build _data structures_ you want from scratch and as you'll find out
+most _data structures_ are **built on top of other _data structures_**.
+
+To get started we're going to create an array in JavaScript but just a heads up.
+JavaScript is a bit an interesting case, arrays in JavaScript are just **_objects
+with integer based keys._** that act like indexes; That's what we're going to
+build. Different languages will have this implementation differently, but what
+we're going to learn here, is still going to be applicable to how arrays work in
+other languages.
+
+```javascript
+class MyArray {
+    constructor()  {
+        this.length = 0;
+        this.data = {};
+    };
+
+    get(index) {
+        return this.data[index];
+    };
+
+    push(item) {
+        this.data[this.length] = item;
+        this.length++;
+        return this.length;
+    };
+
+    pop() {
+        const lastItem = this.data[this.length - 1];
+        delete this.data[this.length - 1];
+        this.length--;
+
+        return lastItem;
+    };
+
+    delete(index) {
+        const item = this.data[index];
+        this.shiftItems(index);
+
+        return item;
+    };
+
+    shiftItems(index) {
+        for (let i = index; i < this.length - 1; i++) {
+            this.data[i] = this.data(i + 1);
+        };
+
+        delete this.data[this.length - 1];
+        this.length--;
+    }
+};
+
+const newArray = new MyArray()
+
+
+console.log(newArray)                   // myarray { length: 0, data: {} }
+console.log(newArray.get(0))            // Undefined
+
+newArray.push("hi")
+console.log(newArray)                   // MyArray { length: 1, data: { '0':'hi'  } }
+
+newArray.push("you")
+console.log(newArray)                   //  MyArray { length: 2, data: { '0': 'hi', '1': 'you'  } }
+
+newArray.push("!")
+console.log(newArray)                   // MyArray { length: 3, data: { '0':'hi', '1': 'you', '2': '!'  } }
+
+newArray.pop();
+console.log(newArray)                   // MyArray { length: 2, data: { '0':'hi', '1': 'you'  } }
+```
+
+We're going to start off with creating a class we call this `MyArray`. Within
+the array we'll have a constructor which is the _initial function_ that will be
+run when we create this `MyArray`. This constructor is going to have **_two data
+points_**. `[1]` `this.length` property, because with an array we're able to
+determine the length of the array, and the initial length will be `0`. That is
+how many item the array has, and then we'll obviously have the`[2]` `this.data` within the
+array, this is going to be an `{}` object.
+
+#### Create pop() method
+
+Now, what's the most common action that we have in array? Well the access, to
+access the data. So, let's create `get()` method, and this `get()` method is
+going to take an `index` to actually grab the data from memory. So, I'm just to
+say return `this.data`, and if `this` keyword is confusing to you, make sure you
+watch the previous videos.
+
+`this.data` is just referring to constructor `this.data = {}`. We're just to
+return the `data` to the `index` | `return this.data[index]` that we're requiring.
+
+Let's see how this would work in action. To create a new `MyArray` all we need
+to do is `const newArray = new MyArray()`. If I do `console.log(newArray)` I get
+result `myarray { length: 0, data: {} }`. If I do `console.log(newArray.get(0))`
+i get result `undefined`; well, because there's nothing in `this.data = {}`
+object, we have no items; and JavaScript automatically has the type `undefined`
+when while there's nothing.
+
+#### Create push() method
+
+Let's add our next method, that is `push()` method, to _add something at the end
+of the array_. This `push()` method will take in an `item` that we will give it
+and within this method we will simply add data `this.data[]` of our object, it's
+going to add it to the length `this.lengh` of our item become
+`this.data[this.length]`.
+
+Because we have `0` items, and the length is `0`, this `push(item)` method is
+going to add the data at `this.data[this.length]` and the `0` index will simply
+now contain the `item` | `this.data[this.length] = item;`
+
+Because we want to keep adding items if we wanted to, we will say
+`this.length++`, because now our array has a length of `1` instead of `0`.
+
+Next time, we run the `push()` method, `this.length` will be `1` and the `item`
+will be added at index of `1`; And let's just `return this.length` for now.
+Because the typical `push()` method in JavaScript will usually return the length
+of the array. If we run this we get result,
+
+```javascript
+ console.log(myArray.push("hi"))       //MyArray { length: 1, data: { '0': 'hi'  } }
+```
+
+
+ `data` is going have a property index of `0` with object `"hi"`.
+
+What if we add another thing, let's do `newArray.push("you")`, if I run this
+I get the result, `length` of `2` now, with `index` of `0` is `"hi"`, and
+`index` of `1` is `"you"`
+
+```javascript
+console.log(myArray.push("you"))        // MyArray { length: 2, data: { '0':'hi', '1': 'you'  }  }
+```
+
+#### Create pop() method
+
+Well, let's add the `pop` command to **remove the last item of the array_**.
+Once again, we have the `pop()` method, that doesn't receive anything, we don't
+need to pass it a parameter. All we need to do is to delete the last item in the
+array.
+
+We can simply have a variable let's say `lastItem`, that grabs the last item in
+our data object. So this is going to be  `this.data[this.length - 1]`.
+
+Remember we want the index of `1`, even though the length is `2` we are counting from
+`0`. We want the last item in the data. From here, we can just use the `delete`
+keyword in JavaScript, and say `this.data[this.length - 1]`, just delete the
+item.
+
+Obviously we need to decrease `this.length--`; So just shorthand on JavaScript
+to decrease the `length` of our data by `1`.
+
+Finally we can just return `item` that we deleted.
+
+Now, if I run another command add new item to the array `newArray("!")` the
+result,
+
+```javascript
+console.log(myArray)                    // MyArray { length: 2, data: { '0':'hi', '1': 'you'  }  }
+
+myArray.push("!")
+console.log(MyArray)                    // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  }  }
+```
+
+Now, we try the `pop()` method command `newArray.pop()`, we get result,
+
+```javascript
+myArray.pop()
+console.log(MyArray)                    // MyArray { length: 2, data: { '0': 'hi', '1': 'you'  }  }
+```
+
+If I run `newArray.pop()` again
+
+```javascript
+myArray.pop()
+console.log(MyArray)                    // MyArray { length: 1, data: { '0': 'hi' }  }
+```
+
+I see that I have length of `1` and only `hi` remaining on data, very cool.
+
+#### Create delete()  method
+
+Let's add one last method, to show you why some operation in arrays are
+`o(n)`. We're going to add the `delete()` method. `delete()` method is going to
+take `index` which item we want to delete.
+
+We have variable `item`, we create reference to `this.data[index]` which is the
+item we want to delete. How we going to delete this? Because remember, in array
+we'll have to delete the item, then _shift_ the index of all the other data
+types by _one_, because we want to follow _good coding practice using the idea
+of single responsibility principle_ We create another function that does
+**_shifting data_** for us.
+
+I'm going to create a new method, and we do this in JavaScript using `this`
+syntax `this.shiftItems()`, and this method is going to take the `index` that we
+received in the `delete()` method.
+
+#### Create shitItems() method
+
+We created `shiftItems()` method, and this method of `myArray` class will have
+the `index` parameter passed into it; And this is where we do some fun things.
+We going to have to loop through the items.
+
+```javascript
+for (let i = 0; ...; ...)
+```
+
+We use `for-loop` which right away should ring the bell, and say "Oh, this is an
+`O(n)` operation" we're going to have and `index` of `0`;
+
+```javascript
+for (let i = index; i < this.length - 1; i++);
+```
+
+Actually instead of `0`, remember because we want to shift not all of them, just
+wherever the index starts from, we say `index`; And now I will has to be
+`this.length`, so `i` less then `this.length - 1`; And we going to increment `i`
+by one each time through the loop.
+
+```javascript
+this.data[i] = this.data[i + 1]
+```
+
+Within this loop, all we're going to do is say `this.data [i]`  at each `index` that
+we loop through is going to equal `this.data[i + 1]`. What just happen here?
+Well, we're saying, start at the `index` that we want to start to delete from,
+and iterate through it all the way until the end.
+
+Within this loop, I want you to take each item in the data that we have, and
+instead of what it had before, I wanted to add the data that is right next to it
+with `+` plus `1`.
+
+So, we had an array that is `[0, 2]`; I'm  saying from index of `0` I want you
+to now instead make `0` equal to `2` so `index[i + 1]`. We're shifting the items
+to the left by `1`.
+
+We have shifted here all the items, one to the left, and because we did that the
+index we gave it for the `delete()` automatically get replaced, because that `i`
+is going to get replaced.
+
+```javascript
+this.data[this.length - 1]
+```
+
+There's an issue here right? Because now, the very last item in the array is
+`this.data[]` at `this.length - 1`, which is the last item in the array, well
+still exists. We've shifted everything over by `1`, but we've never touched very
+last item, because we stopped when `i < this.length - 1`. So
+`this.data[this.length - 1]` is still full.
+
+I try comment this line `this.data[this.length - 1]`, and just show you what
+happen if we just leave it like this,
+
+```javascript
+delete(index) {
+    const item = this.data[index];
+    this.shiftItems(index);
+
+    // return item;
+};
+
+shiftItems(index) {
+    for (let i = index; i < this.length - 1; i++) {
+        this.data[i] = this.data(i + 1);
+    };
+
+    // this.data[this.length - 1];
+}
+```
+
+I'm going to run,
+```javascript
+console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  } }
+
+newArray.delete(1)
+console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': '!', '2': '!'  } }
+```
+
+If I run the command `newArray.delete(1)`, I get `you` is deleted; but then
+I have, explanation mark `!` at index of `1`; So the shifting is working, but
+index of `2` I still have the explanation mark `!`, because while we never
+deleted it, we've shifted everything once over once over but we never touched
+index of `2`.
+
+All we need to do to get rid of that issue is the `delete` keyword to delete the
+last item; and obviously to document our length, because we just delete an item,
+we add the command `this.length--`.
+
+```javascript
+
+shiftItems(index) {
+    for (let i = index; i < this.length - 1; i++) {
+        this.data[i] = this.data[i + 1];
+    };
+
+    delete this.data[this.length - 1];
+    this.length--;
+}
+
+console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  } }
+
+newArray.delete(1)
+console.log(newArray)       // MyArray { length: 2, data: { '0': 'hi', '1': '!'  } }
+```
+
+If we run the command above now, we get the result back length of `2` and data
+`2`.
+
+At the end, you might look at all this method, and want to add your own methods.
+But I think of now you have understanding of how array work, and how they're
+implemented underneath the hood.
+
+
+We have simple `O(1)` which is really really nice, but as soon we have to start
+_shifting indexes_ and changing things around we have to loop over things, which
+makes it `O(n)` or linear time.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
