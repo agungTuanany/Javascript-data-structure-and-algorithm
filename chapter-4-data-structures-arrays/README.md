@@ -6,6 +6,7 @@
 2.  [Static vs Dynamic Arrays](#static-vs-dynamic-arrays)
 3.  [Optional Classes In JavaScript](#optional-classes-in-javascript)
 4.  [Implementing An Array](#Implementing-An-Array)
+5.  [Strings and Arrays](#strings-and-arrays)
 
 <br/>
 
@@ -848,7 +849,7 @@ a = []` and we've created an array.
 
 Let see if we can build one of our own. Because as you'll find out as we go
 through this course, _data structures_ are simply things that we can build from
-scratch. We can create whatever _data structures_ we want, we can create our won
+scratch. We can create whatever _data structures_ we want, we can create our own
 _data structures_.  The most common _data structures_ are well-known and are
 already implemented in most languages, because they're so useful. But you are
 able to build _data structures_ you want from scratch and as you'll find out
@@ -1161,10 +1162,35 @@ At the end, you might look at all this method, and want to add your own methods.
 But I think of now you have understanding of how array work, and how they're
 implemented underneath the hood.
 
-
 We have simple `O(1)` which is really really nice, but as soon we have to start
 _shifting indexes_ and changing things around we have to loop over things, which
 makes it `O(n)` or linear time.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Strings and Arrays
+
+I wanted to add a quick video (note) to let you know about a common **_interview
+trick_**. We're going to be doing some arrays question after this. But in
+interviews, you should treat any **_string_** question like over below as an
+array question.
+<br/>
+
+![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
+<br />
+
+
+You see, **_strings are simply array of characters_**. Most of the time in an
+interview, when you get a question like _reverse a strin_ you should be
+thinking, is convert string into an array, do some sort of loop on it or an
+operation using something like a `split()` method in JavaScript, and then
+returning it as a string after you've finished the operation with them.
+
+So, that is a very common question where you're manipulating string. Just keep
+that in mind, and will actually demonstrate this in the next lecture, when we do
+a very common interview question.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
