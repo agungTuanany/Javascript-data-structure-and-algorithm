@@ -7,6 +7,7 @@
 3.  [Optional Classes In JavaScript](#optional-classes-in-javascript)
 4.  [Implementing An Array](#Implementing-An-Array)
 5.  [Strings and Arrays](#strings-and-arrays)
+6.  [Exercise Reverse A Strings](#exercise-reverse-a-strings)
 
 <br/>
 
@@ -1181,9 +1182,8 @@ array question.
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
 <br />
 
-
 You see, **_strings are simply array of characters_**. Most of the time in an
-interview, when you get a question like _reverse a strin_ you should be
+interview, when you get a question like _reverse a string_ you should be
 thinking, is convert string into an array, do some sort of loop on it or an
 operation using something like a `split()` method in JavaScript, and then
 returning it as a string after you've finished the operation with them.
@@ -1195,3 +1195,223 @@ a very common interview question.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Exercise Reverse A Strings
+
+We're going to start off with a very very common one, and it's shouldn't be too
+complicated to start us off.
+
+```javascript
+// Create a function that reverse a string.
+// "Hi My name is Andrei" should be:
+// "ierdnA si eman yM iH"
+
+function reverseString(str) {
+    .....
+    .....
+}
+```
+
+The interviewer asks you, can you create a function that reverse a string?
+
+### Exercise Answer - 1
+
+Well in order to reverse a string, the first thing we want to do is some sort of
+check of our input.
+
+We can't just assume that we're going to always receive a string, what if
+somebody calls the reverse function with `undefined` or with a `number`? What
+happens then? And the good thing to always start off with, is to check the
+input.
+
+In my case I'm going to do a simple check
+
+
+```javascript
+function reverseString(str) {
+    // Check input
+    if (!string || str.length < 2 || typeof str !== "string") {
+        return console.log("Your input is not a string or the string length less then 2 characters");
+    };
+    const backwards = [];
+    const totalItems = str.length - 1;
+
+    for (let i = totalItems; i >= 0; i--) {
+        backwards.push(str[i]);
+    };
+
+    console.log(backwards);                         // [1]
+
+    const reverseBackward = backwards.joint("");
+    console.log(reverseBackward);                   // [2]
+
+    return reverseBackward;
+};
+
+// Result:
+// [
+//   'i', 'e', 'r', 'd', 'n',
+//   'A', ' ', 's', 'i', ' ',
+//   'e', 'm', 'a', 'n', ' ',
+//   'y', 'M', ' ', 'i', 'H'
+// ]
+// ierdnA si eman yM iH
+```
+
+Let's say that if there's no string `!string`, so that is `undefined`; Or
+perhaps that the `string.length` is less then `2` I can write `string.length
+< 2`, that means, well I'm just receiving one letter or no letters, in which
+case we don't really need to any operations, it's already kind of reverse; We
+also can use _input validation_ such as using the `typeof` keyword in JavaScript
+To check if it's a _string_ type that user input. Otherwise let's do some
+operations.
+
+To reverse the string, well let's think about this, we want to convert it into
+an array, so I create variable `let backward = []` it's keep the string that
+user will input;
+
+And this is what we are going to return from the `reverse()` function. I'm going
+to return _the array that is reversed_, but when we want to return a string
+right?. Even thought we're going to convert whatever we receive into an array,
+at the end we want to turn it back into a string. In JavaScript we can do the
+`toString()` method, or the `joint()` method.
+
+In here we want to grab the length of the string that we converted into an
+array, so I make a variable `totalItems`, because I don't want to have repeated
+code, so I'm going to say `str.length - 1`.
+
+
+Now we're going to loop through our string; So, let's say `let i = totalItems`;
+So `i` is going to equal however many characters we have in our string, and
+we're going to keep going until `i` is greater then equal to `0`, I can write `i >=
+0`; And all we're going to do, because we want to go from back to front, we're
+going to decrements the `i`, I can write `i--`. So we going to go from the
+length of the `str` all the way back, so we're going to start off with the last
+characters into the first one because we in backward condition already.
+
+In this loop all we going to do, is say `backward.push()` each item we want to
+create; So, `str[i]`.
+
+> backwards.push(str[i])
+
+I know what are you thinking? Well, why don't we just convert the string into an
+array? You told me all about converting strings into an array, and we didn't
+really do that?. In JavaScript actually has the `split()` method from array to
+split things into an array, but with JavaScript we can actually just use
+**_string as an arrays_** and access each property with bracket notation `[]` so
+that essentially our arrays is `str[i]`. We don't have to run any `split()`
+commands, `str[i]` is also works.
+
+All we doing is, we're going backwards one by one, and pushing each item of our
+given string into an array. If we `[1]` logging at first time we get the reverse
+string already; and we join altogether in `[2]` second log.
+
+I hope you got that answer, and understand the steps we going through, Or maybe
+you have a better answer than me, because what I did here is not necessarily the
+cleanest way; and depending on which programming language you use, you might
+have built in methods that simplified the steps.
+
+### Exercise Answer - 2
+
+In JavaScript, for example we can use some built in methods that come with the
+arrays to just simplify the whole things (exercise Answer - 1), and make our
+code more readable.
+
+```javascript
+function reverseString2(str) {
+
+    // split the string and reverse and join it.
+    const reversed = str.split("").reverse().join("");
+
+    console.log(str);
+    console.log("==> result:", reversed);
+    return reversed;
+};
+
+const string = "Hi My name is Andrei"
+reverseString2(string);
+
+// Result:
+// Hi My name is Andrei
+// ==> result: ierdnA si eman yM iH
+```
+
+Let's create a new function, and I'm going to call this functions
+`reverseString2()`; and this `reverseString2` once again receive short of an
+input `str`. I won't do any input validation for this one; just let's assume
+that we can just copy and paste it in function.
+
+We create a variable `reversed` that grab the `str` that run the `.split()`
+method, because this time we're not going to access the `[i]` like we did last
+time. We just straight away converted into an array, so that we can use builtin
+method that comes in JavaScript arrays called `.reverse()`; This reverse does do
+what the loop do in previous answer.
+
+```javascript
+for (let i = totalItems; i >= 0; i--) {
+    backwards.push(str[i]);
+};
+```
+
+Now, we just use another builtin method called `.join` for arrays at the end. By
+using a  builtin method, called `.reverse()` I avoided all this work,
+
+```javascript
+const backwards = [];
+const totalItems = str.length - 1;
+
+for (let i = totalItems; i >= 0; i--) {
+    backwards.push(str[i]);
+};
+console.log(backwards);
+```
+
+How nice is that?. What about another solution? Again many different ways.
+
+### Exercise Answer - 3
+
+Let's say the interviewer says, is there a more modern cleaner way that you can
+make this function?
+
+```javascript
+const reverseString3 = str => str.split("").reverse().join("");
+
+const string = "Hi My name is Andrei"
+console.log(reverseString3(string))
+
+// Result:
+// erdnA si eman yM iH
+```
+Because in JavaScript there is the new ES6 syntax, you can even create one line
+function call it `reverseString3`; And do the exact same thing using every
+builtin method.
+
+Or, you can do more fancy by using _spread operator_, like this,
+```javascript
+const reverseString4 = str => [...str].reverse().join("");
+
+const string = "Hi My name is Andrei"
+console.log(reverseString3(string))
+
+// Result:
+// erdnA si eman yM iH
+```
+
+We no longer need to use the `.split()` method. I run this, I get the same
+thing.
+
+### Exercise Answer Summary
+
+Again, I just want to demonstrate to you that there are many different ways to
+solve a problem; and then interviewer is not going to reject you for a job, just
+because you implemented [Answer 1](#exercise-answer---1) versus [Answer
+3](#exercise-answer---3). **_It depends on how you deliver your solution_**. This
+is something we talk about in our "how to solve problem" section, how you want
+to talk through the problem, explain to the interviewer why you did, and as long
+as yo understand the _pros_ and the _cons_ of each solution, that's what makes
+a great engineer.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
