@@ -9,6 +9,7 @@
 5.  [Strings and Arrays](#strings-and-arrays)
 6.  [Exercise Reverse A Strings](#exercise-reverse-a-strings)
 7.  [Exercise Merge Sorted Arrays](#exercise-merge-sorted-arrays)
+8.  [Array Summary](#array-summary)
 
 <br/>
 
@@ -1732,6 +1733,93 @@ where you would improve things. That in an interviewer's eyes is just as good as
 you actually coding it that way.
 
 Hope you got this far, and I'll see you in next lectures.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Array Summary
+<br/>
+
+![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
+<br />
+
+Great, you just finished your first _data structure_, and they're going to get
+more and more fun. You see in the above diagram we've learned to complete our
+mental model of data structure. I promise you by the end of this course, this
+whole diagram is going to make sense.
+
+We've finished a small part of it. The array's we talked about, _static_ and
+_dynamic arrays_ we talked about Big-O complexity in arrays, and how _dynamic
+arrays_ can sometimes have `O(n)` because while sometimes we have to double up
+or expand our memory (space).
+
+We also talked about how strings and question regarding strings can be treated
+very similar to array question, where you just convert them (string) to an array
+and then _join_ then back up and return a string answer.
+<br/>
+
+![chapter-4-6.png](./images/chapter-4-6.png "Big-O data structures operations")
+<br />
+
+There's a few other point in array we're going to talk about when we get into
+algorithms. By now, you should take a look at the Big-O cheat sheet data
+structure operations, and understand why the array data structure has these
+Big-O numbers; and understand when an array is a good thing to use.
+
+One thing you'll note when it comes to an arrays, especially when we get to
+algorithms is that they are really-really good at having **_sorted data_**. When
+it comes to sorting, arrays are awesome, because they're in memory in
+_sequential order_ according to their index.
+
+When you would want to use an array? When you would it?
+<br/>
+
+![chapter-4-7.png](./images/chapter-4-7.png "pros and cons using array as data structure")
+<br />
+
+Arrays are great for `[1]` _fast lookup_, that is just accessing information
+where you know which index you want to look at. `[2]` It's really fast that
+_push_ and _pop_, adding things at the end of an array or taking things out at
+the end of the array. `[3]` of course because it's _ordered_, having something
+that is ordered and close to each other in memory makes it really fast.
+
+However, array has slow in `[1]` _slow insert and deletes_, because we have tho
+**_shift to race whenever it's not at the very end of the array_**. Finally
+`[2]` if using _static array_ it's fixed size. That means sometimes you have to
+declare the memory ahead of time, and how large of an array you want. That can
+be avoided if we use some of the more modern languages that have _dynamic
+array_.
+
+### More Technical interview Question in Arrays
+
+These exercise are _completely optional_, if you want to practice more interview
+question related to **arrays**. You can also come back to these once you have
+finished the course. I _recommend you_ to watch the video title **_How To Use
+[Leetcode](https://leetcode.com)_**, in the bonus section of the course at the
+very end to see how you can do these problems and see the solution in any
+language that you choose.
+
+**_Arrays_**:
+
+1. [Two Sum](https://leetcode.com/problems/two-sum/description/)
+2. [Maximum subarray](https://leetcode.com/problems/maximum-subarray/description/)
+3. [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/)
+4. [contain duplicate](https://leetcode.com/problems/contains-duplicate/description/)
+5. [Rotate array](https://leetcode.com/problems/rotate-array/description/)
+<br/>
+
+**_Bonus_**
+
+This question is the type of problems that can be done using what we about
+arrays, or even [regular expression](https://regex101.com/)
+
+- [Longest Word](https://www.coderbyte.com/language/Longest%20Word)
+
+We're going to come back to array, because a lot of other data structure we're
+going to talk about later on, like _queues_ and _stack_ are related to arrays.
+But for now I want top get into other data structures, because we still have
+a few to go through.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
