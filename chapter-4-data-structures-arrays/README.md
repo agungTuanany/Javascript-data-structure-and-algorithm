@@ -8,6 +8,7 @@
 4.  [Implementing An Array](#Implementing-An-Array)
 5.  [Strings and Arrays](#strings-and-arrays)
 6.  [Exercise Reverse A Strings](#exercise-reverse-a-strings)
+7.  [Exercise Merge Sorted Arrays](#exercise-merge-sorted-arrays)
 
 <br/>
 
@@ -1175,16 +1176,16 @@ makes it `O(n)` or linear time.
 
 I wanted to add a quick video (note) to let you know about a common **_interview
 trick_**. We're going to be doing some arrays question after this. But in
-interviews, you should treat any **_string_** question like over below as an
-array question.
+interviews, you should treat any **_string question_** like over below as an
+**_array question_**.
 <br/>
 
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
 <br />
 
 You see, **_strings are simply array of characters_**. Most of the time in an
-interview, when you get a question like _reverse a string_ you should be
-thinking, is convert string into an array, do some sort of loop on it or an
+interview, when you get a question like _reverse a string_ _you should be
+thinking_, is convert string into an array, do some sort of loop on it or an
 operation using something like a `split()` method in JavaScript, and then
 returning it as a string after you've finished the operation with them.
 
@@ -1207,8 +1208,8 @@ complicated to start us off.
 // "ierdnA si eman yM iH"
 
 function reverseString(str) {
-    .....
-    .....
+    // .....
+    // .....
 }
 ```
 
@@ -1257,6 +1258,7 @@ function reverseString(str) {
 // ]
 // ierdnA si eman yM iH
 ```
+>  if (!string || str.length < 2 || typeof str !== "string")
 
 Let's say that if there's no string `!string`, so that is `undefined`; Or
 perhaps that the `string.length` is less then `2` I can write `string.length
@@ -1265,6 +1267,8 @@ case we don't really need to any operations, it's already kind of reverse; We
 also can use _input validation_ such as using the `typeof` keyword in JavaScript
 To check if it's a _string_ type that user input. Otherwise let's do some
 operations.
+
+> const backwards = [];
 
 To reverse the string, well let's think about this, we want to convert it into
 an array, so I create variable `let backward = []` it's keep the string that
@@ -1275,6 +1279,8 @@ to return _the array that is reversed_, but when we want to return a string
 right?. Even thought we're going to convert whatever we receive into an array,
 at the end we want to turn it back into a string. In JavaScript we can do the
 `toString()` method, or the `joint()` method.
+
+> const totalItems = str.length - 1;
 
 In here we want to grab the length of the string that we converted into an
 array, so I make a variable `totalItems`, because I don't want to have repeated
@@ -1406,12 +1412,327 @@ Again, I just want to demonstrate to you that there are many different ways to
 solve a problem; and then interviewer is not going to reject you for a job, just
 because you implemented [Answer 1](#exercise-answer---1) versus [Answer
 3](#exercise-answer---3). **_It depends on how you deliver your solution_**. This
-is something we talk about in our "how to solve problem" section, how you want
+is something we talk about in our _"how to solve problem"_ section, how you want
 to talk through the problem, explain to the interviewer why you did, and as long
-as yo understand the _pros_ and the _cons_ of each solution, that's what makes
+as you understand the _pros_ and the _cons_ of each solution, that's what makes
 a great engineer.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
 
+## Exercise Merge Sorted Arrays
+
+Welcome back, it's time to do another fun or re-interview question. An
+interviewer asks you, given two arrays that are sorted, can you merge these two
+arrays into one big one? That's still sorted.
+
+```javascript
+// Sort this arrays into one single array.
+const array1 = [0, 3, 4, 31];
+const array2 = [4, 6, 30]
+function mergeSortedArrays(arr1, arr2) {
+
+}
+
+// Result;
+// [0, 3, 4, 4, 6, 30, 31];
+```
+
+### Exercise Answer - 1
+
+```javascript
+const array1 = [0, 3, 4, 31];
+const array2 = [4, 6, 30]
+
+function mergeSortedArrays2(arr1, arr2){
+
+    const mergedArray = [];
+    let array1Item = arr1[0];
+    let array2Item = arr2[0];
+    let i = 1;
+    let j = 1;
+
+    // Check Input
+    if(arr1.length === 0) {
+        return arr2;
+    };
+
+    if(arr2.length === 0) {
+        return arr1;
+    };
+
+    while (array1Item || array2Item){
+        if(array2Item === undefined || array1Item < array2Item){
+            mergedArray.push(array1Item);
+            array1Item = arr1[i];
+            i++;
+        }
+        else {
+            mergedArray.push(array2Item);
+            array2Item = arr2[j];
+            j++;
+        }
+    }
+    return mergedArray;
+}
+
+mergeSortedArrays2(array1, array2);
+```
+
+We'll start off by first defining the function name, called `mergeSortedArray`,
+it's going to take two parameter, first array we named this parameter with
+`arr1` and second array we named this parameter with `arr2`
+
+```javascript
+const mergedArray = [];
+//...
+//...
+return mergedArray;
+```
+
+I'm going to first define some variables that we're going to use throughout the
+function. The first one will be `mergedArray` which will be our answer, for now
+it's going to be an empty array. We might as well just make sure that we return
+this `mergedArray` at the end. Hopefully it all works, and we can populate this
+with these two arrays; and we can populate `mergedArray` with these two arrays.
+
+```javascript
+let array1Item = arr1[0];
+let array2Item = arr2[0];
+```
+
+I also want to grab the `arr1` item with create a new variable `array1Item`,
+just for reference and this is going to e our very first array item. So this
+`array1[0]` simply has the `0` item at our first array.
+
+We do the same thing, grab the `arr1` item with create new variable
+`array2Item`, which is going to grab the number `4` from second array.
+
+
+```javascript
+ if(array1.length === 0) {
+     return arr2;
+ };
+
+ if(array2.length === 0) {
+     return arr1;
+ };
+```
+
+The very first thing I like doing in functions is _checking_ for some sort of
+input, making sure everything works. I'm going to spare you the time of me doing
+this because you should have an idea of how to check whether it's an array,
+whether you have two parameters.
+
+But the one input that I think is worth checking is, what if we have something
+like this, where the second array is just an empty array, in our case we can
+just return the first array, because it's already sorted. We're still merging
+the two arrays, but the other array doesn't have anything. That's the same if
+the first array was just empty as well.
+
+So, to avoid any extra work, let's check for those condition, so that right away
+we can give out the answer and make our function more efficient in those cases.
+
+I can just do an `if` statement, I'll say `array1.length` if that equal to `0`,
+so if first array is empty, just simple return the second array `array2`
+
+We can do the same for the other case, if `array2.length` is empty, then we can
+just return the first array `array1`. Nice and simple.
+
+```javascript
+let i = 1;
+let j = 1;
+
+while (array1Item || array2Item){
+    if(array2Item === undefined || array1Item < array2Item){
+        mergedArray.push(array1Item);
+        array1Item = arr1[i];
+        i++;
+    }
+    else {
+        mergedArray.push(array2Item);
+        array2Item = arr2[j];
+        j++;
+    }
+}
+```
+
+For now, let's get into harder topic, which is what happens if both of these
+array are full, like they are now. Well, just to change things up, because I've
+been using the `for-loops` for a while, I'll use the `while-loop` in JavaScript,
+and this simply says loop through the items while a condition is met.
+
+In our case, I'm going to say while there is `array1Item` or there is an
+`array2Item` do something; and remember these variables `array1item` and
+`array2Item` are simply for now the first item in each one of the arrays.
+
+By the way, if you wondering why sometimes I use `const`, sometimes I use `let`.
+Well `const` mean that once I assign this variable `mergedArray` to this `[]`,
+I can't modify it, I can't say `mergedArray = [2]`, it's going to give me
+a warning, because it's constant, I can add things to the array, but I can't
+change this reference to the array. On the other hand `let` allows me to do
+that. So later on I can say `array1Item` equals to something like something new,
+like `array1[1]`. So that's why we're using `let` syntax.
+
+While we have things in the arrays, we want to first do a but of _check_, let's
+say if `array1Item` is less then `array2Item`, that is if `0` is less than `4`,
+we want to add to `mergedArray`; we want to say push, and we'll push the first
+item in the array `.push(array1Item)`; So we're going to push `0`.
+
+Because we've now pushed the `0` item into `mergerArray.push(array1Item)`, we
+don't need to worry  about `0` anymore. So, we can just simply say, `array1Item`
+is now going to equal `array1` at index of `[1]`, right, because now we want to
+move to array item `[0, 3, 4, 31]`, at index `[1]` which is `3`. So that we can
+compare `3` with `4`.
+
+We want increment `array1[1]` every time, because we are doing loop here, let's
+convert this into an index that is `[i]` to become `array1item = array[i]`, and
+incremented by `i++`.
+
+At the top, we can just say for the beginning that `i` is going to equal `1`
+(`let i = 1`). So, that way as we loop through this `[i]`, `[i]` is going to
+increment with `i++` so that we can go to another index of first array `[0, 3,
+4, 31]`.
+
+That's the case when `array1Item` is **_less then_** `array2Item`. Let's do the
+other side. If array two (`[4, 6, 30]`) is **_less then_** array one (`[0, 3, 4,
+31]`), we now merge into the `array2item`. Because if `array1Item` is **_not
+less then_** `array2Item` we don't even have to add other `else` condition.
+
+Cause we know `array1Item` is **_greater then_** `array2Item`, in which case we
+can just add the second array item (`mergedArray.push(array2Item)`) so that is
+we add `[4]` from second array instead;
+
+Again we want to do the exact same thing we did with the first item or the first
+array, that is `array2Item` is going to equal`array2[]`, we need a different
+index for `array2[]`, we can use the same one which is `[i]` right? So we can
+just say `[j]` (`array2[j]`), and `j` we simply do the same thing `let j = 1`.
+
+Once we figured out the _zero_ index items, we can then move on to index of
+_one_, than index of _two_, index of _three_ son and so forth in both arrays
+that we input in.
+
+We get an error,
+
+> FATAL ERROR: invalid array length Allocation failed - JavaScript heap out of memory
+
+```javascript
+if(array1Item < array2Item) {}
+```
+
+In this case we **_missed a critical point_**, that is in this check `if`
+statement; if we do the `while-loop` as long as `array1Item` or `array2Item` are
+populated, and we check here if `array1Item` is less then `array2Item`
+(`array1Item < array2Item`).
+
+The problem here, is that we could have a case where one of these (`array1item,
+array2Item`) arrays; Because we using **_OR_** `||`, it could be we get
+**_undefined_** or we _reached the end of the line_. In order to account for that
+the critical thing to do here, is to always know how your code is running.
+
+So let's do a console logging in `while-loop` inside the `if` statement. Let's
+see what we get throughout the loop. So I'm just going to write the correct
+version and then explain why we did what we did. I'm going to write if
+`!array2Item` _doesn't exist_ or _undefined_ it's going to turn into _true_ so we
+can ran through this code.
+
+```javascript
+// ...
+//...
+while (array1Item || array2Item) {
+    console.log("==>", array1, array2)
+    if(!array2Item || array1Item < array2Item) {            // correct version
+        mergedArray.push(array1Item);
+        array1Item = array1[i];
+        i++;
+    }
+    else {
+        mergedArray.push(array2Item);
+        array2Item = array2[j];
+        j++;
+    }
+}
+mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+
+// Result:
+// ===> Debug: 0 4
+// ===> Debug: 3 4
+// ===> Debug: 4 4
+// ===> Debug: 4 6
+// ===> Debug: 31 6
+// ===> Debug: 31 30
+// ===> Debug: 31 undefined
+```
+
+Notice what we just logging here, we've log `array1Item` and `array2Item`, so
+this is why we're comparing throughout our loop, we get `31` and `undefined`,
+you see here the `array2Item` becomes _undefined_, and in order for us to bypass
+this undefined, So that w can add the `31` in `array1Item` into the final slot
+of the array.
+
+If the first array is just like this `[0, 3, 4]`,
+
+```javascript
+mergeSortedArrays([0, 3, 4], [4, 6, 30]);
+// Result:
+// ===> Debug: 0 4
+// ===> Debug: 3 4
+// ===> Debug: 4 4
+// ===> Debug: 4 6
+// ===> Debug: undefined 6
+// ===> Debug: undefined 30
+```
+
+We get undefined for the first array. However, because we're doing the second
+check `...||array1Item < array2Item`, which is `array1Item` is **_less then_**
+`array2Item`.
+
+In our case if we logging in `undefined < 6`,
+
+```javascript
+console.log("===> Answer:", undefined < 6)
+
+// Result:
+// ===> Answwer: false
+```
+
+Well, I get `false`. So, even though in this time around, `array1Item` is
+undefined because this statement (`array1Item < array2Item`) is **_false_**, we
+go to the `else` statement, and filled the rest of the array with `6` and `30`,
+which come from `array2Item`.
+
+### Exercise Answer Summary
+
+Why I'm explain all this crucial steps, one by one? Cause I wanted to point this
+out to you, because may not be the cleanest solution, right?. I mean looking at
+the answer code, just think about what I had to explain, and draw out for you to
+fully understand how this works. **_I did this for the specific reason_**;
+during the interview, if you have to **_explain things in detail_** like what we
+did, and write things out; well, perhaps there's a better way of writing it.
+Because an _interviewer is going to get confused_ as to `!array2Item ||
+array1Item < array2Item` what means, it doesn't really read like English, does
+it?
+
+Ideally these functions are really really nice to just read. So, perhaps I can
+take this part of this function `!array2Item || array1Item < array2Item` and
+convert it into its own functions and just name this as should
+`pushFirstArrayItem` and in `else` statement should `pushSecondArrayItem`. By
+extracting out these pieces of code into their own little function you can clean
+out these answer and making more readable, and interviewers are going to like
+the solution.
+
+Now, during the interview you may not have time to do so, but you can let the
+interviewer know how you _wrote the solution and you understand_ that, this
+statement (`!array2Item || array1Item < array2Item`) is probably no the most
+readable solution; and this is what you would do to clean it up.
+
+You don't have to actually code it, as long as you tell them, and you understand
+where you would improve things. That in an interviewer's eyes is just as good as
+you actually coding it that way.
+
+Hope you got this far, and I'll see you in next lectures.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>

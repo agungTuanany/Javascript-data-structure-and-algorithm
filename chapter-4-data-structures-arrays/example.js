@@ -139,10 +139,91 @@ function reverseString2(str) {
     return reverseBackward;
 }
 
-const reverseString3 = str => str.split("").reverse().join("");
-
 const string = "Hi My name is Andrei"
-console.log(reverseString3(string))
-
-// const string = "Hi My name is Andrei"
 // reverseString(string);
+
+const reverseString3 = str => str.split("").reverse().join("");
+// console.log(reverseString3(string))
+
+const reverseString4 = str => [...str].reverse().join("");
+
+
+// ----------------------------------------
+// | --- Exercise Merge Sorted Arrays --- |
+// ----------------------------------------
+// given two arrays that are sorted, can you merge these two arrays into one big
+// one? That's still sorted.
+
+const array1 = [0, 3, 4, 31];
+const array2 = [4, 6, 30]
+
+// This is my own answer before I go through lookup the answer
+function mergeSortedArrays2(arr1, arr2) {
+
+    // merge the arrays into new arrays
+    let newArray = []
+    newArray.push(...arr1, ...arr2)
+
+    newArray.sort(function(a, b) {
+        if(a > b) {
+
+            return 1;
+        };
+        if(a < b) {
+            return -1;
+        };
+        return 0;
+    });
+    // console.log(newArray);
+
+    // ES6
+    newArray.sort((a, b) => {
+         a - b
+
+        // console.log("es6 ===>: ",newArray)
+        return
+    });
+
+}
+
+// mergeSortedArrays(array1, array2)
+
+// This is the answer from Andrei
+function mergeSortedArrays(array1, array2){
+
+    // Check Input
+    if(array1.length === 0) {
+        return array2;
+    };
+
+    if(array2.length === 0) {
+        return array1;
+    };
+
+    const mergedArray = [];
+    let array1Item = array1[0];
+    let array2Item = array2[0];
+    let i = 1;
+    let j = 1;
+
+
+    while (array1Item || array2Item) {
+        console.log("===> Debug:", array1Item, array2Item)
+        if(array2Item === undefined || array1Item < array2Item) {
+            mergedArray.push(array1Item);
+            array1Item = array1[i];
+            i++;
+        }
+        else {
+            mergedArray.push(array2Item);
+            array2Item = array2[j];
+            j++;
+        }
+    }
+
+    console.log("===>", mergedArray);
+    return mergedArray;
+
+}
+
+mergeSortedArrays(array1, array2);
