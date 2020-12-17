@@ -3,6 +3,7 @@
 ## Table of Contents
 
 1.  [Hash Tables Introduction](#Hash-Tables-Introduction)
+2.  [Hash Function](#hash-function)
 
 <br/>
 
@@ -69,6 +70,61 @@ computers. But you might be wondering, what is this thing (hash function)? And
 why does he get to decide where to put all this information?
 
 For that I'll see you in the next lectures.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Hash Function
+
+There are some key aspects of hash functions, `[1]` **_is one way_**, in the
+sense that if I give somebody a hashed number they will have no idea what the
+input was, and practically impossible for me to have any clue as to what the
+input.  `[2]` **_No matter how many times your input, there it's going to be the
+same_**; but as soon as you change one thing is going completely change the output,
+this is what we call **_in-dept content_** or  **_idempotent_**. In fancy way of
+saying, it's a function _given an input always output the same output_.
+
+The one benefit and why we would want to use hash function in a data structure
+is that we get **_really fast data access_**, because all we have to do to find
+_grapes_ or `basket.grapes` is to pass grapes into something like _[MD5
+Hash](http://www.miraclesalad.com/webtools/md5.php)_, it's generates a random
+number for me, and I immediately know where it is in my memory on my computer.
+
+Technically a has functions that we use for hash table is going to be take
+_grapes_ generate some sort of gibberish number and then converted to an
+**_index space_** or and **_address space_** that it has based on the hashed
+number.
+
+Unlike arrays where we just had _ordered indexes_, with has tables all we need
+to do is give it a **key** and we know exactly where that item is in our memory.
+But you might be wondering, this hash function doesn't just slow things down?
+Because every time we want to add a _property_ and a _value_ `grapes = 10000` to
+a _hash table_ we have to run it through the has function, so we can decide
+where to put it in memory. If you noticed that, good job that is a big factor
+you don't want to hashing function take a very long time, because every time you
+add a property to memory or retrieve a property to memory, we add both times,
+were sending the _key_ grapes into hash function, to find where to get it from.
+
+Underneath the hood, remember because **hash tables** exist in all language,
+they're implemented with an optimum hashing function, that's really really fast,
+as a side note hash function like **Sha-256** take a really long time to
+generate a hashed number, and it is an overlay complex hashing function that is
+used a lot in places like cryptography where you want the hashed number to take
+longer, but that is outside the scope of this course.
+
+### Summary hash function
+
+To review, we have a key that is _grapes_, we send it through a hash function
+that is going to hash something really really fast, and then map whatever the
+hash came out to be into a memory address where we want to store our data,
+`basket.grapes = 10000`. When it comes to hashing functions you typically leave
+this to whatever framework or languages you're using, and we usually assume
+a time complexity or Big-O `n(1)` because this happens really fast.
+
+Now that we understand what hash function does, let's us talk little but more
+about hash tables, why they're useful, and why in some cases are better than
+arrays?.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
