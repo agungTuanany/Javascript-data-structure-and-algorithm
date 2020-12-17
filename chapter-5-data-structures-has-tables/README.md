@@ -4,6 +4,7 @@
 
 1.  [Hash Tables Introduction](#Hash-Tables-Introduction)
 2.  [Hash Function](#hash-function)
+3.  [Hash Collision](#hash-collision)
 
 <br/>
 
@@ -129,3 +130,171 @@ arrays?.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Hash Collision
+<br/>
+
+![chapter-5-1.png](./images/chapter-5-1.png "Hash Collision")
+<br/>
+
+Looking at hash functions you can start to think about what actions they perform
+and how fast it can be done? When it comes to `[1]` **_inserting_** something in
+our memory space, well it's going to be `O(1)`. We hash the _key_ such as grapes
+through the hash function, and places it automatically into the address spaces
+that it comes up with. `[2]` **_lookup_**, is the exact same `O(1)`, we access
+the property, that property is going to get hashed, and direct us exactly to the
+address to find the values. `[3]` With **_delete_**, it's same thing `O(1)`, we
+simply use the key right away we know where to delete the item from, and because
+it isn't ordered, we don't have to shift indexes like we did with arrays,
+everything is just nice and simple. `[4]` with **_searching_**, it's give us
+Big-O `O(``)`, if we want to find something in our basket like _apples_ that
+easy to, we use hash function.
+
+```javascript
+let user = {
+    age: 54,
+    name: "kylie",
+    magic: true,
+    scream: function () {
+        console.log("")
+    }
+}
+
+user.age                        // O(1)
+// result: 54
+
+user.spell = "abra kadabra";    // O(1)
+user.spell                      // O(1)
+// result:
+// "abra kadabra"
+
+user                            // O(1)
+//result:
+// {
+//   age: 54,
+//   name: 'Kylie',
+//   magic: true,
+//   scream: [Function: scream],
+//   spell: 'abra  kadabra'
+// }
+
+user.scream()                   // O(1)
+// result:
+// aahh!
+
+```
+
+If we go to our playground, in JavaScript I can create an object `let user
+= {}`, and this _user_ will have property of age, `age: 54`, let say we have the
+property of name `name: "kylie"`,let say Kylie does a magic skills so we set
+property of magic `magic: true`, and for fun let's say that we have a function
+`scream` that just console logging the scream `"ahhh!"` as a string.
+
+When I run this object, I've created a _user_ object, and all this object
+property are all going to get placed somewhere in memory with different
+addresses. I can access this user really really fast, by saying `user.age` which
+is going to give me `54` at `O(1)`.
+
+Perhaps adding a new property, I can just simply say `user.spell = abra
+kadabra`, if we check this user, now user have the properties of `spell` with
+value `abra kadabra`, this is access of all `O(1)`, because take it through the
+hash functions and the computer decided where to put both `speel` and `"abra
+kadabra"` in memory.
+
+If I firearm `user.scream()`; same thing, I get to access this function in
+memory really really fast at `O(1)`, how amazing is that? I know what you're
+thinking, hash table are amazing, we should be using them all the time, and
+you're right, we should be using them in a lot of cases, but as we know there's
+always _pros_ and _cons_.
+
+Let me talk to you one of the **main problem with hash tables**,  I link to
+[hash table
+animation](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html), so you
+can play around with it later.
+<br/>
+
+![chapter-5-2.gif](./images/gif/chapter-5-2.gif "Hash tables animation")
+<br />
+
+I have a little animation here, where we have _12 memory spaces_. Remember, our
+computer has limited space, and when we create an object or hash table, the
+computer decides how much space to allocate, it's not going to allocate all the
+space to the hash table, it's going to bit allocate a bit of it. I'll show you
+later on when we implement our own hash table, how we can adjust the size.
+
+Seeing that there is only _12 spaces_ you can imagine, if I insert `1`, I'm
+going to insert the number `3`, let's do insert number `55`, what happen there?
+Do you see that, the hash function randomly assigned a space in memory and put
+it in space `[3]`; remember, there's nothing telling the hash function to evenly
+distribute until everything is full. Although hash function are optimized to try
+to distribute this data all over, it also matter what we put into it.
+
+When `55` get hashes, well this hash function generates the address location of
+space `[3]` to put in it, and because we already have hashed number `3` there,
+it does something funny here. Let's keep adding here and see what happens, I'll
+`2`, I add `12`, and add `14`. It did the same thing again.
+
+What we just noticed here, it's something called **_Collision_**.
+<br/>
+
+![chapter-5-2.png](./images/chapter-5-2.png "Hash Collision")
+<br/>
+
+The **_Collision_** looks something like above. We have the **_keys_**, let's
+say we inserting the **_name_**, the **_phone number_**  of a user; and we
+initially place _John Smith_, this key for _John Smith_ gets hashed, gets placed
+in the address space of `152` and get stored. Remember how I said, it actually
+stores both _keys_ and _values_. It stores in something called **_bucket's_**
+_John Smith_ with the value, that is phone number. We keep going with _Lisa
+Smith_, then _Sam Doe_, than _Sandra_. As soon we has _Sandra Dee_ it becomes
+the same address space as _John Smith_ and we have a collision.
+
+Because of this collision, we need a way to store both users somehow in this
+address space `152`, and something funky is going on here, this _little black
+circle_ and then a point and _Sandra Dee_.
+
+Just a **hint here**, The `152` is actually a new data structure, that we're
+going to learn about called **_Linked List_** coming up soon.
+
+You see, with hash tables we can't avoid these collisions, with enough data with
+limited memory we always going to have this collision.
+
+So, there is a possibility if we go back to our example. I start a new hashes
+visualization,
+<br/>
+
+![chapter-5-3.gif](./images/gif/chapter-5-3.gif "Hash Collision")
+<br />
+
+If we constantly just keep adding to the same memory space, which slows down our
+ability to access or insert information, because now if I want to check what's
+in this address space `[1]`, I have to go 5 deep. Theoretically when you have
+a collision it slows down reading and writing a hash table with `O(n/k)`, where
+`k` is the size of your hash table, and remember because we remove constant, and
+simplify things it, becomes `O(n)`.
+
+Collision will likely happen in any hash table implementation. Luckily for you,
+you're never going to have really implemented yourself, and it's not very common
+interview question, but you do want to know about it, so you can talk about it.
+
+
+### Dealing with Hash Table Collision
+
+There's two common ways to deal with these collision, I showed you one of them
+with something called `[1]` Linked List, which we'll talk about it later on. If
+we go to [hash table Wikipedia page](https://en.wikipedia.org/Hash_table) and
+look at _Collision Resolution_, you can see that there's a ton of different ways
+to solve collisions. The way that I showed you is called _Separate Chaining_,
+but there's different methods like _Open Addressing_, and _Robinhood Hashing_
+that you can read about it, if you're really interested in the topic.
+
+The point I want to make is that there is a bit of a downside when we talk about
+fast `Lookup O(1)` in hash tables, occasionally depending on the hash function
+it might change on to `Lookup O(n)`.
+
+Let's keep going, expand our knowledge of hash tables at next chapter.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
