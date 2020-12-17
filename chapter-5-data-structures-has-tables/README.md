@@ -5,6 +5,7 @@
 1.  [Hash Tables Introduction](#Hash-Tables-Introduction)
 2.  [Hash Function](#hash-function)
 3.  [Hash Collision](#hash-collision)
+4.  [Hash Tables in Different Languages](#hash-tables-in-different-languages)
 
 <br/>
 
@@ -116,9 +117,9 @@ longer, but that is outside the scope of this course.
 
 ### Summary hash function
 
-To review, we have a key that is _grapes_, we send it through a hash function
-that is going to hash something really really fast, and then map whatever the
-hash came out to be into a memory address where we want to store our data,
+To review, we have a **key** that is _grapes_, we send it through a hash function
+that is going to hash something really really fast, and then **_map whatever the
+hash came out to be into a memory address_** where we want to store our data,
 `basket.grapes = 10000`. When it comes to hashing functions you typically leave
 this to whatever framework or languages you're using, and we usually assume
 a time complexity or Big-O `n(1)` because this happens really fast.
@@ -132,6 +133,8 @@ arrays?.
 <br/>
 
 ## Hash Collision
+
+### Hash Tables
 <br/>
 
 ![chapter-5-1.png](./images/chapter-5-1.png "Hash Collision")
@@ -147,7 +150,7 @@ address to find the values. `[3]` With **_delete_**, it's same thing `O(1)`, we
 simply use the key right away we know where to delete the item from, and because
 it isn't ordered, we don't have to shift indexes like we did with arrays,
 everything is just nice and simple. `[4]` with **_searching_**, it's give us
-Big-O `O(``)`, if we want to find something in our basket like _apples_ that
+Big-O `O(`1`)`, if we want to find something in our basket like _apples_ that
 easy to, we use hash function.
 
 ```javascript
@@ -235,6 +238,8 @@ it does something funny here. Let's keep adding here and see what happens, I'll
 `2`, I add `12`, and add `14`. It did the same thing again.
 
 What we just noticed here, it's something called **_Collision_**.
+
+### Hash collision user
 <br/>
 
 ![chapter-5-2.png](./images/chapter-5-2.png "Hash Collision")
@@ -242,22 +247,21 @@ What we just noticed here, it's something called **_Collision_**.
 
 The **_Collision_** looks something like above. We have the **_keys_**, let's
 say we inserting the **_name_**, the **_phone number_**  of a user; and we
-initially place _John Smith_, this key for _John Smith_ gets hashed, gets placed
+initially place `John Smith`, this key for `John Smith` gets hashed, gets placed
 in the address space of `152` and get stored. Remember how I said, it actually
 stores both _keys_ and _values_. It stores in something called **_bucket's_**
-_John Smith_ with the value, that is phone number. We keep going with _Lisa
-Smith_, then _Sam Doe_, than _Sandra_. As soon we has _Sandra Dee_ it becomes
-the same address space as _John Smith_ and we have a collision.
+`John Smith` with the value, that is phone number. We keep going with `Lisa
+Smith`, then `Sam Doe`, than `Sandra Doe`. As soon we has `Sandra Dee` it becomes
+the same address space as `John Smith` and we have a collision.
 
 Because of this collision, we need a way to store both users somehow in this
 address space `152`, and something funky is going on here, this _little black
 circle_ and then a point and _Sandra Dee_.
 
-Just a **hint here**, The `152` is actually a new data structure, that we're
-going to learn about called **_Linked List_** coming up soon.
-
-You see, with hash tables we can't avoid these collisions, with enough data with
-limited memory we always going to have this collision.
+Just a **hint here**, The key space of `152` is actually a _new data structure_,
+that we're going to learn about called **_Linked List_** coming up soon.  You
+see, with hash tables **we can't avoid these collisions, with enough data with
+limited memory we always going to have this collision**.
 
 So, there is a possibility if we go back to our example. I start a new hashes
 visualization,
@@ -298,3 +302,71 @@ Let's keep going, expand our knowledge of hash tables at next chapter.
 <br/>
 <br/>
 
+## Hash Tables in Different Languages
+
+Hash tables are implemented differently in different languages, but most of the
+time, the **_key_** and the **_value_** can be any type of data structure.
+
+```javascript
+scream : function() {
+    console.log("aahh!")
+}
+```
+
+We saw above that we can have a **_function_** as a value, we can ha another
+object  as a value.
+
+```javascript
+sceam: new Array(15),
+```
+
+We can have an array as a value if we want, you can do this in arrays as well.
+We don't just have numbers and strings in arrays. We can have arrays of objects.
+You can also sometimes have _keys_ that more than just string. You can
+potentially have functions as keys, and a value that is also a function or
+perhaps a number or an array whatever you want.
+
+### Map() and Sets()
+
+In JavaScript in an object like `user` we have, if we pass a key that is
+a number or a function it actually gets a `stringify` and it only allows string
+keys, but with the new version of JavaScript and ES6 you actually have something
+called `Map()` and `Sets()` which also familiar with in other languages.
+
+```javascript
+const a = new Map()
+```
+
+A `Map()` is created like above; and the difference between a `Map()` and an
+Objects, is the fact that a `Map()` allows you to save any data type as the key.
+Remember with an object you can only save the key as _string_, with `Map()` it
+allows us, if we want to even have functions as keys or arrays as keys.
+
+Another benefit of `Map()` is that it **_maintains insertion order_**. What does
+that means? Well, within object, there is no order. If we go back to our
+[diagram](#hash-tables), our data is inserted randomly in different places. If
+we go back to our [user example](#hash-collision-user) we see that there is
+definitely **no order**, when we grab all the values of an object. We start with
+`Lisa Smith` which was entered second, then `John Smith` then perhaps `Sandra
+Dee`, `Sam Doe` gets selected last. There is no order like there was with
+arrays.
+
+There are some version of hash tables like `Map()` in JavaScript that maintain
+the order of _insertion_, so that when we loop through items in an object we
+have this maintained order.
+
+```JavaScript
+const b = new Sets()
+```
+
+`Sets()` is another feature, very similar to `Map()`, the only difference is
+that **_it only stores the keys no values_**. So, you see here, each language as
+we mentioned comes with own pre-built versions of data structure. But at the end
+of the day, all of them are hash tables.
+
+In order to truly understand how hash tables work, I think we should build one
+in the next section we are just going to do just that.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
