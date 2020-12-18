@@ -614,6 +614,8 @@ const myHashTable = new HashTable(2);
 myHashTable.set("grapes", 10000)
 ```
 
+#### Chunked the code
+
 Using our hash function, let's do our very first method. Let's create the
 `set()`. This method is going to receive a `key` and a `value`. The first thing
 we want to do is create a variable called `let address` which represent where we
@@ -687,7 +689,7 @@ So in order to solve that, we simply say, because we're checking here (`if
 (!this.data[address])`) if there is nothing in that `address` space do
 `this.data[address].push()`. Otherwise simply add on to that array.
 
-```
+```javascript
 set(key, value) {
 
     // Store the key
@@ -748,6 +750,28 @@ Very cool, that's not too bad.
 
 #### Create get() method
 
+```javascript
+get(key) {
+    const address = this._hash(key);
+    const currentBucket = this.data[address];
+
+    // Check if currentBucket not empty
+    if (currentBucket) {
+        for (let i = 0; i < currentBucket.length; i++) {
+            if (currentBucket[i][0] === key) {
+                // console.log("c-3 shelf's: %d ,key: %s, value: %d", address, currentBucket[i][0], currentBucket[i][1])
+
+                return currentBucket[i][1]
+            };
+        };
+    };
+
+    return undefined;
+}; // O(1) if there's collision it become O(n)
+```
+
+#### Chunked the code
+
 Well, I want to be able to grab _grapes_ and _apples_. We can use the `get()`
 method here, which will receive a _key_; and this method is going to do the
 exact same thing, in that we running it through that black box (buckets) where
@@ -781,9 +805,10 @@ all we need to do is to say,
 
 ```javascript
 if (currentBucket.length) {
-
+    // ...
+    // ...
 }
-return undefined
+return undefined;
 ```
 
 If `currentBucket.length` has something in it, in that case we are going to do
@@ -798,7 +823,7 @@ remember initially it's just going to be an empty array with undefined.
 ```javascript
 constructor(size) {
     this.data = new Array(size);
-}
+};
 ```
 
 And we add an array to each slot or shelf's, whenever we set something, and it's
@@ -813,7 +838,7 @@ set(key, value) {
     if (!this.data[address]) {
         this.data[address] = [];
     };
-}
+};
 ```
 
 So, we can just leave it like this,
@@ -856,7 +881,7 @@ matches with the shelf's item, in that case just return the
 Hopefully you follow here, because if I run `myHashTable.get("grapes")` I get
 `10000`; If I run `myHashTable.get("apples")` I get `56`.
 
-### Example Summary
+### set() and get() Summary
 
 By looking a this code, I hope you understand on a deeper level, the time
 complexity implication of hash tables. Even though we're doing a loop within the
@@ -879,6 +904,143 @@ But there is one other method I want us to build, and to showcase to you, one
 other downside of hash tables. What if we wanted to go through all the key of
 the hash table? How would we do that? We going to try implement that in the next
 chapter.
+
+### Create keys() method
+
+Final result `keys()` method.
+
+```javascript
+keys() {
+    const keysArray = [];
+    console.log(this.data.length);                  // [1]
+    for (let i = 0; i < this.data.length; i++) {
+        if(this.data[i]) {
+            console.log(this.data[i])               // [2]
+            keysArray.push(this.data[i][0][0])
+        };
+    };
+
+    console.log(keysArray)                          // [3]
+    return keysArray;
+};
+
+const myHashTable = new HashTable(5);
+myHashTable.set("grapes", 10000)
+myHashTable.set("apples", 56)
+myHashTable.set("oranges", 2)
+
+myHashTable.keys("apples");
+
+// result: [1]
+// 50
+
+// result: [2]
+// [ [ 'grapes', 10000  ]  ]
+// [ [ 'apples', 56  ]  ]
+// [ [ 'oranges', 2  ]  ]
+
+// result: [3]
+// [ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2  ]  ]
+```
+
+#### Chunked the code
+
+Let's implement one last feature in our hash table. I want to create something
+call `keys()`. `keys()` allows us to iterate or loop through all the keys of
+our hash table, in this case _grapes_ and _apples_.We add some new items to our
+hash table just for fun. We add _oranges_, to see what going on.
+
+Now, if we run `keys()` ideally it's going to iterate and spit out _grapes_,
+_apples_ and _oranges_ for us to see what we need to go shopping for. How would
+we go about building this?
+
+
+Well, because we're going to do some sort of looping, I'm going to start up by
+creating a constant `keyArray` and it's going to be an empty array (`const
+keyArray = []`).
+
+With in here, we are going to loop, so for `let i =0; i < this.data.length;
+i++`. Inside this `for-loop` we want to loop through all `50` items spaces, all
+shelf's one by one, we're going to loop through them, yep that's a lot of
+iteration;
+
+If in the shelf's there is some sort of data `if (this.data[i])`, if it's not
+undefined completely empty, and there is something valuable for us that we want
+to look. Because remember, we allocate `50` spaces on the shelf's but we've only
+placed `3` items or `3` **data points**.
+
+If there is something in that memory space, in that case we can just say
+`keysArray.push(this.data[i][0])` we grab the index. So the first array that we're
+at is `["apples", 56]` if I do `[i][0]` here, and we return after all the loop
+`return keysArray`. If I run this, I get
+
+```javascript
+keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+        if(this.data[i]) {
+            console.log(this.data[i])                   // [2]
+            keysArray.push(this.data[i][0])
+        };
+    };
+
+    console.log(keysArray);                             // [3]
+    return keysArray;
+};
+```
+I get `[ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2 ] ]`; But
+I just wanted `[ 'grapes', 'apples', 'oranges' ]`. To see what's going on here,
+let's logging `this.data[i]`; Which is what we're doing while we pushing.
+
+```javascript
+// result: [2]
+ [ [ 'grapes', 10000  ]  ]
+ [ [ 'apples', 56  ]  ]
+ [ [ 'oranges', 2  ]  ]
+```
+
+We see that we get **array within the array**.  Because remember, we have one
+massive array in each time we create a new shelf's space, we have to have a new
+array (`this.data[address] = []`) that we create and we push into that. So
+a little bit of a gotcha here. We have to say to remove the odd  array with
+first `[0]`, and another `[0]` to grab the first index of the array. Just like
+that. So we get back a result, only _grapes_ _apples_ and _oranges_ without odd
+array.
+
+```javascript
+[ 'grapes', 'apples', 'oranges' ]
+```
+
+### Exercise Summary
+
+Well, done we just implemented a hash table; And you may have noticed something
+a downside of hash tables. We have to loop (`keys()`) here, right? We had
+a `for-loop`, looping through the entire memory space in order to fund our
+keys. That was so much easier with the arrays, with the array we would have had
+three items and we would ave looped over three times instead in `keys()` we
+looped over `50` times, imagine if we have `500` shelf's, that's even more.
+
+We're starting to learn how things work underneath the hood, so that now we
+have an idea of, "maybe, if we're using this type of method `(keys())` of
+objects might not be the best idea.".
+
+Let's drawback of object or hash tables; in JavaScript we can use something
+like `for in loop` to loop over items in an object, which is very very slow. As
+you might realize, there's no guaranteed order, every time we're just adding
+sometimes to our `address`, but when we grab items from the `address` we just
+go from `0` to `50` shelf's, even though the items just randomly put in
+different shelf's.
+
+But I hope now you actually get to see how it works. We're putting items
+randomly in a shelf's but when we retrieve them, they are all unordered.o
+
+That's why coding things out, even though you most likely won't get this asked
+in an interview, knowing how things work, allow you to talk about them
+intelligently, and I hope this exercise has done that for you.
+
+I leave this for you, to play around with, and perhaps add different methods
+like `value()` that grabs the value instead of the keys. For now let's finalize
+our talk of hash tables by comparing them to arrays.
 
 
 **[⬆ back to top](#table-of-contents)**
