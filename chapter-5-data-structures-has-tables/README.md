@@ -7,6 +7,7 @@
 3.  [Hash Collision](#hash-collision)
 4.  [Hash Tables in Different Languages](#hash-tables-in-different-languages)
 5.  [Exercise Implement a Hash Table](#exercise-implement-a-hash-table)
+6.  [Hash Tables VS Arrays](#hash-tables-vs-arrays)
 
 <br/>
 
@@ -1042,7 +1043,46 @@ I leave this for you, to play around with, and perhaps add different methods
 like `value()` that grabs the value instead of the keys. For now let's finalize
 our talk of hash tables by comparing them to arrays.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+
+## Hash Tables VS Arrays
+<br/>
+
+![chapter-5-3.png](./images/chapter-5-3.png "Hash tables vs Arrays")
+<br/>
+
+Why hash tables? Hash tables are great when you want quick access to certain
+values. Remember that searching (`search O(n)`) through an **array** for `n` item
+takes a really long times with `keys()` or `get()` method, we have to loop
+through every item, and see if a certain string or a certain number is in array.
+
+With hash tables that's really really fast. This is why you see hash tables in
+place like databases right? We want search for something in databases, and it
+gives back to us right away. Similarly inserting items (`insert O(1)`) in hash
+tables unlike an array (`insert O(n)`) that might shift indexes is typically
+`O(1)`. You just simply have to hash and create the key. Although that we have
+those cases of **collision**, most of the time that's something that we don't
+need to worry about to much and we can assume an _insert_ of `O(1)`.
+
+Then there's other aspects that are quite similar, between the two, arrays let
+you quickly look up the value for a given key. Keys are called **_indexes_** in
+an **array**; and we don't get to pick them, it's always `0, 1, 2, 3`. I hash
+tables we can pick them; So, hash tables is kind of like a hack on top of an
+array to let us use flexible keys instead of being stuck with `0, 1, 2, 3`.
+
+A problem of hash tables that we discussed, was the idea of **_no concept of
+order_**. In array each item was placed next to each other on a shelf's in
+memory. Hash tables are kind of placed all over the places.
+
+Now, we have an idea of the differences between the two, I think it's time for
+us to actually work on some exercises and interview questions, that we'll use
+hash tables in their answers. I'll see you on that one.
+
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
