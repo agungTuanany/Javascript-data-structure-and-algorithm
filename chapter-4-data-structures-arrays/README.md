@@ -442,7 +442,7 @@ Let's look at what's actually going on; And this is the first topic we're
 talking about which is _reference type_, let's look at diagram,
 <br/>
 
-![chapter-4-1.gif](./images/gif/chapter-4-1.gif "Reference type")
+![chapter-4-1.gif](./images/gif/chapter-4-1.gif "References type")
 <br />
 
 Objects are what's called the _referenced type_ in JavaScript, up until this

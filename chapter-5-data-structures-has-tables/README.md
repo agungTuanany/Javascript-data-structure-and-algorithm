@@ -6,6 +6,7 @@
 2.  [Hash Function](#hash-function)
 3.  [Hash Collision](#hash-collision)
 4.  [Hash Tables in Different Languages](#hash-tables-in-different-languages)
+5.  [Exercise Implement a Hash Table](#exercise-implement-a-hash-table)
 
 <br/>
 
@@ -184,7 +185,6 @@ user                            // O(1)
 user.scream()                   // O(1)
 // result:
 // aahh!
-
 ```
 
 If we go to our playground, in JavaScript I can create an object `let user
@@ -355,8 +355,8 @@ There are some version of hash tables like `Map()` in JavaScript that maintain
 the order of _insertion_, so that when we loop through items in an object we
 have this maintained order.
 
-```JavaScript
-const b = new Sets()
+```javascript
+const b = new sets()
 ```
 
 `Sets()` is another feature, very similar to `Map()`, the only difference is
@@ -366,6 +366,520 @@ of the day, all of them are hash tables.
 
 In order to truly understand how hash tables work, I think we should build one
 in the next section we are just going to do just that.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Exercise Implement a Hash Table
+
+It's time for us to implement our own hash table, but let's do a bit of an
+exercise, and this maybe difficult, so don't get upset if you're not able to
+finish it. As extra challenge, I have created a template for you,
+
+```javascript
+class hashtable {
+    constructor(size) {
+        this.data = new array(size);
+    };
+
+    _hash(key) {
+        let has = 0;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+        };
+
+        return hash;
+    };
+};
+
+const myHashTable = new HashTable(50);
+
+myHashTable.set("grapes", 10000);
+
+myHashTable.get("grapes")
+```
+A new `HashTable` that we're going to create. Yes I know JavaScript already has
+objects and we can just simply create one like we've seen before. This
+`HashTable` has a constructor that will receive a `size`. So when we create this
+hash we're going to **give it a memory space size** of `50`, let's say we only
+want `50` shelf's of memory. We're going to create `this,data` where our data
+are will live and within it, it's going to create a new array, and this array is
+going to hold our information for us.
+
+In example, we would have something like `[[grapes, 10000]]`, as our bucket. So
+the first item in the array will be an array that is `[grapes, 10000]`. Remember
+if we looked at the [diagram](#hash-collision-user) we have these **_buckets_**
+that our data lives in, and because right now we're implementing our own
+`HashTable` we're using arrays instead of objects.
+
+The idea is that using a new method that **you'll have to create** which will be
+called `.set()`. You are going to be able to set _grapes_ as the first index of
+the array, and the number of _grapes_ (`10000`) as the second index in  the
+array.
+
+From there, we can have another method `get()` which retrieves the _grapes_ and
+return `10000`.
+
+Now you're probably wondering what is `_hash()` method do?  I wrote this ahead
+of time for you, because it's not really important as part of the course. But
+remember we need a hash function in order to create a hash table, and I've
+created here the smallest tiniest hash function you can think of.
+
+We're going to talk about what `_hash()` method actually does in the solution.
+For now all you have to know is, that it's going to just generate a hash for us.
+
+```javascript
+myHashTable._hash("abrakadabra");           // result: 39
+myHashTable._hash("grapes");                // result: 23
+```
+
+So, your challenge here, is to create these two new method `set()` and `get()`
+that adds to `this.data` and retrieves from `this.data`. If you're not super
+familiar with JavaScript, this may be hard but give it try.
+
+
+### Exercise Answer
+
+```javascript
+// Task:
+// Create set() and get() methods to store key value pair, and retrieve a value with hashing.
+// Solve the collision on hash tables
+
+class HashTable {
+    constructor(size) {
+        this.data = new Array(size);
+    };
+
+    _hash(key) {
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+        };
+
+        return hash;
+    };
+
+    set(key, value) {
+
+        // Store the key
+        let address = this._hash(key);
+
+        if (!this.data[address]) {
+            this.data[address] = [];
+        };
+
+        this.data[address].push([key, value]);
+        console.log("====> --", this.data[address])
+
+        return this.data;
+    };
+
+    get(key) {
+        const address = this._hash(key);
+        const currentBucket = this.data[address];
+
+        // Check if currentBucket not empty
+        if (currentBucket) {
+            for (let i = 0; i < currentBucket.length; i++) {
+
+                if (currentBucket[i][0] === key) {
+                    console.log("c-3 shelf's: %d ,key: %s, value: %d", address, currentBucket[i][0], currentBucket[i][1])
+
+                    return currentBucket[i][1]
+                };
+            };
+        };
+
+        return undefined;
+
+    };
+
+};
+
+const myHashTable = new HashTable(50);
+
+myHashTable.set("grapes", 10000)
+myHashTable.get("grapes")
+
+console.log("==============")
+console.log("")
+
+myHashTable.set("orange", 2500)
+myHashTable.get("orange")
+
+console.log("==============")
+console.log("")
+
+myHashTable.get("papaya")
+```
+
+OK, let's chunks the code.
+
+### Private method
+
+Before we get started I do want to mention something that you may be wondering
+about underscore (`_`) over `_hash()` method, what does that mean? In most other
+language like Java, when you create a class, you can have **_private
+properties_**, that is properties I can't access outside of this class.
+
+So, I wouldn't be able to do `myHashTable._hash()` and access the `_hash()`
+property or method. Now, with JavaScript and ES6 that's not really possible;
+There;s a _common standard_ which is to put underscore (`_`) in a properties or
+methods, and in JavaScript world which says, this `_hash()` is a private
+property.
+
+This underscore in `_hash()` just meaningless really, I can still access the
+`_hash()` method, but it is a developer standard or convention in programming
+world, and in the JavaScript community to let other developers know that, "Hey,
+you shouldn't be accessing this", even though you technically you can. There are
+ways to make it works, and half private properties but it requires things like
+closure symbols or
+[WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+which again is beyond the scope of this course, and we don't need to worry
+about. That's where the underscore is coming from.
+
+Let's talk a little bit about what `_hash()` function does. If I enter
+
+```javascript
+_hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+        hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+
+        console.log("===>", hash)
+    };
+
+    return hash;
+};
+
+_hash("grapes")
+
+// result:
+// ===> 0
+// ===> 14
+// ===> 8
+// ===> 44
+// ===> 48
+// ===> 23
+```
+
+
+First, create a new variable that is `let hash = 0` and then this `key` as
+parameter are we're going to grab the length of grapes so that is `6` characters
+of length. We are to going add `0` which comes from the `hash+key.charCodeAt()`,
+[charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
+simply gives us an integer between `0` and this `6535` representing the UTF-16
+code, so that's just encoding. It's pretty much saying, give me characters code
+because remember in memory a string or letter represented as a number.
+`charCodeAt()` method allows us to say at index whatever we put in parameter, so
+let's say we looking at `charCodeAt(i)` at index `[i]` the very first on will be
+a letter `g`. We're going to get the character code for `g` that is a number we
+multiply that by the index `i`, again just to make sure makes a unique and then
+we use what's called the [modulo
+operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
+`%` to make sure that `this.data.length` stays within the length of `50` the
+size of our data; and then we return the `hash`.
+
+An easy way to see what's happening here, is to simply console logging `hash`,
+if I run this we see that it's going to loop through our _grapes_ character by
+character. It's going to generate some sort of hash, and because this hash
+constantly looped over we include whatever the generated, let's see the first one
+is `0`, and the next iterations is going to equal `14`, generate something else
+which `8`, and keeps going until we get `23`. You can take your time and go
+through this code if you really want to.
+
+### Create set() method
+
+Final result `set()` method.
+
+```JavaScript
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+    };
+
+    this.data[address].push([key, value]);
+    console.log("====> --", this.data[address])
+
+    return this.data;
+};
+
+const myHashTable = new HashTable(2);
+
+myHashTable.set("grapes", 10000)
+```
+
+Using our hash function, let's do our very first method. Let's create the
+`set()`. This method is going to receive a `key` and a `value`. The first thing
+we want to do is create a variable called `let address` which represent where we
+want to store information, and we'll say `this._hash(key)`. All we're saying is,
+store this data `"grapes", 10000` that we're going to insert the _key_ _value_
+in this `address` space, that is created by our `_hash()` function, and we give
+it the key of _grapes_. Remember our little animation, we're sending the
+_grapes_ to into that magic little box hat has the hash function.
+
+```javascript
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+        this.data[address].push([key, value]);
+
+        console.log(this.data)          // result: [ <23 empty items>, [ [ 'grapes', 10000  ]  ], <26 empty items> ]
+
+    };
+};
+
+const myHashTable = new HashTable(2);
+
+myHashTable.set("grapes", 10000)        // result: undefined.
+```
+
+From there, we simply say if `this.data[address]`, if it doesn't exist, and
+there's noting there, because _remember in a hash table we can have collision_,
+and because we only have `50` spaces or shelf's, we **might have these collision
+with enough data**. So we're going to check if there is nothing in
+`this.data[address]` in that case I'll just simply add that data; we're going to
+say `this.data` is going to be an array (`this.data = []`); And in this new
+address space we're going to simply to add by doing `push([key, value])`.
+
+Let's run this code and see what happens, I get `undefined`. If I just
+`console.log(this.data)` I get `[ <23 empty items>, [ [ 'grapes', 10000  ]  ],
+<26 empty items> ]`. We have `23` empty items; on the `24` item we have an array
+with value `grapes, 10000`; and then `26` empty items after that. Remember we
+have `50` shelf's in our memory, and we have `23` plus `1` is not an empty array
+plus `26` that's `50`.
+
+But, what happen if `this.data[address]` is already exists? If I change the
+`HashTable()` let's say `2` memory space.
+
+```javascript
+myHashTable = new HashTable(2);
+
+myHashTable.set("grapes", 10000)
+//result:
+// [ <1 empty items>, [ [ 'grapes', 10000  ]  ] ]
+```
+
+If I change this around, Check out what happens to my hash table.
+
+```javascript
+myHashTable = new HashTable(2);
+
+myHashTable.set("grapes2", 10000)
+//result:
+// [ <1 empty items>, [ [ 'grapes2', 10000  ]  ] ]
+```
+
+Great, it just **deleted my previous entry**. We **have collision**, but we're
+not doing anything about it; And we've just deleted our data. That could been
+really important to user data, we definitely don't want that.
+
+So in order to solve that, we simply say, because we're checking here (`if
+(!this.data[address])`) if there is nothing in that `address` space do
+`this.data[address].push()`. Otherwise simply add on to that array.
+
+```
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+        this.data[address].push([key, value]);
+
+        console.log(this.data)          // result: [ <1 empty items>, [ [ 'grapes', 10000  ] ] ]
+
+    }
+    else {
+        this.data[address].push([key, value]);
+    };
+};
+
+const myHashTable = new HashTable(2);
+
+myHashTable.set("grapes", 10000)        // result: [ <1 empty items>, [ [ 'grapes', 10000  ] ] ]
+```
+
+Run the same command in `else` block, but we can make more nicer and cleaner way
+of doing this. Is to actually just take out the `else` block, because regardless
+we're always going to be pushing `push()` (adding)  _key_ and _value_ that we
+set add to the data.
+
+All we do just remove the `this.data[address].push([key, value])` on `if` block,
+and wipe the `else` statement.
+
+```javascript
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+    }
+    this.data[address].push([key, value]);
+
+    return this.data;
+};
+
+const myHashTable = new HashTable(2);
+
+myHashTable.set("grapes", 10000)        // result: [ <1 empty item>, [ [ 'grapes', 10000  ] ] ]
+myHashTable.set("apple", 56)            // result: [ <1 empty item>, [ [ 'grapes', 10000  ], [ 'orange', 2500 ] ] ]
+```
+Just we know what's happening here, let's add `return this.data`, and we add
+`apple, 56`, if I run this you see what happen here. If you look closely, we
+have `<1 empty item>`, and then an array that contains inside of it, the first
+index that is an array, and a second index that is another array, _because we've
+just pushed on to our **existing array**_, because our memory space is only `2`.
+
+Very cool, that's not too bad.
+
+
+#### Create get() method
+
+Well, I want to be able to grab _grapes_ and _apples_. We can use the `get()`
+method here, which will receive a _key_; and this method is going to do the
+exact same thing, in that we running it through that black box (buckets) where
+we're going to create, or we're going to use the `_hash()` function to get the
+address of where we want to go.
+
+Now we have the address to where we want to grab our information from. However
+remember, that we store this information in a _bucket_, so we have `grapes
+10000`, how do we grab that? We know where to get from, we have the `address`
+but we need to loop over and grab `[grapes, 10000]` or `[appels, 56]`.
+
+```javascript
+get(key) {
+    let address = this._hash(key);
+    const currentBucket = this.data[address]
+
+    console.log(currentBucket)          // [ [ 'grapes', 10000  ], [ 'orange', 2500 ] ]
+}
+```
+
+We create a variable saying `currentBucket` that was just be
+`this.data[address]`, so we don't repeat our self, and we have reference to this
+address or the _address and the data value_; so, this means if we logging
+`currentBucket` I have the two items in the same bucket; Remember that it is
+technically just within its own bucket within one array,
+
+
+We're grabbing all the information, but all we want to do is have `10000` being
+returned, that how hash tables work, or the `get()` hash function works. Well
+all we need to do is to say,
+
+```javascript
+if (currentBucket.length) {
+
+}
+return undefined
+```
+
+If `currentBucket.length` has something in it, in that case we are going to do
+something, otherwise we're going just return `undefined`, because there's
+nothing in the bucket. We're checking if `grapes, 10000` is actually exists. So
+if nothing in the array, if the length is `0` and the array is empty, while then
+we're not interested in it.
+
+As a matter of fact, we actually don't even need the `.length` here, because
+remember initially it's just going to be an empty array with undefined.
+
+```javascript
+constructor(size) {
+    this.data = new Array(size);
+}
+```
+
+And we add an array to each slot or shelf's, whenever we set something, and it's
+an empty address.
+
+```javascript
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+    };
+}
+```
+
+So, we can just leave it like this,
+
+```javascript
+if (currentBucket) {
+    for (let i = 0; i < currentBucket.length; i++) {
+
+        if (currentBucket[i][0] === key) {
+            console.log("c-3 shelf's: %d ,key: %s, value: %d", address, currentBucket[i][0], currentBucket[i][1])
+
+            return currentBucket[i][1]
+        };
+    };
+};
+
+return undefined:
+```
+
+Because if it's undefined it'll skip over and return undefined.
+
+Now inside the `if` block, we will do `for-loop`, because **_remember we might
+have multiple items in this bucket_**, like we saw when we have `2` memory
+spaces in which cases. So we need to loop over, we are going to say as long as
+`i` is less than `currentBucket.length` just increment by.
+
+Within `for` block, this is little bit tricky, so hopefully you follow. I'm
+going to say if `currentBucket[i]` by which is the index; So remember is going
+to say index `0` is going to grab `[ [ "grapes", 10000 ] ]`; then index `1`
+which going to grab `[ [ "apples", 56 ] ]`.
+
+If I do `currentBucket[i][0]` that means grab the first, in our case the  `i` so
+it's going to be `0` first, grab this first array (`[ [ "grapes", 1000 ] ]`)
+which will be _grapes_; and then once it's loops the next time around and `i` is
+`1`, it's going to be _apples_ check that _against_ the `key`. Remember the key
+we receive in `get(key)`, that we are looking for.  So if _grapes_ the key
+matches with the shelf's item, in that case just return the
+`currentBucket[i][1]` because we want to return `10000`.
+
+Hopefully you follow here, because if I run `myHashTable.get("grapes")` I get
+`10000`; If I run `myHashTable.get("apples")` I get `56`.
+
+### Example Summary
+
+By looking a this code, I hope you understand on a deeper level, the time
+complexity implication of hash tables. Even though we're doing a loop within the
+`_hash()` function, remember that `_hash()` function are really really fast.
+We're just looping over the `key`, so we don't consider this `_hash()` function
+to be `0(n)`, this is very very fast. This `_hash()` function is `O(1)`.
+
+When we set something within `set()` function, there's no loop there. We just
+adding it to our data, we're just pushing it, so that is `O(1)`.
+
+If we go to `get()` method, most of the time, if there's **no collision** it's
+going to be `O(1)`, and in real life you can consider that it is `O(1)`. But in
+our really bad example, with just `2` memory spaces, and not a very good hash
+function well, this `get()` function can become `O(n)`.  We have `for-loop` in
+`get()` might create the list, we saw in our [user list
+example](#hash-collision-user) that will be `O(n)` if this (collision) `152`
+just kept going and growing.
+
+But there is one other method I want us to build, and to showcase to you, one
+other downside of hash tables. What if we wanted to go through all the key of
+the hash table? How would we do that? We going to try implement that in the next
+chapter.
+
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
