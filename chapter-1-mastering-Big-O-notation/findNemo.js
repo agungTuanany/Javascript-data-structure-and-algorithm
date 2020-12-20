@@ -1,3 +1,7 @@
+// --------------------------------------------
+// | --- Introduction | findNemo function --- |
+// --------------------------------------------
+
 const nemo = ["nemo"];
 
 const everyone1 = ["dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"]
@@ -19,6 +23,10 @@ function findNemo(array) {
 
 // findNemo(nemo);
 // findNemo(everyone1);
+
+// ------------------------------
+// | --- Big-O Exercise - 1 --- |
+// ------------------------------
 
 const measureTime = (array) => {
 

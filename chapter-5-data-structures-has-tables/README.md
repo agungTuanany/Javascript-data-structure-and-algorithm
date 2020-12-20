@@ -1478,4 +1478,7 @@ others.
 Good job getting this far, take nice little break, have some coffee, and I'll
 see you in the next chapter.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
 
