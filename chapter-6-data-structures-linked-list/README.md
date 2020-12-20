@@ -3,6 +3,7 @@
 ## Tables of Contents
 
 1.  [Linked List Introduction](#linked-list-introduction)
+2.  [What is a Linked List](#What is a Linked List)
 
 <br/>
 
@@ -52,3 +53,94 @@ are.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## What is a Linked List
+<br/>
+
+![chapter-6-1.png](./images/chapter-6-1.png "Linked list Introduction")
+<br/>
+
+What is a linked list? As the name suggests it's a list that is linked; that's
+answer is not very helpful can you actually explain it to us? Alright, as
+above diagram.
+
+A list or in this case we'll find out soon a singly linked list, **contains
+a set of nodes**, and think of nodes as a **block**, both _red_ and _green_ block
+together is a _node_. These nodes have two elements, the `[1]` **value of the
+data** you want to store, in this case the number `5` and `[2]`a **pointer** to
+the _next node in line_.
+
+So, you can see the _green block_ points to the next node. The first node is
+called the **head**, and the last node is called the **tail**. Now, depending on
+some people like to call the _tail_ anything after the head, including the this
+block (the middle node, before the tail), but I prefer the term _tail_ referring
+to the very last node. Finally linked list are we call **null terminated**,
+which signifies that it's the end of the list. So we know this is the _tail_ node
+because it points to _null_, there's nothing coming after it.
+
+Now, **pointer** is a term you hear a lot; i Programming and Computer Science,
+we have lecture coming up discussing what a _pointer_ actually is. The focus
+just for linked list for now, you can see that it's a simple data structure.
+It's simply an element that links to the next element, that links to the next
+element, and keeps going, keeps going until the last element that points to
+_null_. You can have them (nodes/ elements) **sorted**, and you can have
+**unsorted**, and you can have them nodes it's pretty much contain any sort of
+data type.
+
+Let's take a look at some pseudo code,
+
+```javascript
+const basket = ["apples", "grapes", "pears"]
+
+/*
+|-----------------|
+|-- pseudo code --|
+|-----------------|
+
+linked list: apples --> grapes --> pears.
+
+apples
+8947 --> grapes
+         8742 --> pears
+                  372 --> null
+*/
+```
+
+Up until now we learned how arrays work, and here I can just create a simple
+array, let's say a `basket` that contains our grocery list. We have _apples_, we
+have _grapes_ and we have _pears_.
+
+Now, how can we have a _basket_ that's not an array but in linked list? Well, we
+can say that our linked list and this is not actual code, just pseudo code.
+I can say that our linked list will contains _apples_ that then points to
+_grapes_ that then point to _pears_.
+
+These little arrows `-->`, are essentially _pointers_ saying, _apples_ to
+_grapes_ to _pears_. Remember this isn't actually code, I'm just creating a nice
+diagram for you.
+
+A more accurate diagram might be something like this, where we have _apples_ in
+memory space let's say `8947`, and this node points to the next node, which is
+_grapes_ that is at `8742` in memory, and then that node point to _pears_ that
+is at `372` location in memory, because _pears_ is the end of the list, the tale
+it points to _null_.
+
+You just thinking to your self, how come I'm not just coding this in JavaScript,
+just show us how linked list work in JavaScript and stop with this pseudo code
+gibberish. Well, JavaScript doesn't actually come with linked lists built in.
+Remember what I said, _different language have different tools available to
+them_. Languages like Java have linked list, while JavaScript doesn't come
+pre-built linked list.
+
+Luckily for us, we can build one, and this is why you typically do in
+programming, when you don't have something, you build it!. We have the building
+block to be able to build a linked list, an that's what we're going to do as
+part of an exercise coming up.
+
+Before we code our own linked list, and create our own linked list data
+structure, let's do a fun little exercise.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
