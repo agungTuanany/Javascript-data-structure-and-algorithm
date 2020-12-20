@@ -8,7 +8,8 @@
 4.  [Hash Tables in Different Languages](#hash-tables-in-different-languages)
 5.  [Exercise Implement a Hash Table](#exercise-implement-a-hash-table)
 6.  [Hash Tables VS Arrays](#hash-tables-vs-arrays)
-7.  [Exercise First Recurring Character](#Exercise-First-Recurring-Character)
+7.  [Exercise - First Recurring Character](#Exercise---First-Recurring-Character)
+8.  [Hash Tables Review](#hash-tables-review)
 
 <br/>
 
@@ -1382,4 +1383,99 @@ Good luck with that.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Hash Tables Review
+<br/>
+
+![chapter-5-4.png](./images/chapter-5-4.png "Hash tables review")
+<br/>
+
+Another data structure down, hash tables by now you should absolutely love then,
+because well they're very useful, they're used everywhere. The funny thing is,
+that it's probably the common interview question where you use hash table to
+optimize something, kind of like we saw in our interview question by using has
+tables we optimize those nested loops, that are `O(n^2)` to `O(n)` linear time..
+
+This is a question that comes up again, and again that I promise you if we
+notice this pattern it will be extremely useful for you, in an interview and
+undoubtedly you'll have an instance where you have to use it, and follow this
+exact same step.
+
+In this section, we learned that hash tables have really `[1]` **_Fast
+Lookups_** but remember we need a _good collision resolution needed_, usually we
+don't need to worry about this, because our language in computer, underneath the
+hood take care of that for us. `[2]` it allows us to do **_Fast Inserts__**, and
+depending on the type of hash tables, such as `Maps()` in JavaScript, we can
+have `[3]` Flexible Keys, instead of an array that has numbered indexes.
+
+The downside with hash tables is, that is `[1]` **_unordered_**, it's hard to
+really go through everything in order. Also it hash `[1]` **_Slow Key
+Iteration_**, that is, if I want to grab all he keys from a hash table, I'll
+have to go through the entire memory space, as we saw when we build our own hash
+table.
+
+Looking at the Big-O [cheatsheet](bigocheatsheet.com/), we can see that hash
+tables has _search_, _insertion_, _deletion_ of `O(1)`, but in worst case due to
+collision there are some `O(n)` operation that could happen.
+<br/>
+
+![chapter-5-5.png](./images/chapter-5-5.png "Hash tables review")
+<br/>
+
+
+If we go to
+[mindmap](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link),
+we can now cross of hash tables off our list, we understand the Big-O
+complexity. We also understand with collision we might want to use something
+like _linked list_ which we'll talk about very shortly. In our exercise we just
+simply use arrays.
+
+We also learn the idea that hash tables in interviews are usually useful for
+improving Time Complexity, especially of nested loops, the tradeoff being that,
+we can have fast access but more memory, going back to our [question
+exercise](./../chapter-2-how-to-solve-coding-problems) that we had few lesson
+ago, where we find the common item of two arrays, we had `array1 = ["a", "b",
+"c" , "x"]`, and `array2 = ["z", "y", "i"]`, we had to see if any of these two
+arrays contain similar items. We have one it didn't, and the second version
+where both array contain `x`, it would return true.
+
+Our first iteration of that exercise `containCommonItem()` we had to use 2 for
+loops that were nested. So that created a `O(a * b)` complexity, however using
+hash maps we were able to just do one `for-loop` and optimize his
+`containCommonItem()` function.
+
+Like I said before, this is such a common pattern, that we'll be talking about
+it later on this course when w talked about dynamic programming, if we go back
+to our [cheat
+sheet](./../chapter-1-mastering-Big-O-notation/Big-O-cheat-sheet.pdf) that
+I shared with you at the beginning of this course, we can now cross off a few
+things of the list, that we haven't talked about in the **_-Good Code
+Checklist-_**, we talked about `[1]` **Good use of data structures**, when to
+use the hash tables over perhaps arrays, `[2]` the idea **_Code Re-use/ DRY_**
+is something we've been following, and should be familiar to all of us. We also
+talk about `[3]` **_Modular_** code, and making code more readable, which allows
+code to be more maintainable and testable. We talked about how usually in
+interviews, we want to `[4]` avoid the `O(n^2)` (n square) operations, we saw
+that we're able to do that with hash tables. But we did see that with a hash
+table, we had to increase our Space Complexity to `O(n)`; And because we created
+this new variable `let hashMap = {}` or `let map = {}` that keep track of all
+the items in the array, so that is the tradeoff.
+
+Then we can cross off a few **_-Heuristic to Ace the Question-_**, for those who
+don't know sure heuristic kind of like rules, or simple tricks that are going to
+come up over and over and over, that you can use in a n interview. `[1]` **_Hash map, or
+hash tables are usually the answer to improve Time Complexity_**. `[2]` **_Hash
+tables are some of the best ways to optimize your code_**; And `[3]` **_looking at Time
+versus Space tradeoff_**. Sometimes storing extra state in memory, can help the
+time, (runtime) like we did with hash tables. Finally `[4]` **_Space Time
+tradeoffs_**, hash tables usually solve this a lot of the time. Use more space
+can get a Time optimization to the process.
+
+I know we've only talked about two data structures, but I think these **two are
+the most important**. Moving forward we're going to use them to learn about
+others.
+
+Good job getting this far, take nice little break, have some coffee, and I'll
+see you in the next chapter.
+
 
