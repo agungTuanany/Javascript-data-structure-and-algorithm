@@ -8,6 +8,7 @@
 4.  [Hash Tables in Different Languages](#hash-tables-in-different-languages)
 5.  [Exercise Implement a Hash Table](#exercise-implement-a-hash-table)
 6.  [Hash Tables VS Arrays](#hash-tables-vs-arrays)
+7.  [Exercise First Recurring Character](#Exercise-First-Recurring-Character)
 
 <br/>
 
@@ -1081,6 +1082,302 @@ Now, we have an idea of the differences between the two, I think it's time for
 us to actually work on some exercises and interview questions, that we'll use
 hash tables in their answers. I'll see you on that one.
 
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Exercise - First Recurring Character
+
+It's time for an exciting interview question question; and this question comes
+straight form Google.
+
+```JavaScript
+//Google Question
+//Given an array = [2,5,1,2,3,5,1,2,4]:         // [1]
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:         // [2]
+//It should return 1
+
+//Given an array = [2,3,4,5]:                   // [3]
+//It should return undefined
+```
+
+Given an array let's say look like above, Tell me the first recurring
+characters?. What does that mean? Well if we look at this array `[1]`, I want
+a function that I can enter this array `[1]` this input is going to look through
+all the numbers, and tell me which one gets repeated first. So we look at `2`,
+`5`, `1`, and `2` and we say `2` already been seen, `2` is recurring number.
+
+If we look at another example, we see `2`, `1`, `1`, and we stop here, because
+`1` we've already seen before. We can say the first recurring characters is `1`.
+
+If we get an array that all unique items, we just returned `undefined`.
+
+So, how would you go about solving this? Give it a go, see what you come up
+with. If you need help, perhaps scout on discord, and chat with some of the
+community members, and I'll see you in the solution chapter.
+
+### Exercise Answer
+
+#### Naive approach
+
+```javascript
+const givenArray = [2,5,1,2,3,5,1,2,4]
+const givenArray2 = [2,1,1,2,3,5,1,2,4]
+const givenArray3 = [2,3,4,5]
+const givenArray4 = [2,5,5,2,3,5,1,2,4]
+
+// Naive approach with array
+function firstRecurringCharacter(input) {
+
+    for (let i = 0; i < input.length; i++) {
+        for (let j = i + 1; j < input.length; j++) {
+            if (input[i] === input[j]) {
+
+                console.log(input[i], input[j])
+                return input[i];
+            };
+        };
+    };
+
+    console.log("no recurring character found")
+    return undefined;
+};
+// Time Complexity:  O(n^2)
+// Space Complexity:  O(1)
+
+firstRecurringCharacter(givenArray);
+```
+
+So, I'm going to loop through the first item of `givenArray`, which is `[2]`,
+I keep it in variable `i`, then the `[5]` as the second item in variable `i`,
+then `[1]` as the third, and keeps goings.
+
+I want to grab the first item as I keep it in variable `i`, and then **do
+another loop** to check it With second loop item which is `[5]` as I keep it in
+variable `j`. If it doesn't find anything I keep the first item `i` versus `[1]`
+as the second item in variable `j` and keeps going to next items in variable `j`
+which is `[2]`, and then say "ah, that's the one I'm looking" .
+
+If it doesn't find anything it's going to go the next `[5]` as I store it in
+variable `i`, and compare with second loop which is now `[1]` as variable `j`, and
+so on.
+
+We want to start variable `j` with second index item in the array, because we
+don't want to compare `[2]` as the first index in variable `i` with `[2]` as
+same first index in variable `j`, instead we want to compare `[2]` in variable
+`i` with `[5]` the second index in the array as first item in variable `j`.
+We do little trick here is to do `i + 1` for variable `j`, that's it we always
+go one to the right of where the `i` is as the first indexes.
+
+Inside the nested loop we use `if` statement saying `input[i]` does that equal
+with `input[j]`?. Does `[2]` is equal to `[5]`?, does `[2]` equal to `[1]`?, does
+`[2]` equal to `[2]`?, if that equal, then just simply `return input[i]`.
+
+Otherwise, if we do all this work, and nothing happens we can just `return
+undefined` out side all loops.
+
+This looking to be working nice and simple, but as you can see here, we're not
+being very efficient. We have **nested loops** should trigger `o(n^2)`. Although
+technically we're actually always looping a little bit more efficient, because
+of `i + 1` on `let j =  i + 1`, we're not looping twice over the entire array.
+In the end when you remove the constants and simplify things it's still going to
+be `O(n^2)`.
+
+#### Better approach
+
+So, how we can solve this using the hash tables.
+
+```javascript
+const givenArray = [2,5,1,2,3,5,1,2,4]
+const givenArray2 = [2,1,1,2,3,5,1,2,4]
+const givenArray3 = [2,3,4,5]
+const givenArray4 = [2,5,5,2,3,5,1,2,4]
+
+function firstRecurringCharacter2(input) {
+
+    let hashmap = {};                               // Space Complexity: O(n)
+
+    for (let i = 0; i < input.length; i++) {
+            console.log(hashmap[input[i]])          // [A]
+        if (hashmap[input[i]] ) {
+            return input[i]
+        }
+        else {
+            hashmap[input[i]] = i;
+        };
+        console.log(hashmap)                        // [B]
+    }
+
+    console.log(hashmap)                            // [C]
+    console.log("no recurring character found")
+
+    return undefined;
+};
+
+// Time Complexity:  O(n)
+// Space Complexity:  O(n)
+
+firstRecurringCharacter2(givenArray);
+
+// Result [A];
+// undefined
+// undefined
+// undefined
+// 0
+// undefined
+// 1
+
+// Result [B]:
+// { '2': 0  }
+// { '2': 0, '5': 1  }
+// { '1': 2, '2': 0, '5': 1  }
+
+// Result [C]:
+
+```
+
+Let's use a hash table, or an object to do something interesting. That is, to
+add these `givenArray`, as we iterate one by one, so loop through all the items,
+add them to hash table, while we're doing that, we can check to see if the
+property already exists or the key already exists.
+
+We add `[2]` to the hash table, then `[5]` to the hash table, hen `[1]` to the
+hash table, and when we try to add the forth index in array which is [2], we can
+trigger a warning say, "We already have `[2]` as the key". So using that logic
+let's see how we can implement that.
+
+I'm going to create variable `hashMap`, because the keys are going to be unique,
+it's not going to let any duplicate keys.
+
+We can simply do our loops, in this loop all we're going to do is say, if
+`hashMap`, we can check in this `hashMap` if it's empty, the first check in
+here, I want to say if the key already exists I want to just return the item
+`input[i]`, because we don't need to do any more work. As soon as we find a key
+that already exists in our hash table, stop all the looping and just return; in
+this case we want to return `[2]`. So at index `3` of the array, it;s going to
+return and say `[2]` because, well this key already exists in my hash table.
+
+The way we do that in `if` check; is to simply say, if `hashMap[input[i]]`
+because remember `input[i]` is going to equal to array index `3` the value is
+`2` when we loop through it. If that exist, the `return input[i]`. Otherwise, we
+will just add  it to our `hashMap`, so `map[input[i]] = i`  the value can be
+anything, we just leave it `i` which is the index. So, `{[2]: 0}`, `{[5] : 1}`,
+`[1]: 2`; and we just `return undefined` outside the loop in case none of this
+happens in case there is no match.
+
+
+At the end of `for-loop` I just console logging `[C]` it I get nothing, instead
+I get `5`. What happen?, Well if we console log `[A]` at what `if` statement
+giving us (`map[input[i]]`), I get,
+
+```javascript
+console.log(hashMap[input[i]])
+
+// undefined
+// undefined
+// undefined
+// 0
+// undefined
+// 1
+```
+
+What does mean? Well, remember we're looping through the log `[A]`, and we are
+saying hey does `[2]` at index one exist? Does `input[0]` which is `[2]` exist
+as a key exist?; It's simply saying `hashMap.2` does it exist?; and because that
+doesn't exist, we get `undefined`;
+
+It's going to go to next, hey, does `[5]` exist? No, it doesn't; Hey does `[1]`
+exist? No, it doesn't; Hey does `[2]` exist? As soon as it checks `[2]` again,
+it's equal `hashMap[2]` , it's going to say "ah I already have it". It's at
+index of `0`.
+
+However because when the result is get to `0`, the way JavaScript works it put
+`0` in `if (0)` block statement, but in `if` statement `0` is what we call
+**falsie** in JavaScript; and that has to do with **[type
+coercion](https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion)** in
+JavaScript something that a lot of people get annoyed about with the language.
+
+So, what we need to do, is to make sure that we specify we want
+`(hashMap[input[i]] !== undefined)`, or change in `else` block
+`hashMap[input[i]] = true`. So as soon as it doesn't equal to `undefined` I want
+you to `retrun input[i]`. Now if we run, we get back result `2` not `5`. If we
+logging at bottom `[B]`, so we can see the actual iteration that's happening,
+
+```javascript
+{ '2': 0  }
+{ '2': 0, '5': 1  }
+{ '1': 2, '2': 0, '5': 1  }
+```
+
+We see that, it adds `2` at index of `0`; then `2` at index of `0` with `5` at
+index of `1`, so on and so forth, until it stops after the third loop, because
+encounters `2` again, it's going to check and say `2` already exists, just
+return it. How cool is that?
+
+We just made this entire thing with just **single loop**, that is way faster
+than our first version, just only using hash tables we get more efficient in
+Space Complexity. How cool is that?
+
+For me, doing things like this, and seeing the power of how learning about Big-O
+and hash tables, hash improved our coding ability, just gets me really really
+excited, and I hope this gets this get you excited as well.
+
+We made this function have a time complexity of `O(n)`. We've improved it with
+one downside, we've increased the memory (`hashmap`), the space complexity by
+`O(n)`, because we're creating a new object in this function that needs to keep
+track of all the items in the array; in the worst case when there is no match
+it's going to go through the entire item list of the array, and hold that
+information in the `hashmap`. In turn we have a faster function.
+
+
+To finish off, I want to give you one last challenge. Looking at these two
+implementations, what happens if we have something like this,
+
+```javascript
+firstRecurringCharacter2([2,5,5,2,3,5,1,2,4])
+// Result: 5
+```
+
+What do you think the first recurring character is? If I run this, I get `5`,
+because `5 5` occurs sooner tan `2 2`. Because of the way we implemented the
+second function.
+
+However if I go to first version,
+
+```javascript
+firstRecurringCharacter([2,5,5,2,3,5,1,2,4])
+// Result: 2
+```
+
+I get the result `2`. Why is that? If we go to the first function, we see the
+way we are doing things is, we are going one by one in a different way. We
+saying grab `[2]` as index of `0`, then compare `[2]` with `[5]`, and then `[5]`, and
+then `2` and so on; And we move over to `[5]` as index `1`, then compare with
+`[5]` with `[5]`, and then `[2]` so on and so forth. Because of the way we have
+that implemented, it's going to detect `2 2`, because the outer loop has index
+of `0`, and has `[2]` as going to loop, before compare `[5]` with `[5]`. Versus
+our second version function with hash table, where we had all these items and we
+were able to compare them, once we grabbed all of them, and that's another
+powerful ting when you think about array and hash tables, and how you're able to
+compare things.
+
+Based on what the interviewer asked, you might have a wrong answer, maybe they
+want you to detect `5 5`, before you detect `2 2`. My bonus question to you, if
+you have time, and a bit of a challenge is to convert the first version function
+into something that matches the answer to detect `5 5`. How would you go about
+doing that? You most likely going to have to do something interesting in here,
+
+```javascript
+// ...
+    if (input[i] === input[j]) {
+        return input[i];
+    }
+// ...
+```
+
+Good luck with that.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>

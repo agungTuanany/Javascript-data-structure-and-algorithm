@@ -83,18 +83,100 @@ class HashTable {
 
 const myHashTable = new HashTable(50);
 
-myHashTable.set("grapes", 10000)
+// myHashTable.set("grapes", 10000)
 // myHashTable.get("grapes")
 
-myHashTable.set("apples", 56)
+// myHashTable.set("apples", 56)
 // myHashTable.get("apples")
 
-myHashTable.set("oranges", 2)
+// myHashTable.set("oranges", 2)
 // myHashTable.get("orange")
 
+// console.log("keys")
+// myHashTable.keys()
+// console.log("========")
 
-console.log("keys")
-myHashTable.keys()
-console.log("========")
+// myHashTable.values()
 
-myHashTable.values()
+
+// ------------------------------------------------------------------
+// | --- Exercise 2 Hash table | Find First Recurring Character --- |
+// ------------------------------------------------------------------
+
+//Google Question
+//Given an array = [2,5,1,2,3,5,1,2,4]:
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
+
+//Given an array = [2,3,4,5]:
+//It should return undefined
+
+//Bonus... What if we had this:
+// [2,5,5,2,3,5,1,2,4]
+// return 5 because the pairs are before 2,2
+
+const givenArray = [2,5,1,2,3,5,1,2,4]
+const givenArray2 = [2,1,1,2,3,5,1,2,4]
+const givenArray3 = [2,3,4,5]
+const givenArray4 = [2,5,5,2,3,5,1,2,4]
+
+// Naive approach with array
+function firstRecurringCharacter(input) {
+
+    for (let i = 0; i < input.length; i++) {
+        for (let j = i + 1; j < input.length; j++) {
+            if (input[i] === input[j]) {
+
+                console.log(input[i], input[j])
+                return input[i];
+            };
+        };
+    };
+
+    return undefined;
+};
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
+
+// firstRecurringCharacter(givenArray)
+
+// Better approach with hash table
+function firstRecurringCharacter2(input) {
+
+    let hashMap = {};                           // Space Complexity: O(n)
+
+    for (let i = 0; i < input.length; i++) {
+        // console.log(hashMap[input[i]])
+        if (hashMap[input[i]] !== undefined) {
+            return input[i]
+        }
+        else {
+            hashMap[input[i]] = i
+        };
+        console.log(hashMap)                        // [B]
+    };
+
+    console.log(hashMap)
+    return undefined;
+};
+
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+
+// firstRecurringCharacter2(givenArray)
+
+
+//Bonus... What if we had this:
+// [2,5,5,2,3,5,1,2,4]
+// return 5 because the pairs are before 2,2
+
+// TODO: fill this blank please
+function firstRecurringCharacter3(input) {
+
+}
+
+firstRecurringCharacter3([2,5,5,2,3,5,1,2,4])
