@@ -5,6 +5,7 @@
 1.  [Linked List Introduction](#linked-list-introduction)
 2.  [What is a Linked List](#what-is-a-linked-list)
 3.  [Exercise Why Linked List](#exercise-why-linked-list)
+4.  [What is Pointer](#what-is-pointer)
 
 <br/>
 
@@ -146,6 +147,8 @@ structure, let's do a fun little exercise.
 <br/>
 
 ## Exercise Why Linked List
+
+### Linked List Example - visualgo
 <br/>
 
 ![chapter-6-1.gif](./images/gif/chapter-6-1.gif "Exercise why Linked list")
@@ -264,6 +267,110 @@ work, and what linked list are. So, we're going to code our own.
 In the net lecture, we're going to talk about the final piece of the puzzle,
 what a pointer is?, and then finally, code our own linked list, so we understand
 the Big-O implications a little bit better.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## What is Pointer
+
+Let's quickly talk about _pointers_. Something that you'll hear a lot in
+Computer Science topics. A pointer is simply is **_a reference to another place in
+memory, or another object, or another node_**. In JavaScript we can demonstrate
+it something like this,
+
+```javascript
+let obj1 = {a; true};
+let obj2 = obj1;
+
+console.log("obj1", obj1)       // [A]
+console.log("obj2", obj2)       // [B]
+
+// Result:
+// [A]: obj1 { a: true  }
+// [B]: obj2 { a: true  }
+
+obj1.a = "booya"
+console.log("obj1", obj1)       // [C]
+console.log("obj2", obj2)       // [D]
+
+// Result:
+// [C]: obj1 { a: 'booya'  }
+// [D]: obj2 { a: 'booya'  }
+
+delete obj1
+console.log("obj1", obj1)       // [F]
+console.log("obj2", obj2)       // [G]
+
+// Result:
+// [F]: obj1 { a: 'booya'  }
+// [G]: obj2 { a: 'booya'  }
+
+obj2 = "hello"
+console.log("obj1", obj1)       // [H]
+console.log("obj2", obj2)       // [I]
+
+// Result:
+// [H]: obj1 { a: 'booya'  }
+// [G]: obj2 hello
+
+```
+
+If I have an object, let's call it `obj1` that is a simple object that as `a` as
+`true` |`{a: true}`; And now we do something like `obj2 = obj1`. We've just
+created a pointer, a reference to an object. That is what a pointer is, it's
+simply a reference.
+
+Here `obj1`, I'm not copying the object, I'm not saying `obj1` equals `{a:
+true}`, and also, creating another location in memory that says, `{a; true}` in
+memory, when we look at our RAM, there's only one entry, `{a: true}`; And both
+`obj1`  and `obj2` point to the same location in memory.
+
+To show you  that is the case let log `obj1` and `obj2`, we get result both `{a:
+true}`; but, if I change `obj1.a = "booya"`, so accessing property in `obj1`,
+and I run this, look of that, both `obj1` and `obj2` changed. Because I've
+created a pointer here, saying `obj2` is going to reference ` obj1` | (`obj2
+= obj1`) like so; And they both point to the same location in memory.
+
+That's what pointer is. It's simply saying, "hey, this is where it is in
+memory". And when we look at our above linked list example,
+<br/>
+
+![chapter-6-2.gif](./images/gif/chapter-6-2.gif "Linked list delete node")
+<br/>
+
+When remove, let's say a node at index of `2 [77]`, we remove that and that just
+disappears from memory; how does that work?
+
+> **Note**: JavaScript is **not possible to manually destroy or delete
+> a variables** that you create with `var` in this example Andre just try to
+> `delete obj1` and get "ReferenceError: obj1 is not defined" but it not just
+> like that, `obj1` is still exist even you delete it.
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete)
+
+I still have `obj2` even though I delete `obj1`. What's happening here? Well the
+way it works in most programming language is, that our computers are going to
+delete the memory that is on use, and because it sees that `obj2` is still
+referencing `{a: true}` in memory it's not going to be delete it. Because
+there's still a _pointer_ to `{a: true}` location in memory.
+
+This is how things get deleted in languages like JavaScript, this is what you
+might call _garbage collection_ where as soon as we say `obj2 = "hello"`, now
+`obj2` which you referenced the memory space that had `{a: true}` is now just
+simply a string.  Because JavaScript is garbage collected, that is memory is
+managed automatically, `{a: true}` gets automatically garbage collected and
+deleted, because noting is pointing to it.
+
+However there is a low level languages where you have to manage your own
+memory, and you have to manually delete `{a: true}` on referenced item in
+memory. This can cause a lot of possible issue, where you leave memory that's
+not being used in memory, which is a valuable resource. But then there's also
+benefits with non garbage collected languages where you get to manage your own
+memory, so you can make things really really fast that efficient.
+
+I think that's enough for pointer's. A pointer is simply a **reference to something
+else in memory**. We're going to use this knowledge in our next lecture to
+create our very first linked list data structure.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
