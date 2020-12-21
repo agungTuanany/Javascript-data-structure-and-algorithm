@@ -3,7 +3,8 @@
 ## Tables of Contents
 
 1.  [Linked List Introduction](#linked-list-introduction)
-2.  [What is a Linked List](#What is a Linked List)
+2.  [What is a Linked List](#what-is-a-linked-list)
+3.  [Exercise Why Linked List](#exercise-why-linked-list)
 
 <br/>
 
@@ -144,3 +145,126 @@ structure, let's do a fun little exercise.
 <br/>
 <br/>
 
+## Exercise Why Linked List
+<br/>
+
+![chapter-6-1.gif](./images/gif/chapter-6-1.gif "Exercise why Linked list")
+<br/>
+
+It's time for little exercise, why do you think linked list may be better than
+hash tables or array? Just from what we know right now. I want you to answer
+this question in your head, or write down, before you go into the next lecture.
+
+I also want to show you a nifty little tools named
+[visualgo](https://visualgo.net/en/list), this little visual shows you how
+a linked list works, so you can play around with it, and see where they might
+shine over arrays or hash tables. You see over we have a **_head_** with the
+value of `22`, and a **_tail_** with a value of `89`, and others nodes
+connecting all of them, and you can use this website to do anything to a linked
+list, you can **create**, **search**, **insert** or **remove**.
+
+I can either _insert_ to the _head_, if I click and go, I enter the value `85`.
+I can insert to the _tail_ at the very end, if I had go all right, that's seems
+pretty simple nothing to crazy.
+
+It looks a little bit complicated, and we're actually going to code this all
+ourselves, and build this in, but I want you to play with this data structure,
+and in your head, come up with why we might want to use linked list.
+
+### Exercise - Question 1
+
+Why linked list better than hash tables or array? Let's discuss the answer.
+
+One key thing that you may have seen is, that linked list have a sort of `[1]` **loose
+structure** that allows you to insert a value into the middle of the list, by
+simply resetting a few pointers, just like we saw in the animation.
+
+I can **insert** anything that I want, and the only changes that happen
+is in the middle of nodes that we insert to it. This is the same for
+**deleting** node in a linked list.
+<br/>
+
+![chapter-6-3.png](./images/chapter-6-3.png "Exercise Linked list")
+<br/>
+
+We remember with array data structure, how when we wanted to insert something
+that wasn't at the end of the array, we had to add the item, let's say in memory
+space `[1]` into `[1] apple`, and then **shift all the items down** and **index
+down** which cost us a lot of time, it cost us `O(n)`.
+
+The main different between arrays and linked lists, is that in an array an
+element or **elements are indexed**; So if I want to go to item at index `5
+Grapes`, I can do that easily. In a linked list you start at the _head_, and
+traverse (cross) the list until you get to item `5 Grapes`, which is `O(n)`, and
+this idea of traversal is the same as iteration that we did with arrays, where
+we go from `0` to `5`m except we like to call this traversal, because you don't
+really know when the linked list will end. You start from the _head_ and you
+keep going until you hit _null_.
+
+As you'll see in our coding example, we're going to have to use something like
+a `while-loop`, when we implement our linked list, because we don't usually know
+how long the list is going to be.
+
+Another advantage that an array might have is, that most computers have caching
+systems, that make reading from sequential memory that is memory right next to
+each other, shelf's right next to each other, faster then reading scattered
+(dislocated) address; and that something that we've talked about already.
+
+Array items are always located right next to each other in computer
+memory.Linked list and nodes instead are actually scattered all over memory,
+kind like hash tables, so iterating through a linked list or traversing through
+a linked list is usually quite bit slower than iterating through items like an
+array. Even though, they're technically both `O(n)`.  However, these **insert**
+that we can do in the middle of a linked list, is a lot better than array.
+
+What about hash tables?
+<br/>
+
+![chapter-6-4.png](./images/chapter-6-4.png "Exercise Linked list")
+<br/>
+
+Remember hash tables, when we talked about hash tables, well just like hash
+tables, when we insert something into a linked list, we just scatter it all over
+memory, and we can just keep adding it, keep adding it, keep adding it. We don't
+have to do any of unshifting, or shifting o the indexes that we did with the
+arrays, which is really really nice.
+
+You can also **delete** node very easily versus with an array. But one advantage
+that it has over hash tables is, that there is some sort of order to linked
+list, each node point to the next nodes. So, you can have sorted data like
+a hash tables;
+<br/>
+
+![chapter-6-5.png](./images/chapter-6-5.png "Linked List Big-O notations")
+<br/>
+
+If we look at our Big-O of linked list, we can see that **_prepend_**, which is
+common language we say to add to the beginning of a linked list, **prepend** is
+`O(1)`. **Append** which is at the end of the list to add a new item is `O(1)`.
+**Lookup**, which we can also call traversal to look for an item, Let's say we
+want to find `10` is `O(n)`, because we have to go from the _head_ all the way
+until we find what we're looking for, **Insert** is also `O(n)`, because we have
+to go one by one find the index, we don't know how longer linked list is, we
+find the index and then _insert_ there which technically could take `O(n)`, and
+again something that we're going to implement in code and have a better
+understanding of; And **delete** is also `O(n)`, because we have to find the
+items.
+
+Now, you're thinking to yourself, hold on, **insert** and **delete** in arrays
+are also `O(n)`, so how is that better? And that's something that we're going to
+get into, when we actually take look at the code. Remember (**insert**,
+**delete**) is the worst case, in which case we _insert_ or _delete_ the very
+last item, and most of times that won't be the case in linked list, again
+something that we're going to talk about a little bit, when we code our own
+linked list.
+
+Looking at a diagram like this, it's really hard to truly understand how they
+work, and what linked list are. So, we're going to code our own.
+
+In the net lecture, we're going to talk about the final piece of the puzzle,
+what a pointer is?, and then finally, code our own linked list, so we understand
+the Big-O implications a little bit better.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
