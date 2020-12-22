@@ -6,6 +6,7 @@
 2.  [What is a Linked List](#what-is-a-linked-list)
 3.  [Exercise Why Linked List](#exercise-why-linked-list)
 4.  [What is Pointer](#what-is-pointer)
+6.  [Our First Linked List](#our-first-linked-list)
 
 <br/>
 
@@ -124,7 +125,7 @@ diagram for you.
 A more accurate diagram might be something like this, where we have _apples_ in
 memory space let's say `8947`, and this node points to the next node, which is
 _grapes_ that is at `8742` in memory, and then that node point to _pears_ that
-is at `372` location in memory, because _pears_ is the end of the list, the tale
+is at `372` location in memory, because _pears_ is the end of the list, the tail
 it points to _null_.
 
 You just thinking to your self, how come I'm not just coding this in JavaScript,
@@ -313,7 +314,6 @@ console.log("obj2", obj2)       // [I]
 // Result:
 // [H]: obj1 { a: 'booya'  }
 // [G]: obj2 hello
-
 ```
 
 If I have an object, let's call it `obj1` that is a simple object that as `a` as
@@ -371,6 +371,216 @@ memory, so you can make things really really fast that efficient.
 I think that's enough for pointer's. A pointer is simply a **reference to something
 else in memory**. We're going to use this knowledge in our next lecture to
 create our very first linked list data structure.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+
+## Our First Linked List
+
+### Linked List Structure
+
+It's time to create our very first linked list data structure. Let's say
+I wanted to create a linked list that has `10`, pointing to `5`, pointing to
+`16`, nice little simple one. First off, how will we go about visualizing this
+in a language like JavaScript that doesn't have linked list.
+
+```javascript
+
+// 10 --> 5 --> 16
+
+const myLinkedList = {
+    head: {
+        value:
+        next: {
+
+        }
+    }
+}
+```
+
+Well we can simply that we have  a new linked list, let just say here
+`myLinkedList`,  and this is going to equal to an object that has a **head**
+property, remember because the very first term in a linked list is the _head_,
+and we're going to have a node. The point of the node is to say, "hey, anything
+can be in the snow, just put anything you want, and ti;s a container around
+this data". Think of node as the bucket of data, and in this case we can just
+use an object to put our data in,
+
+All this node needs to have in a linked list is a **value** property, of what
+the value of the node, plus a **next** property which is the pointer to the next
+node. Now _head_ value can be anything we want, and the _next_ property has to
+be a pointer or a reference to the next when in which case will be an object, so
+will be another object, that we're going to reference in memory. With this way,
+the _value_ of the node can always change, but the pointer (_next_) are always
+going to be pointing to _value_ property. SO we can change items, and nothing
+else will change, it will still point to that changed and updated _value_
+property.
+
+
+Let me show you what I mean,
+
+```javascript
+// 10 --> 5 --> 16
+
+const myLinkedList = {
+    head: {
+        value: 10,
+        next: {
+            value: 5,
+            next: {
+                value: 16,
+                next: null
+            }
+        }
+    }
+}
+```
+
+We have the head here, in which case it's `10` so we want to set `10` as our
+_value_, and this head is going to reference point to the next node, which will
+have  a _value_ of `5`, and the _next_ value, is the next node in the list,
+which is `16`, well as `16` as the tail of our linked list, so that means it has
+point to _null_ as the _value_ property of tail, or what we call _null
+terminated_, that means it's the end of the list, perfect.
+
+So, this is what we want to create, a linked list, using this as our structure.
+
+### Implement Linked List Structure
+
+```javascript
+class Linkedlist {
+
+    constructor(value) {
+
+    }
+
+};
+
+const myLinkedList = new Linkedlist(10, 5, 16)
+```
+
+We're going to create a class called `Linkedlist`, and this class will have the
+constructor, which is the function that gets run at the very beginning when we
+create the linked list. This constructor is going to take a `value` as
+parameter. What does that mean? Well, when we finally say, that we're creating
+a `myLinkedList`; remember, we want to create it, when I create `myLinkedList`,
+I'm going to instantiate the class  that is run the class function, run the
+constructor, and create a linked list. I'm going to say `Linkedlist()` and give
+it a value to start off the list, because while the list can't be empty, has to
+have something, it has to start with a head.
+
+
+So, in our case, we want to started with `10`, and ideally by running command `new
+Linkedlist(10)`, we've created the first part of our linked list, just the `10`.
+
+```javascript
+constructor(value) {
+    this.head = {
+        value: value,
+        next:  null
+    },
+
+    this.tail =  this.head
+    thsis.length =  1
+}
+```
+
+Within this constructor, we have `this.head` reference, because while we need to
+keep track of the _head_, and `this.head` is going to simply have a `value` that
+is equal to _value_ that we passed in; and finally the `next`. What should
+`next` property be when we first create this list? Well, since `10` is the only
+thing that we'll have or one node, `next` is going to equal `null`, to begin
+with.
+
+Remember, constructor is all about creating the very first linked list node,
+what happens when we instantiate a class to start off `myLinkedList`.
+
+Finally we have two other piece of information that we need to track. `[1]` is
+`this.tail`, and remember the word `this` just refer to `Linkedlist`, so it's
+just referring to `new Linkedlist(10)` that we created. What is the tail going
+to be? Well, because we only have one item, the _head is also the tail_, so we
+just simply say `this.head`
+
+By the way, I know this get a little bit confusing, ad as we go through this
+lecture series on linked list, it is a  bit hard to wrap your mind around. So
+I really recommend that you code along here, and do the next exercise, because
+just watching me talk about linked list, is bot going to solidify your
+information. It is hard to really visualize things, so you may need to build
+linked list a couple times to really get the hang of it, but this will become
+second nature, once you get used to the syntax, and also the idea of having this
+_head_ and _tail_ and referencing them.
+
+The final piece of the puzzle is, if we want, we can keep track of the length of
+he linked list. This is optional, but I think it's good to keep track and
+because we have one item, when we create this linked list, because we give it
+a value, we'll give it a length of `1`.
+
+```javascript
+class Linkedlist {
+    constructor(value) {
+        this.head = {
+            value: value,
+            next: null
+        };
+
+        this.tail = this.head;
+        this.length = 1
+
+    }
+}
+
+const myLinkedList = new Linkedlist(10)
+
+console.log(myLinkedList)
+
+// Result:
+
+// Linkedlist {
+//   head: { value: 10, next: null },
+//   tail: { value: 10, next: null },
+//   length: 1
+// }
+```
+
+So, we put the all the puzzle into one piece, If I run this, look at that, I
+have a linked list with a _head_ is value of `10`, and next is null, because
+while there's only one node; and _tail_ is the exact same thing pointing to
+_null_, and length of `1`.
+
+### Exercise - create append() method
+
+```javascript
+class Linkedlist {
+    // ....
+    // ....
+
+    append(value) {
+    // Code here
+    };
+};
+
+myLinkedList.append(5)
+myLinkedList.append(16)
+```
+
+Congratulations, we just built our very first linked list. However it's time for
+a little bit of an exercise, Our list is not complete right? We need to create
+this linked list (`10 --> 5 --> 16`); so, we need to be able to add `5`, and
+then `16`. My challenge to you is, we want to create an `append()`, and this
+`append()` method is going to take a _value_ as property, and inside this
+method we want to write a piece of code that allows us to say
+`myLinkedList.append()` and give a value `5` to append to our current list.
+
+So, I want to be able to say append `5` and then append `16` to create our
+completed list of `10 --> 5 --> 16`. How would you go about doing that?, and
+I'm going to leave this for you to try out.
+
+Remember this may be a little bit hard, and I'll provide the solution lecture,
+but you should try first, and we'll code along. But I do encourage you to
+challenge yourself, and just think about what's happening and what we've done in
+the constructor to create this append method. Good luck.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
