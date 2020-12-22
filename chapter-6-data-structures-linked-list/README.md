@@ -404,9 +404,9 @@ Well we can simply that we have  a new linked list, let just say here
 `myLinkedList`,  and this is going to equal to an object that has a **head**
 property, remember because the very first term in a linked list is the _head_,
 and we're going to have a node. The point of the node is to say, "hey, anything
-can be in the snow, just put anything you want, and ti;s a container around
-this data". Think of node as the bucket of data, and in this case we can just
-use an object to put our data in,
+can be in the snow, just put anything you want, and it's a container around this
+data". **Think of node as the bucket of data**, and in this case we can just use
+an object to put our data in,
 
 All this node needs to have in a linked list is a **value** property, of what
 the value of the node, plus a **next** property which is the pointer to the next
@@ -414,10 +414,9 @@ node. Now _head_ value can be anything we want, and the _next_ property has to
 be a pointer or a reference to the next when in which case will be an object, so
 will be another object, that we're going to reference in memory. With this way,
 the _value_ of the node can always change, but the pointer (_next_) are always
-going to be pointing to _value_ property. SO we can change items, and nothing
+going to be pointing to _value_ property. So we can change items, and nothing
 else will change, it will still point to that changed and updated _value_
 property.
-
 
 Let me show you what I mean,
 
@@ -458,7 +457,7 @@ class Linkedlist {
 
 };
 
-const myLinkedList = new Linkedlist(10, 5, 16)
+const myLinkedList = new Linkedlist(10)
 ```
 
 We're going to create a class called `Linkedlist`, and this class will have the
@@ -519,6 +518,7 @@ a value, we'll give it a length of `1`.
 
 ```javascript
 class Linkedlist {
+
     constructor(value) {
         this.head = {
             value: value,
@@ -536,7 +536,6 @@ const myLinkedList = new Linkedlist(10)
 console.log(myLinkedList)
 
 // Result:
-
 // Linkedlist {
 //   head: { value: 10, next: null },
 //   tail: { value: 10, next: null },
@@ -581,6 +580,214 @@ Remember this may be a little bit hard, and I'll provide the solution lecture,
 but you should try first, and we'll code along. But I do encourage you to
 challenge yourself, and just think about what's happening and what we've done in
 the constructor to create this append method. Good luck.
+
+### Exercise - answer append() method
+
+Let me show you what I would done here.
+
+Final `append()` method,
+
+```javascript
+append(value) {
+
+    const newnode = {
+        value: value,
+        next: null
+    };
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+
+    return this;
+};
+
+myLinkedList.append(5);
+console.log(myLinkedList)
+
+// Result:
+// Linkedlist {
+//   head: { value: 10, next: { value: 5, next: null } },
+//   tail: { value: 5, next: null },
+//   length: 2
+// }
+
+myLinkedList.append(16)
+console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
+// Result:
+// ==>[16] {
+//     "head": {
+//         "value": 10,
+//         "next": {
+//             "value": 5,
+//             "next": {
+//                 "value": 16,
+//                 "next": null
+//             }
+//         }
+//     },
+//     "tail": {
+//         "value": 16,
+//         "next": null
+//     },
+//     "length": 3
+// }
+```
+
+#### Chunked append() method
+
+```javascript
+const newnode = {
+    value: value,
+    next: null
+};
+```
+
+The first thing we would want to do is to create a new node with the _value_. We
+can do that quite easily saying `const newNode`, that's going to equal an _object_
+with properties that we should be familiar by now. We have _value_ that is going
+to equal the _value that we get as a parameter_, and then the _next_ that will be
+_null_.
+
+So, we have our `newNode` here, and we want to attach it now after the `10`,
+which is our very first node. Well we can simply do that by saying
+`this.tail.next`.
+
+```jaavascript
+myLinkedList(5)
+
+console.log(myLinkedList)
+
+// Result
+// Linkedlist {
+//   head: { value: 10, next: null },
+//   tail: { value: 10, next: null },
+//   length: 1
+// }
+
+console.log(myLinkedList.tail.value)     // Result: 10
+console.log(myLinkedList.tail.next)     // Result: null
+```
+
+Remember, the _next_ value on _tail_ is equal _null_ (`myLinkedList.tail.next`);
+So, that is what is the _tail_ (`this.tail`), that is the last item in our list;
+Because this method (`append()`) doesn't know that we only have one item, we
+could have hundred items, we just want to **_add at the end_**.
+
+So, it's going grab the tail (`this.tail`) and then grab the _next_ value of the
+_tail_ (`myLinkedList.tail.next`). It's going grab the **_pointer_** of the
+_tail_ and say, "Hey, instead of pointing it to _null_, pointed to this
+`newNode` that we just created".
+
+```javascript
+this.tail.next = newNode;
+this.tail = newNode;
+this.length++;
+
+return this;
+```
+
+We've pointed the _tail_ to now pointed to the `newNode` (`thist.tail
+= newNode`), which has the _next_ value as _null_ already setup; and then we
+also want to say this (`this.tail`) what we had us _tail_ before (in logging),
+which was the value of `10` (`myLinkedList.tail.value`), is no longer the
+_tail_. We have a new last item, that is `this.tail` is now going to equal the
+`newNode`.
+
+Because we are running `this.tail = newNode` operation after `this.tail.next
+= newNode`, when we run the `tail.next` is still this node (`tail: { value: 10,
+next : null}`). As soon we update this node (`tail: { value: 10, next: null }`)
+to have a _next_ of the `newNode`, we can now remove and update the _tail_
+(`this.tail`) to be the `newNode`. Because, by that point, by the time this line
+runs (`this.tail = newNode`), the _next_ (`tail.next`) has been updated properly
+for this older _tail_ value (`this.tail.value`) property.
+
+Finally, we want to make sure that we add the length to equal to now; so, we're
+going to do `this.length++`; And just for fun, because we want to make sure that
+we do this right, we want to `return this` which is the `Linkedlist`. Remember
+`this` is just references what `Linkedlist` class is that get instantiated.
+We're going to say `retrun this`, so that we get back our linked list
+(`myLinkedList`).
+
+```javascript
+myLinkedList.append(5)
+console.log(myLinkedList)
+
+// Result:
+// Linkedlist {
+//   head: { value: 10, next: { value: 5, next: null } },
+//   tail: { value: 5, next: null },
+//   length: 2
+// }
+```
+
+We see, when we run `myLinkedList.append(5)`, I've get return our linked list
+which has a _head_ with property of _value_ is `10`, and property _next_ is the
+new node that we created, with nested property _value_ of `5`, and nested _next_
+property is _null_. The _tail_ now have property of _value_ now which is `5`,
+and _next_ property is _null_; with a length now is `2`. It's look like it's
+working.
+
+```javascript
+myLinkedList.append(16)
+console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
+// Result:
+// ==>[16] {
+//     "head": {
+//         "value": 10,
+//         "next": {
+//             "value": 5,
+//             "next": {
+//                 "value": 16,
+//                 "next": null
+//             }
+//         }
+//     },
+//     "tail": {
+//         "value": 16,
+//         "next": null
+//     },
+//     "length": 3
+// }
+```
+
+We do `myLinkedList.append(16)` as well, I use `JSON.stringify()` to print the
+logging with nice structure and readable, because the way logging works, it
+won't show nested object.
+
+We have the nested _value_ of `5`; So, the head is referencing value of `10`,
+which points to the next node which is has _value_ of `5`, which points to next
+nested _value_ which is `16`; And we get the _tail_ which have _value_ of `16`
+and _next_ value of _null_; And the last, property _length_ now is `3`.
+
+How cool is that? We just created our linked list, are `10 --> 5 --> 16` linked
+list just like that. I hope you got that right. But if you didn't, don't get
+discouraged, build this method is takes you sometimes to get used to. Luckily
+for you, once you write it a couple of times, then it becomes like I said second
+nature; so, don't stress out, because I have another challenge for you. Now you
+know how to do **append**, you should be able to do **_prepend_**, right?
+Prepend is adding to the beginning of the list.
+
+### Exercise - 2 append() method
+
+```javascript
+class Linkedlist {
+    // ...
+    // ...
+
+    prepend(value) {
+        // Code here...
+    };
+};
+
+myLinkedList.prepend(1);
+```
+
+So let's say that in our list, over here (`10 --> 5 --> 16`)m we want to add `1`
+as our new head now instead of `10`, so our linked list now become `1 --> 10 -->
+5 --> 16`. How would you do that with a new method called `prepend()`, is going
+to take a _value_ as parameter. And we're going to be able to run a command like
+`myLinkedList.prepend(1)`, to add the `1` at the beginning of the list.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>

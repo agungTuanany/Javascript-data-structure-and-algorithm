@@ -42,22 +42,47 @@ obj2 = "hello"
 // -----------------------------------------------------------
 
 class Linkedlist {
+
     constructor(value) {
         this.head = {
             value: value,
             next: null
         };
-
-        this.tale = this.head;
+        this.tail = this.head;
         this.length = 1
     };
 
     append(value) {
-        // Code here
+
+        const newNode = {
+            value: value,
+            next: null
+        }
+
+        // console.log("==> newNode", newNode);
+
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+
+        // console.log("====>", this.head.next);
+        return this;
+    }
+
+    prepend(value) {
+        // Code here...
     }
 }
 
 const myLinkedList = new Linkedlist(10)
 
+// console.log(myLinkedList)
+
+myLinkedList.append(5)
 console.log(myLinkedList)
 
+myLinkedList.append(16)
+console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
+
+myLinkedList.append(29)
+console.log("==>{29}", JSON.stringify(myLinkedList, null, 4))
