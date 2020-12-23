@@ -7,6 +7,7 @@
 3.  [Exercise Why Linked List](#exercise-why-linked-list)
 4.  [What is Pointer](#what-is-pointer)
 6.  [Our First Linked List](#our-first-linked-list)
+7.  [Node Class](#Node-Class)
 
 <br/>
 
@@ -870,7 +871,7 @@ this.length++;
 return this;
 ```
 
-Next, we want to say our `newNode.next` which this value `next: null`, is going
+Next, we want to say our `newNode.next` which this value (`next: null`), is going
 to equal `this.head`. So, we've just created a _pointer_ saying that the new
 node we just created is going to `this.head`, the very first item in our list.
 
@@ -881,7 +882,8 @@ it's now the new node.
 The last but not least, we want to add `this.length++` and make sure we increase the length of
 our list,
 
-Finally if we `return this` our linked list; we can run the method,
+Finally if we `return this` our linked list, and we can run the method, we get
+the result,
 
 ```javascript
 myLinkedList.prepend(1);
@@ -895,7 +897,7 @@ console.log(myLinkedList)
 // }
 ```
 
-Look at hat, we've prepend `1` to the very first item on the list, the **_head_** is
+Look at that, we've prepend `1` to the very first item on the list, the **_head_** is
 now referencing `10`, and the **_tail_** of our list is now `16`.
 
 That wasn't too bad it was it. In the next lecture, I want to talk about quickly
@@ -905,3 +907,60 @@ and we might want to do with it.
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
+
+## Node Class
+
+We talked about how `newNode` gets repeated both times in `append()` and
+`prepend()`, as we create more methods on our linked list, we're going to have
+to constantly say `newNode` with object inside of it `value: value`, `next:
+null`. Usually we want to keep things DRY. Many implementation of linked list,
+you'll see something like this, where `newNode` is actually another class.
+
+```javascript
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Linkedlist {
+    // ...
+    // ...
+
+    append(value) {
+        const newNode = new Node(value);
+        // ...
+        // ...
+    };
+
+    prepend(value) {
+        const newNode = new Node(value);
+        // ...
+        // ...
+    };
+};
+```
+
+For example, I can create a new class, and this is how object oriented
+programming usually works, we have classes that interact with other classes ti
+create our programs. So you will see a lot of implementation of linked list that
+have class of `Node`.
+
+This class is going to have a constructor that takes a **_value_**, and this
+value will have `this.value = value`, it's going to have `this.next = null`,
+just like that.
+
+So that way, instead of us saying `const newNode`, and creating this `newNode`
+every time, I can just say, every time I want to create a new node, we can say
+`const newNode = new Node(value)`.
+
+So, every time we have a new node, we just instantiate what we call create and
+run this `new Node()` class, that create a node for us, with **_value_**
+property, and **_next_** property.
+
+You might prefer using this (`const newNode = new Node(value)`) syntax, but
+because I find this can get a little bit confusing, especially if you're not
+used to classes, I want to just keep things the way they are, because I think
+it's easier to read; and as you saw, it's fairly easy to implement if you want
+to do that on your own.
