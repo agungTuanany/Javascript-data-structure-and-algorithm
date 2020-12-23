@@ -70,9 +70,19 @@ class Linkedlist {
     }
 
     prepend(value) {
-        // Code here...
-    }
-}
+
+        const newNode = {
+            value: value,
+            next: null
+        };
+
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+
+        return this;
+    };
+};
 
 const myLinkedList = new Linkedlist(10)
 
@@ -84,5 +94,9 @@ console.log(myLinkedList)
 myLinkedList.append(16)
 console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
 
-myLinkedList.append(29)
-console.log("==>{29}", JSON.stringify(myLinkedList, null, 4))
+// myLinkedList.append(29)
+// console.log("==>{29}", JSON.stringify(myLinkedList, null, 4))
+
+myLinkedList.prepend(1);
+console.log(myLinkedList)
+console.log("==>{1}", JSON.stringify(myLinkedList, null, 4))

@@ -548,7 +548,7 @@ have a linked list with a _head_ is value of `10`, and next is null, because
 while there's only one node; and _tail_ is the exact same thing pointing to
 _null_, and length of `1`.
 
-### Exercise - create append() method
+### Exercise - 1 create `append()` method
 
 ```javascript
 class Linkedlist {
@@ -581,7 +581,7 @@ but you should try first, and we'll code along. But I do encourage you to
 challenge yourself, and just think about what's happening and what we've done in
 the constructor to create this append method. Good luck.
 
-### Exercise - answer append() method
+### Exercise - 1 answer `append()` method
 
 Let me show you what I would done here.
 
@@ -634,7 +634,7 @@ console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
 // }
 ```
 
-#### Chunked append() method
+#### Chunked `append()` method
 
 ```javascript
 const newnode = {
@@ -768,7 +768,7 @@ nature; so, don't stress out, because I have another challenge for you. Now you
 know how to do **append**, you should be able to do **_prepend_**, right?
 Prepend is adding to the beginning of the list.
 
-### Exercise - 2 append() method
+### Exercise - 2 create `prepend()` method
 
 ```javascript
 class Linkedlist {
@@ -788,6 +788,119 @@ as our new head now instead of `10`, so our linked list now become `1 --> 10 -->
 5 --> 16`. How would you do that with a new method called `prepend()`, is going
 to take a _value_ as parameter. And we're going to be able to run a command like
 `myLinkedList.prepend(1)`, to add the `1` at the beginning of the list.
+
+### Exercise - 2 answer `prepend()` method
+
+Final `prepend()` method
+
+```javascript
+prepend(value) {
+
+    const newNode = {
+        value: value,
+        next: null
+    };
+
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+
+    return this;
+};
+
+myLinkedList.prepend(1);
+console.log(myLinkedList)
+console.log("==>{1}", JSON.stringify(myLinkedList, null, 4))
+
+// Result:
+
+// Linkedlist {
+//   head: { value: 1, next: { value: 10, next: [Object] } },
+//   tail: { value: 29, next: null },
+//   length: 5
+// }
+// ==>{1} {
+//     "head": {
+//         "value": 1,
+//         "next": {
+//             "value": 10,
+//             "next": {
+//                 "value": 5,
+//                 "next": {
+//                     "value": 16,
+//                 }
+//             }
+//         }
+//     },
+//     "tail": {
+//         "value": 16,
+//         "next": null
+//     },
+//     "length": 4
+// }
+
+
+```
+
+### Chunked `prepend()` method
+
+Let's look at what the code should like,
+
+```javascript
+const newNode = {
+    value: value,
+    next: null
+};
+```
+The very first thing we do, just like we did with `append()`, is to create the
+node, that we're going to add. So, I'm going to say `newNode`, that have two
+objects, the **_value_** and the **_next_**.
+
+Now, `next` as second object, I want to leave as `null`, and I'll show you why
+ion the next lecture that is the case we and w don't just have `next:
+this.head` to reference the very first item in our list which is `10`, but for
+now just trust me, that this `next` we want to leave as `nuill`, because we can
+do that later. Right now we're just creating an empty node with the `value`.
+
+```javascript
+newNode.next = this.head;
+this.head = newNode;
+this.length++;
+
+return this;
+```
+
+Next, we want to say our `newNode.next` which this value `next: null`, is going
+to equal `this.head`. So, we've just created a _pointer_ saying that the new
+node we just created is going to `this.head`, the very first item in our list.
+
+Then obviously, just like we did with `append()`, we want to update the
+reference now, to say that `this.head` is no longer equal to the old value,
+it's now the new node.
+
+The last but not least, we want to add `this.length++` and make sure we increase the length of
+our list,
+
+Finally if we `return this` our linked list; we can run the method,
+
+```javascript
+myLinkedList.prepend(1);
+console.log(myLinkedList)
+
+// Result:
+// Linkedlist {
+//   head: { value: 1, next: { value: 10, next: [Object] } },
+//   tail: { value: 16, next: null },
+//   length: 4
+// }
+```
+
+Look at hat, we've prepend `1` to the very first item on the list, the **_head_** is
+now referencing `10`, and the **_tail_** of our list is now `16`.
+
+That wasn't too bad it was it. In the next lecture, I want to talk about quickly
+this `newNode` code that we are repeating, both in `append()` and `prepend()`;
+and we might want to do with it.
 
 **[⬆ back to top](#table-of-contents)**
 <br/>
