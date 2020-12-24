@@ -8,6 +8,7 @@
 4.  [What is Pointer](#what-is-pointer)
 6.  [Our First Linked List](#our-first-linked-list)
 7.  [Node Class](#Node-Class)
+8.  [Insert method](#insert-method)
 
 <br/>
 
@@ -238,6 +239,8 @@ You can also **delete** node very easily versus with an array. But one advantage
 that it has over hash tables is, that there is some sort of order to linked
 list, each node point to the next nodes. So, you can have sorted data like
 a hash tables;
+
+### Linked List Big-O
 <br/>
 
 ![chapter-6-5.png](./images/chapter-6-5.png "Linked List Big-O notations")
@@ -483,7 +486,7 @@ constructor(value) {
     },
 
     this.tail =  this.head
-    thsis.length =  1
+    this.length =  1
 }
 ```
 
@@ -499,23 +502,23 @@ what happens when we instantiate a class to start off `myLinkedList`.
 
 Finally we have two other piece of information that we need to track. `[1]` is
 `this.tail`, and remember the word `this` just refer to `Linkedlist`, so it's
-just referring to `new Linkedlist(10)` that we created. What is the tail going
-to be? Well, because we only have one item, the _head is also the tail_, so we
-just simply say `this.head`
+just referring to `new Linkedlist(10)` that we created. What is the _tail_ going
+to be? Well, because we only have one item, the **_head is also the tail_**, so
+we just simply say `this.tail = this.head`.
 
-By the way, I know this get a little bit confusing, ad as we go through this
-lecture series on linked list, it is a  bit hard to wrap your mind around. So
+By the way, I know this get a little bit confusing, as we go through this
+lecture series on linked list, it is a bit hard to wrap your mind around. So
 I really recommend that you code along here, and do the next exercise, because
-just watching me talk about linked list, is bot going to solidify your
+just watching me talk about linked list, is bad going to solidify your
 information. It is hard to really visualize things, so you may need to build
 linked list a couple times to really get the hang of it, but this will become
 second nature, once you get used to the syntax, and also the idea of having this
 _head_ and _tail_ and referencing them.
 
-The final piece of the puzzle is, if we want, we can keep track of the length of
-he linked list. This is optional, but I think it's good to keep track and
-because we have one item, when we create this linked list, because we give it
-a value, we'll give it a length of `1`.
+The final piece of the puzzle is, if we want, we can keep track `[2]` _the
+length of the linked list_. This is optional, but I think it's good to keep
+track and because we have one item when we create this linked list; we give it
+a value, we'll give it a length of `1` (`this.length = 1`);
 
 ```javascript
 class Linkedlist {
@@ -544,10 +547,11 @@ console.log(myLinkedList)
 // }
 ```
 
-So, we put the all the puzzle into one piece, If I run this, look at that, I
-have a linked list with a _head_ is value of `10`, and next is null, because
-while there's only one node; and _tail_ is the exact same thing pointing to
-_null_, and length of `1`.
+So, we put the all the puzzle into one piece, If I run this, look at that,
+I have a linked list with object **_head_** have _value_ is `10`, and _next_ is
+`null`, because while there's only one node; and object **_tail_** is the exact
+same thing pointing to object **_head_**; and we have linked list **_length_**
+of `1`.
 
 ### Exercise - 1 create `append()` method
 
@@ -574,8 +578,8 @@ method we want to write a piece of code that allows us to say
 `myLinkedList.append()` and give a value `5` to append to our current list.
 
 So, I want to be able to say append `5` and then append `16` to create our
-completed list of `10 --> 5 --> 16`. How would you go about doing that?, and
-I'm going to leave this for you to try out.
+completed list of `10 --> 5 --> 16`. How would you go about doing that? I'm
+going to leave this for you to try out.
 
 Remember this may be a little bit hard, and I'll provide the solution lecture,
 but you should try first, and we'll code along. But I do encourage you to
@@ -645,10 +649,10 @@ const newnode = {
 ```
 
 The first thing we would want to do is to create a new node with the _value_. We
-can do that quite easily saying `const newNode`, that's going to equal an _object_
-with properties that we should be familiar by now. We have _value_ that is going
-to equal the _value that we get as a parameter_, and then the _next_ that will be
-_null_.
+can do that quite easily saying `const newNode`, that's going to equal an
+_object_ with properties that we should be familiar by now. We have `value` as
+property of `newNode` that is going to equal the _value_ that we get as
+a parameter, and then we have another property of `newNode` called `next` that will be `null`.
 
 So, we have our `newNode` here, and we want to attach it now after the `10`,
 which is our very first node. Well we can simply do that by saying
@@ -673,12 +677,7 @@ console.log(myLinkedList.tail.next)     // Result: null
 Remember, the _next_ value on _tail_ is equal _null_ (`myLinkedList.tail.next`);
 So, that is what is the _tail_ (`this.tail`), that is the last item in our list;
 Because this method (`append()`) doesn't know that we only have one item, we
-could have hundred items, we just want to **_add at the end_**.
-
-So, it's going grab the tail (`this.tail`) and then grab the _next_ value of the
-_tail_ (`myLinkedList.tail.next`). It's going grab the **_pointer_** of the
-_tail_ and say, "Hey, instead of pointing it to _null_, pointed to this
-`newNode` that we just created".
+could have hundred items, we just want to _add at the end_.
 
 ```javascript
 this.tail.next = newNode;
@@ -688,8 +687,13 @@ this.length++;
 return this;
 ```
 
+So, it's going grab the tail (`this.tail`) and then grab the _next_ value of the
+_tail_ (`myLinkedList.tail.next`). It's going grab the **_pointer_** of the
+_tail_ and say, "Hey, instead of pointing it to `null`, pointed to this
+`newNode` that we just created".
+
 We've pointed the _tail_ to now pointed to the `newNode` (`thist.tail
-= newNode`), which has the _next_ value as _null_ already setup; and then we
+= newNode`), which has the _next_ value as `null` already setup; and then we
 also want to say this (`this.tail`) what we had us _tail_ before (in logging),
 which was the value of `10` (`myLinkedList.tail.value`), is no longer the
 _tail_. We have a new last item, that is `this.tail` is now going to equal the
@@ -784,10 +788,10 @@ class Linkedlist {
 myLinkedList.prepend(1);
 ```
 
-So let's say that in our list, over here (`10 --> 5 --> 16`)m we want to add `1`
-as our new head now instead of `10`, so our linked list now become `1 --> 10 -->
-5 --> 16`. How would you do that with a new method called `prepend()`, is going
-to take a _value_ as parameter. And we're going to be able to run a command like
+Let's say that in our list (`10 --> 5 --> 16`) we want to add `1` as our new
+head now instead of `10`; So our linked list now become `1 --> 10 --> 5 --> 16`,
+how would you do that with a new method called `prepend()`?, is going to take
+a _value_ as parameter. And we're going to be able to run a command like
 `myLinkedList.prepend(1)`, to add the `1` at the beginning of the list.
 
 ### Exercise - 2 answer `prepend()` method
@@ -843,7 +847,7 @@ console.log("==>{1}", JSON.stringify(myLinkedList, null, 4))
 
 ```
 
-### Chunked `prepend()` method
+#### Chunked `prepend()` method
 
 Let's look at what the code should like,
 
@@ -964,3 +968,139 @@ because I find this can get a little bit confusing, especially if you're not
 used to classes, I want to just keep things the way they are, because I think
 it's easier to read; and as you saw, it's fairly easy to implement if you want
 to do that on your own.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+## Insert method
+
+We've just implemented `prepend()`, `append()`, as this
+[diagram](#linked-list-big---o), it should be clear to you why that is an `O(1)`
+operation for both of these. We don't really have to loop through anything. We
+just have a reference to the **_tail_** and the **_head_**, and we reassigned
+some values, nice and easy.
+
+Now, comes the hard part. What about `insert`, `lookup` (traversal), `delete`?
+I think we should code those as well to fully understand how linked list work.
+
+This exercise is going to be a little bit tougher. But, I'm going to give you
+a heads up, that there's going to be some _looping involved_.
+
+```javascript
+// 1 --> 10 --> 5 --> 16
+class Linkedlist{
+    // ...
+    // ...
+
+    printList() {
+        const array = [];
+        let currentNode = this.head;
+
+        while (currentNode !== null) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next
+        };
+
+        return array;
+    };
+
+    insert(index, value) {
+
+    }
+}
+
+myLinkedList.insert(2, 99)
+
+console.log(myLinkedList.printList())
+```
+
+We want to create a `insert()` method, in this method is going to have an
+`index` and `value` as parameter. Because, we're going to want to be able to say
+"Insert at this (`index`) location, and this `value` into the list ".
+
+
+For example, if I wanted to say `myLinkedList.insert(2, 99)`, I want to insert
+at index of `2`, with the value `99`.  That would be mean, if we go back to our
+linked list index example condition (`1 --> 10 --> 5 --> 16`) , index of `2` is
+mean I want to insert `99` and have that point to `5` (`1 --> 10 --> 99 -->
+5 --> 16`), how we go about doing that?
+
+I want to warn you, this can get little tricky, and the best way to really think
+about it, is to grab a piece of paper and a pen and draw out the steps that you
+should do.
+<br/>
+
+![chapter-6-3.gif](./images/gif/chapter-6-3.gif "Linked list insert node")
+<br/>
+
+A good way to practice this, and make sure you get it right, is to use the
+[visualgo](https://visualgo.net/en/list) and practice _inserting_ and see what
+happens when you do index of `2` let's say `99`, I hit _Go_, see what happens?
+You're going to have to code that action. Did you get that. Ply around with
+visualgo as you try and code the `insert()` function.
+
+Like I said, a little hint, that there's going to be some looping involves, you
+saw that in the demonstration or in animation there was some of traversal. So
+we're going to do some sort of traversal to find the index.
+
+I also want to code a quick `printList()` function;
+
+
+```javascript
+Linkedlist {
+  head: { value: 1, next: { value: 10, next: [Object] } },
+  tail: { value: 16, next: null },
+  length: 4
+}
+```
+
+So that instead of using way of this way of printing our list, which as it gets
+deeper and deeper, it gets harder and harder to understand, I'm going to just
+create a `printList()` function that should access to, to make sure that your
+`insert()` method is working. This `printList()` is simply going o just list our
+linked list; But instead of having this ugly print out I'm just going to print
+out in an array, so our linked list example condition is just going to be
+printed in an array.
+
+All we're going to do, is say `const array` is going to be an empty array. Will
+have a current `currentNode` variable, that  will have `this.head`, the first
+item in the list. All we're going to do is do a `while-loop`, remember
+`while-loop` is similar to a `for-loop`, we're looping but instead we're saying
+while this is happening, while a condition is happening run the below command.
+
+So I'm going to say while `currentNode`  doesn't equal to `null`, as long as
+there is a `currentNode` and we're not pointing to a `null`, in that case just
+simply add to the array  the current node value
+(`array.push(currentNode.value)`).
+
+We don't care about the pointer or anything, we just want to push to the array
+the value, and we want to then update the `currentNode` to equal
+`currentNode.next`. So we're going to keep going until `currentNode` is going to
+be `null` which case we're going to stop; again `while-loops` are really really
+good if we _don't really know the length of our linked list_, or we _want to do
+something while a condition is met_.
+
+At last, we can simply return the array. If I run the `printList()`,
+
+```javascript
+myLinkedList.printList();
+
+// Or
+
+console.log(myLinkedList.printList());
+
+// Result
+// [ 1, 10, 5, 16  ]
+```
+
+We get back our linked list as an array.
+
+So, using the `printList()` command to check your work, see if you can create
+`insert()` method, Good Luck.
+
+**[⬆ back to top](#table-of-contents)**
+<br/>
+<br/>
+
+

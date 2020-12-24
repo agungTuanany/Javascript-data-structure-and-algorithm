@@ -82,6 +82,22 @@ class Linkedlist {
 
         return this;
     };
+
+    printList() {
+        const array = [];
+        let currentNode = this.head;
+
+        while (currentNode !== null) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next
+        };
+
+        return array;
+    };
+
+    insert(index, value) {
+
+    }
 };
 
 const myLinkedList = new Linkedlist(10)
@@ -100,3 +116,5 @@ console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
 myLinkedList.prepend(1);
 console.log(myLinkedList)
 console.log("==>{1}", JSON.stringify(myLinkedList, null, 4))
+
+console.log(myLinkedList.printList())
