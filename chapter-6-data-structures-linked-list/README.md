@@ -1002,6 +1002,7 @@ class Linkedlist{
             currentNode = currentNode.next
         };
 
+        console.log(array);
         return array;
     };
 
@@ -1011,8 +1012,6 @@ class Linkedlist{
 }
 
 myLinkedList.insert(2, 99)
-
-console.log(myLinkedList.printList())
 ```
 
 We want to create a `insert()` method, in this method is going to have an
@@ -1086,12 +1085,8 @@ At last, we can simply return the array. If I run the `printList()`,
 ```javascript
 myLinkedList.printList();
 
-// Or
-
-console.log(myLinkedList.printList());
-
 // Result
-// [ 1, 10, 5, 16  ]
+// [ 1, 10, 5, 16 ]
 ```
 
 We get back our linked list as an array.
@@ -1099,8 +1094,310 @@ We get back our linked list as an array.
 So, using the `printList()` command to check your work, see if you can create
 `insert()` method, Good Luck.
 
+### Exercise - 3 answer `insert()` method
+
+Final `insert()` method,
+
+```javascript
+insert(index, value) {
+    // check params
+    if (index >= this.length) {
+        this.append(value);
+
+        return this.printList();
+    };
+
+    if (index === 0) {
+        this.prepend(value);
+
+        return this.printList();
+    };
+
+    const newNode = {
+        value: value,
+        next: null
+    };
+
+    const leader = this.traverseToIndex(index - 1);
+    const holdingPointer = leader.next;
+
+    leader.next = newNode;
+
+    newNode.next = holdingPointer;
+    this.length++;
+
+    return this.printList()
+
+};
+
+traverseToIndex(index) {
+    // check params
+    // ....
+
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+        currentNode = currentNode.next;
+
+        counter++;
+    };
+
+    return currentNode;
+}
+```
+
+### Chunked `insert()` method
+
+```javascript
+// Check params
+if (index >= this.length) {
+    this.append(value);
+
+    return this.printList();
+};
+
+if (index === 0) {
+    this.prepend(value);
+
+    return this.printList();
+};
+```
+
+The very first thing I want to do, is well first of all check my parameters and
+this is something that you usually want to do with all methods, I know we
+simplified things and when we looked at `presnt()` and `append()`, We never
+checked whether the `value` was something that we wanted; But when it comes into
+inserting something, we want to make sure especially that the `index` is a value
+that we understand, so our program doesn't give any errors.
+
+There's many things that we can do for a check, I'll leave it up you to really
+implement a good checking. The one important check that I think we should have
+is if `index >= this.length`. So, if I give an insert of let's say index at
+`200`, and our list is only three items long, I want to be able to handle that
+properly. In this case I'm saying, as long as the index is greater or equal to
+this dominant (`this.length`), in that case, just add it to the end of the list.
+To simplify things, I think is good enough and we can just say return
+`this.append()` and we'll just add the value.
+
+We can try this by simply run this command,
+
+```javascript
+myLinkedList.insert(200, 98)
+
+// Result
+// [ 1, 10, 5, 16, 98 ]
+```
+
+Now, what if I'm inserting index of `2`?
+
+```javascript
+myLinkedList.insert(2, 98)
+```
+
+Now, it's the hard part.
+
+```javascript
+const newNode = {
+    value: value,
+    next: null
+};
+
+const leader = this.traverseToIndex(index - 1);
+const holdingPointer = leader.next;
+```
+
+We want to first create the `newNode` and remember we can create a new class
+instance, if we wanted to, but in our case we'll just create a new object that
+has a `value: value`, and `next: null`, nothing new here, we've seen this
+before.
+
+Comes the trick part; And I like to comment this out or at least visualize it so
+we understand what we are doing,
+
+```
+node list:        [1, 10, 5, 16, 98]
+index of:          0   1  2   3   4
+
+node1(10)---------------node2(5)
+
+
+        inserted-node(99)
+```
+
+We have two nodes, that are connected, and then we have new node that come
+along, an says "Hey, I want you to insert me right in between", what should the
+steps be?
+
+Well, the first thing we need to do is to actually figure out the which node the
+first one is, because remember to insert something we can pick whatever index we
+want. So if we want to insert an index of `2`, we want to grab whatever is that
+index of `2`. So, we need to traverse our list to find this node `[5]`, and get
+reference to it, otherwise we don't really have a reference to it. Remember
+a linked list only have reference to this `[1]` _head_, and to this `[98]`
+_tail_.
+
+So, the very first thing we want to do is to actually get to that node, we are
+going to call the first node the `leader`, because that's going to be the first
+one, first node `node1` that we going to connect to the new `inserted-node`, and
+`inserted-node` now going to _point_ next to old node (`node2`), or the not that
+was initially connected to to the first node (`node1`).
+
+So, I'm going to say this leader node is going to be, well how can we get that?
+We need to somehow traverse one by one the node list until we find the index we
+are looking for; and to keep the code clean I'm going to create a new method,
+I'm going to name the new method `this.traverseToIndex(inndex)`. That simply
+going to get the _index_ that is `[2]`, and I want to grab the `leader`. So if
+I want to insert the number `99` in index `[2]`, I have to make sure that `[10]`
+points to `[99]`; and `[99]` point to `[5]`. That means I need to grab the index
+`1` not the index `2` and pint it to the `leader` that is the `[10]`, the leader
+that we want of the list. So I'm going to do is  `- 1`,
+(`this.traverseToIndex(inndex) - 1`).
+
+This new method `traverseToIndex()` we're going to create it. I have `this`
+keyword here, because again it's a method onto `Linkedlist` class.
+
+```javascript
+traverseToIndex(index) {
+    // check params
+    // ....
+
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+        currentNode = currentNode.next;
+
+        counter++;
+    };
+
+    return currentNode;
+}
+```
+
+I'm going to say `traverseToIndex` that going to get an `index`, and this is
+where we do our traversal or looping. We want to do _check for parameter_ and
+make sure that it's a valid index, and that's something you can do on your own,
+it's not very important for this example, we can assume that the index is going
+to be valid number and a valid index.
+
+In this method, we're going to first do something like a `counter` that equal to
+`0` (`counter = 0`). We're going to say the `currentNode` is something we did
+similar to the `printList()`, we're going to keep the current node as
+`this.head`. (`currentNode = this.head`).
+
+While the `counter` doesn't equal the index (`counter !== index`), because we're
+keep traversing, go from the beginning from the _head_ all the way until the
+`counter` is equal to the `index`. So keep going through the `while-loop` as
+long as the `counter` doesn't equal the `index`; but as soon as the `counter`
+become the `index`, while we reach the point that we want, in our case
+`traverseToIndex(index - 1)`, that means as soon as we get the `[10]` then stop;
+But until then I want you to traverse through this. So, `currentNode` is going
+to equal `currentNode.next`. We're going to keep moving the current node over
+the right and we're going to increment the counter one by one (`counter++`).
+That our traversal (looping). All we need to do at the end, because we want to
+return something from this method, is to `retrun currentNode`.
+
+We have the traverse method. We say traverse to the `index`, in our case if we
+do `insert(2, 99)`, is going to create a new node, and it's going to traverse to
+`index - 1`, so it's going to index `1` which is have value of `[10]`, and the
+`counter`  is going to equal to `index`, it's going to exit out of the loop, and
+it's going to return the `currentNode` which is `[10]`.
+
+We grab the reference to the `leader`. Congrats, but we are not done yet,
+right?. Once we grab the reference to the `leader`, what we do next? Well the
+next thing is we want to make sure that we grab the next item in this original
+list `1 --> 10 --> 5 --> 16 --> 98`, we want to hold a pointer to number `[5]`.
+Again, we don't want to break this list, we want to make sure that the
+connections are working properly, and that `[99]` comes after `[10]`, and after
+`[99]` comes `[5]`.
+
+The next step we want to do in our `insert()` method is to what I call
+`holdingPointer` we'll say to `leader.next` (`holdingPointer = leader.next`).
+`leader.next` have value now is `[5]`, and this `[5]` we now have it referenced
+in this variables `holdingPointer` that will have temporarily.
+
+Because we have `[5]` saved and referenced to `holdingPointer`, we can now
+update the `leader` next to point our `newNode`; So I can say `leader.next` is
+going to pointer to `newNode`, (`leader.next = newNode`). Remember, because of
+how references is work, we've deleted the reference of `[5]` so, `[10]` no
+longer points to `[5]`, but we've saved the reference to it in `holdingPointer`.
+
+```
+node1(10)           node2(5)
+    \
+     \
+      \
+      inserted-node(99)
+```
+
+We have remove the references to `node2`, now `[10]` points to `[99]`. What we
+do next? We need inserted node to point `[5]`.
+
+```
+node1(10)           node2(5)
+    \                   /
+     \                 /
+      \               /
+      inserted-node(99)
+```
+
+That's pretty simple, we simply say `newNode.next`  is going to equal to
+`holdingPointer`, (`newNode.next = holdingPointer`), the `[5]` that we are
+keeping in memory.
+
+```
+node1(10)---inserted-node(99)---node2(5)
+```
+Finally we say `this.length++`, because we added to the list. Just we know we
+did it properly we can return `this.printList()`. Once we insert something we
+just want to print the list. Let see if that works.
+
+```javascript
+myLinkedList.printList()                // [ 1, 10, 5, 16, 98 ]
+myLinkedList.insert(2, 99)              // [ 1, 10, 99, 5, 16, 98 ]
+myLinkedList.insert(20, 79)             // [ 1, 10, 99, 5, 16, 98, 79 ]
+```
+
+Before we had `[ 1, 10, 5, 16, 98 ]`, when we run `insert(2, 99)` we get back
+the list `[ 1, 10, 99, 5, 16, 98 ]`. If we do to test one more time `insert(20,
+79)`, we get back `[ 1, 10, 99, 5, 16, 98, 79 ]`.
+
+### Summary `insert()` method
+
+I know that was challenging, and `insert()` is probably the toughest function to
+implement, or method to implement in linked list, but practices this a couple
+times, really understand what each step is doing, draw it out if you need to.
+But, congratulations we just implemented an `insert()` function into our linked
+list.
+
+You might notice `traverseToIndex()` where we had a `while-loop`, and this might
+make sense now right; Why we had the `insert O(n)`, because we had to loop
+through our list, and `lookup O(1)` which can also be called **traversal** was
+also `O(n)`; that was our traverse to index. If we are looking an item at index
+of `10` for example, we'd have to look up in the worst case, is that we had to
+go through the entire list same with `insert()`.
+
+### Exercise - 4 `remove()` method
+
+Now that we've done the `insert()` you should be able to do the next one on your
+own, that is `delete O(n)`. Using  something very similar to how we did with
+`insert()`; Or I like to call this `remove()`, let's have a `remove()` that have
+the parameter `index` of what you want to remove.
+
+```javascript
+class Linkedlist {
+    // ...
+    // ...
+
+    remove(index) {
+        // ...
+        // ...
+    }
+}
+```
+Good luck coding this.
+
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
-
-
