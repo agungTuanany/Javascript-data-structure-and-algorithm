@@ -141,6 +141,19 @@ class Linkedlist {
 
         return currentNode;
     }
+
+
+    remove(index) {
+        // Check Parameters
+        const leader = this.traverseToIndex(index-1);
+        const unwantedNode = leader.next;
+
+        leader.next = unwantedNode.next;
+        this.length--;
+
+        return this.printList();
+    }
+
 };
 
 const myLinkedList = new Linkedlist(10)
@@ -166,6 +179,5 @@ myLinkedList.insert(200, 98)
 
 myLinkedList.insert(2, 99)
 myLinkedList.insert(20, 79)
-// console.log(myLinkedList.printList())
-// myLinkedList.insert(10, 68)
-// myLinkedList.insert(0, 69)
+
+myLinkedList.remove(2)

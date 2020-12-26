@@ -1398,6 +1398,135 @@ class Linkedlist {
 ```
 Good luck coding this.
 
+### Exercise - 3 answer `remove()` method
+
+Final `remove()` method,
+
+```javascript
+remove(index) {
+    // Check Parameters
+    const leader = this.traverseToIndex(index-1);
+    const unwantedNode = leader.next;
+
+    leader.next = unwantedNode.next;
+    this.length--;
+
+    return this.printList();
+}
+```
+
+### Chunked `remove()` method
+
+```javascript
+// node list: [ 1, 10, 99, 5, 16, 98, 79 ]
+```
+
+First we need to do is check the parameters and we might want to check whether
+the `index` has a positive number, whether the `index` is higher then the
+length; but, that something we've already talked about. Let's go to meet and
+potato's.
+
+The main part of all we need to do, is once again get the reference to our
+`leader`. So, if we want to remove let's say `[99]`, so that is index of `2`. In
+that case we want to make sure that we remove the `[10]` to `[99]` _pointer_,
+and instead point `[10]` to `[5]`; and because of how memory works, and garbage
+collected languages like JavaScript as soon as we remove that reference. `[99]`
+is going to get deleted.
+
+```
+node1(10)           node2(5)
+    \
+     \
+      \
+      deleted-node(99)
+```
+
+All we're saying is, remove `deleted-node` _pointer_ from `node2`
+
+```
+node1(10)--------------node2(5)
+
+      deleted-node(99)
+```
+
+and then just updated `node1` _pointer_ reference to `node2`.
+
+```
+node1(10)--------------node2(5)
+```
+
+I hope above little diagram make sense. Let's code this out.
+
+```javascript
+const leader = this.traverseToIndex(index-1);
+const unwantedNode = leader.next;
+
+leader.next = unwantedNode.next;
+this.length--;
+
+return this.printList()
+```
+
+First, we find the `leader` like just we did in `insert()` function by using
+`this.traverseToIndex(index - 1)`. Now, we have the `leader`, and we can point
+`node1(10)` to now point to `node2(5)`, but we need a _reference_ to this
+`node2(5)`. The way we get that reference is to say `unwantedNode` that the node
+we want to delete, is going to have a `leader.next`.
+
+That is, the `unwantedNode` is going to equal `leader.next` which
+`deleted-node(99)`; we've got that variable, so we can do `leader.next` to equal
+on `unwantedNode.next`. We grab the `leader`, and then we said, this node
+I want to deleted (`[99]`), I want to grab it by using `leader.next`, and then
+make sure that we get the pointer that is `[99]` to `[5]`, which is
+`unwantedNode.next` which equal to `[5]`, to now be pointed from `leader.next`.
+
+Of course, we don't forget we have to decrease the length (`this.length`),
+because we're removing a node. The last, we can just `return this.printList()`
+
+```javascript
+myLinkedList.printList()            // [ 1, 10, 99, 5, 16, 98, 79 ]
+myLinkedList.remove(2)              // [ 1, 10, 5, 16, 98, 79 ]
+myLinkedList.remove(2)              // [ 1, 10, 16, 98, 79 ]
+```
+
+I'm going to say, that we want to remove index of `2` (`remove(2)`) to remove
+`[99]`. If we run this function we get back a linked list `[ 1, 10, 5, 16, 98,
+79 ]`.
+
+If I run again `myLinkedList.remove(2)`, to remove `[5]`, we get `[5]` has
+deleted.
+
+Once again, we know why `delete` is an operation of `O(n)`, because we have to
+`traverseToIndex`.
+<br/>
+
+![chapter-6-4.gif](./images/gif/chapter-6-4.gif "remove() method or delete operation in linked list")
+<br/>
+
+Going back to [visualgo](https://visualgo.net/en/list), we now have a better
+understanding of how above diagram works. If I remove the _tail_ I've to
+traverse everything, one by one until we hit the _tail_, and then just remove it
+the node we want to delete it.  I encourage you to play around with visualgo, to
+better understanding our linked list implemented.
+
+There are other method we can add to it, but these are the main ones of linked
+list that you can see. This should give you a better idea of how we calculate
+Big-O notation with linked list, and where some of the _drawbacks_ are. I mean,
+you can explain data structures for a long time, but without actually coding
+yourself it's hard to see why some operations take longer than others, and
+linked list are very popular in interviews question.
+
+Now you have the tools to build your own linked list in a language that doesn't
+even have it natively like JavaScript.
+
+Well done, getting this far. In the next lecture, we're going to introduce you
+to the second type of linked list that I mentioned at the beginning. Up until
+now, we've created **singly linked list**; there's also a **doubly linked
+list**. What does that mean for that? I'll see you in the next lecture.
+
+
+
+
 **[⬆ back to top](#table-of-contents)**
 <br/>
 <br/>
