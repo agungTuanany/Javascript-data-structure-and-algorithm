@@ -89,7 +89,7 @@ class Linkedlist {
 
         while (currentNode !== null) {
             array.push(currentNode.value);
-            currentNode = currentNode.next
+            currentNode = currentNode.next;
         };
 
         console.log(array);
@@ -122,7 +122,7 @@ class Linkedlist {
         newNode.next = holdingPointer;
         this.length++;
 
-        return this.printList()
+        return this.printList();
 
     };
 
@@ -140,8 +140,7 @@ class Linkedlist {
         };
 
         return currentNode;
-    }
-
+    };
 
     remove(index) {
         // Check Parameters
@@ -152,7 +151,7 @@ class Linkedlist {
         this.length--;
 
         return this.printList();
-    }
+    };
 
 };
 

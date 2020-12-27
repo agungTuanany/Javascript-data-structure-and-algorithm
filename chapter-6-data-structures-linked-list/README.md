@@ -2,22 +2,23 @@
 
 ## Tables of Contents
 
-1.  [Linked List Introduction](#linked-list-introduction)
-2.  [What is a Linked List](#what-is-a-linked-list)
-3.  [Exercise Why Linked List](#exercise-why-linked-list)
-4.  [What is Pointer](#what-is-pointer)
-6.  [Our First Linked List](#our-first-linked-list)
-7.  [Node Class](#Node-Class)
-8.  [Insert method](#insert-method)
+1. [Linked List Introduction](#linked-list-introduction)
+2. [What is a Linked List](#what-is-a-linked-list)
+3. [Exercise Why Linked List](#exercise-why-linked-list)
+4. [What is Pointer](#what-is-pointer)
+5. [Our First Linked List](#our-first-linked-list)
+6. [Node Class](#Node-Class)
+7. [Insert method](#insert-method)
+8. [Doubly Linked List](#doubly-linked-list)
 
-<br/>
-
+</br>
 
 ## Linked List Introduction
-<br/>
+
+</br>
 
 ![chapter-6-1.png](./images/chapter-6-1.png "Linked list Introduction")
-<br/>
+</br>
 
 It's time to talk about our third data structure, and we're going to be talking
 about two types of linked list in the next coming lectures. `[1]` **Singly**,
@@ -43,10 +44,10 @@ disregard arrays and hash tables, because linked list are the best data
 structure? No, _as always there are **tradeoffs** when it comes to data
 structures_. In the next coming lectures, let's learn more about them, so we can
 get a clear picture.
-<br/>
+</br>
 
 ![chapter-6-2.png](./images/chapter-6-2.png "Linked list Introduction")
-<br/>
+</br>
 
 By the way, remember this above diagram, that I showed you in the has table
 chapter? And I said that when we had **collision**, one way to solved it was
@@ -56,14 +57,15 @@ arrow pointing, that's a linked list. So get started and learn what linked list
 are.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What is a Linked List
-<br/>
+
+</br>
 
 ![chapter-6-1.png](./images/chapter-6-1.png "Linked list Introduction")
-<br/>
+</br>
 
 What is a linked list? As the name suggests it's a list that is linked; that's
 answer is not very helpful can you actually explain it to us? Alright, as
@@ -146,16 +148,17 @@ Before we code our own linked list, and create our own linked list data
 structure, let's do a fun little exercise.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Why Linked List
 
 ### Linked List Example - visualgo
-<br/>
+
+</br>
 
 ![chapter-6-1.gif](./images/gif/chapter-6-1.gif "Exercise why Linked list")
-<br/>
+</br>
 
 It's time for little exercise, why do you think linked list may be better than
 hash tables or array? Just from what we know right now. I want you to answer
@@ -188,10 +191,10 @@ simply resetting a few pointers, just like we saw in the animation.
 I can **insert** anything that I want, and the only changes that happen
 is in the middle of nodes that we insert to it. This is the same for
 **deleting** node in a linked list.
-<br/>
+</br>
 
 ![chapter-6-3.png](./images/chapter-6-3.png "Exercise Linked list")
-<br/>
+</br>
 
 We remember with array data structure, how when we wanted to insert something
 that wasn't at the end of the array, we had to add the item, let's say in memory
@@ -224,10 +227,10 @@ array. Even though, they're technically both `O(n)`.  However, these **insert**
 that we can do in the middle of a linked list, is a lot better than array.
 
 What about hash tables?
-<br/>
+</br>
 
 ![chapter-6-4.png](./images/chapter-6-4.png "Exercise Linked list")
-<br/>
+</br>
 
 Remember hash tables, when we talked about hash tables, well just like hash
 tables, when we insert something into a linked list, we just scatter it all over
@@ -241,10 +244,11 @@ list, each node point to the next nodes. So, you can have sorted data like
 a hash tables;
 
 ### Linked List Big-O
-<br/>
+
+</br>
 
 ![chapter-6-5.png](./images/chapter-6-5.png "Linked List Big-O notations")
-<br/>
+</br>
 
 If we look at our Big-O of linked list, we can see that **_prepend_**, which is
 common language we say to add to the beginning of a linked list, **prepend** is
@@ -274,8 +278,8 @@ what a pointer is?, and then finally, code our own linked list, so we understand
 the Big-O implications a little bit better.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What is Pointer
 
@@ -333,15 +337,15 @@ memory, when we look at our RAM, there's only one entry, `{a: true}`; And both
 To show you  that is the case let log `obj1` and `obj2`, we get result both `{a:
 true}`; but, if I change `obj1.a = "booya"`, so accessing property in `obj1`,
 and I run this, look of that, both `obj1` and `obj2` changed. Because I've
-created a pointer here, saying `obj2` is going to reference ` obj1` | (`obj2
+created a pointer here, saying `obj2` is going to reference `obj1` | (`obj2
 = obj1`) like so; And they both point to the same location in memory.
 
 That's what pointer is. It's simply saying, "hey, this is where it is in
 memory". And when we look at our above linked list example,
-<br/>
+</br>
 
 ![chapter-6-2.gif](./images/gif/chapter-6-2.gif "Linked list delete node")
-<br/>
+</br>
 
 When remove, let's say a node at index of `2 [77]`, we remove that and that just
 disappears from memory; how does that work?
@@ -377,9 +381,8 @@ else in memory**. We're going to use this knowledge in our next lecture to
 create our very first linked list data structure.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
-
+</br>
+</br>
 
 ## Our First Linked List
 
@@ -473,7 +476,6 @@ I'm going to instantiate the class  that is run the class function, run the
 constructor, and create a linked list. I'm going to say `Linkedlist()` and give
 it a value to start off the list, because while the list can't be empty, has to
 have something, it has to start with a head.
-
 
 So, in our case, we want to started with `10`, and ideally by running command `new
 Linkedlist(10)`, we've created the first part of our linked list, just the `10`.
@@ -652,7 +654,8 @@ The first thing we would want to do is to create a new node with the _value_. We
 can do that quite easily saying `const newNode`, that's going to equal an
 _object_ with properties that we should be familiar by now. We have `value` as
 property of `newNode` that is going to equal the _value_ that we get as
-a parameter, and then we have another property of `newNode` called `next` that will be `null`.
+a parameter, and then we have another property of `newNode` called `next` that
+will be `null`.
 
 So, we have our `newNode` here, and we want to attach it now after the `10`,
 which is our very first node. Well we can simply do that by saying
@@ -857,6 +860,7 @@ const newNode = {
     next: null
 };
 ```
+
 The very first thing we do, just like we did with `append()`, is to create the
 node, that we're going to add. So, I'm going to say `newNode`, that have two
 objects, the **_value_** and the **_next_**.
@@ -883,8 +887,8 @@ Then obviously, just like we did with `append()`, we want to update the
 reference now, to say that `this.head` is no longer equal to the old value,
 it's now the new node.
 
-The last but not least, we want to add `this.length++` and make sure we increase the length of
-our list,
+The last but not least, we want to add `this.length++` and make sure we increase
+the length of our list,
 
 Finally if we `return this` our linked list, and we can run the method, we get
 the result,
@@ -901,16 +905,16 @@ console.log(myLinkedList)
 // }
 ```
 
-Look at that, we've prepend `1` to the very first item on the list, the **_head_** is
-now referencing `10`, and the **_tail_** of our list is now `16`.
+Look at that, we've prepend `1` to the very first item on the list, the
+**_head_** is now referencing `10`, and the **_tail_** of our list is now `16`.
 
 That wasn't too bad it was it. In the next lecture, I want to talk about quickly
 this `newNode` code that we are repeating, both in `append()` and `prepend()`;
 and we might want to do with it.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Node Class
 
@@ -970,8 +974,8 @@ it's easier to read; and as you saw, it's fairly easy to implement if you want
 to do that on your own.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Insert method
 
@@ -1018,7 +1022,6 @@ We want to create a `insert()` method, in this method is going to have an
 `index` and `value` as parameter. Because, we're going to want to be able to say
 "Insert at this (`index`) location, and this `value` into the list ".
 
-
 For example, if I wanted to say `myLinkedList.insert(2, 99)`, I want to insert
 at index of `2`, with the value `99`.  That would be mean, if we go back to our
 linked list index example condition (`1 --> 10 --> 5 --> 16`) , index of `2` is
@@ -1028,10 +1031,10 @@ mean I want to insert `99` and have that point to `5` (`1 --> 10 --> 99 -->
 I want to warn you, this can get little tricky, and the best way to really think
 about it, is to grab a piece of paper and a pen and draw out the steps that you
 should do.
-<br/>
+</br>
 
 ![chapter-6-3.gif](./images/gif/chapter-6-3.gif "Linked list insert node")
-<br/>
+</br>
 
 A good way to practice this, and make sure you get it right, is to use the
 [visualgo](https://visualgo.net/en/list) and practice _inserting_ and see what
@@ -1044,7 +1047,6 @@ saw that in the demonstration or in animation there was some of traversal. So
 we're going to do some sort of traversal to find the index.
 
 I also want to code a quick `printList()` function;
-
 
 ```javascript
 Linkedlist {
@@ -1215,7 +1217,7 @@ before.
 Comes the trick part; And I like to comment this out or at least visualize it so
 we understand what we are doing,
 
-```
+```javascript
 node list:        [1, 10, 5, 16, 98]
 index of:          0   1  2   3   4
 
@@ -1323,7 +1325,7 @@ going to pointer to `newNode`, (`leader.next = newNode`). Remember, because of
 how references is work, we've deleted the reference of `[5]` so, `[10]` no
 longer points to `[5]`, but we've saved the reference to it in `holdingPointer`.
 
-```
+```javascript
 node1(10)           node2(5)
     \
      \
@@ -1334,7 +1336,7 @@ node1(10)           node2(5)
 We have remove the references to `node2`, now `[10]` points to `[99]`. What we
 do next? We need inserted node to point `[5]`.
 
-```
+```javascript
 node1(10)           node2(5)
     \                   /
      \                 /
@@ -1346,9 +1348,10 @@ That's pretty simple, we simply say `newNode.next`  is going to equal to
 `holdingPointer`, (`newNode.next = holdingPointer`), the `[5]` that we are
 keeping in memory.
 
-```
+```javascript
 node1(10)---inserted-node(99)---node2(5)
 ```
+
 Finally we say `this.length++`, because we added to the list. Just we know we
 did it properly we can return `this.printList()`. Once we insert something we
 just want to print the list. Let see if that works.
@@ -1396,6 +1399,7 @@ class Linkedlist {
     }
 }
 ```
+
 Good luck coding this.
 
 ### Exercise - 3 answer `remove()` method
@@ -1433,7 +1437,7 @@ and instead point `[10]` to `[5]`; and because of how memory works, and garbage
 collected languages like JavaScript as soon as we remove that reference. `[99]`
 is going to get deleted.
 
-```
+```javascript
 node1(10)           node2(5)
     \
      \
@@ -1443,7 +1447,7 @@ node1(10)           node2(5)
 
 All we're saying is, remove `deleted-node` _pointer_ from `node2`
 
-```
+```javascript
 node1(10)--------------node2(5)
 
       deleted-node(99)
@@ -1451,7 +1455,7 @@ node1(10)--------------node2(5)
 
 and then just updated `node1` _pointer_ reference to `node2`.
 
-```
+```javascript
 node1(10)--------------node2(5)
 ```
 
@@ -1498,10 +1502,10 @@ deleted.
 
 Once again, we know why `delete` is an operation of `O(n)`, because we have to
 `traverseToIndex`.
-<br/>
+</br>
 
 ![chapter-6-4.gif](./images/gif/chapter-6-4.gif "remove() method or delete operation in linked list")
-<br/>
+</br>
 
 Going back to [visualgo](https://visualgo.net/en/list), we now have a better
 understanding of how above diagram works. If I remove the _tail_ I've to
@@ -1524,9 +1528,57 @@ to the second type of linked list that I mentioned at the beginning. Up until
 now, we've created **singly linked list**; there's also a **doubly linked
 list**. What does that mean for that? I'll see you in the next lecture.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
 
+## Doubly Linked List
 
+Up until this point we talked about **singly linked list**, and we should have
+a good idea of how they work, but what is **doubly linked list**?
+
+Doubly linked list is similar except it **_links to the node before it_**. Let's
+have a look a little animation below,
+</br>
+
+![chapter-6-5.gif](./images/gif/chapter-6-5.gif "Doubly linked list")
+</br>
+
+We have a head node, let's say we just have one node, you see we have an extra
+block here; We're not really sure what this does yet. Now, if we want to add
+a new block to to this list, a doubly linked list, we wanted to add a node that
+contains the value `10`, we would now have a pointer to the next node,we also
+have pointer (this is the new part) to the previous node, and the new node is
+going to point to null, and this node (`10`) becomes the tail.
+
+If we added another node, we'd have the `10` node point to the new node `2`,
+we'd also have the new node point to the previous node. Finally the node with
+value `2` becomes a tail which means it points to null.
+
+That's what a doubly linked list does. It has an extra little block, extra piece
+of data that also links to the previous node. Now, why do you think that's
+important? Doubly linked list **allow us to traverse our list backwards**. Up
+until now, we were only able to go from the beginning all the way to the end.
+With doubly linked list, I can start from the end and go backwards.
+
+In singly linked list there is no way for me to know what comes before `10`, in
+doubly linked list that is no problem. It's exactly the same as the singly
+linked lust but **contain the additional pointer to the previous node**;
+**_searching_** through doubly linked list can actually be a little bit more
+efficient; **lookup_** can technically be `O(n / 2)`, because we can start at
+both ends, and if we know in which half of the list what we're looking for is,
+we **can pick the optimum place to start**. The **_lookup_** here is still
+`O(n)`, because if you remember with our rule book, `O(n / 2)`  is still `O(n)`,
+but is still technically a little bit faster.
+
+The **downside** to a doubly linked list as you can see is that we might have to
+hold little bit more memory, and additional block of memory, and we have
+a lecture talking about when to use doubly linked list and a singly linked list
+later on; but to understand this properly I think we should convert our single
+linked list that we created in the previous lectures to a doubly linked list.
+
+Let's go have a look at how to do that.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
