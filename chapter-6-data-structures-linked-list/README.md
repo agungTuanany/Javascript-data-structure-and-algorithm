@@ -97,7 +97,7 @@ data type.
 Let's take a look at some pseudo code,
 
 ```javascript
-const basket = ["apples", "grapes", "pears"]
+const basket = ["apples", "grapes", "pears"];
 
 /*
 |-----------------|
@@ -223,7 +223,7 @@ Array items are always located right next to each other in computer
 memory.Linked list and nodes instead are actually scattered all over memory,
 kind like hash tables, so iterating through a linked list or traversing through
 a linked list is usually quite bit slower than iterating through items like an
-array. Even though, they're technically both `O(n)`.  However, these **insert**
+array. Even though, they're technically both `O(n)`. However, these **insert**
 that we can do in the middle of a linked list, is a lot better than array.
 
 What about hash tables?
@@ -332,9 +332,9 @@ simply a reference.
 Here `obj1`, I'm not copying the object, I'm not saying `obj1` equals `{a:
 true}`, and also, creating another location in memory that says, `{a; true}` in
 memory, when we look at our RAM, there's only one entry, `{a: true}`; And both
-`obj1`  and `obj2` point to the same location in memory.
+`obj1` and `obj2` point to the same location in memory.
 
-To show you  that is the case let log `obj1` and `obj2`, we get result both `{a:
+To show you that is the case let log `obj1` and `obj2`, we get result both `{a:
 true}`; but, if I change `obj1.a = "booya"`, so accessing property in `obj1`,
 and I run this, look of that, both `obj1` and `obj2` changed. Because I've
 created a pointer here, saying `obj2` is going to reference `obj1` | (`obj2
@@ -365,7 +365,7 @@ there's still a _pointer_ to `{a: true}` location in memory.
 This is how things get deleted in languages like JavaScript, this is what you
 might call _garbage collection_ where as soon as we say `obj2 = "hello"`, now
 `obj2` which you referenced the memory space that had `{a: true}` is now just
-simply a string.  Because JavaScript is garbage collected, that is memory is
+simply a string. Because JavaScript is garbage collected, that is memory is
 managed automatically, `{a: true}` gets automatically garbage collected and
 deleted, because noting is pointing to it.
 
@@ -407,8 +407,8 @@ const myLinkedList = {
 }
 ```
 
-Well we can simply that we have  a new linked list, let just say here
-`myLinkedList`,  and this is going to equal to an object that has a **head**
+Well we can simply that we have a new linked list, let just say here
+`myLinkedList`, and this is going to equal to an object that has a **head**
 property, remember because the very first term in a linked list is the _head_,
 and we're going to have a node. The point of the node is to say, "hey, anything
 can be in the snow, just put anything you want, and it's a container around this
@@ -437,16 +437,16 @@ const myLinkedList = {
             value: 5,
             next: {
                 value: 16,
-                next: null
-            }
-        }
-    }
-}
+                next: null,
+            },
+        },
+    },
+};
 ```
 
 We have the head here, in which case it's `10` so we want to set `10` as our
 _value_, and this head is going to reference point to the next node, which will
-have  a _value_ of `5`, and the _next_ value, is the next node in the list,
+have a _value_ of `5`, and the _next_ value, is the next node in the list,
 which is `16`, well as `16` as the tail of our linked list, so that means it has
 point to _null_ as the _value_ property of tail, or what we call _null
 terminated_, that means it's the end of the list, perfect.
@@ -457,14 +457,10 @@ So, this is what we want to create, a linked list, using this as our structure.
 
 ```javascript
 class Linkedlist {
+    constructor(value) {}
+}
 
-    constructor(value) {
-
-    }
-
-};
-
-const myLinkedList = new Linkedlist(10)
+const myLinkedList = new Linkedlist(10);
 ```
 
 We're going to create a class called `Linkedlist`, and this class will have the
@@ -472,13 +468,14 @@ constructor, which is the function that gets run at the very beginning when we
 create the linked list. This constructor is going to take a `value` as
 parameter. What does that mean? Well, when we finally say, that we're creating
 a `myLinkedList`; remember, we want to create it, when I create `myLinkedList`,
-I'm going to instantiate the class  that is run the class function, run the
+I'm going to instantiate the class that is run the class function, run the
 constructor, and create a linked list. I'm going to say `Linkedlist()` and give
 it a value to start off the list, because while the list can't be empty, has to
 have something, it has to start with a head.
 
-So, in our case, we want to started with `10`, and ideally by running command `new
-Linkedlist(10)`, we've created the first part of our linked list, just the `10`.
+So, in our case, we want to started with `10`, and ideally by running command
+`new Linkedlist(10)`, we've created the first part of our linked list, just the
+`10`.
 
 ```javascript
 constructor(value) {
@@ -524,22 +521,20 @@ a value, we'll give it a length of `1` (`this.length = 1`);
 
 ```javascript
 class Linkedlist {
-
     constructor(value) {
         this.head = {
             value: value,
-            next: null
+            next: null,
         };
 
         this.tail = this.head;
-        this.length = 1
-
+        this.length = 1;
     }
 }
 
-const myLinkedList = new Linkedlist(10)
+const myLinkedList = new Linkedlist(10);
 
-console.log(myLinkedList)
+console.log(myLinkedList);
 
 // Result:
 // Linkedlist {
@@ -563,12 +558,12 @@ class Linkedlist {
     // ....
 
     append(value) {
-    // Code here
-    };
-};
+        // Code here
+    }
+}
 
-myLinkedList.append(5)
-myLinkedList.append(16)
+myLinkedList.append(5);
+myLinkedList.append(16);
 ```
 
 Congratulations, we just built our very first linked list. However it's time for
@@ -597,7 +592,7 @@ Final `append()` method,
 ```javascript
 append(value) {
 
-    const newnode = {
+    const newNode = {
         value: value,
         next: null
     };
@@ -644,9 +639,9 @@ console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
 #### Chunked `append()` method
 
 ```javascript
-const newnode = {
+const newNode = {
     value: value,
-    next: null
+    next: null,
 };
 ```
 
@@ -661,10 +656,10 @@ So, we have our `newNode` here, and we want to attach it now after the `10`,
 which is our very first node. Well we can simply do that by saying
 `this.tail.next`.
 
-```jaavascript
-myLinkedList(5)
+```javascript
+myLinkedList(5);
 
-console.log(myLinkedList)
+console.log(myLinkedList);
 
 // Result
 // Linkedlist {
@@ -673,8 +668,8 @@ console.log(myLinkedList)
 //   length: 1
 // }
 
-console.log(myLinkedList.tail.value)     // Result: 10
-console.log(myLinkedList.tail.next)     // Result: null
+console.log(myLinkedList.tail.value); // Result: 10
+console.log(myLinkedList.tail.next); // Result: null
 ```
 
 Remember, the _next_ value on _tail_ is equal _null_ (`myLinkedList.tail.next`);
@@ -714,12 +709,12 @@ Finally, we want to make sure that we add the length to equal to now; so, we're
 going to do `this.length++`; And just for fun, because we want to make sure that
 we do this right, we want to `return this` which is the `Linkedlist`. Remember
 `this` is just references what `Linkedlist` class is that get instantiated.
-We're going to say `retrun this`, so that we get back our linked list
+We're going to say `return this`, so that we get back our linked list
 (`myLinkedList`).
 
 ```javascript
-myLinkedList.append(5)
-console.log(myLinkedList)
+myLinkedList.append(5);
+console.log(myLinkedList);
 
 // Result:
 // Linkedlist {
@@ -737,8 +732,8 @@ and _next_ property is _null_; with a length now is `2`. It's look like it's
 working.
 
 ```javascript
-myLinkedList.append(16)
-console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
+myLinkedList.append(16);
+console.log("==>[16]", JSON.stringify(myLinkedList, null, 4));
 // Result:
 // ==>[16] {
 //     "head": {
@@ -785,8 +780,8 @@ class Linkedlist {
 
     prepend(value) {
         // Code here...
-    };
-};
+    }
+}
 
 myLinkedList.prepend(1);
 ```
@@ -857,7 +852,7 @@ Let's look at what the code should like,
 ```javascript
 const newNode = {
     value: value,
-    next: null
+    next: null,
 };
 ```
 
@@ -866,10 +861,10 @@ node, that we're going to add. So, I'm going to say `newNode`, that have two
 objects, the **_value_** and the **_next_**.
 
 Now, `next` as second object, I want to leave as `null`, and I'll show you why
-ion the next lecture that is the case we and w don't just have `next:
-this.head` to reference the very first item in our list which is `10`, but for
-now just trust me, that this `next` we want to leave as `nuill`, because we can
-do that later. Right now we're just creating an empty node with the `value`.
+ion the next lecture that is the case we and w don't just have `next: this.head`
+to reference the very first item in our list which is `10`, but for now just
+trust me, that this `next` we want to leave as `nuill`, because we can do that
+later. Right now we're just creating an empty node with the `value`.
 
 ```javascript
 newNode.next = this.head;
@@ -895,7 +890,7 @@ the result,
 
 ```javascript
 myLinkedList.prepend(1);
-console.log(myLinkedList)
+console.log(myLinkedList);
 
 // Result:
 // Linkedlist {
@@ -940,14 +935,14 @@ class Linkedlist {
         const newNode = new Node(value);
         // ...
         // ...
-    };
+    }
 
     prepend(value) {
         const newNode = new Node(value);
         // ...
         // ...
-    };
-};
+    }
+}
 ```
 
 For example, I can create a new class, and this is how object oriented
@@ -993,7 +988,7 @@ a heads up, that there's going to be some _looping involved_.
 
 ```javascript
 // 1 --> 10 --> 5 --> 16
-class Linkedlist{
+class Linkedlist {
     // ...
     // ...
 
@@ -1003,19 +998,17 @@ class Linkedlist{
 
         while (currentNode !== null) {
             array.push(currentNode.value);
-            currentNode = currentNode.next
-        };
+            currentNode = currentNode.next;
+        }
 
         console.log(array);
         return array;
-    };
-
-    insert(index, value) {
-
     }
+
+    insert(index, value) {}
 }
 
-myLinkedList.insert(2, 99)
+myLinkedList.insert(2, 99);
 ```
 
 We want to create a `insert()` method, in this method is going to have an
@@ -1023,7 +1016,7 @@ We want to create a `insert()` method, in this method is going to have an
 "Insert at this (`index`) location, and this `value` into the list ".
 
 For example, if I wanted to say `myLinkedList.insert(2, 99)`, I want to insert
-at index of `2`, with the value `99`.  That would be mean, if we go back to our
+at index of `2`, with the value `99`. That would be mean, if we go back to our
 linked list index example condition (`1 --> 10 --> 5 --> 16`) , index of `2` is
 mean I want to insert `99` and have that point to `5` (`1 --> 10 --> 99 -->
 5 --> 16`), how we go about doing that?
@@ -1065,14 +1058,14 @@ out in an array, so our linked list example condition is just going to be
 printed in an array.
 
 All we're going to do, is say `const array` is going to be an empty array. Will
-have a current `currentNode` variable, that  will have `this.head`, the first
+have a current `currentNode` variable, that will have `this.head`, the first
 item in the list. All we're going to do is do a `while-loop`, remember
 `while-loop` is similar to a `for-loop`, we're looping but instead we're saying
 while this is happening, while a condition is happening run the below command.
 
-So I'm going to say while `currentNode`  doesn't equal to `null`, as long as
+So I'm going to say while `currentNode` doesn't equal to `null`, as long as
 there is a `currentNode` and we're not pointing to a `null`, in that case just
-simply add to the array  the current node value
+simply add to the array the current node value
 (`array.push(currentNode.value)`).
 
 We don't care about the pointer or anything, we just want to push to the array
@@ -1157,13 +1150,13 @@ if (index >= this.length) {
     this.append(value);
 
     return this.printList();
-};
+}
 
 if (index === 0) {
     this.prepend(value);
 
     return this.printList();
-};
+}
 ```
 
 The very first thing I want to do, is well first of all check my parameters and
@@ -1185,7 +1178,7 @@ To simplify things, I think is good enough and we can just say return
 We can try this by simply run this command,
 
 ```javascript
-myLinkedList.insert(200, 98)
+myLinkedList.insert(200, 98);
 
 // Result
 // [ 1, 10, 5, 16, 98 ]
@@ -1194,7 +1187,7 @@ myLinkedList.insert(200, 98)
 Now, what if I'm inserting index of `2`?
 
 ```javascript
-myLinkedList.insert(2, 98)
+myLinkedList.insert(2, 98);
 ```
 
 Now, it's the hard part.
@@ -1202,7 +1195,7 @@ Now, it's the hard part.
 ```javascript
 const newNode = {
     value: value,
-    next: null
+    next: null,
 };
 
 const leader = this.traverseToIndex(index - 1);
@@ -1253,7 +1246,7 @@ going to get the _index_ that is `[2]`, and I want to grab the `leader`. So if
 I want to insert the number `99` in index `[2]`, I have to make sure that `[10]`
 points to `[99]`; and `[99]` point to `[5]`. That means I need to grab the index
 `1` not the index `2` and pint it to the `leader` that is the `[10]`, the leader
-that we want of the list. So I'm going to do is  `- 1`,
+that we want of the list. So I'm going to do is `- 1`,
 (`this.traverseToIndex(inndex) - 1`).
 
 This new method `traverseToIndex()` we're going to create it. I have `this`
@@ -1298,12 +1291,12 @@ But until then I want you to traverse through this. So, `currentNode` is going
 to equal `currentNode.next`. We're going to keep moving the current node over
 the right and we're going to increment the counter one by one (`counter++`).
 That our traversal (looping). All we need to do at the end, because we want to
-return something from this method, is to `retrun currentNode`.
+return something from this method, is to `return currentNode`.
 
 We have the traverse method. We say traverse to the `index`, in our case if we
 do `insert(2, 99)`, is going to create a new node, and it's going to traverse to
 `index - 1`, so it's going to index `1` which is have value of `[10]`, and the
-`counter`  is going to equal to `index`, it's going to exit out of the loop, and
+`counter` is going to equal to `index`, it's going to exit out of the loop, and
 it's going to return the `currentNode` which is `[10]`.
 
 We grab the reference to the `leader`. Congrats, but we are not done yet,
@@ -1344,12 +1337,12 @@ node1(10)           node2(5)
       inserted-node(99)
 ```
 
-That's pretty simple, we simply say `newNode.next`  is going to equal to
+That's pretty simple, we simply say `newNode.next` is going to equal to
 `holdingPointer`, (`newNode.next = holdingPointer`), the `[5]` that we are
 keeping in memory.
 
 ```javascript
-node1(10)---inserted-node(99)---node2(5)
+node1(10)-- - inserted - node(99)-- - node2(5);
 ```
 
 Finally we say `this.length++`, because we added to the list. Just we know we
@@ -1357,9 +1350,9 @@ did it properly we can return `this.printList()`. Once we insert something we
 just want to print the list. Let see if that works.
 
 ```javascript
-myLinkedList.printList()                // [ 1, 10, 5, 16, 98 ]
-myLinkedList.insert(2, 99)              // [ 1, 10, 99, 5, 16, 98 ]
-myLinkedList.insert(20, 79)             // [ 1, 10, 99, 5, 16, 98, 79 ]
+myLinkedList.printList(); // [ 1, 10, 5, 16, 98 ]
+myLinkedList.insert(2, 99); // [ 1, 10, 99, 5, 16, 98 ]
+myLinkedList.insert(20, 79); // [ 1, 10, 99, 5, 16, 98, 79 ]
 ```
 
 Before we had `[ 1, 10, 5, 16, 98 ]`, when we run `insert(2, 99)` we get back
@@ -1384,7 +1377,7 @@ go through the entire list same with `insert()`.
 ### Exercise - 4 `remove()` method
 
 Now that we've done the `insert()` you should be able to do the next one on your
-own, that is `delete O(n)`. Using  something very similar to how we did with
+own, that is `delete O(n)`. Using something very similar to how we did with
 `insert()`; Or I like to call this `remove()`, let's have a `remove()` that have
 the parameter `index` of what you want to remove.
 
@@ -1462,13 +1455,13 @@ node1(10)--------------node2(5)
 I hope above little diagram make sense. Let's code this out.
 
 ```javascript
-const leader = this.traverseToIndex(index-1);
+const leader = this.traverseToIndex(index - 1);
 const unwantedNode = leader.next;
 
 leader.next = unwantedNode.next;
 this.length--;
 
-return this.printList()
+return this.printList();
 ```
 
 First, we find the `leader` like just we did in `insert()` function by using
@@ -1488,14 +1481,13 @@ Of course, we don't forget we have to decrease the length (`this.length`),
 because we're removing a node. The last, we can just `return this.printList()`
 
 ```javascript
-myLinkedList.printList()            // [ 1, 10, 99, 5, 16, 98, 79 ]
-myLinkedList.remove(2)              // [ 1, 10, 5, 16, 98, 79 ]
-myLinkedList.remove(2)              // [ 1, 10, 16, 98, 79 ]
+myLinkedList.printList(); // [ 1, 10, 99, 5, 16, 98, 79 ]
+myLinkedList.remove(2); // [ 1, 10, 5, 16, 98, 79 ]
+myLinkedList.remove(2); // [ 1, 10, 16, 98, 79 ]
 ```
 
 I'm going to say, that we want to remove index of `2` (`remove(2)`) to remove
-`[99]`. If we run this function we get back a linked list `[ 1, 10, 5, 16, 98,
-79 ]`.
+`[99]`. If we run this function we get back a linked list `[ 1, 10, 5, 16, 98, 79 ]`.
 
 If I run again `myLinkedList.remove(2)`, to remove `[5]`, we get `[5]` has
 deleted.
@@ -1510,7 +1502,7 @@ Once again, we know why `delete` is an operation of `O(n)`, because we have to
 Going back to [visualgo](https://visualgo.net/en/list), we now have a better
 understanding of how above diagram works. If I remove the _tail_ I've to
 traverse everything, one by one until we hit the _tail_, and then just remove it
-the node we want to delete it.  I encourage you to play around with visualgo, to
+the node we want to delete it. I encourage you to play around with visualgo, to
 better understanding our linked list implemented.
 
 There are other method we can add to it, but these are the main ones of linked
@@ -1565,10 +1557,10 @@ In singly linked list there is no way for me to know what comes before `10`, in
 doubly linked list that is no problem. It's exactly the same as the singly
 linked lust but **contain the additional pointer to the previous node**;
 **_searching_** through doubly linked list can actually be a little bit more
-efficient; **lookup_** can technically be `O(n / 2)`, because we can start at
+efficient; **lookup\_** can technically be `O(n / 2)`, because we can start at
 both ends, and if we know in which half of the list what we're looking for is,
 we **can pick the optimum place to start**. The **_lookup_** here is still
-`O(n)`, because if you remember with our rule book, `O(n / 2)`  is still `O(n)`,
+`O(n)`, because if you remember with our rule book, `O(n / 2)` is still `O(n)`,
 but is still technically a little bit faster.
 
 The **downside** to a doubly linked list as you can see is that we might have to
@@ -1578,6 +1570,370 @@ later on; but to understand this properly I think we should convert our single
 linked list that we created in the previous lectures to a doubly linked list.
 
 Let's go have a look at how to do that.
+
+### Exercise - 5 Answer Doubly Linked List Refactor Code
+
+Final `DoublyLinkedList` class,
+
+```javascript
+class DoublyLinkedList {
+    constructor(value) {
+        this.head = {
+            value: value,
+            prev: null,
+            next: null,
+        };
+        this.tail = this.head;
+        this.length = 1;
+    }
+
+    append(value) {
+        // const newNode = new DoublyNode(value);
+        const newNode = {
+            value: value,
+            prev: null,
+            next: null,
+        };
+
+        // console.log("newNode:", newNode)
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+
+        console.log("append:", this);
+        return this;
+    }
+
+    prepend(value) {
+        // const newNode = new DoublyNode(value);
+        const newNode = {
+            value: value,
+            prev: null,
+            next: null,
+        };
+
+        newNode.next = this.head;
+        this.head.prev = newNode;
+        this.head = newNode;
+        this.length++;
+
+        console.log("prepend:", this);
+        return this;
+    }
+
+    printList() {
+        const array = [];
+        let currentNode = this.head;
+
+        while (currentNode !== null) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+
+        console.log(array);
+        return array;
+    }
+
+    insert(index, value) {
+        // Check for proper params
+        if (index >= this.length) {
+            this.append(value);
+
+            return this.printList();
+        }
+
+        if (index === 0) {
+            this.prepend(value);
+
+            return this.printlist();
+        }
+
+        const newNode = new DoublyNode();
+        const leader = this.traverseToIndex(index - 1);
+        const follower = leader.next;
+
+        leader.next = newNode;
+        newNode.prev = leader;
+        newNode = follower;
+        follower.prev = newNode;
+        this.length++;
+
+        console.log(this);
+        return this.printList();
+    }
+
+    traverseToIndex(index) {
+        // Check Params
+        let counter = 0;
+        let currentNode = this.head;
+
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+
+        return currentNode;
+    }
+
+    remove(index) {
+        // Check Parameters
+        const leader = this.traverseToIndex(index - 1);
+        const unwantedNode = leader.next;
+
+        leader.next = unwantedNode.next;
+        this.length--;
+
+        return this.printList();
+    }
+}
+```
+
+### Chunked `DoublyLinkedList` class
+
+```javascript
+constructor(value) {
+
+    this.head = {
+        value: value,
+        prev: null,
+        next: null
+    };
+    this.tail = this.head;
+    this.length = 1;
+};
+```
+
+We add extra features of an extra pointer for convert the singly linked list
+code into doubly linked list, let go line by line. Luckily for us it's not that
+difficult. As you can imagine if we go line by line and go into constructor the
+one extra piece of information is we need to add now is `this.prev` pointer will
+be `null` to begin with, so the _head_ is going to point to `null`, and
+everything else is still the same.
+
+```javascript
+append(value) {
+
+    const newNode = {
+        value: value,
+        prev: null,
+        next: null
+    };
+
+    // console.log("newNode:", newNode)
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+
+    console.log("append:", this)
+    return this;
+};
+
+const myDoublyLinkedList = new DoublyLinkedList(10);
+myDoublyLinkedList.append(5)
+myDoublyLinkedList.append(16)
+console.log(myDoublyLinkedList)
+
+// Result:
+// DoublyLinkedList {
+//   head: <ref *1> {
+//     value: 10,
+//     next: { value: 5, prev: [Circular *1], next: [Object] }
+//     prev: null,
+//   },
+//   tail: <ref *2> {
+//     value: 16,
+//     next: null
+//     prev: { value: 5, prev: [Object], next: [Circular *2] },
+//   },
+//   length: 3
+// }
+```
+
+What happens when we append something in `DoublyLinkedList`? We're going to add
+a `newNode` that also has `prev` property that points points to `null`.
+
+We're still going to have the `this.tail.next = newNode` and all doesn't change,
+the only line that changes is, we need to add `prev` property, because remember
+_append_ is adding at the end of the list, we want to add the previous property
+to equal whatever was at the end of the original list before we did the
+_append_. All we need to do is say `newNode.prev = this.tail` the very last
+item, before it gets updated (`this.tail = newNode`),
+
+Let's see if `append()` function it works the way we have it. I append `[5]` and
+`[16]` and I log `DoublyLinkedList` you can see I get `[10]` for value of `head`
+that point to `next` node we see value `[5]` that points to an object `[Objet1]`
+that we didn't really know yet. Also point to `prev` object `[Circular *1]`.
+Within this `[10]` node, we see that `prev` points to `null`, because there's
+nothing before the head.
+
+Now we look at the `tail`, we see that the `tail` now has value of `[16]`,
+`next` is `null`, because it is the tail, it's the end, but the `prev` node is
+also pointing to node `[5]`, and the `DoublyLinkedList` has a `length` of `3`.
+
+All we've added is the **_previous reference_**.
+
+Now let's do a `prepend()`, that is to add at the beginning of the list.
+
+```javascript
+prepend(value) {
+
+    const newNode = {
+        value: value,
+        prev: null,
+        next: null
+    };
+
+    newNode.next = this.head;
+    this.head.prev = newNode;
+    this.head = newNode;
+    this.length++;
+
+    console.log("prepend:", this)
+    return this;
+};
+
+myDoublyLinkedList.prepend(1)
+console.log(myDoublyLinkedList)
+printList()
+// Result:
+// DoublyLinkedList {
+//   head: <ref *1> {
+//     value: 1,
+//     next: { value: 10, next: [Object], prev: [Circular *1] },
+//     prev: null
+//   },
+//   tail: <ref *2> {
+//     value: 16,
+//     prev: { value: 5, prev: [Object], next: [Circular *2] },
+//     next: null
+//   },
+//   length: 4
+// }
+//
+// [ 1, 10, 5, 16  ]
+```
+
+We once again to add a new property which will be `prev` that will equal to
+`null` for now. We want to keep everything the same way; we want to make sure
+that the `newNode.next` is going to point to whatever the _head_ is currently
+(`newNode.next = this.head`).
+
+We also wan to say that `thiss.head.prev` should now to point to our `newNode`,
+because it's no longer the _head_ (`this.head.prev = newNode`). Then we can
+update the _head_ `this.head` to be our `newNode`, and `this.length++` is going
+to increase and we're going `return this`.
+
+So, we test with `prepend(1)` to the beginning at the list, We see that our
+`DoublyLinkedList` now has a `head` with the `[1]` value that's pointing to the
+`next` with `value` is `[10]`; And our `tail` is still the same, `tail` is
+`[16]` that point to the `value` of `[5]`. If we `printList`  we get `[1, 10, 5,
+16]` as we expected.
+
+We going to next method, the `insert()`, how would that work?
+
+```javascript
+insert(index, value) {
+    // Check for proper params
+    if (index >= this.length) {
+        this.append(value);
+
+        return this.printList();
+    };
+
+    if (index === 0) {
+        this.prepend(value);
+
+        return this.printlist();
+    };
+
+    const newNode = new DoublyNode();
+    const leader = this.traverseToIndex(index -1);
+    const follower = leader.next;
+
+    leader.next = newNode;
+    newNode.prev = leader;
+    newNode.next = follower;
+    follower.prev = newNode;
+    this.length++;
+
+    console.log(this);
+    return this.printList()
+};
+
+myDoublyLinkedList.insert(1, 99)
+
+// Result:
+// insert: DoublyLinkedList {
+//   head: <ref *1> {
+//     value: 1,
+//     next: { value: 99, next: [Object], prev: [Circular *1] },
+//     prev: null
+//   },
+//   tail: <ref *2> {
+//     value: 16,
+//     prev: { value: 5, prev: [Object], next: [Circular *2] },
+//     next: null
+//   },
+//   length: 5
+// }
+// [ 1, 99, 10, 5, 16 ]
+```
+
+We go line by line, the check `if` parts, everything's OK. We have `newNode`, so
+again we'll add a `prev` property that will be `null` for now. We still grabbing
+the `leader` and traversing to the index, but now we have to do things a bit
+differently, we need to grab the `leader` as well as the `follower`.
+
+So if we want to add `99` between `[10]` and `[5]`, we need to grab reference to
+`[10]` as the `leader`, and also the `follower` as now have value `[5]`.
+
+I'm going to change the name `leader.next` that keep the `[5]` to say
+`follower`. So the leader of our `newNode` and the `follower` of our `newNode`.
+The `follower` is going to be the `[5]`, (`const follower = leader.next`).
+We're going to update `leader.next`, so that is `[5]` which is what comes after
+`[10]`, to be the `newNode` or `[99]`.
+
+Now, `newNode.next` is going to equal the `follower`, that is `[5]`,
+(`newNode.next = follower`).
+
+We also want to make sure that our `newNode.prev` is going to equal to `leader`,
+that is the `[10]`. (`newNode.prev = leader`).
+
+Also make sure that the `follower` that is the `[5]` has a `prev` value that
+points to a `newNode`, (`follower.prev = newNode`).
+
+If I run `insert(1, 99)`, and just check if that is working, We see our linked
+list has `length` of `5`, I see that `head` have `value` of `[1]`, the `next`
+with the item is have `value` of `99`, as we expected, and it has both `next`
+and `prev` properties.
+
+Is not too bad right, as long as you visualize the steps and draw your diagrams,
+all we're doing is saying add the `newNode` or get the `leader` to point to
+`newNode`; the `newNode` should point to the `leader`; and the `newNode` should
+point after it `next` to the `follower`; and the `follower` is now to point back
+to the `newNode`.
+
+You might to go through this in your head, or draw out on the paper, but it
+should make sense now. At the end of the day singly linked list and doubly
+linked list **aren't that different**. As you see all we are doing is managing
+another pointer that points to the previous node.
+
+I'm going to leave the `remove()` method up to you to implement on your own in
+the `DoublyLinkedList`, as you've learned up until now it shouldn't be very
+different with what we did in the `insert()`.
+
+I hope you have an understanding of how linked list work now. Interviewers love
+asking questions of all linked list, because it requires a lot of information to
+be held in your head. As you can see they can really complicated if you're not
+the type of person that thinks clearly through their steps, and understand what
+they're doing one by one; and the steps are really important. That's why
+interviewers love this questions because they really get to see how you think.
+
+With linked list, as long do you draw out why you are doing step by steps, it
+becomes really really easy, as long as you don't just start coding it out from
+memory. Just draw the steps, think about your steps, and interviewers will be
+impressed.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
