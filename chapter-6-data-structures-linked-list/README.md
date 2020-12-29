@@ -10,6 +10,7 @@
 6. [Node Class](#Node-Class)
 7. [Insert method](#insert-method)
 8. [Doubly Linked List](#doubly-linked-list)
+9. [Singly VS Doubly Linked List](#singly-vs-doubly-linked-list)
 
 </br>
 
@@ -1555,7 +1556,7 @@ With doubly linked list, I can start from the end and go backwards.
 
 In singly linked list there is no way for me to know what comes before `10`, in
 doubly linked list that is no problem. It's exactly the same as the singly
-linked lust but **contain the additional pointer to the previous node**;
+linked list but **contain the additional pointer to the previous node**;
 **_searching_** through doubly linked list can actually be a little bit more
 efficient; **lookup\_** can technically be `O(n / 2)`, because we can start at
 both ends, and if we know in which half of the list what we're looking for is,
@@ -1934,6 +1935,58 @@ With linked list, as long do you draw out why you are doing step by steps, it
 becomes really really easy, as long as you don't just start coding it out from
 memory. Just draw the steps, think about your steps, and interviewers will be
 impressed.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Singly VS Doubly Linked List
+
+</br>
+
+![chapter-6-6.png](./images/chapter-6-6.png "Singly vs Doubly linked list")
+</br>
+
+We've learn about singly and doubly linked list. So let's talk about when you
+should use one over the other.
+
+Let's start with singly linked list, the **pros** of a singly linked list is,
+that it's a fairly `[1]` **simple implementation**, especially compared to the
+doubly one. It require `[2]` **less memory** as we can see, singly use less
+block.  Because there's less memory when we do things like `delete()` and
+`insert()`, because there is technically less operation, we don't have to move
+around to the previous property, it's `[3]` **little bit faster**.
+
+The `cons` or downside with singly linked list, is that it `[1]` **cannot be
+iterated in reverse** or traverse from back to front. If we ever lose the
+reference to `this.head` node of the list, the list can actually be lost in
+memory forever. So singly linked list is **appropriate to use when you have less
+memory**  or memory is really expensive. You want to be careful of how much you
+use, and your main goal is that you want to do **fast insertion and deletion**,
+and you don't have really much searching, especially when you have insertion at
+the beginning of a list.
+
+A doubly linked list, well the good side of is or **pros** is that it can be
+`[1]` **iterated or traversed both form the front or from the back**. Another
+beauty is that, if you need to delete a previous node, you don't need to
+traverse from the head node and find what the previous node, which a singly
+linked list has no concept of; you can do that fairly easy with a doubly linked
+list.
+
+The down side or **cons** for doubly linked list, is that it's `[1]` **fairly
+complex**, as we saw to implement and `[2]` **requires more memory and
+storage**, because of the extra block or property, and there are some actual
+operations that we need to perform to make sure that when we do insert and
+delete that the previous property is updated as well.
+
+Doubly linked list are really good when you `[1]` **don't have that much
+limitation on memory**; and when `[2]` **you want good operation for searching for
+elements such as searching backwards** instead just forwards.
+
+Most of the time in interview situation you're going to see singly linked list.
+You maybe asked a theoretical or broad question about the different between
+singly and doubly linked list; But most of the time this is where you're going
+to see.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
