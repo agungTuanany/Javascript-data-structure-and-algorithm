@@ -153,10 +153,42 @@ class Linkedlist {
         return this.printList();
     };
 
+    reverse() {
+        if (!this.head.next){
+            return this.head;
+        };
+
+        let first = this.head;
+        this.tail = this.head;
+
+        let second = first.next;
+
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        };
+
+        this.head.next = null;
+        this.head = first;
+
+        console.log(this)
+        return this.printList();
+    };
 };
 
 const myLinkedList = new Linkedlist(10);
 
+myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.insert(2, 99);
+myLinkedList.insert(20, 88);
+myLinkedList.remove(2);
+myLinkedList.remove(2);
+
+myLinkedList.reverse()
 // console.log(myLinkedList);
 
 // myLinkedList.append(5);
@@ -181,9 +213,9 @@ const myLinkedList = new Linkedlist(10);
 //
 // myLinkedList.remove(2);
 
-// -----------------------------------------------------------
-// | --- Singly List  Exercise 2 | Our first Linked List --- |
-// -----------------------------------------------------------
+// -------------------------------------------
+// | --- Doubly linked List  Exercise 2  --- |
+// -------------------------------------------
 
 
 class DoublyNode {
@@ -322,12 +354,12 @@ class DoublyLinkedList {
 
 };
 
-const myDoublyLinkedList = new DoublyLinkedList(10);
+// const myDoublyLinkedList = new DoublyLinkedList(10);
 
-myDoublyLinkedList.append(5)
-myDoublyLinkedList.append(16)
+// myDoublyLinkedList.append(5)
+// myDoublyLinkedList.append(16)
 
 
-myDoublyLinkedList.prepend(1)
-myDoublyLinkedList.insert(1, 99)
-myDoublyLinkedList.printList()
+// myDoublyLinkedList.prepend(1)
+// myDoublyLinkedList.insert(1, 99)
+// myDoublyLinkedList.printList()

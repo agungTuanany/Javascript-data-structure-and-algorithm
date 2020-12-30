@@ -11,6 +11,7 @@
 7. [Insert method](#insert-method)
 8. [Doubly Linked List](#doubly-linked-list)
 9. [Singly VS Doubly Linked List](#singly-vs-doubly-linked-list)
+10. [Exercise Reverse Method](#exercise-reverse-method)
 
 </br>
 
@@ -1987,6 +1988,225 @@ Most of the time in interview situation you're going to see singly linked list.
 You maybe asked a theoretical or broad question about the different between
 singly and doubly linked list; But most of the time this is where you're going
 to see.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Reverse Method
+
+```javascript
+class DoublyLinkedList {
+    // ...
+    // ...
+
+    reverse() {
+
+    }
+}
+```
+
+One of the most popular interview questions when it comes to linked list is to
+**_reverse a linked list_**. What I mean by that? Well, an interviewers is going
+to say, we have a linked list here, how you would go about reversing this list
+if I have a list over here is `[1, 10, 16, 88]`, how you can make the linked
+list go from `[88, 16, 10, 1]`, how would you reverse it and flip it?.
+
+We're going to use a singly linked list for this exercise, and all we want to do
+is create a new method that is going to say `reverse()`, and this method in here
+will have to do some magic that will reverse the list for us. Remember we're not
+just printing out an array, we want reversed linked list hat now has `[88]`
+referencing `[16]` that pointing to `[10]`, and `[10]` pointing to `[1]`, and
+`[1]` pointing to `null`.
+
+How you go about doing this? Good luck for the exercise.
+
+### Exercise - 6 Answer `reverse()` method
+
+Final `reverse()` method on singly linked list,
+
+```javascript
+// List: [1, 10, 16, 88];
+
+reverse() {
+    if (!this.head.next){
+        return this.head;
+    };
+
+    let first = this.head;
+    this.tail = this.head;
+
+    let second = first.next;
+
+    while (second) {
+        const temp = second.next;
+        second.next = first;
+        first = second;
+        second = temp;
+    }
+
+    this.head.next = null;
+    this.head = first;
+
+    console.log(this);
+    return printList();
+}
+
+myLinkedList.reverse()
+
+// Result:
+
+// Linkedlist {
+//   head: { value: 88, next: { value: 16, next: [Object] } },
+//   tail: { value: 1, next: null },
+//   length: 4
+// }
+// [ 88, 16, 10, 1 ]
+```
+
+### Chunked `reverse()` method
+
+```javascript
+// List: [1, 10, 16, 88];
+
+if (!this.head.next) {
+
+    return this.head
+};
+```
+
+The first thing we want to do, is to do a bit a check, imagine if we only had
+one item in the list. If there's one node or item in the list, then well we
+don't need to really reverse it, it's already there; So, if this list only
+contained one, just return whatever we have for now.
+
+We do that check here, we can just say if `!this.head.next`, this explanation
+mark means (`!`) doesn't exists. That means if `this.head.next` if `[1]` is only
+one and it's `!null`, this (`!`) explanation marks (`!null`) turn into the
+opposite, which the way JavaScript works will turn into `true`. It's little bit
+confusing but I hope you're with me on that one.
+
+All we're saying is, (`!this.head.next`) the only node, and there's only a head
+node here, I can also do this by checking the length (`this.length === 1`), but
+we keep it with (`!this.head.next`) to keep it simple for now. If there's only
+one element just simply return `this.head` the node, or we can `return this` as
+well.
+
+Otherwise let go into the fun coding part.
+
+```javascript
+let first = this.head;
+let second = first.next;
+```
+
+The first thing we want to do, is say we want to have the first item `first` is
+equal to `this.head`. We just keeping track of it in `first` variable. So, we
+going to say, we now have a reference to `this.head`,
+
+We also have a reference now to the second item in the list. So we write `second
+= first.next`. We now have `first` and `second`, we can do some looping.
+
+```javascript
+while (second) {
+    let temp = second.next;
+    second.next = first;
+    first =  second;
+    second = temp;
+}
+```
+
+We can say while  the `second` node exists, that is as long as `second` is not
+null. So as long as that's happening, we're going to create a temporary variable
+(`temp`) that holds `second.next`. We can actually call this (`temp`) with
+`third` if we want, but I'm choosing `temp` because this is going to change.
+
+Now, we have a reference to `first`, `second`, and third (`temp`) is equal to
+`[1, 10, 16]`. From here we can now say `second.next` is going to equal `first`
+element. (`second.next = first`).
+
+And `first` is going to equal that `second` element. (`first = second`).
+
+And `second` is going to equal the `temp` element. (`second = temp`).
+
+What was just happens here? I know there was a lot code without a lot of
+explanation, but let's go through it line by line. We are looping here, after
+we've grabbed `[1]`, and we grabbed `[10]`; and now I'm going to say, as long as
+this `second` variable has a value, and it's not `null`, if that node exists,
+then I want you to create a `temp` variable that holds `[16]`. From there, I'm
+going to grab that `second.next` which is the property inside of `[10]`; and I'm
+going to say that `[10]` is now going to point to `first`; So `[10]` has an
+arrow pointing to `[1]`; And the `first` variable which was the `head` now
+becomes `[10]`; and the `second` item becomes `[16]`.
+
+We've switch the pointers, `[1]` to `[10]`, now goes `[10]` to `[1]`; and we
+switched he variables `first` and `second` to now have `[10]` and `[16]`; and we
+loop through; and do the same thing where we have the pointer `[10]` to `[16]`
+reversed, so that `[16]` points to `[10]`, and we changed a variable so hat it's
+`[16]` and `[88]`.
+
+```javascript
+this.head.next = null;
+this.head = first;
+```
+
+We loop through until the final thing we need to do is to say `this.head`,
+because `this.head` still have value of `[1]` in it. We are going to say `.next`
+is going to equal to `null`, (`this.head.next = null`)
+
+We're going to have `[1]` point to `null`; and `this.head` now is instead going
+to be the `first`. (`this.head = first`).
+
+Remember, by the time we loop through everything, `first` becomes `[88]`, and
+`second` become `null`. So, we now changing at the very end, `[88]` to be equal
+to the `head`.
+
+```javascript
+this.tail = this.head;
+```
+
+We also want to make sure that `tail` is now `[1]`; and the way we do that,we
+have to go before the `while-loop`; we see `this.head` is `first` item should be
+the `tail` now. At the beginning before we do the loop, the `tail` would become
+`this.head`, (`this.tail = this.head`).
+
+This is one of those problems that you can really have to draw it out, and just
+by looking at this code, it's  really hard for you to understand what's going
+on. I recommend you code this along step by step, perhaps console logging it to
+understand what's going on.
+
+```javascript
+console.log(this);
+return printList();
+
+// Result:
+// Linkedlist {
+//   head: { value: 88, next: { value: 16, next: [Object] } },
+//   tail: { value: 1, next: null },
+//   length: 4
+// }
+// [ 88, 16, 10, 1 ]
+
+```
+
+At last we should return something, let's return `printList()` on the screen,
+otherwise we get `undefined`. Let's also log `this`, so we get entire linked
+list, to make sure everything working properly.
+
+I have `Linkedlist` that has `head` with `value` of `[88]`, and `tail` with
+`value` of `[1]`. Look like it's working.
+
+If you're able yo understand this code, I think this is probably the
+most difficult concept to understand, in this entire course. So, if you able to
+get this, good job, if not, you might have to read this sections a couple times.
+In the end, this is the beauty of programming, all we're doing is logical steps,
+and no matter what language you use, whether it's JavaScript like we did in this
+case, **_the steps to create a linked list are the exact same_**. Syntax may
+_differ, but the logic is the same_.
+
+
+
+
+
 
 **[⬆ back to top](#table-of-contents)**
 </br>
