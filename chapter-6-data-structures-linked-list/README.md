@@ -12,6 +12,7 @@
 8. [Doubly Linked List](#doubly-linked-list)
 9. [Singly VS Doubly Linked List](#singly-vs-doubly-linked-list)
 10. [Exercise Reverse Method](#exercise-reverse-method)
+11. [Linked List Summary](#linked-list-summary)
 
 </br>
 
@@ -2203,10 +2204,115 @@ and no matter what language you use, whether it's JavaScript like we did in this
 case, **_the steps to create a linked list are the exact same_**. Syntax may
 _differ, but the logic is the same_.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
 
+## Linked List Summary
 
+Linked list doesn't come pre-built i a lot of languages such as JavaScript, but
+it does in others. That is because linked list are **low level data structure**.
+It's used a lot actually in other data structure like _hash tables_, as we will
+see in some of the upcoming ones, such as _stacks_ and _queues_, there we're
+going to talk about.
 
+Linked list is fundamental data structure that is very very useful in Computer
+Science. Also a very popular question when it comes to interviewing.
 
+### Linked List Pros and Cons
+
+</br>
+
+![chapter-6-7.png](./images/chapter-6-7.png "Linked list pros and cons")
+</br>
+
+We learned that when it comes to linked list, there's **no random access** in
+the sense that when looking for something, you have to actually **traverse the
+list**. With _hash tables_ we can find things right away. With _arrays_ we can
+find things through _indexes_.
+
+We have **slow lookups**, we have to traverse through the list, if we're searching
+for something.
+
+However linked list are _ordered_, unlike hash tables, and Linked list allow us
+to have this _short of order_. If we have a large number of items in an array,
+and we keep adding to that array, we'd have to _have excessive overhead cost_
+copying the array in memory and doubling up the space when it reaches the limit
+to create a larger array. Versus a linked list where we can have a **fast
+insertion** and **fast deletion** especially once we have a _reference_ to where
+we want to insert or delete that node.  Linked list also becomes a really really
+fast when it's at the beginning of a list or the end of the list. We're going to
+see that coming up, when we talk about _stacks_ and _queues_.
+
+The **primary reason** to choose a linked list over something else like an array
+**is simplicity and ability to grow and shrink as needed**. Now working with
+them as we saw, can be a little bit weird and difficult to just manage all the
+pointers in your head, but they are pretty lightweight and self-contained in
+that, they can be quite **_flexible_** as well.
+
+That's all you're going to see linked list and a lot of places like implementing
+_file system_ on your computer, or even browser history right? When you back and
+forth on a browser, you can think of that as a linked list, because you can
+traverse one by one from one place to another.
+
+</br>
+
+![chapter-6-8.png](./images/chapter-6-8.png "hash tables data structures")
+</br>
+
+Remember with our has tables, how we had this issue of **collision**. When we
+had a collision, we had to do something like like we combined `John Smith` and
+`Sandra Dee` into two nodes, and the first node pointing to the second node.
+
+If we go back to our [hash tables
+class](./../chapter-5-data-structures-has-tables/example.js) that we created, if
+we scroll down to the `set()` method, where we set a key and value in the has
+table.
+
+```javascript
+set(key, value) {
+
+    // Store the key
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+        this.data[address] = [];
+    };
+
+    this.data[address].push([key, value]);
+    // console.log("====> B-2", this.data[address])
+
+    return this.data;
+}; // O(1)
+```
+
+We did a check `if (!this.data[address])` exists, and then afterwards we used an
+array to push our items (`this.data[address].push([key, value])`) in case we had
+multiple items when we had a collision. Because sometimes we can set our hash
+tables memory size to be a lot smaller like `2`, (`const myHashTable = new
+HashTable(2)`).
+
+You might to be able to see why, instead of using an array which every time we
+need to insert a new item (`this.data[address] = []`). I mean it works when we
+pushing to the end. But if we had to delete an item on the hash table, we'd have
+to unshift the array, which as you know is very slow. So we can modify now to
+something like a linked list. So that a delete becomes a lot easier than if it
+was an array.
+
+That's something I'll leave up to you, but you should have a good sense of why
+these data structures exist now, and why you might want to use a linked list
+over an array.
+
+We also added an other piece of he puzzle in our [mind
+map](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link).
+We've talked about arrays, hash tables, and now we've talked about linked list,
+are singly and doubly linked lists with their Big-O notation. Just a hint here,
+as you can see the linked list are related to something we're going to talk
+about coming up, that is **trees** and **grass**.
+
+At the end of the day, we've just managed to add another data structure to our
+toolbelt as engineers. Congratulations and let's learn about more data structure
+in the next chapter.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
