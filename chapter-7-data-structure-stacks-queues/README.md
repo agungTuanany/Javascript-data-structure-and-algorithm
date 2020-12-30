@@ -1,7 +1,9 @@
 # Chapter-7 Data Structure Stacks and Queues
 
 ## Tables of Contents
+
 1. [Stacks and Queues Introduction](#stacks-and-queues-introduction)
+2. [What is Stacks](#what-is-stacks)
 
 </br>
 
@@ -53,3 +55,58 @@ understand how they work, and then finally code our own.
 </br>
 </br>
 
+## What is Stacks
+
+</br>
+
+![chapter-7-1.gif](./images/gif/chapter-7-1.gif "What is stacks")
+</br>
+
+Let's talk about stacks. Stacks is a type of data structure that you can think
+of hem as plate's; that is, we have one piece of data and then another piece of
+data comes along and get stacked on top of that piece of data, it's keep
+goings. You can think of it as these plates stacked on top each other vertically
+and you can only touch the top plate.
+
+You can't really access anything from the bottom, the way you can access data
+from a stack is, to grab the first plate from the top, and second plate, and
+keep goings until you've gone through all the stack.
+
+This is called _LIFO_, or _Last In First Out_, because the last item that comes
+in is the first one that comes out. You're thinking to yourself why is this
+useful? When will we actually use something like a stack? They're actually
+useful in quite a surprising number of ways. They're very good obviously when
+you **need to know the very last value was seen or added**; and stacks are very
+important in language specific engines. You might heard something like Stack
+Overflow, a website that a lot of engineers visit.
+
+Now most of programming languages are modeled with the stack architecture in
+mind; and when functions get called in a programming language, usually they
+follow this model, of last in first out. A function within a function within
+a function gets called; and then we start popping those functions until we get
+to the very beginning. Don't worry this is going to be a little bit more clear
+when we actually code our own stack.
+
+Another useful way that we might use stacks is such as browser history,where you
+go back and forth from one website to another, and then you hit the back button
+or the front button that's using stacks; or maybe you're writing a piece of
+text and you want to undo something so you can click the undo option to go back
+or forward to redo, ever wonder how that works?
+
+Well, the idea comes from stacks, that is you store the previous state over your
+work, and the memory in such order that the last one appears first. This is
+something we can do with stacks.
+
+As you can see, stacks that usually come with **three types of methods**.
+There's a few others but these are the main ones, **pop**, **push**, and
+**peak**; **pop** is remove the last item, that is remove the plate; **push** is
+how to plate; and **peak** is simply view the top most  plate. I've added
+**lookup** in here just to show you that it's Big-O `O(n)`, because you usually
+don't want to traverse through entire stack; but just so you now if we wanted
+to do that, it's going o be a heavy operations.
+
+Let's talk queues in next lectures.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
