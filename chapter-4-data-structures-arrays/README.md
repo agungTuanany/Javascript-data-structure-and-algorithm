@@ -2,24 +2,25 @@
 
 ## Table of Contents
 
-1.  [Array Introduction](#array-introduction)
-2.  [Static vs Dynamic Arrays](#static-vs-dynamic-arrays)
-3.  [Optional Classes In JavaScript](#optional-classes-in-javascript)
-4.  [Implementing An Array](#Implementing-An-Array)
-5.  [Strings and Arrays](#strings-and-arrays)
-6.  [Exercise Reverse A Strings](#exercise-reverse-a-strings)
-7.  [Exercise Merge Sorted Arrays](#exercise-merge-sorted-arrays)
-8.  [Array Summary](#array-summary)
+1. [Array Introduction](#array-introduction)
+2. [Static vs Dynamic Arrays](#static-vs-dynamic-arrays)
+3. [Optional Classes In JavaScript](#optional-classes-in-javascript)
+4. [Implementing An Array](#Implementing-An-Array)
+5. [Strings and Arrays](#strings-and-arrays)
+6. [Exercise Reverse A Strings](#exercise-reverse-a-strings)
+7. [Exercise Merge Sorted Arrays](#exercise-merge-sorted-arrays)
+8. [Array Summary](#array-summary)
 
-<br/>
+</br>
 
 ## Array Introduction
 
 ### Array chart
-<br/>
+
+</br>
 
 ![chapter-4-1.png](./images/chapter-4-1.png "Array introduction")
-<br/>
+</br>
 
 Arrays which sometimes called **_Lists organizes items sequentially_**, that means
 one after another in memory.
@@ -30,14 +31,14 @@ In our computers memory it will be one after another, because remember our RAM
 is a lot bigger than just `7` slots. And the arrays are probably the simplest
 and the most widely used data structure.
 
-Lucky for us we're starting with this, because arrays have the **_least amount of
-rules_**, and because they're **_stored in contiguous (neighboring) memory that is in
-order_**, array also have the **_smallest footprint_ of any data structure**.
+Lucky for us we're starting with this, because arrays have the **_least amount
+of rules_**, and because they're **_stored in contiguous (neighboring) memory
+that is in order_**, array also have the **_smallest footprint_ of any data
+structure**.
 
 So, if all you need to _store some data_ and _iterate over it_, that is go one
 by one step by step, Arrays are the best choice. Especially if you know the
 indices (index) that is on the left `0, 1, 2, etc` of the items you are storing,
-
 
 ### example - Lookup
 
@@ -84,10 +85,10 @@ storage.
 
 If we remember in our little example here, that with `32 bit` systems, we have
 `4` shelf's to store this number `var a = 1`.
-<br/>
+</br>
 
 ![chapter-4-2.png](./images/chapter-4-2.png "Array introduction - 2")
-<br />
+</br/>
 
 Again this is a bit of simplified version of looking at it, but I hope you see
 what we're doing here, we're simply storing `"a","b","c","d"` in sequential
@@ -202,7 +203,6 @@ how long it;s going to take to do that operation we're looping.
 So, right away we know that with the arrays, maybe it's not the best data
 structure for **_adding items at the beginning of the array_**.
 
-
 ### Example - Splice
 
 What if we wanted to add something in the middle of the array? So we can use
@@ -225,7 +225,6 @@ string that says `"alien"`.
 
 So, _splice_ told us, go to index of `2`, where `b` was initially, and add
 `alien` instead of `b` and just _shift_ things over.
-
 
 ```javascript
 // [1]
@@ -270,9 +269,8 @@ But here's the thing, there's actually two type of array, and in the next video
 we're going to talk about these two types.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
-
+</br>
+</br>
 
 ## Static vs Dynamic Arrays
 
@@ -308,7 +306,8 @@ int  a[20]
 // [2]
 int b[5] {1, 2, 3, 4, 5}
 ```
-above says, `[1]` I want a new array that has a space of `20` items; Or we can
+
+Above says, `[1]` I want a new array that has a space of `20` items; Or we can
 do something like `[2]` `int b[5]` with then fill up the array of five items
 with `{1, 2, 3, 4, 5}` integers. Because of this is a _static array_ in order
 for us to add a _six_ item on, we would need to copy entire array and move it
@@ -333,10 +332,10 @@ don't need to get into that. What we want to get out of this lesson is that
 _dynamic array_ expands as you add more elements. So, you don't need to
 determine the size ahead of time, but you may noticed something with _dynamic
 array_
-<br/>
+</br>
 
 ![chapter-4-3.png](./images/chapter-4-3.png "Dynamic array")
-<br />
+</br/>
 
 You see over dynamic array chart, how I have a point at`append* O(1)`, that is
 the same as the `.push()` command that we did in the previous lesson, But I have
@@ -368,8 +367,8 @@ or constant time, but every once in while you might encounter a situation where
 it's `O(n)` linear time.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Optional Classes In JavaScript
 
@@ -384,7 +383,7 @@ with objects, we are going to talk about:
 2. [Context](#context)
 3. [Instantiation](#instantiation)
 
-<br/>
+</br>
 
 ### Reference Type
 
@@ -403,7 +402,7 @@ console.log([] === []) // false
 
 arrays equal array? `[] === []`, what do you think the answer is going to be?
 Well, the result is `false`, interesting,
-<br/>
+</br>
 
 ```javascript
 [1] === [1]             // false
@@ -411,7 +410,7 @@ Well, the result is `false`, interesting,
 
 What if I do `[1] === [1]` what do you think the result? The result is `false`,
 quite interesting. One more question,
-<br/>
+</br>
 
 ```javascript
 var object1 { value: 10 };
@@ -424,7 +423,7 @@ console.log(object1 === object3)        // false
 
 If I do `obejct1 === object3` I get `falae`, But why is that? We get `value: 10`
 for both, right? Let's pick something else,
-<br/>
+</br>
 
 ```javascript
 var object1 { value: 10 };
@@ -435,15 +434,16 @@ object1.value = 15;
 object2.value;                          // 15
 object3.value                           // 10
 ```
+
 If I do `object1.value = 15`, and now I do `object2.value` the result is `15`;
 But if I do `object3.value` the result is `10`, well how was confusing right?
 
 Let's look at what's actually going on; And this is the first topic we're
 talking about which is _reference type_, let's look at diagram,
-<br/>
+</br>
 
 ![chapter-4-1.gif](./images/gif/chapter-4-1.gif "References type")
-<br />
+</br>
 
 Objects are what's called the _referenced type_ in JavaScript, up until this
 point  all the others JavaScript types that we've learned including _Numbers_
@@ -497,10 +497,10 @@ lectures (videos), **_arrays are just objects_** at the end of the day. So, when
 you create an array `[] ===`, it's same thing creating a box, a data structure;
 and `=== []` it create a second data structure.
 
-So that is a **_reference type_**. A very important concept, but I think you get it
-right? Let's get to next one, this gets little tricky here.
+So that is a **_reference type_**. A very important concept, but I think you get
+it right? Let's get to next one, this gets little tricky here.
 
-###  Context
+### Context
 
 This one's called **_context_**; and _context_ get confused a lot with
 **_scope_**. If you remember we said that _scope_ is created when it see `{}`.
@@ -568,8 +568,8 @@ to the function. If you remember, that's because I said it has to be what object
 we're inside of right now.
 
 Technically `function a()` I can go `window.a()` to run the function. So the
-left of the `-.` dot, that the Window. In order to create a new value for `this` you
-have to do something like,
+left of the `-.` dot, that the Window. In order to create a new value for `this`
+you have to do something like,
 
 ```javascript
 const object4 = {
@@ -588,12 +588,12 @@ codebases, so it's good to know, but it's really important when we do
 instantiation. Instantiation is when you make **_a copy of an object_** and
 **_reuse the code_**.
 
-Imagine you're building a big multiplayer game online, and this
-game's going to have many's player you can have, like _wizard_, _trolls_,
-_warlocks_, _elves_; Now if you had to create an object for every single
-players, that's a lot of repeated code, that's a lot of hassle, and that's a lot
-of your time, and it's not very efficient. to solve that, you can do something
-called instantiation, you're making instances or **_multiple copies of an object_**.
+Imagine you're building a big multiplayer game online, and this game's going to
+have many's player you can have, like _wizard_, _trolls_, _warlocks_, _elves_;
+Now if you had to create an object for every single players, that's a lot of
+repeated code, that's a lot of hassle, and that's a lot of your time, and it's
+not very efficient. to solve that, you can do something called instantiation,
+you're making instances or **_multiple copies of an object_**.
 
 Let me show you how we do instantiation in JavaScript again.
 
@@ -626,8 +626,8 @@ We do class `Player`, and within here we'll say `constructor()`. Let's give it
 this `Player` can have a `name` and `type`, and within the constructor,
 `this.name` he calls `name`; and `this.type` he calls `type`.
 
-Constructor, when you create class `Player`, class says, "every time I'm
-making a copy of a `Player`, the first thing that gets run is the `constructor()`
+Constructor, when you create class `Player`, class says, "every time I'm making
+a copy of a `Player`, the first thing that gets run is the `constructor()`
 function"; and this `constructor()` function is going to create these properties
 `(name, type)` on the player object.
 
@@ -737,6 +737,7 @@ wizard1.introduce()                                 // Hi I am Shelly, I'm a Hea
 
 wizard2.introduce()                                 // Hi I am Shawn, I'm a Dark Magic
 ```
+
 `[1]` What `console.log(this)` give us? We get `Wizard {...}` object. Let's go
 trough everything here. I say, we have a class `Player`; then a class `Wizard`
 extends `Player`; and then we have two variables `wizard1` and `wizard2`.
@@ -828,14 +829,15 @@ really-really complicated, they're really hard, but with that, it gives us
 a lot of power. Good luck.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Implementing An Array
-<br/>
+
+</br>
 
 ![chapter-4-4.png](./images/chapter-4-4.png "Implementing an array")
-<br />
+</br>
 
 Now that we know how to use arrays where they're fast, where they're slow. We're
 going to get into a part that is not crucial for interviews, but it's good to
@@ -910,20 +912,20 @@ class MyArray {
 const newArray = new MyArray()
 
 
-console.log(newArray)                   // myarray { length: 0, data: {} }
-console.log(newArray.get(0))            // Undefined
+console.log(newArray)           // myarray { length: 0, data: {} }
+console.log(newArray.get(0))    // Undefined
 
 newArray.push("hi")
-console.log(newArray)                   // MyArray { length: 1, data: { '0':'hi'  } }
+console.log(newArray)           // MyArray { length: 1, data: { '0':'hi'  } }
 
 newArray.push("you")
-console.log(newArray)                   //  MyArray { length: 2, data: { '0': 'hi', '1': 'you'  } }
+console.log(newArray)           //  MyArray { length: 2, data: { '0': 'hi', '1': 'you'  } }
 
 newArray.push("!")
-console.log(newArray)                   // MyArray { length: 3, data: { '0':'hi', '1': 'you', '2': '!'  } }
+console.log(newArray)           // MyArray { length: 3, data: { '0':'hi', '1': 'you', '2': '!'  } }
 
 newArray.pop();
-console.log(newArray)                   // MyArray { length: 2, data: { '0':'hi', '1': 'you'  } }
+console.log(newArray)           // MyArray { length: 2, data: { '0':'hi', '1': 'you'  } }
 ```
 
 We're going to start off with creating a class we call this `MyArray`. Within
@@ -931,10 +933,10 @@ the array we'll have a constructor which is the _initial function_ that will be
 run when we create this `MyArray`. This constructor is going to have **_two data
 points_**. `[1]` `this.length` property, because with an array we're able to
 determine the length of the array, and the initial length will be `0`. That is
-how many item the array has, and then we'll obviously have the`[2]` `this.data` within the
-array, this is going to be an `{}` object.
+how many item the array has, and then we'll obviously have the`[2]` `this.data`
+within the array, this is going to be an `{}` object.
 
-#### Create pop() method
+### Create `get()` method
 
 Now, what's the most common action that we have in array? Well the access, to
 access the data. So, let's create `get()` method, and this `get()` method is
@@ -952,7 +954,7 @@ i get result `undefined`; well, because there's nothing in `this.data = {}`
 object, we have no items; and JavaScript automatically has the type `undefined`
 when while there's nothing.
 
-#### Create push() method
+### Create `push()` method
 
 Let's add our next method, that is `push()` method, to _add something at the end
 of the array_. This `push()` method will take in an `item` that we will give it
@@ -976,7 +978,6 @@ of the array. If we run this we get result,
  console.log(myArray.push("hi"))       //MyArray { length: 1, data: { '0': 'hi'  } }
 ```
 
-
  `data` is going have a property index of `0` with object `"hi"`.
 
 What if we add another thing, let's do `newArray.push("you")`, if I run this
@@ -987,7 +988,7 @@ I get the result, `length` of `2` now, with `index` of `0` is `"hi"`, and
 console.log(myArray.push("you"))        // MyArray { length: 2, data: { '0':'hi', '1': 'you'  }  }
 ```
 
-#### Create pop() method
+### Create `pop()` method
 
 Well, let's add the `pop` command to **remove the last item of the array_**.
 Once again, we have the `pop()` method, that doesn't receive anything, we don't
@@ -997,10 +998,10 @@ array.
 We can simply have a variable let's say `lastItem`, that grabs the last item in
 our data object. So this is going to be  `this.data[this.length - 1]`.
 
-Remember we want the index of `1`, even though the length is `2` we are counting from
-`0`. We want the last item in the data. From here, we can just use the `delete`
-keyword in JavaScript, and say `this.data[this.length - 1]`, just delete the
-item.
+Remember we want the index of `1`, even though the length is `2` we are counting
+from `0`. We want the last item in the data. From here, we can just use the
+`delete` keyword in JavaScript, and say `this.data[this.length - 1]`, just
+delete the item.
 
 Obviously we need to decrease `this.length--`; So just shorthand on JavaScript
 to decrease the `length` of our data by `1`.
@@ -1033,7 +1034,7 @@ console.log(MyArray)                    // MyArray { length: 1, data: { '0': 'hi
 
 I see that I have length of `1` and only `hi` remaining on data, very cool.
 
-#### Create delete()  method
+### Create `delete()`  method
 
 Let's add one last method, to show you why some operation in arrays are
 `o(n)`. We're going to add the `delete()` method. `delete()` method is going to
@@ -1050,7 +1051,7 @@ I'm going to create a new method, and we do this in JavaScript using `this`
 syntax `this.shiftItems()`, and this method is going to take the `index` that we
 received in the `delete()` method.
 
-#### Create shitItems() method
+#### Create `shiftItems()` method
 
 We created `shiftItems()` method, and this method of `myArray` class will have
 the `index` parameter passed into it; And this is where we do some fun things.
@@ -1124,6 +1125,7 @@ shiftItems(index) {
 ```
 
 I'm going to run,
+
 ```javascript
 console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  } }
 
@@ -1170,8 +1172,8 @@ _shifting indexes_ and changing things around we have to loop over things, which
 makes it `O(n)` or linear time.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Strings and Arrays
 
@@ -1179,10 +1181,10 @@ I wanted to add a quick video (note) to let you know about a common **_interview
 trick_**. We're going to be doing some arrays question after this. But in
 interviews, you should treat any **_string question_** like over below as an
 **_array question_**.
-<br/>
+</br>
 
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
-<br />
+</br>
 
 You see, **_strings are simply array of characters_**. Most of the time in an
 interview, when you get a question like _reverse a string_ _you should be
@@ -1195,8 +1197,8 @@ that in mind, and will actually demonstrate this in the next lecture, when we do
 a very common interview question.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Reverse A Strings
 
@@ -1228,7 +1230,6 @@ input.
 
 In my case I'm going to do a simple check
 
-
 ```javascript
 function reverseString(str) {
     // Check input
@@ -1259,7 +1260,8 @@ function reverseString(str) {
 // ]
 // ierdnA si eman yM iH
 ```
->  if (!string || str.length < 2 || typeof str !== "string")
+
+> if (!string || str.length < 2 || typeof str !== "string")
 
 Let's say that if there's no string `!string`, so that is `undefined`; Or
 perhaps that the `string.length` is less then `2` I can write `string.length
@@ -1286,7 +1288,6 @@ at the end we want to turn it back into a string. In JavaScript we can do the
 In here we want to grab the length of the string that we converted into an
 array, so I make a variable `totalItems`, because I don't want to have repeated
 code, so I'm going to say `str.length - 1`.
-
 
 Now we're going to loop through our string; So, let's say `let i = totalItems`;
 So `i` is going to equal however many characters we have in our string, and
@@ -1389,11 +1390,13 @@ console.log(reverseString3(string))
 // Result:
 // erdnA si eman yM iH
 ```
+
 Because in JavaScript there is the new ES6 syntax, you can even create one line
 function call it `reverseString3`; And do the exact same thing using every
 builtin method.
 
 Or, you can do more fancy by using _spread operator_, like this,
+
 ```javascript
 const reverseString4 = str => [...str].reverse().join("");
 
@@ -1419,8 +1422,8 @@ as you understand the _pros_ and the _cons_ of each solution, that's what makes
 a great engineer.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Merge Sorted Arrays
 
@@ -1509,7 +1512,6 @@ just for reference and this is going to e our very first array item. So this
 
 We do the same thing, grab the `arr1` item with create new variable
 `array2Item`, which is going to grab the number `4` from second array.
-
 
 ```javascript
  if(array1.length === 0) {
@@ -1735,14 +1737,15 @@ you actually coding it that way.
 Hope you got this far, and I'll see you in next lectures.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Array Summary
-<br/>
+
+</br>
 
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
-<br />
+</br>
 
 Great, you just finished your first _data structure_, and they're going to get
 more and more fun. You see in the above diagram we've learned to complete our
@@ -1757,10 +1760,10 @@ or expand our memory (space).
 We also talked about how strings and question regarding strings can be treated
 very similar to array question, where you just convert them (string) to an array
 and then _join_ then back up and return a string answer.
-<br/>
+</br>
 
 ![chapter-4-6.png](./images/chapter-4-6.png "Big-O data structures operations")
-<br />
+</br/>
 
 There's a few other point in array we're going to talk about when we get into
 algorithms. By now, you should take a look at the Big-O cheat sheet data
@@ -1773,10 +1776,10 @@ it comes to sorting, arrays are awesome, because they're in memory in
 _sequential order_ according to their index.
 
 When you would want to use an array? When you would it?
-<br/>
+</br>
 
 ![chapter-4-7.png](./images/chapter-4-7.png "pros and cons using array as data structure")
-<br />
+</br>
 
 Arrays are great for `[1]` _fast lookup_, that is just accessing information
 where you know which index you want to look at. `[2]` It's really fast that
@@ -1807,7 +1810,7 @@ language that you choose.
 3. [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/)
 4. [contain duplicate](https://leetcode.com/problems/contains-duplicate/description/)
 5. [Rotate array](https://leetcode.com/problems/rotate-array/description/)
-<br/>
+</br>
 
 **_Bonus_**
 
@@ -1822,5 +1825,5 @@ But for now I want top get into other data structures, because we still have
 a few to go through.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>

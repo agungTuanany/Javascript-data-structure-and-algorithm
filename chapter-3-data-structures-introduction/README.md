@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-1.  [Module Introduction](#module-introduction)
-2.  [What is a Data Structure](#what-is-a-data-structure)
-3.  [How Computer Store Data](#how-computer-store-data)
-4.  [Data Structure In Different Languages](#data-structure-in-different-languages)
-5.  [Operations On Data Structures](#operations-on-data-structures)
+1. [Module Introduction](#module-introduction)
+2. [What is a Data Structure](#what-is-a-data-structure)
+3. [How Computer Store Data](#how-computer-store-data)
+4. [Data Structure In Different Languages](#data-structure-in-different-languages)
+5. [Operations On Data Structures](#operations-on-data-structures)
 
-<br/>
+</br>
 
 ## Module Introduction
 
@@ -37,8 +37,8 @@ Over the next few sections, we have a long way to go to get familiar with data
 structures and algorithms, so can write a good programs. Let's get started.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What is a Data Structure
 
@@ -46,10 +46,10 @@ Data structure is a collection of values, the values can have relationship among
 them, and they can have functions applied to them. Each one is different in what
 it can do, and what it is best used for. Most important thing to take away is
 that each data structure is good and is Specialized for its own thing.
-<br/>
+</br>
 
 ![chapter-3-1.gif](./images/gif/chapter-3-1.gif "What is data structure")
-<br />
+</br>
 
 You can think of data structures as any sort of compartment or container, a data
 structure is simply a file cabinet of different types. You have  a _backpack_
@@ -69,7 +69,6 @@ into the _backpack_ and retrieve that data really easily. We can go into the
 _fridge_ and grab that _popsicle_ or _ice cream_ really fast.  We can put things
 in data structures and we can take things from data structures, and that's all
 it really is.
-
 
 There are a ton of data structures, just like in our real life, how we have all
 these containers hold these places to put things in. In programming we have
@@ -107,10 +106,10 @@ _Memory_ and _Speed_ when we talked about what code is best, well we have the
 same thing with data structures. One is better than the other in some aspects,
 and the other better than the other, that's why they exist, each one for its own
 specific case, and there are two parts to understanding data structures.
-<br/>
+</br>
 
 ![chapter-3-1.png](./images/chapter-3-1.png "Two parts to understanding data structures")
-<br />
+</br>
 
 `[1]` _How to actually Build One_, how can we build with code some of these data
 structures?; `[2]` _How to Use it_. We're going to do both of these in this
@@ -129,8 +128,8 @@ that cover our need to store data in different formats.
 Let's get a little bit deeper into this topic.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## How Computer Store Data
 
@@ -139,10 +138,10 @@ down into the way computer at the fundamental level, In order for a computer
 to run code, he needs to keep track of things, like _variables_, _numbers_,
 _strings_ or _arrays_. These variables are stored in what we call RAM. That's
 how programs run.
-<br/>
+</br>
 
 ![chapter-3-2.gif](./images/gif/chapter-3-2.gif "How computers store data")
-<br />
+</br>
 
 We remember RAM from _Space Complexity_ video right?, on top that we also have
 _Storage_ where we store things like our _video_, _files_, _music_, _documents_;
@@ -170,10 +169,10 @@ do when we save an application on our computer. We save it to storage, so that
 next time we open up Google Chrome the CPU is going to grab the program from the
 storage, so that it can use it again; And for Google Chrome to run fast, and run
 smaller scripts it's going to keep that information in RAM.
-<br/>
+</br>
 
 ![chapter-3-3.gif](./images/gif/chapter-3-3.gif "How computers store data - 2")
-<br />
+</br>
 
 You can think of RAM in the computer as a massive storage area, kind of like
 a data structure. This massive storage area has shelves (stack) that are
@@ -219,10 +218,10 @@ what say application download it on our storage; the CPU loads it up, and
 because we've visited hackernews.com for example, it's going to load up the
 information for that site and put it into memory, or maybe even Cache if it can
 hold it.
-<br/>
+</br>
 
 ![chapter-3-2.png](./images/chapter-3-2.png "How computers store data - 3")
-<br />
+</br>
 
 So, why is this important for data structures?. Well, data structures are
 a _remember_ ways for us to store information; for example, if we want to store
@@ -234,25 +233,24 @@ With this way, we can store the number `1` within this block of `32 bits`, Why
 `32 bits`? Because `8 bits` which is `1 byte`, so `8 * 4 = 32`. We can store `32
 bits` of information and this bit of `a = 1` is stored new in memory or the
 address `[0 - 3]`.
-<br/>
+</br>
 
 ![chapter-3-3.png](./images/chapter-3-3.png "How computers store data - 4")
-<br />
+</br>
 
 If we have another variable `var b = 7` we would be store it in the next block
 `[4 - 7]` in our RAM.
-<br/>
+</br>
 
 ![chapter-3-4.gif](./images/gif/chapter-3-4.gif "How computers store data - 5")
-<br />
-
+</br>
 
 In doing this, you can now think about how system that are `8 bit` can hold `255
 bits` of information. Things that are `16 bit` while they can hold a lot more
 information; And now we have systems that are `32 bit`, you can see here that
 we can hold a ton of information; and if we had `64 bit` that is instead of
 having _8_ little shelves, we can have a lot of information that we can store;
-And the bigger ` -bit` the more diverse that information is.
+And the bigger `-bit` the more diverse that information is.
 
 If we had an `8 bit` system, well the number `256` we can really store that;
 that's really hard to do. I can demonstrate this to you with JavaScript.
@@ -301,8 +299,8 @@ process_** of our computers, and how we can use what we know about computers now
 to write great code.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Data Structure In Different Languages
 
@@ -319,10 +317,10 @@ multiple object. We're going to talk about this in more detail.
 
 I want to show you hat we do have different languages that have different access
 to some data structures.
-<br/>
+</br>
 
 ![chapter-3-4.png](./images/chapter-3-4.png "Data structures in different languages")
-<br />
+</br/>
 
 You can see above, some of other languages that we can use in this course and
 whether they have them available. We see that Java has ArrayList, Linkedlist,
@@ -345,14 +343,15 @@ just draw map of how things are connected and what the data structure are that
 we're going to talk about.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Operations On Data Structures
-<br/>
+
+</br>
 
 ![chapter-3-5.gif](./images/gif/chapter-3-5.gif "Operations on data structures")
-<br />
+</br>
 
 What are the various operations that can be performed on different data
 structures? Because as we learn in our previous lectures data structure are
@@ -366,8 +365,8 @@ One type of action that we're going to performed with data structures, well is
 **_Insertion_**, adding new data item in a given collection of items, such as
 adding the `1` _apple_ item and memory.
 
-Another type of action called **_Deletion_**, we want to sometimes delete data, such as
-remove `4` _mango_ from our list.
+Another type of action called **_Deletion_**, we want to sometimes delete data,
+such as remove `4` _mango_ from our list.
 
 Another type of action might be **_Traversal_**, we're going to see this a lot.
 Traversal simply means _access each data item_ exactly once so that it can be
@@ -385,11 +384,10 @@ access this data that we have on our computer?
 
 Each data structure that we're going to go through in this course will have
 different _pros_ and _cons_ for each one of these.
-<br/>
+</br>
 
 ![chapter-3-5.png](./images/chapter-3-5.png "Operations on Data structures")
-<br />
-
+</br>
 
 If we take a look at out [Big-O cheat
 sheet](https://bigocheatsheet.com) we're very familiar with
@@ -406,5 +404,5 @@ so that you build the foundation to be able to decide which data structures
 should I use on next project.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>

@@ -11,7 +11,7 @@
 7.  [Exercise - First Recurring Character](#Exercise---First-Recurring-Character)
 8.  [Hash Tables Review](#hash-tables-review)
 
-<br/>
+</br>
 
 ## Hash Tables Introduction
 
@@ -35,10 +35,10 @@ are they?
 
 Also you may wondering, what does the name hash table mean? Where did this name
 come from? Well let's look at an example,
-<br/>
+</br>
 
 ![chapter-5-1.gif](./images/gif/chapter-5-1.gif "Hash tables example")
-<br />
+</br>
 
 Imagine you're going grocery shopping, and you have an object here, basket
 (`basket.grapes`) and you want to add grapes as the property of the baskets
@@ -57,7 +57,6 @@ A way hash table works, is we have the _key_ which is grapes, and this **key is
 used as the _index_** of where to find the values in memory. Remember with the
 arrays we have the index, which was the number, but with hash tables we use
 _grapes_ as a way to find it in our memory shelf.
-
 
 This is done this way, with something called a **_ has function_**. But for now
 we just assume this (has function) is a _black-box_, we don't know what going on
@@ -78,8 +77,8 @@ why does he get to decide where to put all this information?
 For that I'll see you in the next lectures.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Hash Function
 
@@ -133,16 +132,17 @@ about hash tables, why they're useful, and why in some cases are better than
 arrays?.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Hash Collision
 
 ### Hash Tables
-<br/>
+
+</br>
 
 ![chapter-5-1.png](./images/chapter-5-1.png "Hash Collision")
-<br/>
+</br>
 
 Looking at hash functions you can start to think about what actions they perform
 and how fast it can be done? When it comes to `[1]` **_inserting_** something in
@@ -217,10 +217,10 @@ Let me talk to you one of the **main problem with hash tables**,  I link to
 [hash table
 animation](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html), so you
 can play around with it later.
-<br/>
+</br>
 
 ![chapter-5-2.gif](./images/gif/chapter-5-2.gif "Hash tables animation")
-<br />
+</br/>
 
 I have a little animation here, where we have _12 memory spaces_. Remember, our
 computer has limited space, and when we create an object or hash table, the
@@ -243,10 +243,10 @@ it does something funny here. Let's keep adding here and see what happens, I'll
 What we just noticed here, it's something called **_Collision_**.
 
 ### Hash collision user
-<br/>
+</br>
 
 ![chapter-5-2.png](./images/chapter-5-2.png "Hash Collision")
-<br/>
+</br>
 
 The **_Collision_** looks something like above. We have the **_keys_**, let's
 say we inserting the **_name_**, the **_phone number_**  of a user; and we
@@ -268,10 +268,10 @@ limited memory we always going to have this collision**.
 
 So, there is a possibility if we go back to our example. I start a new hashes
 visualization,
-<br/>
+</br>
 
 ![chapter-5-3.gif](./images/gif/chapter-5-3.gif "Hash Collision")
-<br />
+</br>
 
 If we constantly just keep adding to the same memory space, which slows down our
 ability to access or insert information, because now if I want to check what's
@@ -302,8 +302,8 @@ it might change on to `Lookup O(n)`.
 Let's keep going, expand our knowledge of hash tables at next chapter.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Hash Tables in Different Languages
 
@@ -371,8 +371,8 @@ In order to truly understand how hash tables work, I think we should build one
 in the next section we are just going to do just that.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Implement a Hash Table
 
@@ -402,6 +402,7 @@ myHashTable.set("grapes", 10000);
 
 myHashTable.get("grapes")
 ```
+
 A new `HashTable` that we're going to create. Yes I know JavaScript already has
 objects and we can just simply create one like we've seen before. This
 `HashTable` has a constructor that will receive a `size`. So when we create this
@@ -567,7 +568,6 @@ _hash("grapes")
 // ===> 23
 ```
 
-
 First, create a new variable that is `let hash = 0` and then this `key` as
 parameter are we're going to grab the length of grapes so that is `6` characters
 of length. We are to going add `0` which comes from the `hash+key.charCodeAt()`,
@@ -617,7 +617,7 @@ const myHashTable = new HashTable(2);
 myHashTable.set("grapes", 10000)
 ```
 
-#### Chunked the code
+#### Chunked `set()` method
 
 Using our hash function, let's do our very first method. Let's create the
 `set()`. This method is going to receive a `key` and a `value`. The first thing
@@ -639,7 +639,6 @@ set(key, value) {
         this.data[address].push([key, value]);
 
         console.log(this.data)          // result: [ <23 empty items>, [ [ 'grapes', 10000  ]  ], <26 empty items> ]
-
     };
 };
 
@@ -750,8 +749,7 @@ just pushed on to our **existing array**_, because our memory space is only `2`.
 
 Very cool, that's not too bad.
 
-
-#### Create get() method
+### Create get() method
 
 ```javascript
 get(key) {
@@ -773,7 +771,7 @@ get(key) {
 }; // O(1) if there's collision it become O(n)
 ```
 
-#### Chunked the code
+#### Chunked `get()` method
 
 Well, I want to be able to grab _grapes_ and _apples_. We can use the `get()`
 method here, which will receive a _key_; and this method is going to do the
@@ -800,7 +798,6 @@ We create a variable saying `currentBucket` that was just be
 address or the _address and the data value_; so, this means if we logging
 `currentBucket` I have the two items in the same bucket; Remember that it is
 technically just within its own bucket within one array,
-
 
 We're grabbing all the information, but all we want to do is have `10000` being
 returned, that how hash tables work, or the `get()` hash function works. Well
@@ -946,7 +943,7 @@ myHashTable.keys("apples");
 // [ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2  ]  ]
 ```
 
-#### Chunked the code
+#### Chunked `keys()` method
 
 Let's implement one last feature in our hash table. I want to create something
 call `keys()`. `keys()` allows us to iterate or loop through all the keys of
@@ -956,7 +953,6 @@ hash table just for fun. We add _oranges_, to see what going on.
 Now, if we run `keys()` ideally it's going to iterate and spit out _grapes_,
 _apples_ and _oranges_ for us to see what we need to go shopping for. How would
 we go about building this?
-
 
 Well, because we're going to do some sort of looping, I'm going to start up by
 creating a constant `keyArray` and it's going to be an empty array (`const
@@ -991,6 +987,7 @@ keys() {
     return keysArray;
 };
 ```
+
 I get `[ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2 ] ]`; But
 I just wanted `[ 'grapes', 'apples', 'oranges' ]`. To see what's going on here,
 let's logging `this.data[i]`; Which is what we're doing while we pushing.
@@ -1046,15 +1043,15 @@ like `value()` that grabs the value instead of the keys. For now let's finalize
 our talk of hash tables by comparing them to arrays.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
-
+</br>
+</br>
 
 ## Hash Tables VS Arrays
-<br/>
+
+</br>
 
 ![chapter-5-3.png](./images/chapter-5-3.png "Hash tables vs Arrays")
-<br/>
+</br>
 
 Why hash tables? Hash tables are great when you want quick access to certain
 values. Remember that searching (`search O(n)`) through an **array** for `n` item
@@ -1084,8 +1081,8 @@ us to actually work on some exercises and interview questions, that we'll use
 hash tables in their answers. I'll see you on that one.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise - First Recurring Character
 
@@ -1119,9 +1116,7 @@ So, how would you go about solving this? Give it a go, see what you come up
 with. If you need help, perhaps scout on discord, and chat with some of the
 community members, and I'll see you in the solution chapter.
 
-### Exercise Answer
-
-#### Naive approach
+### Exercise Answer - Naive Approach
 
 ```javascript
 const givenArray = [2,5,1,2,3,5,1,2,4]
@@ -1186,7 +1181,7 @@ of `i + 1` on `let j =  i + 1`, we're not looping twice over the entire array.
 In the end when you remove the constants and simplify things it's still going to
 be `O(n^2)`.
 
-#### Better approach
+### Exercise Answer - Better Approach
 
 So, how we can solve this using the hash tables.
 
@@ -1268,7 +1263,6 @@ anything, we just leave it `i` which is the index. So, `{[2]: 0}`, `{[5] : 1}`,
 `[1]: 2`; and we just `return undefined` outside the loop in case none of this
 happens in case there is no match.
 
-
 At the end of `for-loop` I just console logging `[C]` it I get nothing, instead
 I get `5`. What happen?, Well if we console log `[A]` at what `if` statement
 giving us (`map[input[i]]`), I get,
@@ -1332,7 +1326,6 @@ track of all the items in the array; in the worst case when there is no match
 it's going to go through the entire item list of the array, and hold that
 information in the `hashmap`. In turn we have a faster function.
 
-
 To finish off, I want to give you one last challenge. Looking at these two
 implementations, what happens if we have something like this,
 
@@ -1354,15 +1347,15 @@ firstRecurringCharacter([2,5,5,2,3,5,1,2,4])
 
 I get the result `2`. Why is that? If we go to the first function, we see the
 way we are doing things is, we are going one by one in a different way. We
-saying grab `[2]` as index of `0`, then compare `[2]` with `[5]`, and then `[5]`, and
-then `2` and so on; And we move over to `[5]` as index `1`, then compare with
-`[5]` with `[5]`, and then `[2]` so on and so forth. Because of the way we have
-that implemented, it's going to detect `2 2`, because the outer loop has index
-of `0`, and has `[2]` as going to loop, before compare `[5]` with `[5]`. Versus
-our second version function with hash table, where we had all these items and we
-were able to compare them, once we grabbed all of them, and that's another
-powerful ting when you think about array and hash tables, and how you're able to
-compare things.
+saying grab `[2]` as index of `0`, then compare `[2]` with `[5]`, and then
+`[5]`, and then `2` and so on; And we move over to `[5]` as index `1`, then
+compare with `[5]` with `[5]`, and then `[2]` so on and so forth. Because of the
+way we have that implemented, it's going to detect `2 2`, because the outer loop
+has index of `0`, and has `[2]` as going to loop, before compare `[5]` with
+`[5]`. Versus our second version function with hash table, where we had all
+these items and we were able to compare them, once we grabbed all of them, and
+that's another powerful ting when you think about array and hash tables, and how
+you're able to compare things.
 
 Based on what the interviewer asked, you might have a wrong answer, maybe they
 want you to detect `5 5`, before you detect `2 2`. My bonus question to you, if
@@ -1381,14 +1374,15 @@ doing that? You most likely going to have to do something interesting in here,
 Good luck with that.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Hash Tables Review
-<br/>
+
+</br>
 
 ![chapter-5-4.png](./images/chapter-5-4.png "Hash tables review")
-<br/>
+</br>
 
 Another data structure down, hash tables by now you should absolutely love then,
 because well they're very useful, they're used everywhere. The funny thing is,
@@ -1417,11 +1411,10 @@ table.
 Looking at the Big-O [cheatsheet](bigocheatsheet.com/), we can see that hash
 tables has _search_, _insertion_, _deletion_ of `O(1)`, but in worst case due to
 collision there are some `O(n)` operation that could happen.
-<br/>
+</br>
 
 ![chapter-5-5.png](./images/chapter-5-5.png "Hash tables review")
-<br/>
-
+</br>
 
 If we go to
 [mindmap](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link),
@@ -1463,13 +1456,13 @@ the items in the array, so that is the tradeoff.
 
 Then we can cross off a few **_-Heuristic to Ace the Question-_**, for those who
 don't know sure heuristic kind of like rules, or simple tricks that are going to
-come up over and over and over, that you can use in a n interview. `[1]` **_Hash map, or
-hash tables are usually the answer to improve Time Complexity_**. `[2]` **_Hash
-tables are some of the best ways to optimize your code_**; And `[3]` **_looking at Time
-versus Space tradeoff_**. Sometimes storing extra state in memory, can help the
-time, (runtime) like we did with hash tables. Finally `[4]` **_Space Time
-tradeoffs_**, hash tables usually solve this a lot of the time. Use more space
-can get a Time optimization to the process.
+come up over and over and over, that you can use in a n interview. `[1]` **_Hash
+map, or hash tables are usually the answer to improve Time Complexity_**. `[2]`
+**_Hash tables are some of the best ways to optimize your code_**; And `[3]`
+**_looking at Time versus Space tradeoff_**. Sometimes storing extra state in
+memory, can help the time, (runtime) like we did with hash tables. Finally `[4]`
+**_Space Time tradeoffs_**, hash tables usually solve this a lot of the time.
+Use more space can get a Time optimization to the process.
 
 I know we've only talked about two data structures, but I think these **two are
 the most important**. Moving forward we're going to use them to learn about
@@ -1479,6 +1472,6 @@ Good job getting this far, take nice little break, have some coffee, and I'll
 see you in the next chapter.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 

@@ -1,15 +1,15 @@
 # Chapter-1 Big O -- Asymptotic Analysis
 
 ## Table of Contents
-1.  [Module Introduction](#module-introduction)
-2.  [What is Good Code](#what-is-good-code)
-3.  [Big-O Scalability](#big-o-scalability)
-4.  [Big-O Cheat Sheet](#big-o-cheat-sheet)
-5.  [Big-O Linear](#big-o-linear)
-6.  [Big-O Constant](#big-o-constant)
-7.  [Big-O Exercise-1](#big-o-exercise-1)
-8.  [Big-O Exercise-2](#big-o-exercise-2)
-9.  [Simplifying Big-O](#simplifying-big-o)
+1. [Module Introduction](#module-introduction)
+2. [What is Good Code](#what-is-good-code)
+3. [Big-O Scalability](#big-o-scalability)
+4. [Big-O Cheat Sheet](#big-o-cheat-sheet)
+5. [Big-O Linear](#big-o-linear)
+6. [Big-O Constant](#big-o-constant)
+7. [Big-O Exercise-1](#big-o-exercise-1)
+8. [Big-O Exercise-2](#big-o-exercise-2)
+9. [Simplifying Big-O](#simplifying-big-o)
 10. [Big-O Rule 1](#big-o-rule-1)
 11. [Big-O Rule 2](#big-o-rule-2)
 12. [Big-O Rule 3](#big-o-rule-3)
@@ -22,7 +22,7 @@
 19. [Optional JavaScript Loop](#optional-javascript-loop)
 20. [Module Summary](#module-summary)
 
-<br/>
+</br>
 
 ## Module Introduction
 
@@ -47,17 +47,17 @@ the Big-O notation came up again and again as we go into topics such as _data
 structures_ and _algorithms_.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What is Good Code
 
 There are two main things we talk about when we say this is good code. What
 would you tell somebody if you're asking them to write good code?.
-<br/>
+</br>
 
 ![chapter-1-1.gif](./images/gif/chapter-1-1.gif "What is good code")
-<br />
+</br>
 
 Code can be described in tow points, `[1]`**Readability**, is your code just
 generally clean? Can others can understand your code?. `[2]`**Scalable Code**.
@@ -69,10 +69,10 @@ We also going to talk about readable code throughout this entire course, but
 touch upon it a little bit more in the next section. For now, because this is
 the Big-O section, we're focusing on this idea of scalable code. What does this
 really mean thug?
-<br/>
+</br>
 
 ![chapter-1-2.gif](./images/gif/chapter-1-2.gif "What is good code")
-<br />
+</br>
 
 Well I want you to imagine we have a task where we want to bake a cake. We have
 a recipe, and this recipe we're going to use in our kitchen to bake a cake; And
@@ -112,8 +112,8 @@ happens when the arrays gets larger. We're going to tie things together as to
 what scaleable means, and how Big-O allows us to measure the scalability.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Scalability
 
@@ -126,10 +126,10 @@ more.
 to run_**. We can compare two different algorithms or in this case functions using
 Big-O and say which one is better then the other when it came to scale?
 Regardless of our computer differences. We can measure Big-O like this chart,
-<br/>
+</br>
 
 ![chapter-1-1.png](./images/chapter-1-1.png "Big-O complexity Chart graph")
-<br />
+</br>
 
 When we talk about Big-O and scalability of code, we simply mean when we grow
 bigger and bigger with our input, how much does the algorithm or function slow
@@ -151,10 +151,10 @@ not good, and things that are quite good actually `O(n)` don't increase as much.
 We're going to look at examples of different ones and how to actually measure
 into Big-O complexity chart, and what this entire notation means.
 
-**_Just remember this point_**, when we talk about Big-O and scalability of code we
-simply mean when we grow bigger and bigger with our input; **_How much does the
-algorithm slow down. The less it slows down or the slower it slows the better it
-is_**.
+**_Just remember this point_**, when we talk about Big-O and scalability of code
+we simply mean when we grow bigger and bigger with our input; **_How much does
+the algorithm slow down. The less it slows down or the slower it slows the
+better it is_**.
 
 ```javascript
 const measureTime = (array) => {
@@ -177,54 +177,53 @@ a computer has to perform_**, because each operations takes time on a computer.
 **_Big-O allows us and concerns us with how many steps it takes in
 a functions_**.
 
-
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Cheat Sheet
 
 ### - Big Os -
 
-**O(1)** Constant -- No loops <br/>
-**O(log N)** Logarithmic -- Usually searching algorithm `log n` if they are sorted (Binary search) <br/>
-**O(n)** Linear -- for loops, while loops through `n` items <br/>
-**O(n log(n))** Log Linear -- Usually sorting operations <br/>
-**O(n^2)**  Quadratic  -- Every element in a collection needs ti be compared to ever other element. Two nested loops<br/>
-**O(2^n)** Exponential -- Recursive algorithms that solves a problem of size `N`  <br/>
-**O(n!)** Factorial -- You are adding a loop for every elements <br/>
+**O(1)** Constant -- No loops </br>
+**O(log N)** Logarithmic -- Usually searching algorithm `log n` if they are sorted (Binary search) </br>
+**O(n)** Linear -- for loops, while loops through `n` items </br>
+**O(n log(n))** Log Linear -- Usually sorting operations </br>
+**O(n^2)**  Quadratic  -- Every element in a collection needs ti be compared to ever other element. Two nested loops</br>
+**O(2^n)** Exponential -- Recursive algorithms that solves a problem of size `N`  </br>
+**O(n!)** Factorial -- You are adding a loop for every elements </br>
 
-**NOTE:** <br/>
-**_Iterating through half a collection is still O(n)_** <br/>
-**_Two separate collections: O(a * b)_** <br/>
+**NOTE:** </br>
+**_Iterating through half a collection is still O(n)_** </br>
+**_Two separate collections: O(a * b)_** </br>
 
 
 ### - What can cause time in a function? -
 
-Operations (+, -, *, /) <br/>
-Comparison (<, >, ==) <br/>
-Looping (for, while) <br/>
-Outside Function call (function()) <br/>
+Operations (+, -, *, /) </br>
+Comparison (<, >, ==) </br>
+Looping (for, while) </br>
+Outside Function call (function()) </br>
 
 ### - Rule Book -
 
-**Rule 1:** Always worst Case <br/>
-**Rule 2:** Remove Constant <br/>
-**Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` <br/>
-`+` for steps in order <br/>
-`*` for nesteds steps <br/>
+**Rule 1:** Always worst Case </br>
+**Rule 2:** Remove Constant </br>
+**Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` </br>
+`+` for steps in order </br>
+`*` for nesteds steps </br>
 **Rule 4:** Drop Non-dominant terms
 
 ### - What causes Space complexity -
 
-Variables <br/>
-Data Structure <br/>
-Function Call <br/>
-Allocation <br/>
+Variables </br>
+Data Structure </br>
+Function Call </br>
+Allocation </br>
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Linear
 
@@ -250,17 +249,17 @@ function findNemo(array) {
 
 As we said a **_runtime_** is simply how long something takes to run. How does
 this function and its runtime grow as our input increases. As our inputs goes
-from just a single item in an array `nemo`, to 10 items in array ` everyone1
-| everyone2` to 100.000 `largeArray`. How does the efficiency of this
-function increase?.
-<br/>
+from just a single item in an array `nemo`, to 10 items in array `everyone1
+| everyone2` to 100.000 `largeArray`. How does the efficiency of this function
+increase?.
+</br>
 
 ![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
-<br />
+</br>
 
 > The above diagram is linear. As our number input `(Elements)` increase the number of `Operations` increase as well.
 
-<br/>
+</br>
 
 We say that the `findNemo` functions has a Big-O notation of `O(n)` or we call
 _Linear Time_. It takes linear time to find a `nemo`.
@@ -270,9 +269,9 @@ arbitrary letter, and we usually give `n` when it comes to Big-O. This is just
 a standard that you'll see across the board and simply means _the Big-O depends
 on the number of the inputs_.
 
-If we just had the `nemo` array `const nemo` this `n` would just be `O(1)`; <br/>
-If we had the `const everyone1 or const everyone2` array this `n` just be `O(10)`; <br/>
-And if we had the `const largeArray` arrays this `n` just be `O(100000)` <br/>
+If we just had the `nemo` array `const nemo` this `n` would just be `O(1)`; </br>
+If we had the `const everyone1 or const everyone2` array this `n` just be `O(10)`; </br>
+And if we had the `const largeArray` arrays this `n` just be `O(100000)` </br>
 
 As the inputs increase, you see that the number of `Operations` increase
 linearly with it. `O(n)` it's probably the most common Big-O notation you'll
@@ -289,18 +288,18 @@ means_**, as things grow larger and larger, does it scale?
 
 So the `findNemo` function is `O` of `n` and linear time. Another way to think
 about it is this,
-<br/>
+</br>
 
 ![chapter-1-4.gif](./images/gif/chapter-1-4.gif "O(n) single element")
-<br />
+</br/>
 
 If we have the compression algorithm, let's say this `function()` is the little
 compression, and the `Input` is the little box, what's the Big-O notation of
 this function? Well if we had one element it will just compress one item.
-<br/>
+</br>
 
 ![chapter-1-5.gif](./images/gif/chapter-1-5.gif "O(n) multiple elements")
-<br />
+</br/>
 
 If we have multiple elements, again we still have to run each box through the
 compression algorithm to compress the box.
@@ -326,8 +325,8 @@ doing as the input increases; the number of boxes increases `(Elements)`, the
 number of `Operations` increase; And that is `O(n)` - linear-time.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Constant
 
@@ -352,10 +351,10 @@ here?
 
 That is no matter how many times the boxes increase or however many boxes we
 have we're always just grabbing the first item in the array.
-<br/>
+</br>
 
 ![chapter-1-6.gif](./images/gif/chapter-1-6.gif "O(1) - Constant Time")
-<br />
+</br>
 
 If we look at this on a graph, If we have one element or one box we do one
 operation.  If we have three elements or three boxes we still do just one
@@ -396,10 +395,10 @@ in total is actually running `O` of `2` operations every time. So no matter how
 big the boxes get, the number of operations here is going to be two.
 
 If we looks at the graph,
-<br/>
+</br>
 
 ![chapter-1-7.gif](./images/gif/chapter-1-7.gif "O(1) - Constant Time")
-<br />
+</br>
 
 Instead of having `O` of `1`, like we have before, we have `0` of `2`, and then
 if we had three opertions it will just be `O` of `3`. But overall it's still
@@ -421,8 +420,8 @@ So we've learned about linear time `O(n)`, and constant time `O(1)`. Let's do
 a bit of fun exercise to really solidify our knowledge.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Exercise-1
 
@@ -447,11 +446,13 @@ function funChallenge(input) {
 // Big-O (3 + 4n)
 // Big-O: O(n)
 ```
+
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Exercise-2
+
 ```javascript
 // What is the Big O of the below function? (Hint, you may want to go line by line)
 function anotherFunChallenge(input) {
@@ -483,14 +484,15 @@ function anotherFunChallenge(input) {
 ```
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Simplifying Big-O
-<br/>
+j
+</br>
 
 ![chapter-1-2.png](./images/chapter-1-2.png "Simplifying Big-O")
-<br />
+</br>
 
 When we talk about Big-O in interviews most of the time you're only going to give
 one of Big-Os kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`. You're most
@@ -500,8 +502,8 @@ you, there are just several rules that we can follow when it came to the
 Big-O. Check the [cheatsheet Rule Book](#big-o-cheat-sheet)
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Rule 1
 
@@ -612,8 +614,8 @@ finding.
 **_In the end of the day, when we talk about Big-O we talk about worst case_**.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Rule 2
 
@@ -671,9 +673,11 @@ Big-O of:
 
 Rule number two, states  we want to drop the constant. We simply saying we don't
 really care that this Big-O is actually. Remember we only care about the things
-that we saw on the [chart](#big-o-scalability) nothing specific like this `O(n/2 + 101)`
+that we saw on the [chart](#big-o-scalability) nothing specific like this
+`O(n/2i + 101)`
 
 So the `101` became a `1`
+j
 > The Big-O mutate into `O(n/2 + 1)`
 
 And the `n/2` in the grand scheme of things we only care about when it scales,
@@ -702,6 +706,7 @@ function compressBoxesTwice(boxes) {
     })
 }
 ```
+
 In case two, we have function `compressBoxesTwice`, where this function actually
 has two `for-loops` where it does the same thing but it's two `for-loops`? We
 have `O(n)` for each `for-loop`. Because these are two steps, while we add them
@@ -715,15 +720,15 @@ constant_ and if we drop what this function equate to? Well it's just `O(n)`.
 > The Big-O mutate `O(n)`.
 
 To prove it we see the graph below,
-<br/>
+</br>
 
 ![chapter-1-3.png](./images/chapter-1-3.png "Rule - 2 Case - 2")
-<br />
+</br>
 
 We see that the `Elements` as the elements increase, we have two `Operations`,
 because we have two `for-loops`. If we have _two_ `Elements`, in that case we do
-_four_ `Operations`. If we have _three_ `Elements`, then we do _six_ `Operations`. You
-see how increases?
+_four_ `Operations`. If we have _three_ `Elements`, then we do _six_
+`Operations`. You see how increases?
 
 The end of the day, even though the line is steeper we have a lot more
 operations to do. The way the line increases is still **_linear_**, and that's
@@ -737,8 +742,8 @@ on our graph usually the only time you see numbers is when you have `O(1)`,
 `O(n^2)`, or `O(2^n)`, which we'll get get to later.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Rule 3
 
@@ -810,8 +815,8 @@ with loops that are one after another. Well let's get into the next chapter and
 talk about another _common pattern_ we see with Big-O that is nested loops.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Quadratic
 
@@ -859,10 +864,10 @@ Which when we multiply them becomes, `O` to the `^2`.
 > Big-O mutated: O(n^2)
 
 If we take look in graph below,
-<br/>
+</br>
 
 ![chapter-1-8.gif](./images/gif/chapter-1-8.gif "Rule - 3 Quadratic")
-<br />
+</br>
 
 That means, every time the number of `Elements` increase, let's say we have
 _two_ elements, we have _four_ `Operations` that we do; if we have _three_
@@ -896,8 +901,8 @@ variables.
 Let's move on to the last Big-O rule.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Big-O Rule 4
 
@@ -969,7 +974,6 @@ you that probably an _addition_ `+` that we're doing; we're adding another step
 and in here we're summing the pair sums, that is where adding each number one
 after another.
 
-
 We see the loops at result of this function, what do you think the Big-O
 notation here as well?
 
@@ -986,7 +990,6 @@ increases the size of `n` to the _power_ of _two_ is way more important then the
 `n`. We always keep the dominant terms.
 
 > Big-O mutation: O(n^2)
-
 
 #### Example - 2
 
@@ -1027,14 +1030,15 @@ a function, you can right away figure out what the Big-O is, or what the time
 complexity of a function is.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Pillars Of Programming
-<br/>
+
+</br>
 
 ![chapter-1-9.gif](./images/gif/chapter-1-9.gif "Pillar of programming 1")
-<br />
+</br>
 
 By this point you should be able to talk a little bit especially about
 _scaleable_ right. Readable we're going to talk about in the next section, but
@@ -1059,10 +1063,10 @@ valuable resources.
 How can we talk about memory? We've talked about speed, what about _memory_; and
 the good news is, that memory is fairly simple, not as complicated as speed, it
 won't take us long to learn as much as we have about speed.
-<br/>
+</br>
 
 ![chapter-1-10.gif](./images/gif/chapter-1-10.gif "Pillar of programming 2")
-<br />
+</br>
 
 Right now, which code is best can be answered with the three pillars of code?
 Something that I want you to take with you _for the rest of your career_, and
@@ -1087,8 +1091,8 @@ then you might have to sacrifice with increased speed_**.
 Let's get into the nitty gritty of how we measure _space complexity_.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Space Complexity
 
@@ -1103,16 +1107,15 @@ time cost. We simply look at the total size relative to the size of the input,
 and see how many new variables or new memory we're allocating; How much memory
 is being used?.
 
-
 Up to this point we've talked about time complexity, and how if we want to
 compress let's say some boxes, we just talked about how fast and many operations
 this would take. But in real life, there's this other factor of memory and we
 have this, we have this _pink_ little box of how much this functions can take?
 How much input it;s able to take?.
-<br/>
+</br>
 
 ![chapter-1-4.png](./images/chapter-1-4.png "Space Complexity (memory)")
-<br />
+</br>
 
 For example, if we had a ton of boxes that we have to create to run this
 function, well has limited capacity and it might overflow. By the way things
@@ -1128,8 +1131,8 @@ Next chapter, we'll go through some space complexity exercises, and figure out
 how we can give the Big-O notation to the subject.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Space Scalability
 
@@ -1229,8 +1232,8 @@ Let's get into some fun examples based on what we've just learned in the next
 chapter.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Exercise Twitter
 
@@ -1240,7 +1243,6 @@ a feature that allows anybody to click `next button` to their `name` and
 retrieve their most recent tweet and they're just tweet.  So that is their very
 first tweet and their very latest tweet based on Big-O notation and what we know
 about Big-O notation, what can we assume about this problem?
-
 
 ```javascript
 // Find 1st, Find Nth...
@@ -1346,8 +1348,8 @@ have infinite amount of resources, we have to be careful when we code, how we
 use up these resource (_space_), and that alone makes you a better engineers.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Optional JavaScript Loop
 
@@ -1403,8 +1405,8 @@ course, you're least familiar, that at the end of the day all we're doing is
 loops.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Module Summary
 
@@ -1474,11 +1476,11 @@ look at the code differently and you had a few 'aha' moments throughout this
 section.
 
 It's certainly my favorite section, and a great topic that really made me
-a better engineer once I learned this topic. SO I hope it did for you as well.
+a better engineer once I learned this topic. So I hope it did for you as well.
 At the end of this all, you have a way to look at code differently, and when
 someone says hey how good is my code? You have a nice way of looking at things
 and measuring things.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>

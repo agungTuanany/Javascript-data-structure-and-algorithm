@@ -1,6 +1,6 @@
 # Chapter-6 Data Structures Linked List
 
-## Tables of Contents
+## Table of Contents
 
 1. [Linked List Introduction](#linked-list-introduction)
 2. [What is a Linked List](#what-is-a-linked-list)

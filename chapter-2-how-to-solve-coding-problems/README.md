@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-1.  [Module Introduction](#module-introduction)
-2.  [What Are Companies Looking For](#what-are-companies-looking-for)
-3.  [What We Need For Coding Interview](#what-we-need-for-coding-interview)
-20. [Module Summary](#module-summary)
+1. [Module Introduction](#module-introduction)
+2. [What Are Companies Looking For](#what-are-companies-looking-for)
+3. [What We Need For Coding Interview](#what-we-need-for-coding-interview)
+4. [Module Summary](#module-summary)
 
-<br/>
+</br>
 
 ## Module Introduction
 
@@ -50,10 +50,10 @@ understand them_, understand the _tradeoffs_. That's what  we're doing here.
 I know I'm taking a long time to get my points here, but we're trying to build
 the fundamental before we dive in really deep, so we **_understand the why of each
 thing_**.
-<br/>
+</br>
 
 ![chapter-2-1.gif](./images/gif/chapter-2.1.gif "Module introduction")
-<br />
+</br>
 
 We're building this foundation, by _first_ **_understanding the Big-O_**, which
 we did in the previous section; and then **_learning how to solve these
@@ -90,14 +90,15 @@ into our data structure and algorithm section to really understand the
 tradeoffs.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What Are Companies Looking For
-<br/>
+
+</br>
 
 ![chapter-2-1.png](./images/chapter-2-1.png "What are companies looking for")
-<br />
+</br>
 
 Most people tend to think it just coding skill but as you can see here, there's
 actually _four_ things that they're looking for.
@@ -151,14 +152,15 @@ is this answer better than the other?.
 Again, don't worry we're going to practice this muscle throughout.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## What We Need For Coding Interview
-<br/>
+
+</br>
 
 ![chapter-2-2.png](./images/chapter-2-2.png "What we need for coding interview")
-<br />
+</br>
 
 In order to solve coding problems, we need to _learn these data structure_ and
 _these algorithm_. It doesn't look at bad does it? Here's the big secret, there
@@ -190,10 +192,10 @@ problems with them? And same with algorithms, and we combine it with our [cheat
 sheet](./interview-cheatsheet.pdf) where we compare our code that is `[1]`
 readable, that is `[2]` memory efficient and time efficient using Big-O between
 these two, that's all interviews are, that's all coding interviews ask for.
-<br/>
+</br>
 
 ![chapter-2-3.png](./images/chapter-2-3.png "Technical interview diagram")
-<br />
+</br>
 
 If we go back to [our outline of the
 course](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview) we're
@@ -213,8 +215,8 @@ pillars of good code, we already talked about what skills the interviewer is
 looking for, but we haven't talked about others parts.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
 
 ## Module Summary
 
@@ -267,11 +269,10 @@ _optimize things_ or tricks to make your answer better can be narrowed down to
 specific steps. So don't get overwhelmed, there's an easy clear checklist and
 heuristic that we're going to go over later on.
 
-
 By this point, I think we're ready to move on to _data structures_ and
 _algorithms_. How do we write good code? Create good programs, create value for
 the companies that we're interviewing for.
 
 **[⬆ back to top](#table-of-contents)**
-<br/>
-<br/>
+</br>
+</br>
