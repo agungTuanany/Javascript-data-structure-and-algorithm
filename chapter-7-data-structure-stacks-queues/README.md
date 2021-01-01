@@ -1,10 +1,11 @@
 # Chapter-7 Data Structure Stacks and Queues
 
-## Tables of Contents
+## Table of Contents
 
 1. [Stacks and Queues Introduction](#stacks-and-queues-introduction)
 2. [What is Stacks](#what-is-stacks)
 3. [What is Queues](#What-is-Queues)
+4. [Exercise Stacks Vs Queues](#exercise-stacks-vs-queues)
 
 </br>
 
@@ -164,6 +165,166 @@ So create ting a queue from arrays, although you can do it, it is really really
 bad. That something we'll talk a little bit more about when we actually code.
 
 OK, that enough for queue, let's go to our first exercise.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Stacks Vs Queues
+
+Let's do a quick exercise before we actually create our own stacks and queues,
+because JavaScript doesn't have its own stacks or queues data structure.
+
+```javascript
+// Stacks
+
+// google
+// udemy
+// youtube
+```
+
+I mentioned that there's two ways that we can build stacks and queues, If we
+talk about stacks we can think of it as our browser history, let's say we visit
+`[1]` Google first then `[2]` Udemy and then `[3]` we visit youtube. In
+a stack because Google was the first item, it would actually be placed on the
+stack like,
+
+```javascript
+// Stack placed
+
+twitter
+youtube
+udemy
+google
+```
+
+Then we go to udemy, so we'd be placed on the stack, on top, and then we go
+to youtube. Now if we want to go to a new website let's say we go to `[4]`
+twitter, but then we decide I want I want to go back,
+
+```javascript
+// Stack placed
+
+youtube
+udemy
+google
+```
+
+Well we remove twitter with press back button on our browser, and we get
+youtube, and if we press back again,
+
+```javascript
+// Stack placed
+
+udemy
+google
+```
+
+We get to udemy and then back again,
+
+```javascript
+// Stack placed
+
+google
+```
+
+We go back to Google. So stacks has a **top** and a **bottom**, and we can build
+it either with **arrays** or **linked lists**. My question to you is, why would
+we want to build stacks with arrays? That is will create a class of stacks that
+has the data being held in arrays versus using linked lists and vice versa.
+Think about that.
+
+```javascript
+// Queues
+
+Matt -- Joy -- Samir -- Pavol
+```
+
+What about queues? Let's say we have a queues, I'm creating a waitlist app, and
+here we have a couple of people that want to on the waitlist. First person that
+shows up is `Mat`, and then all the sudden `Joy` comes in lines up, and then
+perhaps we have `Samir` that comes and waits in line, and then we have `Pavol`.
+
+In this case, we want `Matt` to be first then `Joy`, and `Sumir`, then `Pavel`,
+and with queues we can once again use **arrays** and **linked list** to
+implement it. Which one do you think will be better for queues?  Is there one
+better or they both equal? I want you think about this.
+
+In next lecture, I'm going to answer this for you, but I recommend taking time
+to think about what you know about arrays and linked list, and how they might
+benefit or might not benefit stacks and queues.
+
+### Stack pros and cons
+
+I said that with stacks they can be implemented using **arrays** or **linked
+lists**, in this case both arrays and linked lists are going to work fairly
+well. In the end it depends what you prefer, and what your priorities are. By
+this points you should understand the pros and cons of arrays, and pros and cons
+of linked lists.
+
+So, we don't need to go into much detail, since we've talked about it before;
+But one major thing is that **arrays allow something called _cache locality_**,
+which makes them technically faster when accessing its items in memory, because
+they're right next to each other versus a linked list that has scattered all
+over memory, and also **linked list have _extra memory associated_ with them**,
+because we have to hold them on to those pointers, in other hand, they have more
+dynamic memory. We can keep adding to the list versus an array where you have
+either a static array or dynamic array that has certain amount of memory, and as
+soon as it's about to reach its limit, it's going to have to double up their
+memory and create new space for it, somewhere in memory.
+
+So, you have to think about what sort of operations you're going to do, and why
+your priorities are to decide which one you want; but they could both work.
+We're going to build stack data structure with both of these coming up.
+
+### Queues pros and cons
+
+Queues in other hand is a very simpler answer. You **never want to build it with
+an _array_**, or if you do, while that's not necessarily a good idea, and
+ideally you want to implement them with linked lists; Why is that? Well, if you
+remember, arrays have indexes associated with them,
+
+```javascript
+0.      1.     2.       3.
+Matt -- Joy -- Samir -- Pavel
+```
+
+If we have `[Matt] | 0`, `[Joy] | 1`, `[Samir] | 2`, `[Pavel] | 3` that are in
+queue, if this was in an array data structure, and `Matt` was the first in line,
+we need to remove `Matt` from from the queue; well, once we remove `Matt` we now
+need to shift the indexes over,
+
+```javascript
+0.     1.       2.       3.
+Joy -- Samir -- Pavel
+```
+
+So, we have to go one by one, and say, all right, `Joy` is now in index of `0`,
+`Samir` is now in index of `1`, and `Pavel` is now in index of `2`, and there's
+nothing in index of `3`. We just shifted those arrays, it's `O(n)` operation or
+linear time versus something like linked list where all we have is a pointer.
+
+```javascript
+Head                    Tail
+Matt -- Joy -- Samir -- Pavel
+```
+
+We have a pointer to the `Head`, and then perhaps we have a pointer to the
+`Tail`.
+
+```javascript
+   Head            Tail
+-- Joy -- Samir -- Pavel
+```
+
+All we need to do is say, `Head` is `Matt`, we want to remove `Matt`, and `Joy`
+is going to be the `Head`, and nothing else changes, and that's an `O(1)`
+operation or constant time.
+
+I hope you are able to get the answer, otherwise at least now you know; and this
+is a very common interview question that you might get asked that hopefully you
+have an answer to now. Enough talking I think it's time to build these data
+structures from the ground up.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
