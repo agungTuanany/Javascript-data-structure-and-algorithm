@@ -6,6 +6,7 @@
 2. [What is Stacks](#what-is-stacks)
 3. [What is Queues](#What-is-Queues)
 4. [Exercise Stacks Vs Queues](#exercise-stacks-vs-queues)
+5. [How JavaScript Works](#how-javascript-works)
 
 </br>
 
@@ -329,3 +330,128 @@ structures from the ground up.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## How JavaScript Works
+
+How does JavaScript actually work? Imagine getting this question during an
+interview, or how about this, **explain the difference between asynchronous and
+synchronous in JavaScript?** or maybe they ask you to explain this statement.
+**JavaScript is a single thread language that can be non-blocking?**
+
+In this optional lectures we're going to help you to answer those question.
+Maybe you need to visit a few times as you progress to really get it. So, don't
+fell discourage if you don't fell 100% confident.
+
+Now we don't need to know how JavaScript works internally to write a program;
+but it is important to learn. I see a loot of people who have been developers
+for years and not know this (how JavaScript works); it's like being a pilot and
+not knowing an airplane can fly. OK that's a little bit dramatic there; But you
+get my point.
+
+</br>
+
+![chapter-7-2.png](./images/chapter-7-2.png "How JavaScript works | What is a Program")
+</br>
+
+First, what is a program? Well, a program has to do some simple things. `[1]` it
+has to **allocate memory**, otherwise we would be able to have variables or even
+have a file on our computer. `[2]` It also **have to parse and execute
+scripts**, which means read and run commands.
+
+</br>
+
+![chapter-7-3.png](./images/chapter-7-3.png "How JavaScript works | JavaScript Engine")
+</br>
+
+Now, we also know that form our previous discussion, there's the JavaScript
+engine, that each browser implements, in chrome it's the `V8`; and the `V8`
+engine reads the JavaScript that we write in changes into machine executable
+instruction for the browser. Now the engine consists of two parts, `[1]`
+a **Memory Heap** and `[2]` a **Call Stack**.
+
+The _Memory heap_, this is where the _memory allocation_ happens; and the _Call
+Stack_  this is where your code is _read and execute it_; it tells you where you
+are in the programs.
+
+Let's simplify this and show you what I mean.
+
+### Memory Leak
+
+```javascript
+// Memory Heap
+const a = 1:
+const b = 10:
+const c = 100:
+```
+
+For us to allocate the memory in the Memory Heap; well it's a simple as dong
+`const a = 1`, we've just allocate a memory; now when we assign this, the
+JavaScript engine is going to remember that, "oh ya, `a` has value of `1`".
+We've just use up the Memory Head, and I can keep going on and on, keep copying,
+pasting, and changing these variables to `const b = 1`, `const c = 1`.  I can
+change value `cons c = 100`, may be `const b = 10`.
+
+Now, what's an issue that we see with this? There's something called **Memory
+Leak**, that you're going to hear as you become a developer; and what we've done
+here is, we've created all these variables, these global variables that are in
+the in the Memory Heap, but you see this Memory Heap box (chapter-7.3.png), and
+with all the memory we have a limited amount that we can actually have. So, by
+increasing the number of variables that we have, imagine if I had just this page
+full of variables, and instead of just numbers, they're like very very big
+arrays.
+
+Well, **Memory Leak happen when you have _unused memory_**, such as let's say
+we're now not using a variable `a`, but It's going it's still there. Well, by
+having unused memory, just laying around it fills up this Memory Heap. That's
+why you hear that **global variables are bad**. Global variables are bad,
+because if we don't forget to clean up after ourselves, we fill up this Memory
+Heap; and eventually the browser will not be able to work.
+
+### Call Stack Example
+
+Alright, that's memory. Let's talk about the Call Stack, what is that? Well,
+with a Call Stack, we can have something like this,
+
+```javascript
+// Call Stack
+console.log("1");
+console.log("2");
+console.log("3");
+```
+
+We have three console logs that stack with each others, if I run this code in
+the browser terminal,
+
+</br>
+
+![chapter-7-3.gif](./images/gif/chapter-7-3.gif "Call Stack example - 1")
+</br>
+
+Well, I get `1`, `2`, `3`. So, the Call Stack if you remember that's what it
+reads and execute our scripts.
+
+</br>
+
+![chapter-7-4.gif](./images/gif/chapter-7-4.gif "Call Stack example - 2")
+</br>
+
+
+So, What the Call Stack does, it reads the first
+line console log, it get puts in the Call Stack. So the JavaScript engines says,
+console log has been added, let's pop it onto this Call Stack; and then it runs
+it, and create `1`, then it says, OK, I'm removing the first console log as
+I just finished running it,
+
+I'm going to place the _second console log_ into my Call Stack, adds it on, and
+says, Yap, execute `2`., and then it removes that, ti pops it, and then get the
+third console log, and logs console log three with result `3`.
+
+
+
+
+
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
