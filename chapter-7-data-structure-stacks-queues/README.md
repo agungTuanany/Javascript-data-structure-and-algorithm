@@ -435,7 +435,6 @@ reads and execute our scripts.
 ![chapter-7-4.gif](./images/gif/chapter-7-4.gif "Call Stack example - 2")
 </br>
 
-
 So, What the Call Stack does, it reads the first
 line console log, it get puts in the Call Stack. So the JavaScript engines says,
 console log has been added, let's pop it onto this Call Stack; and then it runs
@@ -443,8 +442,216 @@ it, and create `1`, then it says, OK, I'm removing the first console log as
 I just finished running it,
 
 I'm going to place the _second console log_ into my Call Stack, adds it on, and
-says, Yap, execute `2`., and then it removes that, ti pops it, and then get the
-third console log, and logs console log three with result `3`.
+says, Yap, execute `2`; and then it removes that, ti pops it, and then get the
+third console log, and logs console log three with result `3`, and finally
+removes it.
+
+Let's have a bit more of a complex example here, to demonstrate this points.
+Imagine I have something like this,
+
+```javascript
+const one = () => {
+
+    const two = () => {
+
+        console.log("4");
+    };
+
+    two();
+};
+
+// Result:
+// 4
+```
+
+I have a function called with ES6 features `const one = () => {}`, and inside
+this function I have another function `const two = () => {}`, and for now it's
+not really going to do much, is going to console log `"4"`. and inside function
+`one()` we just run `two()`, I get back result `4`.
+
+So, what happens here according to a Call Stack?
+
+```javascript
+one()
+// CALL STACK
+```
+
+If we have the Call Stack here, we first ran the `one()` function; So, on top of
+Call Stack the `one*()` function gets run.
+
+```javascript
+two()
+one()
+// CALL STACK
+```
+
+As, we enter into this Call Stack, we see that we run another function `two()`,
+so `two()` goes on top of the Call Stack;
+
+```javascript
+console.log("4")
+two()
+one()
+// CALL STACK
+```
+
+Now we run the `two()` function, which is console logging `4`, that run into
+`two()` function.
+
+```javascript
+two()
+one()
+// CALL STACK
+```
+
+So, now we _read_ this, the Call Stack is going to say, OK there's nothing else
+inside of this. I'm going to run `console.log("4")`, So it's going to print out
+number `4` on terminal. It's going to remove that from the Call Stack.
+
+```javascript
+one()
+// CALL STACK
+```
+
+Then remove the `two()`.
+
+```javascript
+
+// CALL STACK
+```
+
+Then remove the `one()`, because it's just been called; and the Call Stack is
+now empty.
+
+### Single Thread & Multi Thread
+
+Let's revisit the statement from the beginning of this lecture,
+
+> JavaScript is a Single Threaded language that can be Non-Blocking;
+
+Single Thread means **that it has only one Call Stack**, and one Call Stack
+only. You can only do one thing at a time. As you saw Call Stack is First In
+Last Out. So what ever at the top of Call Stack, gets run first then below that
+until the Call Stack is empty.
+
+Other languages can have multiple Call Stacks, and these are called **multi
+thread**. You can also see how that might be beneficial to have multiple Call
+Stack; so, we don't keep waiting around for stuff.
+
+**Why JavaScript design to be single threaded**? Well, running code on a single
+thread can e quite easy and simple, since you don't have to deal with
+complicated scenarios that arise in multi-thread environment, you just have one
+thing to worry about; and when I say issues with multi-threaded environment, can
+have such thing as **Deadlocks** now.
+
+```javascript
+// Call Stack
+console.log("1")    // Line-1
+console.log("2")    // Line-2
+console.log("3")    // Line-3
+```
+
+Guess what,**_you just learn what synchronous programming means_**. Synchronous
+programming simply means, `Line-1` get execute it, `Line-2` get executed, and
+then `Line-3` get executed. The latter (last one) can't start before the first
+finished. So this `console.log("2")` doesn't start until `console.log("1")`
+finished, and `console.log("3")` doesn't start until these about to finish,
+because, well we've looked at the Call Stack.
+
+### Stack Overflow
+
+</br>
+
+![chapter-7-4.png](./images/chapter-7-4.png "Stack Overflow")
+</br>
+
+Now, you may have head the site stackoverflow. Have you wonder Stack Overflow
+means?, Stack Overflow is when a stack is overflowing. Kind of like we talked
+about memory leaks, and how the _memory heap_ of a JavaScript engine can
+overflow. Well with Stack Overflow this happens, when the Call Stack just gets
+bigger and bigger until it just doesn't ave enough space anymore, how can we do
+that? Can we recreate a Stack Overflow?
+
+```javascript
+// Recursion
+funtion foo() {
+    foo();
+}
+
+foo();
+
+// Result
+```
+
+All you have to do is create a function `foo()` and this function will just have
+`foo()`. What is happening here? This something called **Recursion**; and
+**_recursion means a function that calls itself_**. If we look at above
+function does, we run `foo()` and `foo()` get executed, what `foo()` does? Well
+we run `foo()` again.
+
+So, it's just keep looping over and over, there is no end in sight. We keep
+adding `foo()` to the Call Stack, we keep adding it until the Stack it doesn't
+fit or doesn't have anymore space.
+
+So, hopefully this now make sense, the JavaScript engine which is `V8` engine at
+Chrome has a Memory Heap and a Call Stack.
+
+Now, JavaScript is Single Threaded, only one statement is executed at a time,
+but there is a problem now isn't it? What if `Line-2` was a big big task we need
+to do, maybe loop through an array that had millions of items, what would
+happens there? Well, we would have this `Line-1` get execute, then the `Line-2`
+has a massive job well just work there, and `line-3` will take a really long
+time to get log; and in our small example that doesn't man much, but if we have
+this on a website, well the user wouldn't be able to do anything. The website
+would pretty much freeze until that task is done, and that user just waits
+there, that's not very good is it?.
+
+With synchronous task, if we have one function that takes up a lot of time it's
+going to hold up the line (Stack). So sound like we need something
+**non-blocking**, Remember our first statement,
+
+> JavaScript is a Single Threaded language that can be non-blocking
+
+Ideally we don't wait around for things that take time, how we solve this
+problem in JavaScript world? Well asynchronous to the rescue. Think of
+asynchronous is like a **_behavior_**; synchronous execution is great, because
+it is predictable. We know what happens first then what happen next; but it can
+get slow. So when we have to do things like image processing, or making request
+over the network like API calls; we need something more that just synchronous
+task right?.
+
+So, you thinking to yourself, how we do asynchronous programming?, we can do
+asynchronous programming by doing something like this,
+
+```javascript
+// Call Stack
+console.log("1");
+setTimeout(() => { console.log("2"); }, 2000 );
+console.log("3");
+```
+
+We use `setTimeout()` it's allows us to create a time out; and we can just give
+it a first parameter is the function that we want to run, and then the second
+parameter is how many seconds we want to wait?, Let's run on the console to see
+what happens.
+
+</br>
+
+![chapter-7-5.gif](./images/gif/chapter-7-5.gif "Call Stack example")
+</br>
+
+We have `console.log("1")` and get result `1`, then `console.log("3")` with
+result `3`, and then we get `console.log("2")` two second later. It's looks like
+we just skipped this whole steps, and then put this `setTimeout()` at the very
+end of the Stack.
+
+Well, you just witness asynchronous programming, in order to understand, and
+what just happens, well, I need to take you the next part.
+
+</br>
+
+![chapter-7-5.png](./images/chapter-7-5.png "Stack Overflow")
+</br>
 
 
 
