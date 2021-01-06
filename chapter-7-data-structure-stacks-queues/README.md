@@ -648,10 +648,21 @@ end of the Stack.
 Well, you just witness asynchronous programming, in order to understand, and
 what just happens, well, I need to take you the next part.
 
+### JavaScript Run-Time Environment
+
 </br>
 
 ![chapter-7-5.png](./images/chapter-7-5.png "Stack Overflow")
 </br>
+
+Above diagram is show us JavaScript engine with heap and call stack to run. We
+need more that just the JavaScript engine, we need what we call a **JavaScript
+Run-Time Environment**,
+
+JavaScript Run-Time Environment is again part of the browser, it's include in
+the browser; they have extra things, on top the engine they have something
+called the **Web APIs**, **Call Back + Queue**, and **event Loop**.
+
 
 
 
