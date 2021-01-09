@@ -428,18 +428,17 @@ the browser terminal,
 </br>
 
 Well, I get `1`, `2`, `3`. So, the Call Stack if you remember that's what it
-reads and execute our scripts.
+**reads and execute our scripts**.
 
 </br>
 
 ![chapter-7-4.gif](./images/gif/chapter-7-4.gif "Call Stack example - 2")
 </br>
 
-So, What the Call Stack does, it reads the first
-line console log, it get puts in the Call Stack. So the JavaScript engines says,
-console log has been added, let's pop it onto this Call Stack; and then it runs
-it, and create `1`, then it says, OK, I'm removing the first console log as
-I just finished running it,
+So, What the Call Stack does, it reads the first line console log, it get puts
+in the Call Stack. So the JavaScript engines says, console log has been added,
+let's pop it onto this Call Stack; and then it runs it, and create `1`, then it
+says, OK, I'm removing the first console log as I just finished running it,
 
 I'm going to place the _second console log_ into my Call Stack, adds it on, and
 says, Yap, execute `2`; and then it removes that, ti pops it, and then get the
@@ -495,7 +494,7 @@ one()
 // CALL STACK
 ```
 
-Now we run the `two()` function, which is console logging `4`, that run into
+Now we run the `two()` function, which is console logging `4`, that run inside
 `two()` function.
 
 ```javascript
@@ -527,7 +526,10 @@ now empty.
 
 Let's revisit the statement from the beginning of this lecture,
 
-> JavaScript is a Single Threaded language that can be Non-Blocking;
+</br>
+
+> **JavaScript is a Single Threaded language that can be Non-Blocking**.
+</br>
 
 Single Thread means **that it has only one Call Stack**, and one Call Stack
 only. You can only do one thing at a time. As you saw Call Stack is First In
@@ -574,7 +576,7 @@ that? Can we recreate a Stack Overflow?
 
 ```javascript
 // Recursion
-funtion foo() {
+function foo() {
     foo();
 }
 
@@ -661,15 +663,299 @@ Run-Time Environment**,
 
 JavaScript Run-Time Environment is again part of the browser, it's include in
 the browser; they have extra things, on top the engine they have something
-called the **Web APIs**, **Call Back + Queue**, and **event Loop**.
+called the **Web APIs**, **CallBack Queue**, and **event Loop**.
+
+As you can see, `Timeout (setTimeout)` is part of the web API, it's not
+technically part of JavaScript is it? It's what the browser give us to use. So
+we can do asynchronous program.
+
+Looking at this diagram, let see if we can figure out what our code was doing.
+
+```javascript
+console.log("1");                       // [1]
+setTimeout(() => console.log("2"));     // [2]
+console.log("3");                       // [3]
+
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+We can create here our own **_Call Stack_**, we'll have a **_Web API_**, and then we'll have
+a **_CallBack Queue_**, and then **_Event Loop_**. Just like we have in our
+JavaScript Run-Time Environment.
 
 
+So, what's happening here,
+
+```javascript
+
+console.log("1");                       // [1]
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+Well, first we have a `[1]` console log that goes into the Call Stack, and that
+gets run; so, we log console logging to the browser.
+
+```javascript
+
+setTimeout(() => console.log("2"));     // [2]
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+Then we get `setTimeout()` into our Call Stack, because we finished this first
+stack `[1]`, we're going to the second one. What `setTimeout()` going to happen
+is, well in the Call Stack is going to say, OK I have `setTimeout()`, and
+because `setTimeout()` is not part of JavaScript, but part of the Web API, it
+has a special characteristic, what's going to happen is, i triggers the Web API,
+
+```javascript
+
+// Call Stack
+
+setTimeout(), 2000                      // [2]
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+Says, hey `setTimeout()` has just been called, and because we notified Web API,
+we can Pop out of the call stack. Now the Web API starts a timer of two seconds,
+it's going to know that in two second you have to do something.
+
+```javascript
+
+console.log("3");                       // [3]
+// Call Stack
+
+setTimeout(), 2000                      // [2]
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+Because the call stack is empty, the JavaScript engine now goes to
+`console.log("3")`, and execute this.
+
+```javascript
+
+// Call Stack
+
+setTimeout(), 2000                      // [2]
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+So, that makes sense right, now we've done `1` and `3` in the terminal browser,
+but we still have `setTimeout()` two seconds in the Web API. Now After two
+seconds, when your time limit is up, the Web API is going to say, Okay
+`setTimeout()` should be run, let's see what's inside of it. We'll we have
+a `console.log("2")`.
 
 
+```javascript
 
+// Call Stack
+
+setTimeout(),                           // [2]
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+So, what's going o happen is, it's going to say, hey `setTimeout()` is done.
+
+```javascript
+
+// Call Stack
+
+// WEB API
+
+callback()
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+We have a `callback()`, and this `callback()` of `settimeout()` we added to the
+CallBack Queue, to saying that, hey we have to run something, we're ready to run
+it.
+
+Now, the last part, the Event Loop checks and says, hey, is the Call Stack is
+empty?, and it keeps checking all the time. If the Call Stack is empty and
+there's nothing running right now in the JavaScript engine, it's going to say,
+hey do we have any CallBack? It's going to check the CallBack Queue and say, is
+anything in there? Because the Call Stack is empty, we can throw something in
+there, and make it do some work. In our case we say, oh yeah I do. Let me put
+this (`callback()`) into the Call Stack.
+
+```javascript
+
+callback()
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+So, bow we move the code back into the Call Stack, and then the `callback()` we
+run it, and by running it, we see that we have a `console.log("2")`.
+
+```javascript
+
+console.log("2")
+callback()
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+So, it's going to say `console.log("2")`, it's going to run, once it's done it's
+going to pop it out of the Call Stack.
+
+```javascript
+
+callback()
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+Again, we're done with the `callback()`, so we remove it.
+
+
+```javascript
+
+// Call Stack
+
+// WEB API
+
+// CALLBACK QUEUE
+
+// EVENT LOOP
+```
+
+There you go, we're done. Everything is empty, and we've just run, and get this
+result on web browser `1, 3` it's going to go through the entire Web API,
+CallBack Queue, Event Loop and then it's going to run the `console.log("2")` to
+get the final result, and finish the running program.
+
+That was a lot of information. So you might need to watch, or read this for few
+times, but hopefully that makes sense to you, of why we noticed this behavior.
+
+I want to challenge your understanding here, knowing what you know, and what
+I just tell you, what happen if I changes to zero (`setTimeout(), 0`), that
+means zero second, what will happen?
+
+</br>
+
+![chapter-7-6.gif](./images/gif/chapter-7-6.gif "JavaScript Run-Time Environment")
+</br>
+
+We get the result `1, 3, 2`. Now think about why that happened. Even though this
+`setTimeout()` is still went through the process. It still got entered into Web
+API, and then the CallBack Queue, and then the Event Loop, and by the time that
+was happening, the Call Stack had already moved on to the `console.log("3")`;
+and only after `console.log("3")` was done and the Call Stack was empty, the
+Event Loop said, oh yeah we can call `console.log("2")`.
+
+Hopefully that make sense to you. If you able to understand that, you'll
+actually have a lot of people that hire for JavaScript roles, ask question like
+this on an interview, and you have to explain why that is. So, i hope that made
+sense to you, and you can use that to your advantage at the next interview.
+
+### Recap
+
+If you wanted to load your latest tweets onto a web page, and you do this
+synchronously then visitors to your site won't be able to do anything until
+those tweets are loaded, this could cause a log delay before they even get to
+see the content of your site. They may not be able to click anywhere and the
+page will fell like it's frozen, not a very good user experience.
+
+Another way to think about this, is **_calling_** your teacher with a question.
+**Synchronous** way is you called the teacher on the phone until the teacher
+answers the phone, and ask him the question, and hopefully get an answer. So,
+you let the phone ring until he picks up, but you're not doing anything else in
+the _meantime_.
+
+**Asynchronous** means, that you send a **_text_** to a teacher with a question,
+then when the teacher or she has the time or will respond to you, and call you
+with the answer, so you can do other stuff in between. JavaScript is
+asynchronous when you can leave it a message; and a CallBack tells you, Hey Mr.
+Teacher has a message for you when you're not too busy.
+
+That's why we call it a CallBack function, and a Callback Queue, we're calling
+back to let them know that, hey there's some stuff waiting for you.
+
+Now, we see over on the Web API, we have **DOM**, **AJAX**, **Timeout**, and
+there's a few other things; But we also in the CallBack Queue, you have
+`onClick`, `Onload`, `onDone`. Do you remember the **_event listeners_**,
+
+```javascript
+element.addEventlistener("click", () => console.log("was clicked"))
+```
+
+Well, with an event listeners we had something like above code, we have an
+`element`, we added the `addEventlistener()`, in this inside bracket we can say
+`"click"`, and a function that perhaps just console logging a `"was clicked"`.
+
+Well, similar to an asynchronous way of programming, We've created this click
+function, and now we're just listening to it; and every time a click happens on
+the web page, so on the DOM, we run the callback function which
+`console.log("was clicked")`.
+
+So, to finish things up, when is asynchronous happening, i happens a lot, when
+you try and talk between machines, like speaking to a database, making network
+request, image processing, reading flies, etc..
+
+But, to recap what we just learned, **JavaScript is a single threaded language
+that can be non-blocking**, it has one Call Stack, and it does one thing at
+a time. In order to block the single threaded it can be asynchronous with
+a callback functions, and these callback functions gets run in the background,
+through the CallBack Queue, and then the Event Loop, to bring back to the Call
+Stack.
+
+So, next time you get asked, what is the difference between asynchronous or
+synchronous program, or how JavaScript work, you should have a little bit more
+confidence to answer that question, and I hope that this was helpful.
 
 
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
-
