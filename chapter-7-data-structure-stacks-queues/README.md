@@ -7,6 +7,7 @@
 3. [What is Queues](#What-is-Queues)
 4. [Exercise Stacks Vs Queues](#exercise-stacks-vs-queues)
 5. [How JavaScript Works](#how-javascript-works)
+6. [Exercise Stack Implementations](#exercise-stack-implementations)
 
 </br>
 
@@ -954,6 +955,121 @@ Stack.
 So, next time you get asked, what is the difference between asynchronous or
 synchronous program, or how JavaScript work, you should have a little bit more
 confidence to answer that question, and I hope that this was helpful.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Stack Implementations
+
+It's time to code our Stack, and I have a little exercise for you here.
+
+```javascript
+class Node {
+  constructor(value){
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor(){
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
+  peek() {
+  }
+  push(value){
+  }
+  pop(){
+  }
+  //isEmpty
+}
+
+const myStack = new Stack();
+
+
+// Discord
+// Udemy
+// google
+```
+
+I have create the template of what we want our stack data structure to look
+like. We also have a class of `Node`, if you decide to use that and you should
+be familiar with it from our linked list exercise, or you can just ignore it and
+create a new node yourself in here.
+
+This `class Stack`, is going to have in its constructor constructor three
+properties. We have `this.top` which is remember the _top plate_, we have the
+`this.bottom` which is the _bottom plate_, and then `this.length` with value
+`0`, and both `top` and `bottom` are current `null`.
+
+Now, we're going to be using linked list to fill these values; But we don't need
+to use the linked list class that we've used before, instead you can just use
+the `Node` class to simply assign values, and make sure that the `.next` point
+to different node as we add things.
+
+Now your task is to create three methods that work for this data structure,
+`peek()` which let us _see the very top element_ or _top node_; the `push()`
+method which lets us _add a node to the top the stack_, and `pop()` method lets us
+_remove from the top of the stack_; and if you want optionally you can use also
+do an `isEmpty()` method, which is common with the stack to check to check that
+our stack is empty.
+
+We'll start off with a `myStack` that gets instantiated. Your code works, if you
+can do something like this,
+
+```javascript
+```
+
+Where you say `myStack.push(google)` , then `.push(Udemy)`, then
+`.push(Discord)` just like browser history; and then you can do `.pop(Discord)`,
+and `.pop(Udemy)`, and `.pop(google)`.
+
+Good luck, and I see you in the solution. Try your best first before you going
+to the solution for comparing your solution to the lecture solution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **[⬆ back to top](#table-of-contents)**
