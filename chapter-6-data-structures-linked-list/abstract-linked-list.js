@@ -31,8 +31,8 @@ class AbstractLinkedList {
         this.tail = this.newNode;
         this.length++;
 
-        console.log("append method from abstarct class:", this)
-        this.printList()
+        console.log("append method from abstarct class:", this);
+        this.printList();
         return this;
     };
 
@@ -49,8 +49,8 @@ class AbstractLinkedList {
         this.head = this.newNode;
         this.length++;
 
-        console.log("prepend from abstract class:", this)
-        this.printList()
+        console.log("prepend from abstract class:", this);
+        this.printList();
         return this;
     };
 
@@ -69,4 +69,4 @@ class AbstractLinkedList {
 };
 
 
-export default  AbstractLinkedList
+export default  AbstractLinkedList;

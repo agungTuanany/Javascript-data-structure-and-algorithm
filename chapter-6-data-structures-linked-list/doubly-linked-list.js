@@ -18,16 +18,16 @@ class DoublyLinkedList extends AbstractLinkedList {
             prev: null
         };
 
-        console.log("constructor method from DoublyLinkedList:",this.length)
-        this.printList()
+        console.log("constructor method from DoublyLinkedList:",this.length);
+        this.printList();
     }
 
 
 }
 
-const myDoublyLinkedList = new DoublyLinkedList(83)
+const myDoublyLinkedList = new DoublyLinkedList(83);
 
-myDoublyLinkedList.append(38)
-myDoublyLinkedList.append(89)
+myDoublyLinkedList.append(38);
+myDoublyLinkedList.append(89);
 
-myDoublyLinkedList.prepend(63)
+myDoublyLinkedList.prepend(63);

@@ -49,7 +49,7 @@ That's actually a benefit.
 In Computer Science having this limited ability on a data structure is an
 advantage, because you can control, that whoever uses this data structure,
 performs only the right operations that are efficient. If you give somebody all
-the tools in the world, it's a lot harder for them to operate, than  if you just
+the tools in the world, it's a lot harder for them to operate, than if you just
 give them two or three, so that they know exactly what they need to do.
 
 Let's talk about stacks and queues throughout the next couple lectures to really
@@ -104,7 +104,7 @@ something we can do with stacks.
 As you can see, stacks that usually come with **three types of methods**.
 There's a few others but these are the main ones, **pop**, **push**, and
 **peak**; **pop** is remove the last item, that is remove the plate; **push** is
-how to plate; and **peak** is simply view the top most  plate. I've added
+how to plate; and **peak** is simply view the top most plate. I've added
 **lookup** in here just to show you that it's Big-O `O(n)`, because you usually
 don't want to traverse through entire stack; but just so you now if we wanted
 to do that, it's going o be a heavy operations.
@@ -143,10 +143,10 @@ person that goes next, and the third person.
 
 Now on the right above diagram, I have a couple of words that are different then
 _push_ and _pop_, and I'm using a bit of standard here. You can use _push_ for
-**enqueue**, which means add  to the queue, that is add a person in line which
-is `O(n)`; and **dequeue** which you can think of as _pop_, which is remove
-person from line.  However _dequeue_ unlike _pop_ doesn't take the last person
-in line, it takes the first person.
+**enqueue**, which means add to the queue, that is add a person in line which is
+`O(n)`; and **dequeue** which you can think of as _pop_, which is remove person
+from line. However _dequeue_ unlike _pop_ doesn't take the last person in line,
+it takes the first person.
 
 So that stacks and queues differs; and we have these names to make sure that we
 understand the differences, but we have **peak** which once again tells us
@@ -154,7 +154,7 @@ what's the first item that's going to come up, that is the first person in the
 list versus a queue that is the last played, which was the last in first out.
 
 Once again **lookup** in queue usually don't do, because you're only interested
-in _enqueuing_ and _dequeueing_.  You can see here, our Big-O notation is quite
+in _enqueuing_ and _dequeueing_. You can see here, our Big-O notation is quite
 fast.
 
 We actually going to demonstrate this in code, but I want you to try and answer
@@ -194,10 +194,10 @@ stack like,
 ```javascript
 // Stack placed
 
-twitter
-youtube
-udemy
-google
+twitter;
+youtube;
+udemy;
+google;
 ```
 
 Then we go to udemy, so we'd be placed on the stack, on top, and then we go
@@ -207,9 +207,9 @@ twitter, but then we decide I want I want to go back,
 ```javascript
 // Stack placed
 
-youtube
-udemy
-google
+youtube;
+udemy;
+google;
 ```
 
 Well we remove twitter with press back button on our browser, and we get
@@ -218,8 +218,8 @@ youtube, and if we press back again,
 ```javascript
 // Stack placed
 
-udemy
-google
+udemy;
+google;
 ```
 
 We get to udemy and then back again,
@@ -227,7 +227,7 @@ We get to udemy and then back again,
 ```javascript
 // Stack placed
 
-google
+google;
 ```
 
 We go back to Google. So stacks has a **top** and a **bottom**, and we can build
@@ -249,7 +249,7 @@ perhaps we have `Samir` that comes and waits in line, and then we have `Pavol`.
 
 In this case, we want `Matt` to be first then `Joy`, and `Sumir`, then `Pavel`,
 and with queues we can once again use **arrays** and **linked list** to
-implement it. Which one do you think will be better for queues?  Is there one
+implement it. Which one do you think will be better for queues? Is there one
 better or they both equal? I want you think about this.
 
 In next lecture, I'm going to answer this for you, but I recommend taking time
@@ -371,7 +371,7 @@ instruction for the browser. Now the engine consists of two parts, `[1]`
 a **Memory Heap** and `[2]` a **Call Stack**.
 
 The _Memory heap_, this is where the _memory allocation_ happens; and the _Call
-Stack_  this is where your code is _read and execute it_; it tells you where you
+Stack_ this is where your code is _read and execute it_; it tells you where you
 are in the programs.
 
 Let's simplify this and show you what I mean.
@@ -389,7 +389,7 @@ For us to allocate the memory in the Memory Heap; well it's a simple as dong
 `const a = 1`, we've just allocate a memory; now when we assign this, the
 JavaScript engine is going to remember that, "oh ya, `a` has value of `1`".
 We've just use up the Memory Head, and I can keep going on and on, keep copying,
-pasting, and changing these variables to `const b = 1`, `const c = 1`.  I can
+pasting, and changing these variables to `const b = 1`, `const c = 1`. I can
 change value `cons c = 100`, may be `const b = 10`.
 
 Now, what's an issue that we see with this? There's something called **Memory
@@ -451,13 +451,11 @@ Imagine I have something like this,
 
 ```javascript
 const one = () => {
+	const two = () => {
+		console.log("4");
+	};
 
-    const two = () => {
-
-        console.log("4");
-    };
-
-    two();
+	two();
 };
 
 // Result:
@@ -472,7 +470,7 @@ not really going to do much, is going to console log `"4"`. and inside function
 So, what happens here according to a Call Stack?
 
 ```javascript
-one()
+one();
 // CALL STACK
 ```
 
@@ -480,8 +478,8 @@ If we have the Call Stack here, we first ran the `one()` function; So, on top of
 Call Stack the `one*()` function gets run.
 
 ```javascript
-two()
-one()
+two();
+one();
 // CALL STACK
 ```
 
@@ -489,9 +487,9 @@ As, we enter into this Call Stack, we see that we run another function `two()`,
 so `two()` goes on top of the Call Stack;
 
 ```javascript
-console.log("4")
-two()
-one()
+console.log("4");
+two();
+one();
 // CALL STACK
 ```
 
@@ -499,8 +497,8 @@ Now we run the `two()` function, which is console logging `4`, that run inside
 `two()` function.
 
 ```javascript
-two()
-one()
+two();
+one();
 // CALL STACK
 ```
 
@@ -509,14 +507,13 @@ inside of this. I'm going to run `console.log("4")`, So it's going to print out
 number `4` on terminal. It's going to remove that from the Call Stack.
 
 ```javascript
-one()
+one();
 // CALL STACK
 ```
 
 Then remove the `two()`.
 
 ```javascript
-
 // CALL STACK
 ```
 
@@ -530,7 +527,7 @@ Let's revisit the statement from the beginning of this lecture,
 </br>
 
 > **JavaScript is a Single Threaded language that can be Non-Blocking**.
-</br>
+> </br>
 
 Single Thread means **that it has only one Call Stack**, and one Call Stack
 only. You can only do one thing at a time. As you saw Call Stack is First In
@@ -549,9 +546,9 @@ have such thing as **Deadlocks** now.
 
 ```javascript
 // Call Stack
-console.log("1")    // Line-1
-console.log("2")    // Line-2
-console.log("3")    // Line-3
+console.log("1"); // Line-1
+console.log("2"); // Line-2
+console.log("3"); // Line-3
 ```
 
 Guess what,**_you just learn what synchronous programming means_**. Synchronous
@@ -578,7 +575,7 @@ that? Can we recreate a Stack Overflow?
 ```javascript
 // Recursion
 function foo() {
-    foo();
+	foo();
 }
 
 foo();
@@ -629,7 +626,9 @@ asynchronous programming by doing something like this,
 ```javascript
 // Call Stack
 console.log("1");
-setTimeout(() => { console.log("2"); }, 2000 );
+setTimeout(() => {
+	console.log("2");
+}, 2000);
 console.log("3");
 ```
 
@@ -673,9 +672,9 @@ we can do asynchronous program.
 Looking at this diagram, let see if we can figure out what our code was doing.
 
 ```javascript
-console.log("1");                       // [1]
-setTimeout(() => console.log("2"));     // [2]
-console.log("3");                       // [3]
+console.log("1"); // [1]
+setTimeout(() => console.log("2")); // [2]
+console.log("3"); // [3]
 
 // Call Stack
 
@@ -690,12 +689,10 @@ We can create here our own **_Call Stack_**, we'll have a **_Web API_**, and the
 a **_CallBack Queue_**, and then **_Event Loop_**. Just like we have in our
 JavaScript Run-Time Environment.
 
-
 So, what's happening here,
 
 ```javascript
-
-console.log("1");                       // [1]
+console.log("1"); // [1]
 // Call Stack
 
 // WEB API
@@ -709,8 +706,7 @@ Well, first we have a `[1]` console log that goes into the Call Stack, and that
 gets run; so, we log console logging to the browser.
 
 ```javascript
-
-setTimeout(() => console.log("2"));     // [2]
+setTimeout(() => console.log("2")); // [2]
 // Call Stack
 
 // WEB API
@@ -727,10 +723,9 @@ because `setTimeout()` is not part of JavaScript, but part of the Web API, it
 has a special characteristic, what's going to happen is, i triggers the Web API,
 
 ```javascript
-
 // Call Stack
 
-setTimeout(), 2000                      // [2]
+setTimeout(), 2000; // [2]
 // WEB API
 
 // CALLBACK QUEUE
@@ -743,11 +738,10 @@ we can Pop out of the call stack. Now the Web API starts a timer of two seconds,
 it's going to know that in two second you have to do something.
 
 ```javascript
-
-console.log("3");                       // [3]
+console.log("3"); // [3]
 // Call Stack
 
-setTimeout(), 2000                      // [2]
+setTimeout(), 2000; // [2]
 // WEB API
 
 // CALLBACK QUEUE
@@ -759,10 +753,9 @@ Because the call stack is empty, the JavaScript engine now goes to
 `console.log("3")`, and execute this.
 
 ```javascript
-
 // Call Stack
 
-setTimeout(), 2000                      // [2]
+setTimeout(), 2000; // [2]
 // WEB API
 
 // CALLBACK QUEUE
@@ -775,7 +768,6 @@ but we still have `setTimeout()` two seconds in the Web API. Now After two
 seconds, when your time limit is up, the Web API is going to say, Okay
 `setTimeout()` should be run, let's see what's inside of it. We'll we have
 a `console.log("2")`.
-
 
 ```javascript
 
@@ -792,12 +784,11 @@ setTimeout(),                           // [2]
 So, what's going o happen is, it's going to say, hey `setTimeout()` is done.
 
 ```javascript
-
 // Call Stack
 
 // WEB API
 
-callback()
+callback();
 // CALLBACK QUEUE
 
 // EVENT LOOP
@@ -816,8 +807,7 @@ there, and make it do some work. In our case we say, oh yeah I do. Let me put
 this (`callback()`) into the Call Stack.
 
 ```javascript
-
-callback()
+callback();
 // Call Stack
 
 // WEB API
@@ -831,9 +821,8 @@ So, bow we move the code back into the Call Stack, and then the `callback()` we
 run it, and by running it, we see that we have a `console.log("2")`.
 
 ```javascript
-
-console.log("2")
-callback()
+console.log("2");
+callback();
 // Call Stack
 
 // WEB API
@@ -847,8 +836,7 @@ So, it's going to say `console.log("2")`, it's going to run, once it's done it's
 going to pop it out of the Call Stack.
 
 ```javascript
-
-callback()
+callback();
 // Call Stack
 
 // WEB API
@@ -860,9 +848,7 @@ callback()
 
 Again, we're done with the `callback()`, so we remove it.
 
-
 ```javascript
-
 // Call Stack
 
 // WEB API
@@ -929,7 +915,7 @@ there's a few other things; But we also in the CallBack Queue, you have
 `onClick`, `Onload`, `onDone`. Do you remember the **_event listeners_**,
 
 ```javascript
-element.addEventlistener("click", () => console.log("was clicked"))
+element.addEventlistener("click", () => console.log("was clicked"));
 ```
 
 Well, with an event listeners we had something like above code, we have an
@@ -966,29 +952,25 @@ It's time to code our Stack, and I have a little exercise for you here.
 
 ```javascript
 class Node {
-  constructor(value){
-    this.value = value;
-    this.next = null;
-  }
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+	}
 }
 
 class Stack {
-  constructor(){
-    this.top = null;
-    this.bottom = null;
-    this.length = 0;
-  }
-  peek() {
-  }
-  push(value){
-  }
-  pop(){
-  }
-  //isEmpty
+	constructor() {
+		this.top = null;
+		this.bottom = null;
+		this.length = 0;
+	}
+	peek() {}
+	push(value) {}
+	pop() {}
+	//isEmpty
 }
 
 const myStack = new Stack();
-
 
 // Discord
 // Udemy
@@ -1021,6 +1003,13 @@ We'll start off with a `myStack` that gets instantiated. Your code works, if you
 can do something like this,
 
 ```javascript
+myStack.push(google);
+myStack.push(Udemy);
+myStack.push(Discord);
+
+myStack.pop(Discord);
+myStack.pop(Udemy);
+myStack.pop(google);
 ```
 
 Where you say `myStack.push(google)` , then `.push(Udemy)`, then
@@ -1030,47 +1019,325 @@ and `.pop(Udemy)`, and `.pop(google)`.
 Good luck, and I see you in the solution. Try your best first before you going
 to the solution for comparing your solution to the lecture solution.
 
+### Exercise - Stack Solution
+
+Let's have a look at how we would want to solve this question, that is how do we
+create a Stack data structure that has `peek()`, `push()` and `pop()`.
+
+Now `peek()` it should very easy, right. We just want to see the very top item
+on the stack,
+
+### Exercise - Solution Stack `peek()`
+
+```javascript
+peek() {
+    return this.top;
+}
+myStack.peek();
+
+// Result
+// null
+```
+
+So, I can just say `peek()` is going to `return this.top`. So that if we run
+`myStack.peek()` it's going to return `null` because there's nothing in our
+Stack; `this.top` is `null` or empty.
+
+Let's go to the interesting one, that is `push()`, How do we add things to the
+Stack?
+
+### Exercise - Solution Stack `push()`
+
+```javascript
+push() {
+    const newNode = new Node(value);
+
+    if (this.length === 0) {
+        this.top = newNode;
+        this.bottom = newNode;
+   }
+   else {
+        const holdingPointer = this.top;
+        this.top = newNode;
+        this.top.next = holdingPointer;
+   }
+    this.length++;
+    console.log(this);
+
+    return this;
+};
+
+mystack.push("google");
+mystack.push("Udemy");
+mystack.push("Discord");
+
+myStack.peek()
+// Result
+// Stack {
+//   top: Node { value: 'google', next: null },
+//   bottom: Node { value: 'google', next: null },
+//   length: 1
+// }
+
+// Stack {
+//   top: Node { value: 'Udemy', next: Node { value: 'google', next: null } },
+//   bottom: Node { value: 'google', next: null },
+//   length: 2
+// }
+
+// Stack {
+//   top: Node {
+//     value: 'Discord',
+//     next: Node { value: 'Udemy', next: [Node] }
+//   },
+//   bottom: Node { value: 'google', next: null },
+//   length: 3
+// }
+
+// Node {
+//   value: 'Discord',
+//   next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
+// }
+```
+
+Well the very first thing we want to do is, to create a `newNode`, create new
+object here if we want, or we can just use the `Node` class that I provide for you here.
+We can use the class by saying `new Node` Which is instantiates a class and
+gives it the value that we're going to push with.
+
+Next, we want to check if this is the very first item, because if the Stack is
+empty, and this is very first item, while `this.top`, and `this.bottom` are both
+going to point the same node. So in that case, we can check with `if` statement,
+`if (this.length === 0)`, in that case w can just say, `this.top` is going to
+equal the `newNode`; and also `this.bottom` is equal to the `newNode`.
+
+Otherwise, we have to do something a little bit different; but not that
+different, because we've seen it in the linked list example, we just want change
+some pointer around. In our case, we want to say `const holdingPointer` to the
+very top node `this.top`; because what's ever on top now, is going to get
+replaced by whatever we're going to add to it; So, we're going to hold the
+reference to what was top originally, and then we're going to say that
+`this.top` is now going to equal the `newNode`, and `this.top.next` which is the
+`newNode` is going to point to what was top beforehand, but now is below it; so
+we just say `holdingPointer`. So that is the old top is now going to be right
+after our `newNode`, and then finally we do that `this.length++` to increment
+the length by `1`, and then finally we want to return `this`, which return us
+the linked list.
+
+```javascript
+Stack {
+    top: Node { value: 'google', next: null },
+    bottom: Node { value: 'google', next: null },
+    length: 1
+}
+```
+
+Let's try, I want to push to `myStack`, I'm going to say
+`myStack.push("google")` first, because we're visiting Google first, And if
+I run this I get the data structure that has `top` that has `Node` with object
+`value: "google"`, object `next: null`, because we only have one item, and the
+`bottom` is also the same `value: "google"`, with `next: null`, and our Stack
+has `length: 1`.
+
+```javascript
+Stack {
+    top: Node { value: 'Udemy', next: Node { value: 'google', next: null } },
+    bottom: Node { value: 'google', next: null },
+    length: 2
+}
+```
+
+Let's go try, `myStack.push("Udemy")`, if I click run, I now have a `length: 2`
+Stack, that has `top: Node` as `Udemy`, and `bottom: Node` as `"google"`;
+because remember, with a Stack, we stack plates on top, that is `Udemy` came in
+last, so `Udemy` is on top; remember **LIFO** (Last In First Out).
+
+```javascript
+Stack {
+    top: Node {
+    value: 'Discord',
+    next: Node { value: 'Udemy', next: [Node] }
+    },
+    bottom: Node { value: 'google', next: null },
+    length: 3
+}
+```
+
+Let's say add one more, that we next visit our `Discord` community with command
+`myStack.push(Discord)`, and I get the result our `Discord` at the `top`, and at
+the `bottom` node is still `google`.
+
+```javascript
+Node {
+    value: 'Discord',
+    next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
+}
+```
+
+Just to make sure that our `peek()` is working, If I do `myStack.peek()` we
+should get `Discord`, because it was the last stand, and the very top of our
+Stack. Very nice, I hope you got that.
+
+Let's continue with `pop()` that is to remove whatever is on the top of the
+Stack.
+
+### Exercise - Solution Stack `pop()`
+
+Final `pop()` function.
+
+```javascript
+pop(){
+    if (!this.top) {
+        return null;
+    };
+
+    if (this.top === this.bottom) {
+        this.bottom = null;
+    };
+
+    const holdingPointer = this.top;
+    this.top = this.top.next;
+    this.length--;
+
+    return this;
+}
+```
+
+#### Chunk `pop()` method
+
+Well, let's first check to make sure that there is an item, because if there
+isn't we just have `null`, well we just `return null`. So, in this case we can
+just say if `!this.top` it doesn't exists, notice the exclamation mark `!`,
+we'll just `return null`.
 
 
+The next, we can just do our `const holdingPointer` to `this.top`; So, what is
+currently at the top, which is `Discord`, I will say `this.top` is no longer
+what it currently is, because want to remove it, it's going to equal
+`this.next.top` which is underneath `Discord`.
 
+Finally we say `this.length--`, because we want to decrease the length by `1`;
+and the last we can say `return this`.
 
+Remember, because JavaScript is a **_garbage collected_** language, if I didn't
+do this (`const holdingPointer = this.top`), well `Discord` (Node) that contains
+`Discord` **_wouldn't be referenced by anything, and not used by anything_**;
+Collected language like JavaScript, that it will get automatically removed from
+memory during garbage collection.
 
+```javascript
+pop() {
+    if (!this.top) {
+        return null;
+    }
 
+    const holdingPointer = this.top;
+    this.top = this.top.next;
+    this.length--;
 
+    console.log(holdingPointer);
+    return holdingPointer;
+}
 
+// Stack
+// google
+// Udemy
+// Discord
 
+myStack.pop();
 
+// Result
+// Node {
+//   value: 'Discord',
+//   next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
+// }
 
+```
 
+Now, if I run this command `myStack.pop()` nothing happen, right now for `pop()`
+let's return the `holdingPointer`. I get back the `Node`, which is the
+`holdingPointer` in case we still want to have access to it;
 
+```javascript
+pop() {
+    if (!this.top) {
+        return null;
+    }
 
+    // const holdingPointer = this.top;
+    this.top = this.top.next;
+    this.length--;
 
+    console.log(this);
+    return this;
+}
 
+myStack.pop();
 
+// Result
+// Stack {
+//     top: Node { value: 'Udemy', next: Node { value: 'google', next: null  }  },
+//     bottom: Node { value: 'google', next: null  },
+//     length: 2
+// }
 
+myStack.pop()
 
+// Result
+// Stack {
+//   top: Node { value: 'google', next: null },
+//   bottom: Node { value: 'google', next: null },
+//   length: 1
+// }
 
+myStack.pop()
+// Result;
+// Stack {
+//   top: null,
+//   bottom: Node { value: 'google', next: null },
+//   length: 0
+// }
 
+```
 
+Otherwise if we just wanted to disappear and we don't need it anymore we can
+just `return this`, and comment out `const holdingPointer`, and I run, we now
+have just `Udemy` at the `top` and `google` at the `bottom` Stack, with
+`Discord` is disappear from memory.
 
+Let's keep going, we try to to run `myStack.pop()` for the second time, I'm now
+only have one thing, the `google` which was original item on the stack.
 
+So, what we just did, we Went to `google`, then we went to `Udemy`, then we went
+to `Discord`. Then we popped whatever is on the top, and then we popped `Udemy`,
+and now we're just left with `google`.
 
+If I do one last `.pop()` here, and I run the code, we have `top` which is not
+`null`, but we have the new problem, we have a `bottom: Node` still having
+`google`, because we never removed in the pop our `bottom` node, all we did was
+replace the `top`.
 
+```javascript
+if (this.top === this.bottom || this.length === 0) {
+    this.bottom = null;
+}
 
+myStack.pop()
 
+// Result
+// Stack { top: null, bottom: null, length: 0  }
+```
 
+We just need to add one conditional check, which is, if `this.bottom` equal
+`this.bottom` that means there's only one item on the list. I could have also
+`this.length === 0`, if both of them are equal, which means here is just one
+nod left, in that case we want to say that `this.bottom` equal `null`. Because
+after we remove the only node left, you want `bottom` equal to `null`.
 
+So, if I run the all the code, we get back to our original empty stack.
 
-
-
-
-
-
-
-
-
-
-
+I hope you got that, and were able to make sense of it. We have another exciting
+exercise in he next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
