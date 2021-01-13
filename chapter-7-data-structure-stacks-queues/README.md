@@ -7,7 +7,8 @@
 3. [What is Queues](#What-is-Queues)
 4. [Exercise Stacks Vs Queues](#exercise-stacks-vs-queues)
 5. [How JavaScript Works](#how-javascript-works)
-6. [Exercise Stack Implementations](#exercise-stack-implementations)
+6. [Exercise Stack Implementations Linked List](#exercise-stack-implementations-linked-list)
+6. [Exercise Stack Implementations Array](#exercise-stack-implementations-array)
 
 </br>
 
@@ -946,7 +947,7 @@ confidence to answer that question, and I hope that this was helpful.
 </br>
 </br>
 
-## Exercise Stack Implementations
+## Exercise Stack Implementations Linked List
 
 It's time to code our Stack, and I have a little exercise for you here.
 
@@ -1019,7 +1020,7 @@ and `.pop(Udemy)`, and `.pop(google)`.
 Good luck, and I see you in the solution. Try your best first before you going
 to the solution for comparing your solution to the lecture solution.
 
-### Exercise - Stack Solution
+### Exercise - Stack with Linked List Solution
 
 Let's have a look at how we would want to solve this question, that is how do we
 create a Stack data structure that has `peek()`, `push()` and `pop()`.
@@ -1338,6 +1339,166 @@ So, if I run the all the code, we get back to our original empty stack.
 
 I hope you got that, and were able to make sense of it. We have another exciting
 exercise in he next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Stack Implementations Array
+
+We just implemented our own stack and hopefully you're able to code along as
+well in your language. Here my next challenge to you, what if we used an array
+for this Stack, up until this point or what we've coded in with a linked list
+that we've created. How would you change the code if you want to implement this
+Stack in an array? The hint here is that it's going to be super super simple,
+it's going to **_involve deleting_** a lot this code, while array already have
+**push** and **pop**.
+
+My challenge to you is, to convert this Stack data structure to use array
+instead of linked list, good luck.
+
+### Exercise - Stack with Array Solution
+
+Let's convert our Stack data structure to use arrays, and this is going to be
+fairly simple.
+
+Final implementation Stack with an array.
+
+```javascript
+class Stack {
+    constructor(){
+        this.array = [];
+    };
+    peek() {
+        return this.array[this.array.length - 1];
+    };
+    push(value){
+        this.array.push(value);
+        return this;
+    };
+    pop(){
+        this.array.pop();
+        return this;
+    };
+}
+
+const myStack = new Stack();
+myStack.peek();
+myStack.push('google');
+myStack.push('udemy');
+myStack.push('discord');
+myStack.peek();
+myStack.pop();
+myStack.pop();
+myStack.pop();
+
+//Discord
+//Udemy
+//google
+```
+
+#### Chunked Code
+
+#### Chunked `peek()` method
+
+All we're going to do is remove all of constructor properties, and have
+`this.array[]` equal to an empty array `[]`. We don't need length property
+because that comes built in with arrays in JavaScript. Obviously this may be
+different for different programming languages, but for now we have this
+available to us in our language that we're using right now, so there you have
+it. That our constructor.
+
+```javascript
+peek() {
+    if (this.array.length === 0)  {
+        console.log(this, "you don't have any index of an array")
+        return this;
+    }
+    console.log("Peek:", this);
+    return this.array[this.array.length - 1];
+};
+
+myStack.peek();
+// Result
+// undefined
+```
+
+What about `peak()`?, well Peak simply means, that we want to see the very end of
+the array. Remember with Stack it's Last In First Out. So, when we do a `peak()`
+we want to see the very top thing, the latest thing that we've added, in our
+case w can just simply say `this.array[]` and then we going to access that array
+with bracket notation, and it's going to say `this.array.length - 1`. The
+`.length` which the length of the array with minus one `- 1` because we do `-1`.
+
+Because our index start from `[0, 1]` versus the length that start from `1, 2`,
+that's it. We have peak implemented.
+
+Now I run `myStack()` I get `undefined`, because there is nothing in the array;
+and we can probably give better errors if we wanted to hear,  with `if`
+statement for check the array length.
+
+##### Chunked `push()` method
+
+```javascript
+push(value){
+    this.array.push(value);
+    return this;
+};
+
+myStack.push('google');
+myStack.push('udemy');
+myStack.push('discord');
+myStack.peek();
+
+// Result
+// Stack { array: [ 'google' ] }
+// Stack { array: [ 'google', 'Udemy' ] }
+// Stack { array: [ 'google', 'Udemy', 'Discord' ] }
+// Peek: Stack { array: [ 'google', 'Udemy', 'Discord'  ]  }
+```
+
+With push we get to delete all code, and simply say `this.array.push(value)`,
+How nice is that, now it is nice and clean. Comes pre-built with the array, we
+can just use `myStack.push("google")` I get a stack has an array with `google`
+in it.(`Stack { array: [ "google" ] }`).
+
+If  I `.push("Udemy")`, I have added `Udemy`; if I do `.push("Discord")` I've
+added `Discord`. If I do `.peek()` here, I should get `Discord` back because
+it's the latest entry. How simple is that.
+
+##### Chunked `pop()` method
+
+```javascript
+pop(){
+    this.array.pop();
+    console.log(this);
+
+    return this;
+};
+myStack.pop();
+myStack.pop();
+myStack.pop();
+
+// Result
+// Stack { array: [ 'google', 'Udemy' ] }
+// Stack { array: [ 'google' ] }
+// Stack { array: [] }
+```
+
+Now we get into `pop()`, it also going to be very simple, right? Absolutely
+feels good deleting code doesn't it?. What we do is `this.array.pop()` that
+comes already in JavaScript. We can just `return this` if we want.
+
+Now I run `.pop()`, I get `Discrod` removed. If I run `pop()` again, I get
+`Udemy` removed. If I run `pop()` again, now we have an empty array.
+
+Look that, nice and simple. We don't have to use the `Node` class, and that's
+pretty nice right?. So you can just use arrays as stack quite easily; and we've
+already discussed the _pros_ and _cons_ in using linked list versus arrays. One
+of the nice things about using an array is, while arrays at least in JavaScript
+already act like stack, and it makes things very simple for us.
+
+Enough about Stack, let's implement our own Queue  this time around.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
