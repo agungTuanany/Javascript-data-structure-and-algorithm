@@ -8,7 +8,9 @@
 4. [Exercise Stacks Vs Queues](#exercise-stacks-vs-queues)
 5. [How JavaScript Works](#how-javascript-works)
 6. [Exercise Stack Implementations Linked List](#exercise-stack-implementations-linked-list)
-6. [Exercise Stack Implementations Array](#exercise-stack-implementations-array)
+7. [Exercise Stack Implementations Array](#exercise-stack-implementations-array)
+8. [Exercise Queue Implementations](#exercise-queue-implementations)
+
 
 </br>
 
@@ -1503,3 +1505,73 @@ Enough about Stack, let's implement our own Queue  this time around.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Exercise Queue Implementations
+
+It's time for another exercise. We've learned how to create a Stack data
+structure, but what about Queue data structure? Luckily for us, a lot of
+principle are going to be same, and if you are able to understand how the Stack
+data structure works, then you should have no problem building a Queue data
+structure.
+
+
+```javascript
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    };
+};
+
+class Queue {
+    constructor(){
+        this.first = null;
+        this.last = null;
+        this.length = 0;
+    }
+  peek() {
+
+  };
+
+  enqueue(value){
+
+  };
+
+  dequeue(){
+
+  };
+
+  //isEmpty;
+};
+
+const myQueue = new Queue();
+
+
+//Joy
+//Matt
+//Pavel
+//Samir
+```
+
+I've created a template to start off, and your job is create these three
+methods, `peek()` which we're familiar with, We want to peek and get the very
+first item in our Queue or our line as I like to call.
+
+In our constructor, instead of having `top` and `bottom`, like we did with
+a Stack, we have `first` and `last`; who's first in line, who's last in line,
+and obviously a `length` of `0`.
+
+Your job is to create and fill out these methods. `enqueue`, remember, is to
+**add** to the Queue, and `dequeue` is to **remove** from the Queue.
+
+Remember that, the different between a Stack, that uses `pop()` is that
+`dequeue` removes from the front of the list, whatever is first.
+
+Again if you want, you can create another method called `isEmpty()`.
+
+Your goal is to create this Queue, so that you can create a wait list app, where
+`Joy` gets in line, then `Matt` get in line, then `Pavel` gets in line, then
+`Samir` gets in line; and then you  dequeueing them, one by one with first come
+first server basis (FIFO).
+
+Good luck, and I see you in the next lecture, for the answer.
