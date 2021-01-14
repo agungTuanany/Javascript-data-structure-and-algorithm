@@ -133,7 +133,7 @@ gets to go.
 It's the opposite of stacks, in that we access _First In First Out_. The
 first item in the queue gets access first that is first out, we call that FIFO;
 and queues are used again a lot in programming problems and interview questions.
-For example, if you had any sort of wait list app to perhaps buy tickets for
+For example, if you had any sort of wai list app to perhaps buy tickets for
 a concert that uses queues. What about the restaurant app, where you check into
 the restaurant to see if you can get a table, that uses queues. What about Uber
 our Lift when you want to grab a ride, well the person that requested the ride
@@ -1575,3 +1575,390 @@ Your goal is to create this Queue, so that you can create a wait list app, where
 first server basis (FIFO).
 
 Good luck, and I see you in the next lecture, for the answer.
+
+### Exercise - Solution Queue
+
+```javascript
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    };
+};
+
+class Queue {
+    constructor(){
+        this.first = null;
+        this.last = null;
+        this.length = 0;
+    }
+  peek() {
+
+      console.log(this.first);
+      return this.first;
+  };
+
+  enqueue(value){
+      const newNode = new Node(value);
+
+      if (this.length === 0) {
+          this.first = newNode;
+          this.last = newNode;
+      }
+      else {
+          this.last.next = newNode;
+          this.last = newNode;
+          // this.first.next = holdingPointer;
+      }
+
+      this.length++;
+      console.log(JSON.stringify(this, null, 4));
+
+      return this;
+  };
+
+  dequeue(){
+      if (!this.first) {
+          console.log(this);
+          return null;
+      };
+
+      if (this.first === this.last) {
+          this.last = null;
+      };
+
+      const holdingPointer = this.first;
+      this.first = this.first.next;
+      this.length--;
+      console.log(this);
+
+      return this;
+
+  };
+
+  //isEmpty;
+};
+```
+
+#### Chunked code
+
+#### Chunked `peek()`
+
+```javascript
+peek() {
+
+    console.log("peek:", this.first);
+    return this.first;
+};
+
+myQueue.peek():
+
+// Result
+// peek: null
+```
+
+Let's implement our Queue data structure. The very first thing, we're going to
+do is the nice and simple `peek()` which simply tells us what is the very first
+item in our Queue. So `this.first` is where we want to peek into. If I run
+`myQueue.peek()` I should get `null`, because there's absolutely nothing in our
+Queue.
+
+#### Chunked `enqueue()`
+
+```javascript
+enqueue(value){
+    const newNode = new Node(value);
+
+    if (this.length === 0) {
+        this.first = newNode;
+        this.last = newNode;
+    }
+    else {
+        this.last.next = newNode;
+        this.last = newNode;
+    }
+
+    this.length++;
+    console.log(JSON.stringify(this, null, 4));
+
+    return this;
+};
+
+// Joy
+// Matt
+// Pavel
+// Samir
+
+myQueue.enqueue("Joy");
+myQueue.enqueue("Matt");
+myQueue.enqueue("Pavel");
+myQueue.enqueue("Samir");
+
+myQueue.peek();
+```
+
+We want to add our wait list, again similar to what we did with Stacks, we're
+going to create a `newNode`, and we're going to instantiate this `new
+Node(value)` with a value, remember we have the class `Node` here; and this
+value's going to get added to a node that has `this.value` and `this.next`.
+
+We then want to check and say, hey if `this.length` is equal to `0`, that means
+there is nothing in our Queue, then simply say `this.first` is going to equal
+the `newNode`, and same with `this.last`, because there is only one node in our
+list, this is very similar to what we implemented in the Stack.
+
+Otherwise, we can say that t`this.last.next`, so that is whatever is at the very
+last of the line and whatever the next value is, which initially whatever is
+last is pointing to `null`, but we want to update that, to say this time instead
+of pointing to `null`, point to `newNode` as the last in line;
+
+We want to update `this.last` to now equal the `newNode`, so that whatever was
+last in line is now pointing to the `newNode`, and the `newNode` is now last
+which is going to make sure that `this.last` points to `null`.
+
+Finally we can't forget to increase the length by one, and then we can just
+simply `return this` our data structure.
+
+```javascript
+myQueue.enqueue("Joy");
+{
+    "first": {
+        "value": "Joy",
+        "next": null
+    },
+    "last": {
+        "value": "Joy",
+        "next": null
+    },
+    "length": 1
+}
+
+```
+
+So, let's have a look, we want to make create a line, so all we're going to do
+is say, we want `.enqueue("Joy")` if I click run, _first_ node I get `Joy` , with
+next is `null`; and _last_ node again `Joy`, with next `null`; and length of
+`1`, so far so good.
+
+
+```javascript
+myQueue.enqueue("Matt");
+{
+    "first": {
+        "value": "Joy",
+        "next": {
+            "value": "Matt",
+            "next": null
+        }
+    },
+    "last": {
+        "value": "Matt",
+        "next": null
+    },
+    "length": 2
+}
+```
+
+What if `Matt`, we want `.enqueue("Matt")`, we now have _first_ Node that is
+`Joy`, and `last` one that is `Matt`. You can see here that the first node of
+`Joy` is pointing to _next_ node that is `Matt`.
+
+```javascript
+myQueue.enqueue("Pavel");
+{
+    "first": {
+        "value": "Joy",
+        "next": {
+            "value": "Matt",
+            "next": {
+                "value": "Pavel",
+                "next": null
+            }
+        }
+    },
+    "last": {
+        "value": "Pavel",
+        "next": null
+    },
+    "length": 3
+},
+
+myQueue.enqueue("Samir");
+{
+    "first": {
+        "value": "Joy",
+        "next": {
+            "value": "Matt",
+            "next": {
+                "value": "Pavel",
+                "next": {
+                    "value": "Samir",
+                    "next": null
+                }
+            }
+        }
+    },
+    "last": {
+        "value": "Samir",
+        "next": null
+    },
+    "length": 4
+}
+
+myQueue.peek();
+peek: Node {
+  value: 'Joy',
+  next: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } }
+}
+```
+
+We add few more, we get `.enqueue("Pavel")` just inline, and then finally
+`.enqueue(Samir)` a little bit late but he got in line as well. If I click run,
+perfect, our last node is `Samir`, we have length of `4`, we have the `Joy` node
+which is the very first item in our Queue.
+
+Let's say we open the door, and we start letting people in. We want to dequeue
+this list and go from the very first, First In First Out all the way till the
+end.
+
+#### Chunked `dequeue()`
+
+```javascript
+dequeue(){
+    if (!this.first && this.length === 0) {
+        console.log(this);
+        return null;
+    };
+
+    if (this.first === this.last) {
+        this.last = null;
+    };
+
+    const holdingPointer = this.first;
+    this.first = this.first.next;
+    this.length--;
+    console.log(this);
+    console.log(holdingPointer);
+
+    return this;
+};
+myQueue.peek();
+
+myQueue.dequeue();
+myQueue.dequeue();
+myQueue.dequeue();
+myQueue.dequeue();
+
+myQueue.peek();
+```
+
+Once again it's very similar to a Stack, except that we grab the node from the
+beginning instead of it the end; So, we're first going to say with `if`
+statement. If there's no `!this.first`, if there's no first item, we can also
+check the length here if we want, so the list is empty in that case we just
+`return null`, and by list I mean the Queue, if the Queue is empty then return
+null.
+
+We also want to check if this is the last node in our Queue, so we can do
+something similar with what we did in Stack, we can say if `this.first` equal
+`this.last`, again we can just check length here as well if we want, but for now
+this would be fine. If that's the case, I want `this.last` to equal `null`,
+
+Remember we make sure that now last node points to `null`; and regardless as
+soon as we dequeue, we want to say `this.first` equals `this.first.next` that is
+whoever is first now, because we're going to remove `Joy`, we want who is after
+`Joy`, that is `Matt` to be in first priority now.  Then we simply say
+`this.length--` to decrease the length, and we can `return this`.
+
+```javascript
+myQueue.peek();
+// Result
+peek: Node {
+  value: 'Joy',
+  next: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } }
+}
+
+myQueue.dequeue();
+// Result
+dequeue-list: Queue {
+  first: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } },
+  last: Node { value: 'Samir', next: null },
+  length: 3
+}
+```
+
+Let's first of all run `myQueue.peek()` to see who should be coming out of the
+queue, and that is `Joy`; So if I do `myQueue.dequeue()` and I click run, we see
+that now `Matt` is first in line, `Joy` has been removed and length is `3`. One
+thing to point out here, once we run `.dequeue()` here, we've completely lost
+the `Joy` node from our memory, because we have no more reference to it, nothing
+is pointing to that memory space; and JavaScript, the way it works is going to
+garbage collect and remove joy, if we wanted to hold a pointer to `Joy`, we
+could add:
+
+```javascript
+const holdingPointer = this.first;
+
+console.log("holdingPointer", holdingPointer);
+// Result:
+holdingPointer: Node {
+  value: 'Joy',
+  next: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } }
+}
+```
+
+So that, before we update whoever is first we can reference it with
+`holdingPointer`, so that we could potentially if we still want to use `Joy` for
+example in waiting list app, maybe we still want do something to the user, we
+can do this and console logging `holdingPointer`, and still have access to the
+`Joy` node.
+
+```javascript
+myQueue.dequeue();
+// Result
+dequeue-list: Queue {
+  first: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } },
+  last: Node { value: 'Samir', next: null },
+  length: 2
+}
+holdingPointer: Node {
+  value: 'Matt',
+  next: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } }
+}
+```
+
+Alright, let's finish this Queue, let's dequeue everybody from here, if I do
+`.dequeue()`, if I run now `Pavel` is first line, and `Samir` is last in line;
+and we still get access to `Matt`.
+
+```javascript
+myQueue.dequeue();
+// Result
+dequeue-list: Queue {
+  first: Node { value: 'Samir', next: null },
+  last: Node { value: 'Samir', next: null },
+  length: 1
+}
+holdingPointer: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } }
+```
+
+We try to run `.dequeue()` again, now we get `Samir` is last person on the list,
+and still we can access `Pavel` that not on the list anymore.
+
+```javascript
+myQueue.dequeue();
+// Result
+dequeue-list: Queue { first: null, last: null, length: 0 }
+holdingPointer: Node { value: 'Samir', next: null }
+```
+
+Finally we can let `Samir` in as well; there we go, now we have an empty Queue,
+with still can access `Samir` as pointer.
+
+
+We've just implemented our own Queue data structure, well done, hope you had
+fun.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
