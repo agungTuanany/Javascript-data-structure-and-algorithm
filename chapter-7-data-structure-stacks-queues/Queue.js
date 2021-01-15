@@ -13,8 +13,8 @@ class Queue {
     };
 
     peek() {
-
         console.log("peek:", this.first);
+
         return this.first;
     };
 
@@ -78,3 +78,4 @@ myQueue.dequeue();
 myQueue.dequeue();
 
 myQueue.peek();
+

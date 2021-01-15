@@ -10,6 +10,7 @@
 6. [Exercise Stack Implementations Linked List](#exercise-stack-implementations-linked-list)
 7. [Exercise Stack Implementations Array](#exercise-stack-implementations-array)
 8. [Exercise Queue Implementations](#exercise-queue-implementations)
+9. [Queue Using Stacks](#queue-using-stacks)
 
 
 </br>
@@ -94,7 +95,7 @@ a function gets called; and then we start popping those functions until we get
 to the very beginning. Don't worry this is going to be a little bit more clear
 when we actually code our own stack.
 
-Another useful way that we might use stacks is such as browser history,where you
+Another useful way that we might use stacks is such as browser history, where you
 go back and forth from one website to another, and then you hit the back button
 or the front button that's using stacks; or maybe you're writing a piece of
 text and you want to undo something so you can click the undo option to go back
@@ -133,13 +134,13 @@ gets to go.
 It's the opposite of stacks, in that we access _First In First Out_. The
 first item in the queue gets access first that is first out, we call that FIFO;
 and queues are used again a lot in programming problems and interview questions.
-For example, if you had any sort of wai list app to perhaps buy tickets for
+For example, if you had any sort of waitlist app to perhaps buy tickets for
 a concert that uses queues. What about the restaurant app, where you check into
 the restaurant to see if you can get a table, that uses queues. What about Uber
 our Lift when you want to grab a ride, well the person that requested the ride
 first, will get priority and then you'll get second. Finally the most common
 example of queues is a printer, if you had a printer at home, and you have three
-people on three different computers at you home, let's say your family members
+people on three different computers at your home, let's say your family members
 and you press print and each person prints different items, the person that
 click prints first should have their first print out, same with the second
 person that goes next, and the third person.
@@ -147,18 +148,18 @@ person that goes next, and the third person.
 Now on the right above diagram, I have a couple of words that are different then
 _push_ and _pop_, and I'm using a bit of standard here. You can use _push_ for
 **enqueue**, which means add to the queue, that is add a person in line which is
-`O(n)`; and **dequeue** which you can think of as _pop_, which is remove person
+`O(1)`; and **dequeue** which you can think of as _pop_, which is remove person
 from line. However _dequeue_ unlike _pop_ doesn't take the last person in line,
 it takes the first person.
 
 So that stacks and queues differs; and we have these names to make sure that we
-understand the differences, but we have **peak** which once again tells us
-what's the first item that's going to come up, that is the first person in the
-list versus a queue that is the last played, which was the last in first out.
+understand the differences, but we have **peek** which once again tells us
+what is the first item that's going to come up, that is the first person in the
+list versus a _queue_, that is the last played, which was the last in first out.
 
-Once again **lookup** in queue usually don't do, because you're only interested
-in _enqueuing_ and _dequeueing_. You can see here, our Big-O notation is quite
-fast.
+Once again **lookup O(n)** in queue usually we don't do it, because you're only
+interested in _enqueuing_ and _dequeueing_. You can see here, our Big-O notation
+is quite fast.
 
 We actually going to demonstrate this in code, but I want you to try and answer
 this question, why would you not to use an array to build a queue? Well, the
@@ -177,22 +178,24 @@ OK, that enough for queue, let's go to our first exercise.
 
 ## Exercise Stacks Vs Queues
 
+### Differ with Stacks
+
 Let's do a quick exercise before we actually create our own stacks and queues,
 because JavaScript doesn't have its own stacks or queues data structure.
 
 ```javascript
 // Stacks
 
-// google
-// udemy
-// youtube
+google
+udemy
+youtube
 ```
 
-I mentioned that there's two ways that we can build stacks and queues, If we
-talk about stacks we can think of it as our browser history, let's say we visit
-`[1]` Google first then `[2]` Udemy and then `[3]` we visit youtube. In
-a stack because Google was the first item, it would actually be placed on the
-stack like,
+I mentioned that there's two ways that we can build Stacks and Queues, If we
+talk about Stacks we can think of it as our browser history, let's say we visit
+`[1]` `Google` first then `[2]` `Udemy` and then `[3]` we visit `youtube`. In
+a Stack because `Google` was the first item, it would actually be placed on the
+Stack like,
 
 ```javascript
 // Stack placed
@@ -203,9 +206,11 @@ udemy;
 google;
 ```
 
-Then we go to udemy, so we'd be placed on the stack, on top, and then we go
-to youtube. Now if we want to go to a new website let's say we go to `[4]`
-twitter, but then we decide I want I want to go back,
+Then we go to `udemy`, so we'd be placed on the Stack, on top, and then we go
+to `youtube`. Now if we want to go to a new website let's say we go to `[4]`
+`twitter`.
+
+But then we decide I want I want to go back,
 
 ```javascript
 // Stack placed
@@ -215,8 +220,10 @@ udemy;
 google;
 ```
 
-Well we remove twitter with press back button on our browser, and we get
-youtube, and if we press back again,
+Well we remove `twitter` with press back button on our browser, and we get
+`youtube`.
+
+If we press back again,
 
 ```javascript
 // Stack placed
@@ -225,7 +232,7 @@ udemy;
 google;
 ```
 
-We get to udemy and then back again,
+We get to `udemy` and then back again,
 
 ```javascript
 // Stack placed
@@ -233,11 +240,15 @@ We get to udemy and then back again,
 google;
 ```
 
-We go back to Google. So stacks has a **top** and a **bottom**, and we can build
-it either with **arrays** or **linked lists**. My question to you is, why would
-we want to build stacks with arrays? That is will create a class of stacks that
-has the data being held in arrays versus using linked lists and vice versa.
-Think about that.
+We go back to Google.
+
+So stacks has a **top** and a **bottom**, and we can build it either with
+**arrays** or **linked lists**. My question to you is, why would we want to
+build stacks with arrays? That's will create a class of Stacks that has the
+data being held in arrays versus using linked lists and vice versa. Think about
+that.
+
+### Differ with Queues
 
 ```javascript
 // Queues
@@ -245,21 +256,23 @@ Think about that.
 Matt -- Joy -- Samir -- Pavol
 ```
 
-What about queues? Let's say we have a queues, I'm creating a waitlist app, and
+What about Queues? Let's say we have a queues, I'm creating a waitlist app, and
 here we have a couple of people that want to on the waitlist. First person that
-shows up is `Mat`, and then all the sudden `Joy` comes in lines up, and then
+shows up is `Matt`, and then all the sudden `Joy` comes in lines up, and then
 perhaps we have `Samir` that comes and waits in line, and then we have `Pavol`.
 
 In this case, we want `Matt` to be first then `Joy`, and `Sumir`, then `Pavel`,
-and with queues we can once again use **arrays** and **linked list** to
-implement it. Which one do you think will be better for queues? Is there one
-better or they both equal? I want you think about this.
+and with Queues we can once again use **arrays** and **linked list** to
+implement it.
+
+Which one do you think will be better for queues? Is there one better or they
+both equal? I want you think about this.
 
 In next lecture, I'm going to answer this for you, but I recommend taking time
 to think about what you know about arrays and linked list, and how they might
 benefit or might not benefit stacks and queues.
 
-### Stack pros and cons
+### Stack Pros and Cons
 
 I said that with stacks they can be implemented using **arrays** or **linked
 lists**, in this case both arrays and linked lists are going to work fairly
@@ -270,28 +283,29 @@ of linked lists.
 So, we don't need to go into much detail, since we've talked about it before;
 But one major thing is that **arrays allow something called _cache locality_**,
 which makes them technically faster when accessing its items in memory, because
-they're right next to each other versus a linked list that has scattered all
+they're right next to each other versus a linked list that has _scattered_ all
 over memory, and also **linked list have _extra memory associated_ with them**,
-because we have to hold them on to those pointers, in other hand, they have more
-dynamic memory. We can keep adding to the list versus an array where you have
-either a static array or dynamic array that has certain amount of memory, and as
-soon as it's about to reach its limit, it's going to have to double up their
-memory and create new space for it, somewhere in memory.
+because we have to hold them on to those _pointers_; In other hand, linked list
+have more _dynamic memory_; we can keep adding to the list **versus** an _array_
+where you have either a _static array_ or _dynamic array_ that has certain
+amount of memory, and as soon as it's about to reach its limit, it's going to
+have to _double up their memory_ and create _new space_ for it, somewhere in
+memory.
 
-So, you have to think about what sort of operations you're going to do, and why
-your priorities are to decide which one you want; but they could both work.
-We're going to build stack data structure with both of these coming up.
+So, you have to think about what sort of operations you're going to do, and
+what's your priorities are to decide which one you want; but they could both
+work. We're going to build Stack data structure with both of these coming up.
 
-### Queues pros and cons
+### Queues Pros and Cons
 
 Queues in other hand is a very simpler answer. You **never want to build it with
 an _array_**, or if you do, while that's not necessarily a good idea, and
-ideally you want to implement them with linked lists; Why is that? Well, if you
+ideally you want to _implement them with linked lists_, why is that? Well, if you
 remember, arrays have indexes associated with them,
 
 ```javascript
-0.      1.     2.       3.
-Matt -- Joy -- Samir -- Pavel
+index:  0.      1.     2.       3.
+item:   Matt -- Joy -- Samir -- Pavel
 ```
 
 If we have `[Matt] | 0`, `[Joy] | 1`, `[Samir] | 2`, `[Pavel] | 3` that are in
@@ -300,8 +314,8 @@ we need to remove `Matt` from from the queue; well, once we remove `Matt` we now
 need to shift the indexes over,
 
 ```javascript
-0.     1.       2.       3.
-Joy -- Samir -- Pavel
+index:  0.     1.       2.       3.
+item:  Joy -- Samir -- Pavel
 ```
 
 So, we have to go one by one, and say, all right, `Joy` is now in index of `0`,
@@ -310,16 +324,16 @@ nothing in index of `3`. We just shifted those arrays, it's `O(n)` operation or
 linear time versus something like linked list where all we have is a pointer.
 
 ```javascript
-Head                    Tail
-Matt -- Joy -- Samir -- Pavel
+index:  Head                    Tail
+item:   Matt -- Joy -- Samir -- Pavel
 ```
 
 We have a pointer to the `Head`, and then perhaps we have a pointer to the
 `Tail`.
 
 ```javascript
-   Head            Tail
--- Joy -- Samir -- Pavel
+index:     Head            Tail
+item:   -- Joy -- Samir -- Pavel
 ```
 
 All we need to do is say, `Head` is `Matt`, we want to remove `Matt`, and `Joy`
@@ -346,10 +360,10 @@ In this optional lectures we're going to help you to answer those question.
 Maybe you need to visit a few times as you progress to really get it. So, don't
 fell discourage if you don't fell 100% confident.
 
-Now we don't need to know how JavaScript works internally to write a program;
-but it is important to learn. I see a loot of people who have been developers
-for years and not know this (how JavaScript works); it's like being a pilot and
-not knowing an airplane can fly. OK that's a little bit dramatic there; But you
+We don't need to know how JavaScript works internally to write a program; but it
+is important to learn. I see a loot of people who have been as developers for
+years and not know this (**how JavaScript works**); it's like being a pilot and
+not knowing an airplane can fly. OK that's a little bit dramatic there, but you
 get my point.
 
 </br>
@@ -357,10 +371,12 @@ get my point.
 ![chapter-7-2.png](./images/chapter-7-2.png "How JavaScript works | What is a Program")
 </br>
 
-First, what is a program? Well, a program has to do some simple things. `[1]` it
-has to **allocate memory**, otherwise we would be able to have variables or even
-have a file on our computer. `[2]` It also **have to parse and execute
-scripts**, which means read and run commands.
+First, what is a program? Well, a program has to do some simple things.
+
+- `[1]` it has to **allocate memory**, otherwise we would be able to have
+variables or even have a file on our computer.
+- `[2]` It also **have to parse and execute scripts**, which means read and run
+commands.
 
 </br>
 
@@ -370,12 +386,15 @@ scripts**, which means read and run commands.
 Now, we also know that form our previous discussion, there's the JavaScript
 engine, that each browser implements, in chrome it's the `V8`; and the `V8`
 engine reads the JavaScript that we write in changes into machine executable
-instruction for the browser. Now the engine consists of two parts, `[1]`
-a **Memory Heap** and `[2]` a **Call Stack**.
+instruction for the browser. Now the engine consists of two parts,
 
-The _Memory heap_, this is where the _memory allocation_ happens; and the _Call
-Stack_ this is where your code is _read and execute it_; it tells you where you
-are in the programs.
+- `[1]` a **Memory Heap**, and
+- `[2]` a **Call Stack**.
+
+The **_Memory heap_**, this is where the **_memory allocation_ happens**;
+
+The **_Call Stack_** this is **where your code is _read and get executed_**; It tells you
+where you are in the programs.
 
 Let's simplify this and show you what I mean.
 
@@ -391,8 +410,8 @@ const c = 100:
 For us to allocate the memory in the Memory Heap; well it's a simple as dong
 `const a = 1`, we've just allocate a memory; now when we assign this, the
 JavaScript engine is going to remember that, "oh ya, `a` has value of `1`".
-We've just use up the Memory Head, and I can keep going on and on, keep copying,
-pasting, and changing these variables to `const b = 1`, `const c = 1`. I can
+We've just use up the Memory Heap, and I can keep going on and on, keep copying,
+pasting, and changing these variables to: `const b = 1`, `const c = 1`.  I can
 change value `cons c = 100`, may be `const b = 10`.
 
 Now, what's an issue that we see with this? There's something called **Memory
@@ -454,11 +473,11 @@ Imagine I have something like this,
 
 ```javascript
 const one = () => {
-	const two = () => {
-		console.log("4");
-	};
+    const two = () => {
+        console.log("4");
+    };
 
-	two();
+    two();
 };
 
 // Result:
@@ -530,11 +549,12 @@ Let's revisit the statement from the beginning of this lecture,
 </br>
 
 > **JavaScript is a Single Threaded language that can be Non-Blocking**.
-> </br>
 
-Single Thread means **that it has only one Call Stack**, and one Call Stack
-only. You can only do one thing at a time. As you saw Call Stack is First In
-Last Out. So what ever at the top of Call Stack, gets run first then below that
+</br>
+
+Single Thread means **that it has only one Call Stack and one Call Stack
+only**. You can only do one thing at a time. As you saw Call Stack is First In
+Last Out (FILO). So, whatever at the top of Call Stack, gets run first then below that
 until the Call Stack is empty.
 
 Other languages can have multiple Call Stacks, and these are called **multi
@@ -575,22 +595,22 @@ overflow. Well with Stack Overflow this happens, when the Call Stack just gets
 bigger and bigger until it just doesn't ave enough space anymore, how can we do
 that? Can we recreate a Stack Overflow?
 
+#### Recursion
+
 ```javascript
 // Recursion
 function foo() {
-	foo();
-}
+    foo();
+};
 
 foo();
-
-// Result
 ```
 
 All you have to do is create a function `foo()` and this function will just have
 `foo()`. What is happening here? This something called **Recursion**; and
-**_recursion means a function that calls itself_**. If we look at above
-function does, we run `foo()` and `foo()` get executed, what `foo()` does? Well
-we run `foo()` again.
+**_recursion means a function that calls itself_**. If we look at above function
+does, we run `foo()` and `foo()` get executed, what `foo()` does? Well, we run
+`foo()` again.
 
 So, it's just keep looping over and over, there is no end in sight. We keep
 adding `foo()` to the Call Stack, we keep adding it until the Stack it doesn't
@@ -599,15 +619,15 @@ fit or doesn't have anymore space.
 So, hopefully this now make sense, the JavaScript engine which is `V8` engine at
 Chrome has a Memory Heap and a Call Stack.
 
-Now, JavaScript is Single Threaded, only one statement is executed at a time,
-but there is a problem now isn't it? What if `Line-2` was a big big task we need
-to do, maybe loop through an array that had millions of items, what would
-happens there? Well, we would have this `Line-1` get execute, then the `Line-2`
-has a massive job well just work there, and `line-3` will take a really long
-time to get log; and in our small example that doesn't man much, but if we have
-this on a website, well the user wouldn't be able to do anything. The website
-would pretty much freeze until that task is done, and that user just waits
-there, that's not very good is it?.
+Now, **JavaScript is Single Threaded, only one statement is executed at
+a time**, but there is a problem now isn't it? What if `Line-2` was a big big
+task we need to do, maybe loop through an array that had millions of items, what
+would happens there? Well, we would have this `Line-1` get execute, then the
+`Line-2` has a massive job well just work there, and `line-3` will take a really
+long time to get log; and in our small example that doesn't man much, but if we
+have this on a website, well the user wouldn't be able to do anything. The
+website would pretty much freeze until that task is done, and that user just
+waits there, that's not very good is it?.
 
 With synchronous task, if we have one function that takes up a lot of time it's
 going to hold up the line (Stack). So sound like we need something
@@ -1569,7 +1589,7 @@ Remember that, the different between a Stack, that uses `pop()` is that
 
 Again if you want, you can create another method called `isEmpty()`.
 
-Your goal is to create this Queue, so that you can create a wait list app, where
+Your goal is to create this Queue, so that you can create a waitlist app, where
 `Joy` gets in line, then `Matt` get in line, then `Pavel` gets in line, then
 `Samir` gets in line; and then you  dequeueing them, one by one with first come
 first server basis (FIFO).
@@ -1697,7 +1717,7 @@ myQueue.enqueue("Samir");
 myQueue.peek();
 ```
 
-We want to add our wait list, again similar to what we did with Stacks, we're
+We want to add our waitlist, again similar to what we did with Stacks, we're
 going to create a `newNode`, and we're going to instantiate this `new
 Node(value)` with a value, remember we have the class `Node` here; and this
 value's going to get added to a node that has `this.value` and `this.next`.
@@ -1962,3 +1982,12 @@ fun.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Queue Using Stacks
+
+One of the most common interview question when it comes to Queues and Stacks is
+implement a Queue using Stacks; yap, you can implement Queues using Stacks.
+
+It's specially easy if you create a Stacks using an arrays.
+
+Check the code [here](./Queues_using_stack.js)
