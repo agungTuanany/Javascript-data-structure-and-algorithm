@@ -11,6 +11,7 @@
 7. [Exercise Stack Implementations Array](#exercise-stack-implementations-array)
 8. [Exercise Queue Implementations](#exercise-queue-implementations)
 9. [Queue Using Stacks](#queue-using-stacks)
+10. [Stacks and Queues Summary](#stacks-and-queues-summary)
 
 
 </br>
@@ -1991,3 +1992,53 @@ implement a Queue using Stacks; yap, you can implement Queues using Stacks.
 It's specially easy if you create a Stacks using an arrays.
 
 Check the code [here](./Queues_using_stack.js)
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Stacks and Queues Summary
+
+Now, we've learned Stacks and Queue; and easy way to remember them is just
+simply plates and waiting line. We learned why they're built on top each other
+data structure like linked lists and arrays. We also talked about how to build
+Stacks with the arrays and Linked lists; also why we might not want to use an
+array to build Queues, and also build Queue data structure with linked list.
+
+</br>
+
+![chapter-7-6.png](./images/chapter-7-6.png "Stack and Queues pros and cons")
+</br>
+
+We learned that Stacks and Queues are great for some fast operations that they
+have, such as removing and inserting, such as at the end of the data structure.
+
+We can also access the very first item in a Queue or the very top item in
+a Stack.
+
+We also have all our data ordered, which is really really nice, but **we don't**
+usually use our Stacks or Queues to really do any **sort of look up or search**
+through data structure. All we interested in is the end bits of the data
+structure.
+
+So Stacks and Queues are really useful by restricting our use of what we can do
+when it comes to Stacks and Queues. But making sure that what we're allowed to
+do with these data structure are going to be really really fast.
+
+We've continued to expand or mind map of data structures, We've completed our
+Stacks; We learned how to create a Stacks with arrays and linked list, we've
+learned about their Big-O notation.
+
+We also talked about Queues and how we would really want to use an array for
+a Queue a very common interview question. We learned how to use linked list to
+create a Queue and also we learned about Big-O implications which is very
+similar to Stacks.
+
+We're getting closer and closer to filling out this mind map. But before we do
+that, we still have a few more data structure to go, but the end is almost near.
+We only have Trees and Graphs to talk about. For that I'll see you in the next
+part.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
