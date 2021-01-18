@@ -5,6 +5,7 @@
 
 1. [Tree Introduction](#tree-introduction)
 2. [Binary Trees](#binary-trees)
+3. [Big-O log of N](#big-o-log-of-n)
 
 </br>
 
@@ -154,7 +155,7 @@ inside of the function. We have two other properties which is a pointer to the
 left side of the Tree `this.left = null`, and a pointer to the right side of the
 Tree `this.right = null`. That's it.
 
-We can represent a `BinaryTreeNod` simply having a value and then a left and a
+We can represent a `BinaryTreeNode` simply having a value and then a left and a
 right property. Very similar to what we did, or very similar principle to what
 we did with linked lists.
 
@@ -169,13 +170,13 @@ there no gaps in the Tree. Let me show you what I mean,
 ![chapter-8-5.png](./images/chapter-8-5.png "Tree terminology")
 </br>
 
-A **Perfect Binary Tree** has everything filled in, that means all the leaf
+A **Perfect Binary Tree** has _everything filled in_, that means all the leaf
 nodes are full, and there's no node that only has one child; a node either has
 zero children or two children; also the bottom layer of the Tree is completely
 filled, nothing missing.
 
-Versus a **Full Binary Tree** which simply says that a node has either zero or
-two children but never one child.
+Versus a **Full Binary Tree** which simply says that _a node has either zero or
+two children but never one child_.
 
 Why is this important?, because this (Perfect Binary Tree) is really really
 efficient and something that is desirable (hoped-for); when Binary Tree are
@@ -206,10 +207,158 @@ type of structure you're going to see a new notation of Big-O,
 </br>
 
 Something that we've been waiting for a long time `O(log N)`. When we start
-talkie about Binary search Trees you're going to start seeing `0(log N)`
+talkie about Binary search Trees you're going to start seeing `O(log N)`
 notation, but what that's mean?, in the next lecture I want to talk about
-` 0(log N)` and why Trees allow us to have some thing like this, and what the
+`O(log N)` and why Trees allow us to have some thing like this, and what the
 implications are. I'll see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+### Big-O log of N
+
+In previous lectures we talked about a special characteristic or properties of
+Binary Trees; and because of the way Binary Trees are structured, there is
+a certain way for us to calculate the number of nodes they have;
+
+
+```javascript
+Level 0: 2^0 = 1
+```
+
+For example, on `Level 0` of a Binary Tree, that is the very top level, where we
+only have one Root node, we can calculate how many node they are by doing two to
+the _power_ of the level which is `0`. So if I do `2^0` it's going to equal `1`,
+that is we have one node.
+
+
+```javascript
+level 1: 2^1 = 2
+```
+
+If we go our level down, and say what about `Level 1`, how many levels do we
+have? Well we have `2^1` which equal `2`.
+
+```javascript
+Level 2: 2^2 = 4
+```
+
+All right keeps going, what about `Level 2`, how many nodes in total do we have
+on that level? Well we have `2^2` which is equal to `4`.
+
+```javascript
+Level 3: 2^3 = 8
+```
+
+Then one last level, let's say `Level 3`, how many level three in a perfectly
+balanced Binary Tree? Well two to the power of three `2^3` is going to equal
+`8`.
+
+We just do some math here, and I promise that, this course is going to be mathy,
+but bear with me here. I want to explain to you what `O(log N)` means.
+
+Knowing what we just did now, and knowing that these are the total number of
+nodes; if we imagine above data was in an array, that means that we have eight
+places that we need to iterate through eight nodes that we need to check,
+perhaps to search for something.
+
+```javascript
+# of nodes = 2^h - 1 = 7
+
+log of nodes = height
+
+// # = number
+// h = height
+```
+
+> `h` starts from count of 1
+
+Well, based on this formula here, that means that we can find out the number of
+nodes in a Tree by doing `2^h` or the _height_ that is the level. If we know
+how many levels are Binary Tree is, we can find out how many total nodes there
+are with formula `2^h - 1`. Why this `-1`? Well if we go back to our diagram
+(chapter-8-3.png), this Binary Tree we have `7` total nodes and the height of
+the Tree it's **3 level deep**. So `2^h - 1` is `7` nodes.
+
+```javascript
+log of nodes = 100
+
+log 100 = 2;
+
+10^2 = 100
+
+log of nodes = steps
+
+```
+
+If we actually simplify `2^h - 1` we can just simply say `log nodes = height` or
+the _steps_. I use _log_ here just think is you wondering _log_ simply mean that
+`log 100` is equal to `2`; because `10` to the _power_ of `2` (`10^2`) equal
+`100`.
+
+All I did was using this `10^2` and simplified, and said that `log nodes
+= height` and we've dropped `-1` here, because it's insignificant, but `log
+nodes` is the number of steps or height; let's just change to _steps_ that we
+would use in a Tree.
+
+Let's me show you on a diagram.
+
+
+</br>
+
+![chapter-8-2.gif](./images/gif/chapter-8-2.gif "Leaf level steps")
+</br>
+
+`log N` is simply means that based on the height, the maximum number of
+decisions; let's say we're looking for a specific node that we're going to take
+is `log N`, and that means is The Root node we are looking for? No, then we
+either go Left leaf or Right leaf of node, unless we go Left leaf and say, "Is
+this the node that we're looking for?" (that's our second steps), if the answer
+is _no_ then either to go Left or Right, and we say is this node we are looking
+for? Yes, so we have maximum `3` steps here; instead of, if we went `7` steps,
+you can see that there's some sort of efficiencies here.
+
+
+
+Coming up, we're going to learn about **binary Search Tree** where we're able to
+minimize those steps, instead of visiting every single node. So, when you see
+the notation of `O(log N)` don't get startled (shocked); all that saying is,
+that the choice of the next element on which to perform some sort of action is
+_one of several possibility_ and only one needs to be chosen; we don't have to
+check both.
+
+In a good way to think about `log N` is when you're looking through
+a _phone-book_. You don't actually check every single person in a phone-book do
+you? Instead you can simply do what's called **Divide and Conquer** by looking
+based on where their names alphabetically begin. You would open up the book to
+where you think the letter will start with the name will start with, and then
+keep dividing and conquering until you get that person. You only need to
+explore a _subset of each section_ before you eventually find someone's phone
+number. Just think of that. `O(log N)` is just like looking through a phone
+book.
+
+The reason I just talked about `O(log N)` in such detail is, because it's an
+important concepts, it's really really fast, as you can see
+
+</br>
+
+![chapter-8-7.png](./images/chapter-8-7.png "Tree Big-O notation")
+</br>
+
+`O(log N)` is in the light green good area, that's even better than `O(n)`
+linear time, because we don't need to check every single element.
+
+In the next lecture, we're going to talk about the most common Tree that you're
+going to see in a lot of places called Binary Search Tree. As the name suggests,
+it allows us to search really efficiently and just by looking at above graph,
+you might be able to think about how a place like Google, and Google search
+might find this extremely useful. When we search through Google, they have a ton
+of Websites, a ton of nodes to search through. How are they able to give us an
+answer to our searches so fats? If they used `O(n)` complexity it's going to
+take a lot of time, and it's going to be really expensive for them.  So instead
+they use a Tree structure or Tree data structure; so that our search can be
+a lot faster with something like `O(log N)`.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
