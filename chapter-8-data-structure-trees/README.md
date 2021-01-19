@@ -6,6 +6,7 @@
 1. [Tree Introduction](#tree-introduction)
 2. [Binary Trees](#binary-trees)
 3. [Big-O log of N](#big-o-log-of-n)
+4. [Binary Search Tree](#binary-search-tree)
 
 </br>
 
@@ -363,3 +364,113 @@ a lot faster with something like `O(log N)`.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+
+## Binary Search Tree
+
+Let's continue our discussion with the most common Tree data structure. That is
+the Binary Search Tree, which is a subset of Binary Tree which we talked about.
+What is a Binary Search Tree?
+
+Well, a Binary Search Tree are really really good as the name suggests at
+searching, they're great for comparing things. Now, why would this better than,
+let's say hash table? Where we can just give it a key and get the item right
+away; well, this data structure preserves (maintain) relationship, just like you
+wouldn't want your folders on your computer to be a hash table data structure,
+because there is no sort of relationship, instead you want your folders to have
+relationships, to have a parent folder and a subfolder and in a subfolder.
+
+</br>
+
+![chapter-8-6.png](./images/chapter-8-6.png "Binary Search Tree Rules")
+</br>
+
+
+A thing like Binary Search Tree allows us to preserve these relationship. When it
+comes to Binary Search Trees, these are the rules:
+
+1. All child nodes in the Tree to the Right of the Root node must greater than
+   current node.
+
+   Than means if I keep going to the Right leaf, the number or the value of the
+   node constantly increases. You can see above diagram from `101` to `105` to
+   `144`.
+
+   If I keep going in `Level 2` here, the Right leaf start from `33` to `37`,
+   that is increasing.
+
+   If I go to the Left leaf, from Root Tree from `101` to `33` to `9`, that
+   always decreasing.
+
+   Same with `Level 2` on Right Leaf, start from `105` to `54`,
+
+   If I go to the Left leaf it's decreases, to Right leaf it's increases.
+
+2. A node can only have up to two children.
+
+   Because, it's a Binary Tree.
+
+The advantage of a Binary Search Tree is that, well it should be obvious (clear)
+with the name right? Searching and Lookup is very easy to find what you're
+looking for, because if I'm looking for let's say number `37` I can start at
+`101`, and say is `37` less then `101` (`37 < 101`)? Yes, okay then go to the
+Left leaf; is `33` less than `37` (`33 < 37`)? No, then go to the Right leaf,
+and I find `37`.
+
+I don't have to iterate in a linear fashion through each node, and that is what
+Lookup means. `Lookup O(log N)` is simply means that I can search for an item
+a lot faster than, let's say an array, where I have to iterate and loop through
+every single item.
+
+What about `Insert O(log N)` and  `Delete O(log N)`?, in hash table I can do
+insert and delete really fast at `O(1)` constant time, but with a Binary Search
+Tree it looks like I can only do `O(log N)`, that should be obvious right?
+Because in order for us to insert or delete something in a Binary Search Tree,
+we need to figure out where to insert the item, or where the items is before we
+delete it.
+
+For example, with `105`, let's say we want to delete `105`, well we have to
+first from the Root node get to `105` and then we have to decide which node is
+going to take it's place, in this case because `54` is less then `144`, `144` is
+going to come up over at `105` place.
+
+As you can imagine, this operation although seems simple right now, if we had
+a lot of children and a lot of nested nodes, a lot of reordering needs to
+happen, and shift our nodes around. Don't worry, we're actually going to code
+this so you understand this, just like we have in previous data structure; but
+I want to demonstrate instead of me just using my cursor here, a nifty little
+tool to visualize how Binary Search Tree work, and how their operations are
+`O(log N)`.
+
+We're going to use [visualgo](https:visualgo.net), again and I'll link this and
+I highly recommend that you all play around with Binary Search Trees, but let's
+do a couple of operations here.
+
+
+See that it generated a random Binary Search Tree for me, let's say I want to do
+an Insert, and I want to insert, let's say the number `1`, by click go, it's
+going to traverse, figure out where it wants to insert and it's going to insert
+`1`.
+
+What if I want to insert perhaps number `44`, this time around, if I hit go,
+a traverses figures out where `44` should go, and places it on the Right leaf
+with parent node `37`. So we're always traversing and figuring out using `O(log
+N)`, where we should place the item.
+
+What about removing? Let's add one more node, I add `51` so it will add on the
+Right leaf for parent node `50`. Let's say we want to delete `50`, now if
+I remove `50`, I hit go, I find `50`, remove it, and then I have to replace with
+`51` and go up.
+
+So there's a bit of a tough little logic happening there. We're gonna have to
+incorporate and we're gonna get to that, but for now as I ed this lecture,
+I recommend that you go to visualgo and play around with Binary Search Tree, so
+that you get accustomed to; and as you play with it, see if you notice a problem
+that we might encounter with Binary Search Tree, because we going to discuss it
+in the next lecture.
+
+
+
+
+
+
