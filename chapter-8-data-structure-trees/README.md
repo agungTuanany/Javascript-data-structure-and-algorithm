@@ -7,6 +7,7 @@
 2. [Binary Trees](#binary-trees)
 3. [Big-O log of N](#big-o-log-of-n)
 4. [Binary Search Tree](#binary-search-tree)
+5. [Balanced vs Unbalanced BST](#balanced-vs-unbalanced-bst)
 
 </br>
 
@@ -477,14 +478,90 @@ I remove `50`, I hit go, I find `50`, remove it, and then I have to replace with
 `51` and go up.
 
 So there's a bit of a tough little logic happening there. We're gonna have to
-incorporate and we're gonna get to that, but for now as I ed this lecture,
+incorporate and we're gonna get to that, but for now as I end this lecture,
 I recommend that you go to visualgo and play around with Binary Search Tree, so
 that you get accustomed to; and as you play with it, see if you notice a problem
 that we might encounter with Binary Search Tree, because we going to discuss it
 in the next lecture.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Balanced vs Unbalanced BST
+
+While playing with visualgo did you notice a problem with Binary Search Trees?
+If not let me demonstrate something to you.
+
+</br>
+
+![chapter-8-8.png](./images/chapter-8-8.png "Balanced vs Unbalanced Binary Search Tree")
+</br>
+
+Let's say I keep inserting here, let's say `86` and then while that's going,
+I'll also insert `90`, Finally I'll insert `99`. What is the problem with this
+Binary Search Tree? Well, you can imagine a situation where we have this really
+**_Unbalanced Binary Search Tree_**, where all the nodes just keep getting added
+to the **Right Leaf**. If we imagine we don't have the **Left leaf Tree
+section**, all of sudden _turn into a Link List_, where we're just loop through
+every single node.
+
+</br>
+
+![chapter-8-6.png](./images/chapter-8-6.png "Balanced Binary Search Tree Rules")
+</br>
+
+This is a big problem that comes with Binary Search Trees, that is you can have
+_Balanced Search Tree_ like the one above, that gives us this `O(log N)`, and
+performance,
+
+</br>
+
+![chapter-8-8.png](./images/chapter-8-9.png "Unbalanced Binary Search Tree")
+</br>
 
 
+But then also have _Unbalanced_ ones, where it sort of turns into a long linked
+list, where instead of being able to do the `O(log N)` operations, you now have
+to move through every single node and Lookup, and Insert become `O(n)` or linear
+time, and you even saw in our visualgo demonstration how slow it took to insert
+items because they had to loop through so many things.
 
+One of the keys that you'll have to remember and this is a question that you
+might get asked in interviews is, **why Unbalanced Binary Search Tree is bad?**,
+and I hope this demonstrate why it's not a good idea.
 
+</br>
 
+![chapter-8-10.png](./images/chapter-8-10.png "Binary Search Tree Cheatsheet")
+</br>
+
+Ideally we want to balance our Search Trees, so that we can have `O(log N)`
+performance optimization. If we go to our [Big-O
+Cheatsheet](https://www.bigocheatsheet.com/), we see that with Binary Search
+Trees, that we have all `O(log N)` for most things, which is average, but when
+it comes to **worst case**, when we have _Unbalanced Tree_ that all operations are
+`O(n)` or linear time.
+
+So, you might be asking yourself, **how do you balance a Tree?** And luckily for
+us, there's algorithms that help us do that. It is really _advanced_, and we
+will talk about it after we build our own Tree, and some of the options that we
+have.
+
+</br>
+
+![chapter-8-11.png](./images/chapter-8-11.png "Binary Search Tree Road map")
+</br>
+
+For example, we have things like, **AVL Tree**, and **Red Black Tree**, that
+allow us to make sure that our Binary Search tree is going to be balanced;
+luckily for us they are built in most programming languages (libraries and
+tools), and in interview question, they won't really ask you to Balance a Binary
+Search tree, because well it can get pretty complicated, and time consuming and
+interviews usually don't have enough time to get you to do that. The idea is to
+able to talk about it, and know that there are ways top balance a Search Tree,
+and able to talk about the trade offs just like we did.
+
+Now, we're going to talk about these two ways of balancing this Search Trees in
+upcoming lecture; but for now let's just focus on the basics in the next
+lecture.
