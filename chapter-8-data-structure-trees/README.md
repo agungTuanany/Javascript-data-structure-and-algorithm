@@ -305,7 +305,6 @@ would use in a Tree.
 
 Let's me show you on a diagram.
 
-
 </br>
 
 ![chapter-8-2.gif](./images/gif/chapter-8-2.gif "Leaf level steps")
@@ -446,16 +445,31 @@ We're going to use [visualgo](https:visualgo.net), again and I'll link this and
 I highly recommend that you all play around with Binary Search Trees, but let's
 do a couple of operations here.
 
+</br>
+
+![chapter-8-3.gif](./images/gif/chapter-8-3.gif "Binary Search Example")
+</br>
+
 
 See that it generated a random Binary Search Tree for me, let's say I want to do
 an Insert, and I want to insert, let's say the number `1`, by click go, it's
 going to traverse, figure out where it wants to insert and it's going to insert
 `1`.
 
+</br>
+
+![chapter-8-4.gif](./images/gif/chapter-8-4.gif "Binary Search Example")
+</br>
+
 What if I want to insert perhaps number `44`, this time around, if I hit go,
 a traverses figures out where `44` should go, and places it on the Right leaf
-with parent node `37`. So we're always traversing and figuring out using `O(log
+with parent node `38`. So we're always traversing and figuring out using `O(log
 N)`, where we should place the item.
+
+</br>
+
+![chapter-8-5.gif](./images/gif/chapter-8-5.gif "Binary Search Example")
+</br>
 
 What about removing? Let's add one more node, I add `51` so it will add on the
 Right leaf for parent node `50`. Let's say we want to delete `50`, now if
