@@ -8,6 +8,7 @@
 3. [Big-O log of N](#big-o-log-of-n)
 4. [Binary Search Tree](#binary-search-tree)
 5. [Balanced vs Unbalanced BST](#balanced-vs-unbalanced-bst)
+6. [BST Pros and Cons](#bst-pros-and-cons)
 
 </br>
 
@@ -565,3 +566,49 @@ and able to talk about the trade offs just like we did.
 Now, we're going to talk about these two ways of balancing this Search Trees in
 upcoming lecture; but for now let's just focus on the basics in the next
 lecture.
+
+## BST Pros and Cons
+
+</br>
+
+![chapter-8-12.png](./images/chapter-8-12.png "Binary Search Tree Pros and Const")
+</br>
+
+Before we code our Binary Search Tree, let's just go over the performance
+implications and why we might want to use it over the data structures.
+
+It's strengths are that it has really good performance across the board.You saw
+that most operations or all operations in a **Binary Search Tree are better then
+`O(n)`**, assuming that the Binary Search Tree is Balanced. It is also
+**Ordered**, and because we can place the node anywhere in memory, we can just
+have **flexible size**, we can keep growing our Tree.
+
+The downside is, as you may have noticed it has **No `O(1)` operation**. We
+usually have to do some sort of traversal through the Tree for any sort
+operation; so compared to an array, a _Lookup_ for example, will be a lot faster,
+because we have  `O(log N)` for searches versus of if we iterate through an
+entire array, if the _array is unsorted_. _Inserts_ and _Deletes_ are also
+faster then an array, unless the array is adding to the end, otherwise array
+have to shift all the indexes versus Binary Search Tree that is just `O(log n)`.
+
+What about Binary Search Tree versus Hash Tables (hash map)? Well, although hash
+tables allow us to Insert Search at constant time `O(1)`, with Binary Search
+Trees we have _sorted data_, and we also have this structure **Parent** and
+**Child** relationship that you won't be able to get to much with hash tables.
+A good thing to keep in mind is, that Binary Search Tree aren't fastest for
+anything; remember their operations are usually always `O(log N)`.
+
+On average an array or an object will have faster operations, but there are
+certain condition where they do outperform objects in arrays `{[]}`, so Binary
+Search tree do perform really well, as long as you make sure that you stay away
+from the cases that we discussed and we balance our Binary Search Tree.
+
+Enough talk, enough slides, I think to fully grasp and understand how Trees
+work, we should code our own, I'll see you in the next lecture.
+
+Enough talk, enough slides, I think to fully grasp and understand how Trees
+work, we should code our own, I'll see you in the next lecture.
+
+
+
+
