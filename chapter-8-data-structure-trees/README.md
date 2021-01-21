@@ -9,6 +9,7 @@
 4. [Binary Search Tree](#binary-search-tree)
 5. [Balanced vs Unbalanced BST](#balanced-vs-unbalanced-bst)
 6. [BST Pros and Cons](#bst-pros-and-cons)
+7. [Exercise Binary Search Tree](#exercise-binary-search-tree)
 
 </br>
 
@@ -567,6 +568,10 @@ Now, we're going to talk about these two ways of balancing this Search Trees in
 upcoming lecture; but for now let's just focus on the basics in the next
 lecture.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
 ## BST Pros and Cons
 
 </br>
@@ -609,6 +614,125 @@ work, we should code our own, I'll see you in the next lecture.
 Enough talk, enough slides, I think to fully grasp and understand how Trees
 work, we should code our own, I'll see you in the next lecture.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Binary Search Tree
+
+It's time to write our own Binary Search Tree. In this exercise I'm going to
+challenge you to write your own before you read the solution.
+
+Keep in mind, that just like with Linked Lists, it's going to require us to keep
+track of the nodes to the _Left_ and to the _Right_ of the current node; and also we
+have a _value_ associated with a node.
+
+I recommend you actually dray  this out on a piece of paper to understand,
+because keeping ever thing in your head and the calculations, might be a little
+bit difficult.
+
+```javascript
+class Node {
+    constructor(value) {
+        this.left = null;
+        this.right = null;
+        this.value = value;
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(value) {
+        // Code here
+    }
+
+    lookup(value) {
+        // Code here
+    }
+
+    // remove(value) {
+        // Code here
+    // }
+}
+
+
+function traverse(node) {
+    const tree = { value: node.value };
+
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? traverse.(node.rigth);
+    console.log(tree)
+
+    return tree;
+};
+```
+
+I have started here with all the essentials you need. We've created a Binary
+Search Tree class, We have Node class that we ca use. We start our Binary Search
+Tree with `this.root` of `null`, because we don't have anything yet; but
+remember we have the Root which is our top most node, which currently is empty.
+
+We're going to initialize our Binary Search Tree, and hopefully we're able to
+_create two methods_, `[1]` _Insert_ and `[2]` _lookup_.
+
+Our goal is to create this tree over below,
+
+```
+               9
+
+        4             20
+
+     1     6     15        170
+```
+
+`9` as the Root node, then `4` and `20` as it's children, an then `4` has `1`
+and `6` as it's children; and `20` has `15` and `170` as it's children.
+
+So ideally, if we implement Insert correctly, we can say or run the command
+below,
+
+```javascript
+tree.insert(9)
+tree.insert(4)
+tree.insert(6)
+tree.insert(20)
+tree.insert(170)
+tree.insert(15)
+tree.insert(1)
+```
+
+Then, Ideally after running above command, you're be able to create this Tree
+data structure.
+
+At the bottom here, I create a small little function for you called
+`traverse()`, for now I want you just ignore it, because we're using something
+called recursion here, which we haven't got into yet; But I only create this
+function, for you to be able to test out your code, and to make sure that it
+actually works.
+
+All you need to do in order for you to verify that this is working is, to say
+`JSON.stringify(traverse(tree.root))`. We just give the Root node of our Tree,
+and it's going to traverse and printout everything into a string, so that you
+can check in the console that your Tree actually is working.
+
+In the solution lecture, I'm going to demonstrate how this works, but I've added
+this `traverse()` function as a little helper for you in case you want to double
+check your work to make sure that it's correct.
+
+By the way, the `lookup()` method should simply be return the node that we're
+looking for, and if it doesn't find the node, then we can _return normal or
+false_, whichever you want.
+
+I've added `remove()` method here, which we're going to talk about later,
+because it's a little bit difficult; so for now just worry about Insert and
+Lookup, and I'll see you in the solution lecture.
 
 
 
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
