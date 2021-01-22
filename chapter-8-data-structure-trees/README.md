@@ -10,6 +10,7 @@
 5. [Balanced vs Unbalanced BST](#balanced-vs-unbalanced-bst)
 6. [BST Pros and Cons](#bst-pros-and-cons)
 7. [Exercise Binary Search Tree](#exercise-binary-search-tree)
+8. [Solution Insert method](#solution-insert-method)
 
 </br>
 
@@ -730,9 +731,135 @@ I've added `remove()` method here, which we're going to talk about later,
 because it's a little bit difficult; so for now just worry about Insert and
 Lookup, and I'll see you in the solution lecture.
 
-
-
-
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Solution Insert method
+
+Final `insert()` method,
+
+```javascript
+
+insert(value) {
+    const newNode = new Node(value);
+
+    if (this.root === null) {
+        this.root = newNode;
+    };
+
+    console.log(newNode);
+};
+
+const tree = new BinarySearchTree();
+
+tree.insert(9);
+
+// Result
+// Node { left: null, right: null, value: 9  }
+```
+
+Well comeback, hopefully that wasn't too bad. Keep in mind that when it come
+into interviewing, interviewers want you to know that you understand the
+_contents_. You won't necessarily have to code a Binary Search Tree from
+scratch; Most of the time, at least. Because in real life you have things like
+this [library](#https://github.com/afiore/arboreal), that somebody else created
+that allows to use Tree Traversal Manipulation techniques, because this has
+already been done before, and you can see by using a library like this, that you
+can just use it and create the Tree that you want.
+
+Most likely you're not implement it from scratch by yourself, but we do want to
+understand the fundamentals and how it works. So, if this challenging to you,
+don't get frustrated, this doesn't make you a bad engineer or a bad coder,
+you're just working towards building those fundamentals, so that you can use
+tools like library that I mentioned to you earlier in the future, and still
+understand how it works.
+
+
+### Chunked Code
+
+
+Let's get to the answer, I want to create a tree that looks like below,
+
+```
+               9
+
+        4             20
+
+     1     6     15        170
+```
+
+So the first things I'm going to do is, work on the `insertion()` method.
+
+```javascript
+const newNode = new Node();
+```
+
+Now, Within this the very first thing I want t do is to say, well, we want to
+create the `newNode` and we'll say `new Node()` will be the value; so, we just
+creating a new node class instantiating with the value, and that's are our new
+node now, so we have references to it.
+
+The first thing we want to check, well, if the Tree is empty and there's no Root
+node, well we should add this as our Root node.
+
+
+```javascript
+if (this.root === nuill) {
+    this.root = newNode;
+};
+```
+
+So I'm going to say, `this.root === null`, if that the case, then simply make
+the Root node, our current node that we inserted; Nice and easy, an just to
+check that this is working.
+
+
+```javascript
+tree.insert(9);
+// Result
+// Node { left: null, right: null, value: 9  }
+```
+
+I run this command `tree.insert(9)` and click run, there you go, our Node has
+a `value` of `9`; `left` as `null`, `right` as `null`, because it's the only
+note;
+
+For now, we see that our `insert()` is working, only for if the Root node is
+`null`;
+
+```javascript
+if {
+    // ....
+    // ....
+}
+else  {
+    while(true) {
+        if () {
+
+        }
+
+    }
+}
+```
+
+
+Let's continue if that's not the case, we'll say, `else {}`, if the root node is
+already fill, we'll say that the `currentNode` will be the `this.root`, because
+we have to traverse this node, and we won't how how long we're going to traverse
+the node, and we will know how long we going o traverse this node for; We want
+to keep traversing until find a place to insert this.
+
+This is a bit tricky, bu something you'll get used to, when you're building
+Trees. We ant to use `while()` loop, and the condition we're going to use is
+`true`; that means, just keep looping every time, because `true` is always going
+to equal to `true`; and we have to be careful here, if we do this, we want to
+make sure that there is a way for us to exit out of this loop, otherwise we're
+going to have an infinite loop, and will crash our little page here.
+
+So, what are the condition that we're going to loop through? We want to traverse
+through the Tree; well, the first check we're going to do is say, if `value
+< currentNode.value`, remember `value` is what we insert. If `value` is less than the
+`currentNode.value`
+
+
