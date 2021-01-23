@@ -664,7 +664,7 @@ function traverse(node) {
     const tree = { value: node.value };
 
     tree.left = node.left === null ? null : traverse(node.left);
-    tree.right = node.right === null ? traverse.(node.rigth);
+    tree.right = node.right === null ? traverse.(node.right);
     console.log(tree)
 
     return tree;
@@ -834,9 +834,28 @@ if {
     // ....
 }
 else  {
-    while(true) {
-        if () {
+    let currentNode = this.root;
 
+    while(true) {
+        if (value < currentNode.value) {
+            // Left
+            if (!currentNode.left) {
+                currentNode.left = newNode;
+
+                return this;
+            };
+
+            currentNode = currentNode.left;
+        }
+        else {
+            // Right
+            if (!currentNode.right) {
+                currentNode.right = newNode;
+
+                return this;
+            };
+
+            currentNode = currentNode.right;
         }
 
     }
@@ -858,8 +877,97 @@ make sure that there is a way for us to exit out of this loop, otherwise we're
 going to have an infinite loop, and will crash our little page here.
 
 So, what are the condition that we're going to loop through? We want to traverse
-through the Tree; well, the first check we're going to do is say, if `value
-< currentNode.value`, remember `value` is what we insert. If `value` is less than the
-`currentNode.value`
+through the Tree; well, the first check we're going to do is say, if `value`, remember
+`value` is what we insert, If `value` is less than the `currentNode.value`; so,
+we start from the root node, and say, hey is the `value` that we are entering
+less than the `currentNode.value`?
 
+If that the case, we know the rules, so we're going to Left leaf, cause `value`
+less then the `currentNode`. Now in here, we want to check first of all if there
+is no `currentNode` on left `!currentNode.left`, is there an element already to
+the Left of the Root node? Because, if there isn't, in that case we can just
+assign the `currentNode.left` to our `newNode` that we want to enter, because
+there's nothing there, and we can just return out of this loop `return this`
 
+However, if there is something to the Left leaf of our node, let's say in this
+case `9`; in that case `currentNode` is going to equal `currentNode.left`; So,
+we're going to update and shift over, so that the `currentNode` is no longer
+`9`, it's whatever is to the Left of `9`; and that's going to keep us looping
+until we hit a node that doesn't have a Left hand side (leaf), so that we can
+place the `currentNode` for our node into its place. That for the Left side
+(leaf) if the `value` less then the `currentNode`.
+
+If the `value` is greater then `currentNode`, we can decide where we want to
+place `value` that are equal; That's up to us, and how we want to implement it,
+will say that we'll go Right if value is greater or equal to current node. In
+that case, what we want to do, the first check first, if is `currentNode.right`
+there's nothing to it, there's nothing next to it to the Right of it; in that
+case, just like a above, `currentNode.right` equals the `newNode`; and we're
+also going to `return this`, because we want to stop looping.
+
+Remember, as soon as we have the pointer to `null` that's we want to exit out of
+this `while()` loop, that going to loop forever, otherwise we simply say
+`currentNode` is going to equal `currentNode.right`.
+
+There you go, hopefully this is works; but before we test this out, and see if
+we meet any minor mistakes, I do want o warn you, if you are just coding along,
+I encourage you to pause a second, and think through line by line, maybe even
+drawing thing out, maybe using visualgo to see what we've doing, because it's
+really hard to keep this code structure in your head, even myself, I can code
+this from scratch, it takes me a bit of time to think things through, and see
+how we wanna structure the code, so don't feel frustrated if this is a bit
+overwhelming, I encourage you to pause a second, try to code along and
+understand what happening step by step.
+
+So if we test,
+
+```javascript
+tree.insert(9)
+tree.insert(4)
+tree.insert(6)
+tree.insert(20)
+tree.insert(170)
+tree.insert(15)
+tree.insert(1)
+JSON.stringify(traverse(tree.root))
+
+// Result
+{
+  value: 9,
+  left: {
+    value: 4,
+    left: { value: 1, left: null, right: null },
+    right: { value: 6, left: null, right: null }
+  },
+  right: {
+    value: 20,
+    left: { value: 15, left: null, right: null },
+    right: { value: 170, left: null, right: null }
+  }
+}
+
+{
+  value: 4,
+  left: { value: 1, left: null, right: null },
+  right: { value: 6, left: null, right: null }
+}
+
+{
+  value: 20,
+  left: { value: 15, left: null, right: null },
+  right: { value: 170, left: null, right: null }
+}
+
+{ value: 1, left: null, right: null }
+{ value: 6, left: null, right: null }
+
+{ value: 15, left: null, right: null }
+{ value: 170, left: null, right: null }
+```
+
+Once you hang of it, and code this on your own, you'll see that it makes sense;
+it's all logic, and  something that we've learned when working with liked lists.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
