@@ -10,7 +10,8 @@
 5. [Balanced vs Unbalanced BST](#balanced-vs-unbalanced-bst)
 6. [BST Pros and Cons](#bst-pros-and-cons)
 7. [Exercise Binary Search Tree](#exercise-binary-search-tree)
-8. [Solution Insert method](#solution-insert-method)
+8. [Solution Insert Method](#solution-insert-method)
+9. [Solution Lookup Method](#solution-lookup-method)
 
 </br>
 
@@ -735,7 +736,7 @@ Lookup, and I'll see you in the solution lecture.
 </br>
 </br>
 
-## Solution Insert method
+## Solution Insert Method
 
 Final `insert()` method,
 
@@ -967,6 +968,137 @@ JSON.stringify(traverse(tree.root))
 
 Once you hang of it, and code this on your own, you'll see that it makes sense;
 it's all logic, and  something that we've learned when working with liked lists.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Solution Lookup Method
+
+Let's try implement a `lookup()` function, or the search function. We want to
+check if an item, or a node exist i our Tree. Let''s see how we go about this.
+
+```javascript
+lookup(value) {
+    if !(this.root) {
+        return false;
+    };
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+        if (value < currentNode.value) {
+            currentNode = currentNode.left;
+        }
+        else if (value > currentNode.value) {
+            currentNode = currentNode.right;
+        }
+        else if (currentNode.value === value) {
+            return currentNode;
+        }
+    }
+
+    return false;
+};
+```
+
+The first thing I would want to do is, to check if there is such a thing as Root
+node, if it's empty `!this.root` or I could have done this by `this.root ===
+nul`, it's a same; we'll just say `return false`, because if the Root doesn't
+exist, then it doesn't really matter, we're not going to find that node.
+
+Otherwise, we're going to say, once again `let currentNode` equal to
+`this.root`; You'll notice some similarities with what we did when we did the
+`insert()`. We still need to traverse through our Tree; but instead our
+`while()` loop is going to strop whenever the `currentNode` no longer exists, or
+we no longer have a node to go through, because once we've gone through our
+Binary Search Tree, and it's `null`, that means we didn't find what we're
+looking for.
+
+So, in this case I'm simply going to say if the value that we're looking for is
+less than the `currentNode.value`, in that case the `currentNode` is going to
+equal `currentNode.left`, because we now want to go Left leaf, if the value is
+less than the `currentNode` that means it's not the same, it's not the node
+we're looking for, so go Left, because that's where I can find something that
+might be less than the `currentNode`;
+
+Otherwise, and we'll use an `else-if` statement here, which says another
+condition; So, if that Doesn't match, if the `value` is greater then the
+`currentNode.value`, what do you think we do here? Well we go to the Right
+leaf. So, we're going to say `currentNode` is now going to be
+`currentNode.right`; So, we just keep checking to the Right of use.
+
+Finally `else-if`, that is another condition, and we can say, if
+`currentNode.value` is equal the actual `value` that we're looking for, that
+means we got a match, that means that node exists; So, we're going to return the
+`currentNode`. Nice and simple.
+
+Then finally, because we're not returning anything, we'll just looping through
+the `whle()` loop until we find the `currentNode` were we return the
+`currentNode` or `currentNode` becomes `null`, because we can't find anything;
+If we don't find anything just `return false`.
+
+The only way we return other than `false` is when we find our node with the
+matching value.
+
+So let see this,
+
+```javascript
+tree.lookup(9)
+
+// Result
+Root: Node {
+  left: Node {
+    left: Node { left: null, right: null, value: 1 },
+    right: Node { left: null, right: null, value: 6 },
+    value: 4
+  },
+  right: Node {
+    left: Node { left: null, right: null, value: 15 },
+    right: Node { left: null, right: null, value: 170 },
+    value: 20
+  },
+  value: 9
+}
+```
+
+If I now run `tree.lookup(9)`, and I'm click run, there you go, I get the `9`
+node that has reference to all the other nodes beneath it.
+
+```javascript
+tree.lookup(90)
+
+// Result
+currentNode: null or false
+```
+
+If I `lookup(90)`, I'll get `false` because it doesn't exists.
+
+```javascript
+tree.lookup(20)
+
+// Root
+Root: Node {
+  left: Node { left: null, right: null, value: 15 },
+  right: Node { left: null, right: null, value: 170 },
+  value: 20
+}
+```
+
+If I `lookup(20)`, yep we found `20`.
+
+
+Well done getting this far. Hope you're able to implement your own Binary
+Search Tree. Once you get the hang of it, it's really not that bad. At the end
+of the day, each line should make sense, and traversing a Tree should make
+sense to you by now.
+
+We also understand, why we have Big-O `O(log n)`, and although we have `loops`
+with `while()` loops, we're not actually iterating through every single node,
+we're only iterating using **Divide** and **Conquer**, something that you'll
+hear a lot of. Divide and Conquer simply means, we're adding up; so we don't
+visit all the nodes; each node that we visit we make a decision to go Left or
+Right.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
