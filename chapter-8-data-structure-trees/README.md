@@ -12,6 +12,7 @@
 7. [Exercise Binary Search Tree](#exercise-binary-search-tree)
 8. [Solution Insert Method](#solution-insert-method)
 9. [Solution Lookup Method](#solution-lookup-method)
+10. [Solution Remove Method](#solution-remove-method)
 
 </br>
 
@@ -1103,3 +1104,38 @@ Right.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Solution Remove Method
+
+This exercise is a little bit advanced, and you most likely won't encounter it
+in interview. But for those who are curious, that is how to implement the
+`remove()` method; if we want to remove an item form a Tree, how would we go
+about doing it? Now if you want to try to implement this, I want to give you
+a heads up.
+
+The best way for you to visualize and see what steps we need to do is, to go
+back to visualgo, start to removing some nodes to see what the **logic is** in
+removing nodes. Some steps are really easy.
+
+</br>
+
+![chapter-8-5.gif](./images/gif/chapter-8-5.gif "Binary Search Example")
+</br>
+
+If we want to remove `1` for example; well, we simply traverse and find `1` and
+just remove it. But then there's other cases that gets really complicated such
+as, what we do when we remove `51`? Well, we going to start traversing to find
+`51` and notice what happen when we find `51`, we actually keep going to `55`,
+and then we keep going to `54`; and watch this, we split things and move `54`
+up; and I know that's really really confusing. You might want to do this
+a couple of times to see what the logic is.
+
+But essentially what we're doing is, we're finding where we want to replace,
+going to Right of it, then the Left and placing that Left item to the Top.
+
+Like I said, this is going to be a little bit advanced. But if you want to
+challenge yourself using visualgo animation, try to figure out how to implement
+your own `remove()` method.
+
+In the next lecture, I'll show you my solution and go over the steps that we
+take for this to work. I'll see you in the next one.
