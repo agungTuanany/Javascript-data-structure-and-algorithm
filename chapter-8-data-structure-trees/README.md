@@ -522,7 +522,7 @@ performance,
 
 </br>
 
-![chapter-8-8.png](./images/chapter-8-9.png "Unbalanced Binary Search Tree")
+![chapter-8-9.png](./images/chapter-8-9.png "Unbalanced Binary Search Tree")
 </br>
 
 
@@ -1231,3 +1231,201 @@ remove(value) {
 };
 ```
 ### Chunked Code
+
+It took quite a lot of time to get this working, and I'm going to give you
+another chance to finish it if you want. I have my code minimized above, just
+to show you the `if` statements and the steps that I'm taking, so you could
+pause this lecture to read, but let me just go over the steps I'm going to take.
+
+Usually I like coding step by step, but when it comes to `remove()` function,
+it's really really hard to go through step by step when you're not coding
+yourself, or you don't have a diagram to point to and show; So, I'm going to
+leave the code for you so you can implement it on your own; and actually like
+always recommend, draw out with a piece of paper to understand what's going on,
+otherwise if I just coded this along, it would be a 30 minutes explanations,
+and you will be getting bored, and then you're not going to have fun with data
+stricture any more and we don't want that;
+
+```javascript
+if (!this.root) {
+    return false;
+};
+```
+
+So, all we're doing is, well, if we doing remove we're going to check if
+there's anything in the root; if there isn't, while the Tree's empty, there's
+nothing to remove we're going to `return false`.
+
+```javascript
+let currentNode = this.root;
+let parentNode = null;
+```
+
+Otherwise, we're going to grab the `currentNode` as `this,root` first, and then
+we do something new here that haven't seen before, we declare a new variable
+called `parentNode`, and this something you may realized, I was coded this line.
+We need a reference to the parent,
+
+</br>
+
+![chapter-8-8.png](./images/chapter-8-8.png "Unbalanced Binary Search Tree")
+</br>
+
+
+Because if we remove something from above diagram such as `14`; Well, before we
+get to `1` get reference of `14`, so that when we get to `1` we have access to
+`30`, so we can link `30` to `1`.
+
+```javascript
+if (value < currentNode.value) {
+    parentNode = currentNode;
+    currentNode = currentNode.left
+};
+```
+
+So, if we go back, now that I have `parentNode` variable, and I do my loop to
+check if the `value` is less then the `currentNode.value` in which case I'll go
+Left, and this should be familiar, but this time I'm also keep tracking of the
+`parentNode`,
+
+```javascript
+else if (value > currentNode.value) {
+
+}
+```
+
+Otherwise, if we need to go to the Right, but also keep track of the
+`parentNode`.
+
+```javascript
+else if (currentNode.value === value) {
+    // We have a match, get to work
+}
+```
+
+Now we get the interesting part. We're looping through everything here, and
+nothing's too crazy until we get to a match, and we find the `currentNode` that
+we want to delete, we have a match, we need get to work, and we have **three
+options** here.
+
+```javascript
+// Option 1: No right child
+if (currentNode.Rgiht === null) {
+    if (parentNode === null) {
+        this.root = currentNode.left;
+    }
+    else {
+        // If parent > current value, make current Left child a child of parent
+        if (currentNode.value < parentNode.value) {
+            parentNode.left = currentNode.left;
+        }
+        // If parent < current value, make Left child a right child o parent
+        else if (currentNode.value > parentNode.value) {
+            parentNode.right = currentNode.left;
+        }
+    }
+}
+```
+
+The **first option** is that, the `currentNode` has no Right child. If the
+`currentNode` has no Right child, let see the above diagram, let say we have
+`14` as an example, if I remove `14`, all we did was remove `14`, but we kept
+a reference to the `parentNode` which is `30`, and just moved `1` up.
+
+That was nice and easy; and in here with **Option 1**, that really all we do.
+We first make sure that the `parentNode` doesn't equal to `nuill`, that means
+we're modifying the Root node, otherwise the Root variable gets update to our
+`currentNode`.
+
+Otherwise, if `parentNode` is greater than the `currentNode.value`, then make
+current Left child, a child of the parent. If parent is less `(currentNode.value
+> parentNode.value)` make Left child a Right child of the parent.
+
+Again, I know this is confusing, and like I said, this is something that you
+might have to on your own. I'll leave comments out here for you, so you can
+actually play around with it, and play with visualgo so you understand what's
+happening here.
+
+```javascript
+// Option 2: Right Child which doesn't have a Left child
+else if (currentNode.right.left === null) {
+    if (parentNode === null) {
+        this.root = currentNode.left;
+    }
+    else {
+        currentNode.right.left = currentNode.left;
+
+        // If parent > current, make Right child of the Left as the parent
+        if (currentNode.value < parentNode.value) {
+            parentNode.left = currentNode.right;
+        };
+
+        // If parent < current, make Right child a Right child of the parent
+        if (currentNode.value > parentNode.value) {
+            parentNode.right = currentNode.right;
+        };
+    };
+}
+```
+
+That the first options, if that's the case then do that. If we have a Right
+child but the Right child doesn't have a Left child; let's find out.
+
+So we check the `parentNode` is not `null`, so, that we have to replace the Root
+node; Otherwise we go through similar steps to reassign the node.
+
+What about the last option, _Right child that has a Left child_.
+
+```javascript
+
+// Option 3: Right child that has a Left child
+else {
+    // find the Right child's Left most child
+    let leftmost = currentNode.right.left;
+    let leftmostParent = currentNode.right;
+
+    while (leftmost.left !== null) {
+        leftmostParent = leftmost;
+        leftmost = leftmost.left;
+    };
+
+    // Parent's Left subree is now leftmost's right subtree
+   leftmostParent.left = leftmost.right;
+   leftmost.left = currentNode.left;
+   leftmost.right = currentNode.right;
+
+   if(parentNode === null) {
+       this.root = leftmost;
+   }
+   else {
+       if(currentNode.value < parentNode.value) {
+           parentNode.left = leftmost;
+
+       }
+       else if(currentNode.value > parentNode.value) {
+           parentNode.right = leftmost;
+       }
+   };
+}
+```
+
+This third option will require you to read through the code, and I've left some
+nice comments for you, so that it makes sense but we're essentially finding the
+Right child's Left most child, and looping through his changing the sub-Trees of
+the Tree.
+
+Like I said, this is quite a bit advanced, and really hard to explain, just on
+the screen. So, I do recommend it, if you weren't able to get the `remove()`
+function to go through this step by step, just play around with these code and
+see if it works.
+
+I do encourage you not to get disappointed if the removed method was really
+difficult. I didn't really want to include it in the course, because it is
+overly complex, and not something you want to worried about, when it comes to an
+interview. But I thought some of you might be interested in it; just make sure
+that it's not something that discourages you, as long you can do the `insert()`
+and `lookup()` that's was matter for interviews.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
