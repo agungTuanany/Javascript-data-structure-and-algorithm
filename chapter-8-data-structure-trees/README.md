@@ -13,6 +13,7 @@
 8. [Solution Insert Method](#solution-insert-method)
 9. [Solution Lookup Method](#solution-lookup-method)
 10. [Solution Remove Method](#solution-remove-method)
+11. [AVL Trees](#avl-trees)
 
 </br>
 
@@ -390,7 +391,6 @@ relationships, to have a parent folder and a subfolder and in a subfolder.
 ![chapter-8-6.png](./images/chapter-8-6.png "Binary Search Tree Rules")
 </br>
 
-
 A thing like Binary Search Tree allows us to preserve these relationship. When it
 comes to Binary Search Trees, these are the rules:
 
@@ -453,7 +453,7 @@ do a couple of operations here.
 
 </br>
 
-![chapter-8-3.gif](./images/gif/chapter-8-3.gif "Binary Search Example")
+![chapter-8-3.gif](./images/gif/chapter-8-3.gif "Binary Search Example Insert")
 </br>
 
 
@@ -464,7 +464,7 @@ going to traverse, figure out where it wants to insert and it's going to insert
 
 </br>
 
-![chapter-8-4.gif](./images/gif/chapter-8-4.gif "Binary Search Example")
+![chapter-8-4.gif](./images/gif/chapter-8-4.gif "Binary Search Example Insert")
 </br>
 
 What if I want to insert perhaps number `44`, this time around, if I hit go,
@@ -474,7 +474,7 @@ N)`, where we should place the item.
 
 </br>
 
-![chapter-8-5.gif](./images/gif/chapter-8-5.gif "Binary Search Example")
+![chapter-8-6.gif](./images/gif/chapter-8-6.gif "Binary Search Example Delete")
 </br>
 
 What about removing? Let's add one more node, I add `51` so it will add on the
@@ -524,7 +524,6 @@ performance,
 
 ![chapter-8-9.png](./images/chapter-8-9.png "Unbalanced Binary Search Tree")
 </br>
-
 
 But then also have _Unbalanced_ ones, where it sort of turns into a long linked
 list, where instead of being able to do the `O(log N)` operations, you now have
@@ -661,7 +660,6 @@ class BinarySearchTree {
     // }
 }
 
-
 function traverse(node) {
     const tree = { value: node.value };
 
@@ -777,9 +775,7 @@ you're just working towards building those fundamentals, so that you can use
 tools like library that I mentioned to you earlier in the future, and still
 understand how it works.
 
-
 ### Chunked Code
-
 
 Let's get to the answer, I want to create a tree that looks like below,
 
@@ -863,7 +859,6 @@ else  {
     }
 }
 ```
-
 
 Let's continue if that's not the case, we'll say, `else {}`, if the root node is
 already fill, we'll say that the `currentNode` will be the `this.root`, because
@@ -1087,7 +1082,6 @@ Root: Node {
 ```
 
 If I `lookup(20)`, yep we found `20`.
-
 
 Well done getting this far. Hope you're able to implement your own Binary
 Search Tree. Once you get the hang of it, it's really not that bad. At the end
@@ -1425,6 +1419,67 @@ overly complex, and not something you want to worried about, when it comes to an
 interview. But I thought some of you might be interested in it; just make sure
 that it's not something that discourages you, as long you can do the `insert()`
 and `lookup()` that's was matter for interviews.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## AVL Trees
+
+Now, that we have implemented our Binary Search Tree, I want to talk a little
+bit about balancing our Tree. Usually in production you want to have a balanced
+Search Tree. There are two types of Trees that are very popular when it comes to
+this. Although we built our own Binary Search Tree, you'd most likely in
+production use something like _AVL tree_ or _Red Black Tree_ that automatically
+rebalances itself, so that we don't have those edge cases where our balanced
+Tree turns into a _linear unbalanced Tree_.
+
+These topics, we don't need to code ourselves, because they are a little bit
+complex, and most of the time you're using some sort of library that implements
+it. But I do want you to understand how it works; So, I'll leave resources for
+you for both [Red Black
+Tree](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html) and history
+[how it
+works](https://medium.com/basecs/painting-nodes-black-with-red-black-trees-60eacb2be9a5)
+as well as [AVL
+Trees](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) and history
+[how it
+works](https://medium.com/basecs/the-little-avl-tree-that-could-86a3cae410c7),
+where visualgo also has it.
+
+</br>
+
+![chapter-8-7.gif](./images/gif/chapter-8-7.gif "Binary AVL TREE Example Insert")
+</br>
+
+
+To demonstrate that visualgo also has AVL Trees, I want to insert `77` into my
+AVL Tree, nothing different, we're adding `77` to the Tree.
+
+</br>
+
+![chapter-8-8.gif](./images/gif/chapter-8-8.gif "Binary AVL TREE Example Insert")
+</br>
+
+But If I now add, let's say `80` which will make our Tree a little bit
+unbalanced, if I hit go, you'll see that I'm traversing downs, and I add `80`
+and then all of a sudden it's unbalanced, it's going to go back and do a little
+bit of a switch or rotation to balance out the Tree to make sure that the levels
+that we have in Tree are always balanced
+
+</br>
+
+![chapter-8-9.gif](./images/gif/chapter-8-9.gif "Binary RED/BLACK TREE Example Insert")
+</br>
+
+Then we have Red Black Tree as well, which does things a little bit differently.
+Let's say we inserted `9` here then let's say we insert `10` and then finally
+let's insert `11`; you'll notice that it's not balanced Tree, we need to balance
+it out; and once again automatically make sure that our Tree does get balanced
+with with something called Red Black Tree.
+
+As you can see the nodes are Red and Black here, and that's something that we
+use to keep track of, when we need to rebalance.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
