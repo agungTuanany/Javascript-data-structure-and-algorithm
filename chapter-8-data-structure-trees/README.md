@@ -14,6 +14,7 @@
 9. [Solution Lookup Method](#solution-lookup-method)
 10. [Solution Remove Method](#solution-remove-method)
 11. [AVL Trees](#avl-trees)
+12. [Binary Heaps](#binary-heaps)
 
 </br>
 
@@ -1304,7 +1305,7 @@ options** here.
 
 ```javascript
 // Option 1: No right child
-if (currentNode.Rgiht === null) {
+if (currentNode.right === null) {
     if (parentNode === null) {
         this.root = currentNode.left;
     }
@@ -1480,6 +1481,98 @@ with with something called Red Black Tree.
 
 As you can see the nodes are Red and Black here, and that's something that we
 use to keep track of, when we need to rebalance.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Binary Heaps
+
+We've talked about Binary Trees, Binary Search Trees, and then we learned about
+how to balance Those Trees, and some of the time complexity involved with Binary
+Search Trees (BST), and I want to talk to you about two other common type of
+Trees, `[1]` **Heap** and `[2]` **Trie** or Tree.
+
+In this lecture let's get talking about Heap. Now, when it comes to a heap, we're
+most likely to talk about Binary Heaps, just like we had with Binary Trees; that
+means there's only going to be two children to a node.
+
+Why are these useful, and how are they different from Binary Trees?, let's go
+have a look.
+
+</br>
+
+![chapter-8-12.png](./images/chapter-8-12.png "Binary Heap")
+</br>
+
+A Binary Trees every child belongs to a parent node, that has a greater priority
+or value. If you look above diagram, every child that is `72` and `33` is lower
+than `101`. `72` is higher than `2` and `45`; and `33` is higher than `5` and
+`1`. This is actually called a **Max Heap**.
+
+There's also called a **Min Heap**, which is the exact opposite, where the Root
+node is the smallest.
+
+Now above diagram value it can be anything you want, it can be a person's name,
+it can be a number, it can be really anything because it's a node. But as you
+can see, all we're dealing with is, that in a Binary Heap every node on the top
+level has a greater value than every node on the next level down; and a Heap can
+be used i any algorithms where _ordering is important_; and as we're going to
+discuss, it's commonly used to when it comes to priority queues.
+
+Now with _arrays_ we had random access, it allowed us to randomly access any
+element within them using an index. In a Linked Lists, we can change things
+dynamically unlike an array, but finding something within them is `O(n)` linear
+time, because we had to go through the Linked List. Heaps a little bit different
+you can do `O(1)` random access like we did with arrays or Hash tables; as we
+know about Trees we have to do some sort of traversals.
+
+Now compared to a Binary Search Tree, we sent that `lookup()` is `O(n)`, is not
+`O(log N)`, and because it's less ordered than a Binary Search Tree right.
+
+A Binary Search Tree actually had meaning between Left and Right; at the Left
+was always less than the right, in a Binary Heap that's doesn't matter. Left and
+Right can be any value, as long as it's less than the top value.
+
+So, if we're looking for, let's say `1` we have to check the parent node,
+because `1` is less than `101`, we have to check both nodes underneath it; and
+because `1` is less than `72` and `33` we have to once again check every single
+node and looking for `1` becomes `o(log N)`; so, pretty much turned into
+searching through a Linked List or iterating through an array.
+
+So, why would we ever want to use a Binary Heap? Well, it turns out that Binary
+Heaps are really really great at doing comparative operations. Just like saying
+I want people that have a value over `33`, because in that case we can just grab
+these (`101`, `72` and `33`) items quite easily instead of going all the way
+down to the nodes.
+
+> Imagine how hard that would be with a Binary Search Tree! is `O(n)`.
+
+Heaps actually used a lot in data storage, priority queues, sorting algorithms.
+So let's have a look at how Binary Heap is implemented visually.
+
+<!-- gif here -->
+
+We have Binary Heap here using viualgo, and if we wanted to add, let's say
+insert `26` we hit go, all right that was really fast.
+
+<!-- gif here -->
+
+But, what if we wanted to insert, let's say `51`, I had to do a bit of switch
+to. See Heaps add value on the Tree in order from Left to Right  and then
+bubbles up; if it's not in the same order or the priority order that is `1` kind
+like we did here.
+
+<!-- gif here -->
+
+So, if I add, let's say `100`, what you think will happen? Well, if I hit go,
+you'll see I add a `100` and then it bubbles up. So, as you can see Insert,
+although it looks fast can still take `O(log N)`, and these is the same case
+with Deletes as well is `O(log N)`.
+
+Now, in order to truly understand why we need something like a Binary Heap, why
+they're so useful, how they're different from Binary Search Tree, we need to
+talk about Priory Queues.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
