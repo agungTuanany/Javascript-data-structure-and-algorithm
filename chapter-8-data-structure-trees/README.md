@@ -15,6 +15,7 @@
 10. [Solution Remove Method](#solution-remove-method)
 11. [AVL Trees](#avl-trees)
 12. [Binary Heaps](#binary-heaps)
+13. [Quick Note on Heaps](#quick-note-on-heaps)
 
 </br>
 
@@ -1502,7 +1503,7 @@ have a look.
 
 </br>
 
-![chapter-8-12.png](./images/chapter-8-12.png "Binary Heap")
+![chapter-8-13.png](./images/chapter-8-13.png "Binary Heap")
 </br>
 
 A Binary Trees every child belongs to a parent node, that has a greater priority
@@ -1573,6 +1574,35 @@ with Deletes as well is `O(log N)`.
 Now, in order to truly understand why we need something like a Binary Heap, why
 they're so useful, how they're different from Binary Search Tree, we need to
 talk about Priory Queues.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Quick Note on Heaps
+
+</br>
+
+![chapter-8-14.png](./images/chapter-8-14.png "Binary Heap quick note")
+</br>
+
+I wanted to add  a quick gotcha when it comes to Heaps; that is when you hear
+**Memory Heaps** that's not the same as the Heap Data Structure. You might have
+heard of _memory heaps_ and something like JavaScript  Runtime Engine, where we
+have a _Stack_ and a _Heap_, there are two locations where we are able to keep
+memory.
+
+Now, this Heap you can think of as _Free Storage_, is a region on our memory
+where we can store arbitrary data. Language like *C* also have this Heap. Now,
+the naming is just coincidental, and Heap has _no _real relationship__ with the
+Data Structure that is named Heap. Keep that in mind.
+
+Heap is simply a heap of memory, if you talking about a Language Runtime for
+example; versus a Heap Data Structure which is what we're talking about.
+
+I want to clarify that for you, because when I was learning about Heaps, for
+some reason I always though they were the same thing, but they're not; just
+throwing out there.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
