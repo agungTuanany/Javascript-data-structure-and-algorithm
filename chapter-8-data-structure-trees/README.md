@@ -16,6 +16,7 @@
 11. [AVL Trees](#avl-trees)
 12. [Binary Heaps](#binary-heaps)
 13. [Quick Note on Heaps](#quick-note-on-heaps)
+14. [Priority Queues](#priority-queues)
 
 </br>
 
@@ -1593,8 +1594,8 @@ have a _Stack_ and a _Heap_, there are two locations where we are able to keep
 memory.
 
 Now, this Heap you can think of as _Free Storage_, is a region on our memory
-where we can store arbitrary data. Language like *C* also have this Heap. Now,
-the naming is just coincidental, and Heap has _no _real relationship__ with the
+where we can store arbitrary data. Language like **C** also have this Heap. Now,
+the naming is just coincidental, and Heap has no _real relationship_ with the
 Data Structure that is named Heap. Keep that in mind.
 
 Heap is simply a heap of memory, if you talking about a Language Runtime for
@@ -1603,6 +1604,103 @@ example; versus a Heap Data Structure which is what we're talking about.
 I want to clarify that for you, because when I was learning about Heaps, for
 some reason I always though they were the same thing, but they're not; just
 throwing out there.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+
+## Priority Queues
+
+Now we learned about Binary Heaps and we mentioned that unlike a Binary Search
+Tree, there is no order from Left to Right, 
+
+</br>
+
+![chapter-8-15.png](./images/chapter-8-15.png "Binary Heap")
+</br>
+
+This `33` and `77` we can swap them, and they'll still be a Binary Heap.
+
+The beady of Binary Heaps is, that they take up the least amount of space
+possible, because it's always Left to Right insertion as we just saw. So,
+there's no concept of an unbalanced Binary Heap; we don't have to re balance it
+like a Binary Search Tree, because of this (do Left to Right) insertion as we
+saw in the previous lecture, they preserve this order of insertion which is
+pretty amazing right?; and you can actually implement Binary Heaps using an
+arrays versus what we did before with Binary Search Trees where we use nodes. So
+the only guarantee that Binary Heap it gives us is what I mentioned, the parent
+(Root) is always greater then the children.
+
+Now, besides memory efficiency, and just compact, because it's always a complete
+Binary Tree; Binary Heaps are really useful for things such as **Priority Queues**.
+
+</br>
+
+![chapter-8-13.gif](./images/gif/chapter-8-13.gif "Priority Queues")
+</br>
+
+You just might be asking yourself Priority Queues, and isn't that we just learn
+about Queues and isn't that the same data structure? Well no, because with
+Queues we just assumed that it was first in first out; you are the first person
+in line, you should get to go first into the roller-coaster or the movie's.
+
+Priory Queues is something different, **it is a type of data where each element
+has a priority**; and elements with a  higher priority are served before
+elements with low priories. You can think as a club, let's say we have
+a nightclub that is very very popular, and there's a long lineup and we let some
+people in, everybody happy. But then, all of a sudden we have some VIP that
+showed up, what they pay a lot more money than the other customers, so we're
+going to put them in first. Now, we have a _different priority_, we're even
+thought they arrive later, they get to go when they have higher priority.
+
+Another good example is an emergency room. You want to treat the patients that
+have the most severe symptom's or condition right?.
+
+![chapter-8-14.gif](./images/gif/chapter-8-14.gif "Priority Queues")
+
+Another way to think about it is, let's say we're lining up to get into an
+airplane. We have the first person coming in lining up, and then all of sudden
+the captain shows up, and because the captain should get on the airplane before
+a normal passenger, the captain gets now put as _priority as the Root Node_,
+because the value is higher or at least in this case the value is higher than
+the passenger.
+
+So let's say another passenger comes on, because we're doing Left to Right
+insertion, we put the passenger to the Right, so now we know going to let the
+captain go, and then the first passenger then the second passenger.
+
+Next, we have a stewardess that came in. She should get to go before the
+passengers, but not before the captain; well, in that case once again we place
+the stewardess below the captain to the Right or to the Left of the passenger;
+and then we have another passenger that comes, we do Left to Right insertion, we
+see a Right spot down here, so we place them down here.
+
+So, we see how everything gets balanced, which is nice, but also really really
+easy for us to now, let people into the airplane, because we know the order, we
+go from the Top, then Left, then Right; then Left, then Right; we just keep
+going, keep going, we know the priority, very easy.
+
+I'm sure, you see where this might be useful in a lot situation.
+
+![chapter-8-16.png](./images/chapter-8-16.png "Binary Heap pros an cons")
+
+To review, we learned what Binary Search Tree are, they're great, but sometimes
+Binary heaps or Priority Queues are even better. Although Searching through
+a Binary Heap is a lot slower than a Binary Search Tree. You have an idea of
+_priority_, because insertion is done in order; so, you know who should be
+first, who should be second, who should be third;
+
+Although we might have to bubble up Insert, every once in a while if there is
+somebody that is has really high priority. Most of the time, you will get really
+fast Insert with Binary Heap;
+
+As we mentioned, Lookup as are slow, but you want to use Binary Heaps when
+you're just using interested in finding the Max or finding the Minimum, if it's
+a Min Heap; and a lot of the times in Binary Heaps, in Priority Queues you have
+a method called `findMax()` or `findMin()` that is `O(1)`, because you know
+right away that the top Root node is the Max or the Minimum; So for those
+operations it's really really fast and great. There you have it.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
