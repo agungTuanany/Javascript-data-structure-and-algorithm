@@ -17,6 +17,7 @@
 12. [Binary Heaps](#binary-heaps)
 13. [Quick Note on Heaps](#quick-note-on-heaps)
 14. [Priority Queues](#priority-queues)
+15. [Trie](#trie)
 
 </br>
 
@@ -1701,6 +1702,75 @@ a Min Heap; and a lot of the times in Binary Heaps, in Priority Queues you have
 a method called `findMax()` or `findMin()` that is `O(1)`, because you know
 right away that the top Root node is the Max or the Minimum; So for those
 operations it's really really fast and great. There you have it.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Trie
+
+We have one last Tree that I want to talk about, and that is a Trie, or Tree
+pronunciation here varies on who you ask, but let's have a lookup what it is. A
+Trie is specialized Tree used in searching most often with text as you can see
+below diagram.
+
+<!-- Image here -->
+
+![chapter-8-17.png](./images/chapter-8-17.png "Tries Tree")
+
+In most cases it can outperform Binary Search Trees, Hash tables and most other
+data structure we've been talking about depending on the type of search you're
+doing; and by just looking above diagram, you might be understand what it does.
+Trie allow you to know if a word or part of a word exists in a body of text.
+
+Trie has usually an empty Root node, which is the starting point and from there
+letters are added; you see that it's not a Binary Tree, it can have multiple
+children. In this case, all most likely have `26` children, because there's `26`
+letters in alphabet.
+
+The power of the try is, when we search for something such as an `N`, if we have
+this dictionary, we know right away that there's two words associated with the
+letter `N`, another name for a Trie is something called Prefix Tree; it's Tree
+like data structure which proved to be quite efficient in solving these problems
+specific to string, you can think of it as auto completion; when you search
+something on Google, it knows what you might be searching for, or it tries and
+completes the word for you; and this is what it's used for, for searching words
+in a dictionary providing auto suggestion on search engines, or even IP Routing.
+
+If I typed in `A`, I know immediately that all the children are related to A and
+I can print out `A` and `E`, and then `A` and `S`. The benefit of this type of
+data structure is speed and space. What you think the big show of finding a word
+in the data structure is? We're not going to go through every single node,
+instead all we need to do is find the length of the word.
+
+So, the Big-O of Trie is `O(length of the world)`. If I'm looking for the word
+`ARE`, all I do is look for `A`, then look for `R` then look for `E`. All I'm
+doing is, hitting three nodes, which are associated with the length of the
+world.
+
+ When it comes to **Space Complexity** Trie also have a major advantage, because
+we use prefixes such as `N` here, is used in different words and same with `A`,
+we don't have to store it multiple times, it's stored in one location and you
+have children linking to it, because of these prefixes you save a lot of space,
+you don't have to store the word `NOT AND USE`, you get to avoid storing that
+extra `N`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 **[⬆ back to top](#table-of-contents)**
 </br>
