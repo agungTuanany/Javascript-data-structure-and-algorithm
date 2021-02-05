@@ -18,6 +18,7 @@
 13. [Quick Note on Heaps](#quick-note-on-heaps)
 14. [Priority Queues](#priority-queues)
 15. [Trie](#trie)
+16. [Tree Review](#tree-review)
 
 </br>
 
@@ -1520,7 +1521,7 @@ Now above diagram value it can be anything you want, it can be a person's name,
 it can be a number, it can be really anything because it's a node. But as you
 can see, all we're dealing with is, that in a Binary Heap every node on the top
 level has a greater value than every node on the next level down; and a Heap can
-be used i any algorithms where _ordering is important_; and as we're going to
+be used in any algorithms where _ordering is important_; and as we're going to
 discuss, it's commonly used to when it comes to priority queues.
 
 Now with _arrays_ we had random access, it allowed us to randomly access any
@@ -1540,38 +1541,47 @@ Right can be any value, as long as it's less than the top value.
 So, if we're looking for, let's say `1` we have to check the parent node,
 because `1` is less than `101`, we have to check both nodes underneath it; and
 because `1` is less than `72` and `33` we have to once again check every single
-node and looking for `1` becomes `o(log N)`; so, pretty much turned into
+node, and looking for `1` becomes `o(log N)`; so, pretty much turned into
 searching through a Linked List or iterating through an array.
 
 So, why would we ever want to use a Binary Heap? Well, it turns out that Binary
-Heaps are really really great at doing comparative operations. Just like saying
-I want people that have a value over `33`, because in that case we can just grab
-these (`101`, `72` and `33`) items quite easily instead of going all the way
-down to the nodes.
+Heaps are really really great at doing **comparative operations**. Just like
+saying I want people that have a value over `33`, because in that case we can
+just grab these (`101`, `72` and `33`) items, quite easily instead of going all
+the way down to the nodes.
 
 > Imagine how hard that would be with a Binary Search Tree! is `O(n)`.
 
 Heaps actually used a lot in data storage, priority queues, sorting algorithms.
 So let's have a look at how Binary Heap is implemented visually.
 
-<!-- gif here -->
+</br>
+
+![chapter-8-10.gif](./images/gif/chapter-8-10.gif "Binary Heap")
+</br>
 
 We have Binary Heap here using viualgo, and if we wanted to add, let's say
 insert `26` we hit go, all right that was really fast.
 
-<!-- gif here -->
+</br>
+
+![chapter-8-11.gif](./images/gif/chapter-8-11.gif "Binary Heap")
+</br>
 
 But, what if we wanted to insert, let's say `51`, I had to do a bit of switch
 to. See Heaps add value on the Tree in order from Left to Right  and then
 bubbles up; if it's not in the same order or the priority order that is `1` kind
 like we did here.
 
-<!-- gif here -->
+</br>
+
+![chapter-8-12.gif](./images/gif/chapter-8-12.gif "Binary Heap")
+</br>
 
 So, if I add, let's say `100`, what you think will happen? Well, if I hit go,
 you'll see I add a `100` and then it bubbles up. So, as you can see Insert,
-although it looks fast can still take `O(log N)`, and these is the same case
-with Deletes as well is `O(log N)`.
+although it looks fast, can still take `O(log N)` in Worst Case, and `0(1)` in
+Best Case  , and these is the same case with Deletes as well is `O(log N)`.
 
 Now, in order to truly understand why we need something like a Binary Heap, why
 they're so useful, how they're different from Binary Search Tree, we need to
@@ -1714,8 +1724,6 @@ pronunciation here varies on who you ask, but let's have a lookup what it is. A
 Trie is specialized Tree used in searching most often with text as you can see
 below diagram.
 
-<!-- Image here -->
-
 ![chapter-8-17.png](./images/chapter-8-17.png "Tries Tree")
 
 In most cases it can outperform Binary Search Trees, Hash tables and most other
@@ -1755,23 +1763,23 @@ have children linking to it, because of these prefixes you save a lot of space,
 you don't have to store the word `NOT AND USE`, you get to avoid storing that
 extra `N`.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Tree Review
+
+Although there are a ton of Trees as you can saw, and we even talked about a lot
+of Trees. The way they work though beyond some small logic, such as differences
+you saw in Binary Search Trees, in Binary Heaps and Priority Queues.
+
+As long as you understand how to build one from scratch like we did (because
+that is what you need to know for an interview or in your real life), the small
+variations are fairly easy to pickup; so, that now you have the ability to
+construct other Trees as needed (or on the job). Remember that Wikipedia page
+with a ton of Tree data structure, they shouldn't look as intimidating to you
+anymore.
+
+At the end of the day, they're just structures with a few different rules apply
+to them, something that you should be easily be able to do with a bit of
+research.
