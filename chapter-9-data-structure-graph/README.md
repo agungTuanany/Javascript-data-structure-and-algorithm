@@ -3,6 +3,7 @@
 ## Table of Contents
 
 1. [Graph Introduction](#graph-Introduction)
+2. [Types of Graphs](#types-of-graphs)
 
 </br>
 
@@ -12,7 +13,10 @@ Let's learn about the last data structure in this course, Graphs; Graphs are one
 of the most useful and most used data structure in computer science. When it
 come to modeling real life.
 
+</br>
+
 ![chapter-9-1.png](./images/chapter-9-1.png "Graphs Introduction")
+</br>
 
 In short a Graph is simply a set of values that are related in a pair wise
 fashion; and you can see above, it's look a little network, there's connection
@@ -51,6 +55,89 @@ learned before, such as Trees and Linked List. Linked List are type of Tree.
 Trees are a type of Graph.
 
 So, in the next couple lectures, let's learn all about Graphs.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Types of Graphs
+
+As we saw, there are many types of Graphs but there are certain characteristics
+that allow us to describe, let's go over them.
+
+</br>
+
+![chapter-9-2.gif](./images/gif/chapter-9-2.gif "Types of Graphs Directed vs
+Undirected")
+</br>
+
+One thing that you really want to get yourself familiar with, is the ida of
+**Directed** and **Undirected**. These types of Graphs are useful for describing
+traffic flow for example; of some kind of a system in which movement is not by
+directional, that means like where I can go back and forth between nodes, I can
+only go in one direction.
+
+A good think about Undirected Graph is, to think of as a highway between two
+cities, where you can go back and forth. On the other hand Directed Graphs will
+be a one way street, where you can only go one way.
+
+Another way to think about it, is Facebook, what kind of Graph do you think
+Facebook has? Well, it has an Undirected Graph, because when I'm connected to a
+friend, that friend is also connected to me, it's not one way.
+
+What about Twitter? Twitter is more Directed, because if I have my profile,
+people can follow me, and I can follow people, but if somebody follows me I
+don't automatically follow them. So Twitter is more Directed.
+
+</br>
+
+![chapter-9-3.gif](./images/gif/chapter-9-3.gif "Types of Graphs Unweighted  vs
+Weighted")
+</br>
+
+Another way to describe Graph is, the idea of Weighted Graphs, Unweighted
+Weighted Graphs; and as you can see from above images, values can be applied to
+various aspects of a Graph, not just the nodes; remember the nodes can carry any
+type of information but with Graphs you can also have information in the Edges,
+and the connections. Maybe you're going on a trip, and try to figure out the
+most efficient way to visit sites that interest you. Well in that case, Google
+Maps would use a Weighted Graph to decide what is the shortest path for you to
+get there.  These sort of Graphs are used a lot in calculating optimal paths,
+the fastest way to get to let's say `1` to `6`.
+
+</br>
+
+![chapter-9-4.gif](./images/gif/chapter-9-4.gif "Types of Graphs Cyclic  vs
+Acyclic")
+</br>
+
+Lastly, another way to describe Graph is Cyclic or Acyclic; when you have
+vertices connected in a circular fashion, it called a cycle; when you can go
+from one node to another to another and then back to that original; versus
+Acyclic where you can't do that.
+
+Cyclic Graphs are really common in, an especially Weighted Graphs, such as
+Google Maps, because most of the time there is a way to get back.
+
+So, now that we understand a few ways to describe Graphs, let me show you my
+favorite Graphs of all time.
+
+</br>
+
+![chapter-9-5.gif](./images/gif/chapter-9-5.gif "Types of Graphs")
+</br>
+
+Above images is my Favorite Graphs. It's by the Opti project, and it is a
+partial map of the internet.
+
+If you look on detail here, you see that we have IP addresses connecting to IP
+addresses, and these are all nodes connected to create the internet, pretty
+spectacular right? 
+
+That is the best example of a Graph. 
+
+So, now we understand or at least have a basic understanding of Graphs, let's do
+a nice fun exercise.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
