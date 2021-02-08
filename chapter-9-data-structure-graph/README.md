@@ -4,6 +4,7 @@
 
 1. [Graph Introduction](#graph-Introduction)
 2. [Types of Graphs](#types-of-graphs)
+3. [Exercise Guess The Graph](#exercise-guess-the-graph)
 
 </br>
 
@@ -127,7 +128,7 @@ favorite Graphs of all time.
 ![chapter-9-5.gif](./images/gif/chapter-9-5.gif "Types of Graphs")
 </br>
 
-Above images is my Favorite Graphs. It's by the Opti project, and it is a
+Above images is my Favorite Graphs. It's by the _Opti project_, and it is a
 partial map of the internet.
 
 If you look on detail here, you see that we have IP addresses connecting to IP
@@ -142,3 +143,77 @@ a nice fun exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Exercise Guess The Graph
+
+
+We have our best friend visualgo, and once again hey have a great diagram for
+us to play with. Now I'm going to give you four different Graphs, and you're
+going to have to tell me what type of Graph it is based on while we've learn so
+far, whether it's Weighted, Cyclic, Undirected, Directed.
+
+
+</br>
+
+<!-- small pic of up = 1st -->
+![chapter-9-2.png](./images/chapter-9-2.png "Exercise guess Graph")
+</br>
+
+What do you think above one is?  Before I show you the answer. Above diagram is
+Undirected Graph, there's no arrow Unweighted Graph, and you can see it's also
+Cyclic, because you can go from `0`, `1`, `2' and back to `0`.
+
+</br>
+
+<!-- small pic of up = 1st -->
+![chapter-9-3.png](./images/chapter-9-3.png "Exercise guess Graph")
+</br>
+
+What about next one, what type of Graph above is? Well, this is an Undirected
+Weighted Graph that's also Cyclic. So, you can see that we've weights on the
+edges here, there's no arrows, we can go anywhere we want, back and forth, and
+we can also make Cyclic.
+
+</br>
+
+<!-- small pic of up = 1st -->
+![chapter-9-4.png](./images/chapter-9-4.png "Exercise guess Graph")
+</br>
+
+
+What about this one? Above Graph is a Directed Graph, but Unweighted; and yes
+even `6` and `7` here are Graph; but we see here, that it's not Cyclic, it's
+Acyclic because there's no way for me to go back. Let's say `0` to `1`, I can go
+back to `0`.
+
+</br>
+
+<!-- small pic of up = 1st -->
+![chapter-9-4.png](./images/chapter-9-4.png "Exercise guess Graph")
+</br>
+
+What about this one? This, is a Directed Weighted Graph. We have weights, has
+direction, and when it comes to Cyclic? No, they are no cycles, it's Acyclic.
+
+The final challenge, what type of Graph below?
+
+</br>
+
+<!-- small pic of up = 1st -->
+![chapter-9-4.png](./images/chapter-9-4.png "Exercise guess Graph")
+</br>
+
+Above Graph is a Directed Acyclic Graph. There's no Cyclic, and it's a Graph.
+This Directed Acyclic Graph is quite common and called **DAGH**; and actually a
+project like **_Ioata_** which is a pretty popular blogging project uses this
+Graph, and use fancy words like Directed Acyclic Graph; but at the end of the
+day, that's not impressive anymore right? We know what that is, just simply
+**_Graph that goes in one direction_**.
+
+I think it's time for us to learn how to build our own Graph. I'll see you in
+the next chapter.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
