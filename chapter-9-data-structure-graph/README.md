@@ -6,6 +6,7 @@
 2. [Types of Graphs](#types-of-graphs)
 3. [Exercise Guess The Graph](#exercise-guess-the-graph)
 4. [Graph Data](#graph-data)
+5. [Exercise Graph Implementation](#exercise-graph-implementation)
 
 </br>
 
@@ -386,6 +387,144 @@ But, we've just taken a loo at a lot of numbers; I think it's time for us to
 build our own Graph to finalize our understanding.
 
  I'll see you in the next time.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Graph Implementation
+
+It's time to create our own Graph, and I've created template here for you. You
+can also create your own if you want, but I've include things that lets you
+focus on the critical part.
+
+```javascript
+class Graph { 
+    constructor() { 
+	this.numberOfNodes = 0;
+	this.adjacentList = {
+	}; 
+    } 
+    addVertex(node)  { 
+    } 
+    addEdge(node1, node2) { 
+	//undirected Graph 
+    } 
+    showConnections() { 
+
+	const allNodes = Object.keys(this.adjacentList); 
+	for (let node of allNodes) { 
+
+	    let nodeConnections = this.adjacentList[node]; 
+	    let connections = ""; 
+	    let vertex;
+
+	    for (vertex of nodeConnections) {
+		connections += vertex + " ";
+	    } 
+	    console.log(node + "-->" + connections); 
+	} 
+    } 
+} 
+
+const myGraph = new Graph();
+myGraph.addVertex('0');
+myGraph.addVertex('1');
+myGraph.addVertex('2');
+myGraph.addVertex('3');
+myGraph.addVertex('4');
+myGraph.addVertex('5');
+myGraph.addVertex('6');
+myGraph.addEdge('3', '1'); 
+myGraph.addEdge('3', '4'); 
+myGraph.addEdge('4', '2'); 
+myGraph.addEdge('4', '5'); 
+myGraph.addEdge('1', '2'); 
+myGraph.addEdge('1', '0'); 
+myGraph.addEdge('0', '2'); 
+myGraph.addEdge('6', '5');
+
+myGraph.showConnections(); 
+//Answer:
+// 0-->1 2 
+// 1-->3 2 0 
+// 2-->4 1 0 
+// 3-->1 4 
+// 4-->3 2 5 
+// 5-->4 6 
+// 6-->5
+```
+
+We have a Graph class and a few methods that we're going to have to add.
+
+</br>
+
+![chapter-9-6.png](./images/chapter-9-6.png "Exercise guess Graph")
+</br>
+
+Now, we are going to recreate a Graph right above, Undirected Unweighted Graph
+like above using Adjacency List; and for Adjacency List, we're going to use a
+Hash Table. So, how we going to go about doing this?
+
+Well, I have a few things that I've set up for you. First, we have in the
+`constructor()` simply `numberOfNodes` that will have to increment, just to keep
+track of how many nodes or _Vertexes_ or _Vertices_ we have in our Graph. Also
+I've created the `adjacentList` for you, which is an object.
+
+As you do this exercise, you're going to realize why we want to use, let's say
+an object versus an array, because if we start removing things from the Graph,
+or placing things in the Graph that's out of order, it's going to cost us a lot.
+Remember arrays on shifting?, and shifting is expensive. With objects, we can
+quickly find items and see their connections, so that ideally in this case where
+we take look at `0`, in this case will have `0` is going to be connected to an
+array of its connection which will be `[1, 2]`. So, I'll have something like
+
+```javascript
+0: [1, 2]
+```
+
+Your task is to add a new method called `addVertex()`, that adds a new node or
+vertex, the naming here kind of goes back and forth; and then also `addEdge()`,
+that is to add a connection between node `1` and nod `2`. Keep in mind this is
+Undirected Graph, so both node `1` and node `2` point to each other.
+
+If you scroll down in above code, I've actually created the function calls that
+we're going to do. We've created the `Graph()`, and then I'm creating `0` all
+the way through `6`, just like we have on the Graph diagram above; and then
+we're going to add the **_edges_**, that is the connection between everything.
+`1` is connected to `0`, `0` is connected to `2`, `6' is connected to `5`;
+simply just saying this, "I'm never repeating myself", that means I'm never
+saying add `3` in `1`, and then saying add edge `1` and `3`. I only say this
+once, and that's the key.
+
+Also, the order doesn't matter, if I switch the order of these calls around, it
+should still give me above Graph diagram.
+
+Alright, I know you excited to get going, but the final thing, and this is only
+optional, if you want to do this yourself you can also code yourself, but is not
+really that important for this lecture. I've created a small helper function
+called `showConnections()`, and you can look through this function if you want,
+it's not really important to the core of the course; but I've made this, so you
+can check your work, because If I run this at the end
+`myGraph.showConnections()`, it's going to printout the answer like this,
+
+```javascript
+//Answer:
+// 0-->1 2 
+// 1-->3 2 0 
+// 2-->4 1 0 
+// 3-->1 4 
+// 4-->3 2 5 
+// 5-->4 6 
+// 6-->5
+```
+
+It's going to show all the connections of the Graphs that you've created; and
+this way, you can check that these connections that is node `4` is connected to
+`[3, 2, 5]`, just like we have in above diagram.
+
+Alright, that enough for me. Good luck, and I'll see you in the next solution
+lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
