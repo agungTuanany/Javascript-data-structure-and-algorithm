@@ -138,9 +138,9 @@ partial map of the internet.
 
 If you look on detail here, you see that we have IP addresses connecting to IP
 addresses, and these are all nodes connected to create the internet, pretty
-spectacular right? 
+spectacular right?
 
-That is the best example of a Graph. 
+That is the best example of a Graph.
 
 So, now we understand or at least have a basic understanding of Graphs, let's do
 a nice fun exercise.
@@ -244,7 +244,7 @@ like this.
 ![chapter-9-11.png](./images/chapter-9-11.png "Simple Graph")
 </br>
 
-Let's say we want to build this Graph, how wold we go about doing this?. 
+Let's say we want to build this Graph, how wold we go about doing this?.
 
 ### Edge List
 
@@ -399,33 +399,33 @@ can also create your own if you want, but I've include things that lets you
 focus on the critical part.
 
 ```javascript
-class Graph { 
-    constructor() { 
+class Graph {
+    constructor() {
 	this.numberOfNodes = 0;
 	this.adjacentList = {
-	}; 
-    } 
-    addVertex(node)  { 
-    } 
-    addEdge(node1, node2) { 
-	//undirected Graph 
-    } 
-    showConnections() { 
+	};
+    }
+    addVertex(node)  {
+    }
+    addEdge(node1, node2) {
+	//undirected Graph
+    }
+    showConnections() {
 
-	const allNodes = Object.keys(this.adjacentList); 
-	for (let node of allNodes) { 
+	const allNodes = Object.keys(this.adjacentList);
+	for (let node of allNodes) {
 
-	    let nodeConnections = this.adjacentList[node]; 
-	    let connections = ""; 
+	    let nodeConnections = this.adjacentList[node];
+	    let connections = "";
 	    let vertex;
 
 	    for (vertex of nodeConnections) {
 		connections += vertex + " ";
-	    } 
-	    console.log(node + "-->" + connections); 
-	} 
-    } 
-} 
+	    }
+	    console.log(node + "-->" + connections);
+	}
+    }
+}
 
 const myGraph = new Graph();
 myGraph.addVertex('0');
@@ -435,23 +435,23 @@ myGraph.addVertex('3');
 myGraph.addVertex('4');
 myGraph.addVertex('5');
 myGraph.addVertex('6');
-myGraph.addEdge('3', '1'); 
-myGraph.addEdge('3', '4'); 
-myGraph.addEdge('4', '2'); 
-myGraph.addEdge('4', '5'); 
-myGraph.addEdge('1', '2'); 
-myGraph.addEdge('1', '0'); 
-myGraph.addEdge('0', '2'); 
+myGraph.addEdge('3', '1');
+myGraph.addEdge('3', '4');
+myGraph.addEdge('4', '2');
+myGraph.addEdge('4', '5');
+myGraph.addEdge('1', '2');
+myGraph.addEdge('1', '0');
+myGraph.addEdge('0', '2');
 myGraph.addEdge('6', '5');
 
-myGraph.showConnections(); 
+myGraph.showConnections();
 //Answer:
-// 0-->1 2 
-// 1-->3 2 0 
-// 2-->4 1 0 
-// 3-->1 4 
-// 4-->3 2 5 
-// 5-->4 6 
+// 0-->1 2
+// 1-->3 2 0
+// 2-->4 1 0
+// 3-->1 4
+// 4-->3 2 5
+// 5-->4 6
 // 6-->5
 ```
 
@@ -510,12 +510,12 @@ can check your work, because If I run this at the end
 
 ```javascript
 //Answer:
-// 0-->1 2 
-// 1-->3 2 0 
-// 2-->4 1 0 
-// 3-->1 4 
-// 4-->3 2 5 
-// 5-->4 6 
+// 0-->1 2
+// 1-->3 2 0
+// 2-->4 1 0
+// 3-->1 4
+// 4-->3 2 5
+// 5-->4 6
 // 6-->5
 ```
 
@@ -526,6 +526,108 @@ this way, you can check that these connections that is node `4` is connected to
 Alright, that enough for me. Good luck, and I'll see you in the next solution
 lecture.
 
+### Solution Graph Implementation
+
+This is actually extremely simple, but it looks overly complex, and that's a
+general trend with Graphs, they look really really intimidating at first, and
+really hard to think about them in your mind; But once you put things down,
+understand things, maybe draw things out, they're actually quite simple, and
+they're very similar to what we've learned up untill now. Everything we've
+learned about Hash Tables, Arrays, Trees, Linked List are all parth of Graphs;
+and Graphs simply use those data structure.
+
+For those of you that weren't able to solve this problem, it might be because
+you were a little bit intimidated ast to the task at hand; but, let me show you
+how simple this can be. In order to add a _vertex_ to our Adjacency List,
+
+```javascript
+addVertext(node) {
+    this.adjacentList[node] = [];
+    this.numberOfNodes++;
+
+    console.log(node)
+}
+// Result
+// 0-->
+// 1-->
+// 2-->
+// 3-->
+// 4-->
+// 5-->
+// 6-->
+````
+
+All we need to do is to simply say `this.adjacentList[node]`; so, we're adding
+the _key_ into this _object_ of the know that we want to add, that going to
+equal an empty array `[]`. Because, when we enter a new node, it's not going to
+have connection initially, we want to add the Edge afterwards; and then finally
+we want to increase the `numberOfNodes++` by `1`, now we have one more; that's
+it, we've just created our nodes.
+
+If I run this, we have `0` all the way through `6`, and they are in our
+Graph. Unfortunately, none of them connect to anything, we've just created the
+nodes, but not the Edges. So let's go ahead and do that.
+
+```javascript
+addEdge(node1, node2) {
+    this.adjacentList[node1].push(node2)
+    this.adjacentList[node2].push(node1)
+}
+// Result
+// 0-->1 2
+// 1-->3 2 0
+// 2-->4 1 0
+// 3-->1 4
+// 4-->3 2 5
+// 5-->4 6
+// 6-->5
+
+```
+
+With the Edges, because this is is Undirected Graph; Well, we'll have to do is
+say, `this.adjacentList` is going to a `[node1]`, that is the first node that
+we're giving, and the `node1` is going to push, remember this is an Object so
+we're getting the _key_, so that is, let's say that is `node0` is going to push
+to the array of connections that knows your house (array), and say that it's
+going to be connected to `node2`.
+
+Because this is Undirected, that means we have to do it the other way around as
+well; so, we simply copy `this.adjacentList[node1].push(node2)`, and we simply
+reverse things; so, `node2` is also connected to `node1`.
+
+If, I run this, here look at that we have our Graph, how simple as that, that
+wasn't bad right?; and I mean we could cease this in a Linked List if we wanted
+to, but the concept is the same.
+
+If we look at `0`, that is connected to `[1. 2]`, we can confirm that `0` is
+connected to `[1. 2]`; If we look at `1` is connected to `[3, 2, 0]`, and let's
+check maybe `5` which is connected to `[4, 6, 5]`. There it is, we've just
+created our very first Graph.
+
+When it comes to interviews, Graphs aren't as big of a topic as the other data
+structures mostly, because they take a bit of time and questions regarding
+Graphs can be overly complex. That doesn't mean that you won't see them, but
+they are rare.
+
+However, by knowing the basic fundamentals, what types of Graphs we have, and
+how create graphs? how you might want to hold data and Graphs such as Adjacency
+Matrix, Adjacency List, and Edge list?
+
+You already show, that you have the ability to understand Graphs, which is an
+advanced concepts. Now because Graph question aren't that big a part of
+interviews, we won't be spending any more coding time on it. But also, keep in
+mind, that we have a section coming up on algorithms, where we're going to dive
+a little bit deeper into things, such as **_Breadh First Search_**, and _Depth
+First Search_, which can be applied both to Graphs and Trees.
+
+So, if you can feel, like you can still learn a bt about Graphs, don't worry,
+we're still getting there, but for now, congratulations on creating your first
+Graph, I'll see you in the next lecture.
+
+
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+
+<!-- set textwidth=80 tabstop=8 shiftwidth=4 softtabstop=4 -->
