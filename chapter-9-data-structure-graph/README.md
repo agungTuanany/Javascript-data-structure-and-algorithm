@@ -8,6 +8,7 @@
 4. [Graph Data](#graph-data)
 5. [Exercise Graph Implementation](#exercise-graph-implementation)
 6. [Graph Review](#graph-review)
+7. [Data Structures Review](#data-structures-review)
 
 </br>
 
@@ -621,7 +622,7 @@ mind, that we have a section coming up on algorithms, where we're going to dive
 a little bit deeper into things, such as _Breadth First Search_ and _Depth First
 Search_, which can be applied both to Graphs and Trees.
 
-So, if you can feel, like you can still learn a bt about Graphs, don't worry,
+So, if you can feel, like you can still learn a bit about Graphs, don't worry,
 we're still getting there, but for now, congratulations on creating your first
 Graph, I'll see you in the next lecture.
 
@@ -631,33 +632,71 @@ Graph, I'll see you in the next lecture.
 
 ## Graph Review
 
-What are the pros and cons of Graphs? Well, when it comes to perfomance and
-Big-O notation, it gets a litlle bit complicated, because there are so many
+What are the pros and cons of Graphs? Well, when it comes to performance and
+Big-O notation, it gets a little bit complicated, because there are so many
 different types of Graphs. You can think of Graphs as really useful when it
 comes to relationships, they're simply indispensable, because some data just
 needs to be in a Graph form, there's no other way around it; and there are
 algorithms around Graph, such as the ones we're going to be talking about in the
-algorithm section that allows us to perfom some operations such as _finding the
+algorithm section that allows us to perform some operations such as _finding the
 shortest path_ or _traversing a Graph_.
 
 But, when it comes to Graphs, because they can get complicated, scaling is
 pretty hard. You need a big company or at least a lot of resources and
 engineering power to make sure that you build Graph data structures that scale
-well; but, luckily for us will never have to implement your own Grahp in
+well; but, luckily for us will never have to implement your own Graph in
 production or at least 99% of the population, there are tools like
 [neo4j](https://neo4j.com) which is popular database that allows you to build
 really fast Graph databases, and most of the time you'll use tools like this to
 build complex structures to contain our data.
 
-Congratulations, We've now covered anphter part of our data structure mind map,
-that is Graphs. We've learned about Acyclic or Cyclic, Weighted or inweighted,
+Congratulations, We've now covered all part of our data structure mind map, that
+is Graphs. We've learned about Acyclic or Cyclic, Weighted or unweighted,
 Directed or Undirected. We were also able to build our own Graph.
 
 Now, there's still a few things left, that I see up there, and perhaps over here
-which we're going to get into the algorithm sectionm, but for now take a break,
-drink some coffe or tea and I'll see you in the next lecture.
+which we're going to get into the algorithm sections, but for now take a break,
+drink some coffee or tea and I'll see you in the next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Data Structures Review
+
+There we have it, our end to the data structures section, was it as scary as you
+initially thought? Hopefully, by the end of this section, if you've watched all
+the vidoes and write down all the exercises, you'll feel a lot more comfortable.
+You can use the tools that you've learned to be a better engineer, and make
+better decision.
+
+We've learned that these data structures, at the end of the day are our friends
+in every time we want to build some programs.
+
+Anyway, I hope you're no longer intimidated by the subject, because all around
+us when we look at technology, they're all built by data structures. We hold
+information in data structure; no matter how many data structure there are and
+there will be in the future, most of the building blocks are right here.
+
+</br>
+
+![chapter-9-12.png](./images/chapter-9-12.png "Block Chain")
+</br>
+
+You see something like block chain, that has become popular in recent years, are
+just data structures that we've learned about. It has some aspects of Linked
+List, it has some Hashing, that it does we know about, and it also uses some
+Trie data structure and Trees.
+
+Having the fundamentals you have now; one day, maybe you'll build your own data
+structure.
+
+
+
+
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
 <!-- set textwidth=80 tabstop=8 shiftwidth=4 softtabstop=4 -->
