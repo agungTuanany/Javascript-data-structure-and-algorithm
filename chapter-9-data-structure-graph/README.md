@@ -7,6 +7,7 @@
 3. [Exercise Guess The Graph](#exercise-guess-the-graph)
 4. [Graph Data](#graph-data)
 5. [Exercise Graph Implementation](#exercise-graph-implementation)
+6. [Graph Review](#graph-review)
 
 </br>
 
@@ -555,7 +556,8 @@ addVertext(node) {
 // 4-->
 // 5-->
 // 6-->
-````
+```
+
 
 All we need to do is to simply say `this.adjacentList[node]`; so, we're adding
 the _key_ into this _object_ of the know that we want to add, that going to
@@ -581,7 +583,6 @@ addEdge(node1, node2) {
 // 4-->3 2 5
 // 5-->4 6
 // 6-->5
-
 ```
 
 With the Edges, because this is is Undirected Graph; Well, we'll have to do is
@@ -610,24 +611,53 @@ Graphs can be overly complex. That doesn't mean that you won't see them, but
 they are rare.
 
 However, by knowing the basic fundamentals, what types of Graphs we have, and
-how create graphs? how you might want to hold data and Graphs such as Adjacency
+how create graphs? How you might want to hold data and Graphs such as Adjacency
 Matrix, Adjacency List, and Edge list?
 
 You already show, that you have the ability to understand Graphs, which is an
 advanced concepts. Now because Graph question aren't that big a part of
 interviews, we won't be spending any more coding time on it. But also, keep in
 mind, that we have a section coming up on algorithms, where we're going to dive
-a little bit deeper into things, such as **_Breadh First Search_**, and _Depth
-First Search_, which can be applied both to Graphs and Trees.
+a little bit deeper into things, such as _Breadth First Search_ and _Depth First
+Search_, which can be applied both to Graphs and Trees.
 
 So, if you can feel, like you can still learn a bt about Graphs, don't worry,
 we're still getting there, but for now, congratulations on creating your first
 Graph, I'll see you in the next lecture.
 
-
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
 
+## Graph Review
 
+What are the pros and cons of Graphs? Well, when it comes to perfomance and
+Big-O notation, it gets a litlle bit complicated, because there are so many
+different types of Graphs. You can think of Graphs as really useful when it
+comes to relationships, they're simply indispensable, because some data just
+needs to be in a Graph form, there's no other way around it; and there are
+algorithms around Graph, such as the ones we're going to be talking about in the
+algorithm section that allows us to perfom some operations such as _finding the
+shortest path_ or _traversing a Graph_.
+
+But, when it comes to Graphs, because they can get complicated, scaling is
+pretty hard. You need a big company or at least a lot of resources and
+engineering power to make sure that you build Graph data structures that scale
+well; but, luckily for us will never have to implement your own Grahp in
+production or at least 99% of the population, there are tools like
+[neo4j](https://neo4j.com) which is popular database that allows you to build
+really fast Graph databases, and most of the time you'll use tools like this to
+build complex structures to contain our data.
+
+Congratulations, We've now covered anphter part of our data structure mind map,
+that is Graphs. We've learned about Acyclic or Cyclic, Weighted or inweighted,
+Directed or Undirected. We were also able to build our own Graph.
+
+Now, there's still a few things left, that I see up there, and perhaps over here
+which we're going to get into the algorithm sectionm, but for now take a break,
+drink some coffe or tea and I'll see you in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
 <!-- set textwidth=80 tabstop=8 shiftwidth=4 softtabstop=4 -->
