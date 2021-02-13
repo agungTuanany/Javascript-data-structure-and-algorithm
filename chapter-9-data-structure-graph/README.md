@@ -9,6 +9,7 @@
 5. [Exercise Graph Implementation](#exercise-graph-implementation)
 6. [Graph Review](#graph-review)
 7. [Data Structures Review](#data-structures-review)
+8. [What Else Is Coming Up](#what-else-is-coming-up)
 
 </br>
 
@@ -651,7 +652,7 @@ really fast Graph databases, and most of the time you'll use tools like this to
 build complex structures to contain our data.
 
 Congratulations, We've now covered all part of our data structure mind map, that
-is Graphs. We've learned about Acyclic or Cyclic, Weighted or unweighted,
+is Graphs. We've learned about Acyclic or Cyclic, Weighted or Unweighted,
 Directed or Undirected. We were also able to build our own Graph.
 
 Now, there's still a few things left, that I see up there, and perhaps over here
@@ -683,7 +684,7 @@ there will be in the future, most of the building blocks are right here.
 ![chapter-9-12.png](./images/chapter-9-12.png "Block Chain")
 </br>
 
-You see something like block chain, that has become popular in recent years, are
+You see something like **block chain**, that has become popular in recent years, are
 just data structures that we've learned about. It has some aspects of Linked
 List, it has some Hashing, that it does we know about, and it also uses some
 Trie data structure and Trees.
@@ -691,8 +692,41 @@ Trie data structure and Trees.
 Having the fundamentals you have now; one day, maybe you'll build your own data
 structure.
 
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
 
+## What Else Is Coming Up
 
+</br>
+
+![chapter-9-13.png](./images/chapter-9-13.png "What else is coming")
+</br>
+
+We've just completed our data structure section. We went through all these data
+structures even some sub data structure, and you know what? We've completed a
+lot of this mind map. We've talked about arrays, we've talked about Stack and
+Queues, we've talked about Hash Tables, Linked Lists, Trees, and all types of
+Trees that we have. We even talked about Graphs, all these little boxes that are
+data structure. We now have an understanding of what they are, and how they're
+used.
+
+But, there's a few other pieces of mind map that we need to go through, and that
+is algorithms, and you'll see algorithms depicted here in rocket ship. Our last
+piece of puzzle, but you might still have a few questions that haven't been
+answered and there are some things that I left out, because they apply more to
+algorithms when it comes to **Sorting**, we are going to use arrays and Trees,
+when it come to **Dynamic Programming** we're going to be talked about Hash
+Tables, when it talk about **Breadth First Search**  and **Depth First Search**
+that's used in Graphs and Trees, **Recursion**, well that comes up a lot in
+Trees as well.
+
+Now, that we have our fundamentals for data structures, we're now ready to talk
+about these algorithms, that comes up a lot in interviews, because we now
+understand how data structures work, we're able to talk about algorithms
+intelligently and understand them at a fundamental level.
+
+I'll see you in algorithms section
 
 
 **[⬆ back to top](#table-of-contents)**
