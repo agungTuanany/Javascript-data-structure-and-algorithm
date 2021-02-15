@@ -2,6 +2,7 @@
 
 ## Table of Contents
 1. [Introduction to Algorithms](#introduction-to-algorithms)
+2. [Recursion Introduction](#recursion-introduction)
 
 
 </br>
@@ -33,6 +34,7 @@ Binary Search Trees. Algorithms allow us to use these data structures to perform
 actions on that data.
 
 </br>
+
 ![chapter-10-1.png](./images/chapter-10-1.png "Introduction to algorithms)
 </br>
 
@@ -44,6 +46,7 @@ matter most in you career; specifically we're going to go over these topics,
 when it comes to algorithms.
 
 </br>
+
 ![chapter-10-2.png](./images/chapter-10-2.png "Introduction to algorithms)
 </br>
 
@@ -63,6 +66,103 @@ something that has a linear time complexity to `O(log N)`; and these are used
 everywhere in large companies, because large companies handle a lots of inputs,
 lots of data; so, this topics is extremely important to them, and as your career
 grows and grows, these topics will be more and more important to you.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+
+## Recursion Introduction
+
+I'm actually starting with a bit of a trick here; recursion, which we're going
+to talk about in the next couple of lectures, isn't technically an algorithm,
+it's more of a concept that we are going to use throughout this section of the
+course to write some really interesting algorithms when we get into _sorting_
+and _searching_ through a Binary Search Tree, we're going to be using recursion
+a lot; so, I want to prepare you, and obviously it's also a common topic in
+interviews.  Actually this is the most popular topics I would say when it comes
+to interview.
+
+
+Now, what is Recursion? Really, when you're searching for files on a computer;
+for example, if you're on your desktop and you want to find all music files
+you're using MP3 files on your computer, you can't do it by just looking at one
+folder, you want to look at folders recursively to find all your music. Let me
+show you what I mean.
+
+
+I have the [project
+here](htttps://github.com/aneagoie/smart-brain-boost-api-dockerized) that we've
+used for one of my other courses and it's a back-end API in Docker. Now,, life
+cloned this repository, and I have it right here on my desktop, now If I want to
+search through all the files in this project I can simply type an `ls` to show
+me the files; but as you see, in blue here we also have folders that inside of
+them also have files, how can I also see the files in this blue folders? I can
+do something called `ls -R`, `-R` stand for recursively, if I do press Enter
+loot at that, I get also the files inside of the folders. You see I have a
+controllers folder with `.js` files, I have postgres folder with some
+`Dokcerfile`, some  `.sql` file, and with in those I also have another folder that
+has different files but, because I was able to lust items recursively, my
+computer went inside of each folder and printed out the files.
+
+
+So, what is Recursion? Well, recursion is when you define something in terms of
+itself, simply it's a function that refers to itself inside of the function.
+Alright there's no way you get that right? That's probably the most confusing
+definition ever.
+
+```javascript
+function inception() {
+    inception();
+};
+```
+
+Again, let me show you a different example; If I open the console on browser, a
+recursive function is a functions that refers to itself. So i can create a
+function called, let's say `inception()`, and this function is recursive if I
+refer to itself inside of it.  This is a recursive function; because, when this
+function runs, it's going to call itself and run again.
+
+The problem with recursion, and why people find it so difficult is, that it's
+and intimidating topic when people start talking about math and theoretical
+applications; instead, let's focus here on how recursion helps us to solve
+problems. Recursion is really good for tasks that have repeated subtasks to do
+that, that it. It kind of like when we looked at the folders inside of this
+project, and the reason recursion is so important and the reason that I talk
+about it first in this section before we dive into all the other algorithms is,
+that this concepts us going to be used in _searching_ and _sorting_  algorithms
+that we're going to be talking about; for example, _traversing a Tree_, if you
+think about it, are simply same tasks that we do over and over again.
+
+```javascript
+function traverse(node) {
+    const tree = { value: node.value };
+
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? null : traverse(node.right);
+    console.log(tree)
+
+        return tree;
+};
+```
+
+Remember when we build our own Tree data structure, our Binary Search Tree, and
+I gave you a little function at the end called `traverse()` that allowed us to
+print out our Tree, so we can verify our answer. If we look at this closer, we
+see that we're using recursion here.
+
+I have `traverse()` functions that calls itself within here, and this is
+something that we're going to demonstrate a lot when we talk about _searching_
+and _sorting_ in the upcoming sections.
+
+Recursion is everywhere. When we do DOM traversal on a Website, if we go to
+elements here, when we do this traversal on an HTML Document Object Model we're
+using recursion. In JavaScript, when we have a nested object, so an object
+inside of an object; well, we use recursion, but the key to getting recursion is
+to understand, hat it's not that complex, as long as you practice it a little
+bit, once you get it, and get over the initial hump, then it becomes second
+nature; and my goal by the end this lectures, that you're going to get
+recursions, so let's get started.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
