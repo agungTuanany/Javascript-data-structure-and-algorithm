@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Introduction to Algorithms](#introduction-to-algorithms)
 2. [Recursion Introduction](#recursion-introduction)
+3. [Stack Overflow](#stack-overflow)
 
 
 </br>
@@ -163,6 +164,117 @@ to understand, hat it's not that complex, as long as you practice it a little
 bit, once you get it, and get over the initial hump, then it becomes second
 nature; and my goal by the end this lectures, that you're going to get
 recursions, so let's get started.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+
+## Stack Overflow
+
+I'm about to show you my favorite animation of the course, I'm very proud of it;
+So, don't laugh at me if you think it's so.
+
+I like to think Recursion as this scenario, where you have this top pouring
+water into a glass for this little man that's sitting on the couch watching TV;
+and when I think about Recursion, I like to think that they have two big
+problems. One, is that, well they're kind of difficult to understand at first.
+The Second, is that, we can have a case like this, where I'm pouring water into
+a glass and pouring water and that is me calling the function over and over and
+over; and as we keep going fills up the cup, past it's limit, it keep going, it
+doesn't stop, it keep calling the function, keeps going to function until the
+man is drowned.
+
+What just happened here? This called Stack Overflow. Let's go back to some code.
+
+```javascript
+function inception() {
+    inception()
+}
+
+// Result:
+// Uncaught RangeError: Maximum call stack size exceeded
+```
+
+Remember the function `inception()` that we created, I run this function and
+simply I'll get an error. I get an error saying "Maximum call stack size
+exceeded". My browser is smart enough to say, "all right, you've got to stop
+this madness, I'm just calling this inception function over and over and over",
+because remember our function just calls itself, and eventually if my browser
+doesn't stop , this going to crash; and in the past, that's what would happen if
+I run this function, the browser would crash, and I would have to restart it;
+but, they've added a safeguards here saying, "hey, you've called the maximum
+call stack size, you've got stop what you're doing".
+
+Now, this is called stack overflow, why is that? Let's dive deeper into this
+topic.
+
+
+```javascript
+function inception() {
+    debugger;
+    inception();
+}
+
+```
+
+This time, I'm going to add a keyword called `debugger` that the browser is
+going to detect and pause the function when it sees this word `debugger`. So,
+I'm going to run this function and you'll notice that as soon they hit enter
+it's going to stop and give me a little panel here where I can control the
+function; let's hit enter, there you go, I'm now in debugger mode, and you'll
+see here a few things, _One_, will show me where I am, and the function and also
+show me something called **Call Stack**. Now, from the name Stack Overflow, this
+might give you a bit of hint.
+
+Right now, we've called the `inception()` function, we haven't called it the
+second time around, if I click on the _step over_ icon, it's going to go to the
+next line of code; it's going to go to the next; and now it's going to call the
+next `inception()` function.
+
+Have a look over here at the **Call Stack**, as to what's going to happen next.
+Did you see that? I just added another function on the **Call Stack**, and as we
+know about Stack data structure we're just adding the function call on top of
+the older one, and if I click _step over_, a third function call, and if I keep
+going over and over again, you'll see I'm just adding more and more things to
+the Stack.
+
+There's a problem here right? Nothing's getting popped from the stack; instead
+the function just keeps running until we run out of memory. Remember Stack in
+this case, is grabbing a piece of memory from our computer, and adding
+`inception()` to the Stack, and as you know memory is limited, we don't have
+infinite amount. So, as we keep goings, it's going to Stack Overflow, and throw
+an error; and this is one of the biggest problem with Recursion, that we're
+going to get into later on.
+
+As you see here though, it can be very very dangerous, because we can run
+programs that overflow, that never stop, that have infinite loops essentially
+that crash our programs. You also see here, that this costs memory, a Stack is
+holding these function calls, and Recursion, one of it's downside is that, we
+have to hold onto these calls and remember them one by one, which can get really
+expensive.
+
+So, if you ever get asked this question in an interview about Recursion, maybe a
+possible problem with Recursion, you can simply say, "Well, the computer need to
+allocate memory to remember things, Stack Overflow can occur when we have
+Recursion and there's no way to stop this recursive call", it's simply the
+computer saying, "I'm not remember anymore things, cause I'm out of memory, I'm
+just calling error out".
+
+In the next lecture, we're going to try and solve this problem and learn about
+something called a **Base Case**, I think that you have to have in a recursive
+function to stop it form out of memory, and not keep the function all in a Call
+Stack.
+
+
+
+
+
+
+
+
+
+
 
 **[⬆ back to top](#table-of-contents)**
 </br>
