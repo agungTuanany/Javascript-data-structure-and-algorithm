@@ -4,6 +4,7 @@
 1. [Introduction to Algorithms](#introduction-to-algorithms)
 2. [Recursion Introduction](#recursion-introduction)
 3. [Stack Overflow](#stack-overflow)
+4. [Anatomy Of Recursion](#anatomy-of-recursion)
 
 
 </br>
@@ -266,16 +267,104 @@ something called a **Base Case**, I think that you have to have in a recursive
 function to stop it form out of memory, and not keep the function all in a Call
 Stack.
 
-
-
-
-
-
-
-
-
-
-
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Anatomy Of Recursion
+
+Every recursive function needs to have something called a **_base case_** or a
+**_stop point_**. Remember my example at the beginning where I showed you how
+recursively check out all the folders in one of our projects; We have to tell
+the program, "Hey, if this subfolder we're going to no longer has any more
+folders, stop; If this stop wasn't there, the function would just keep running.
+
+So, recursive function have **two paths**, One, is the **_recursive case_**,
+that is call the function again, and run it; and then the **_base case_**, that
+is stop calling the functions, there's noting more to search.
+
+So, how can we add this feature to telling the function, "Hey, quit it, you're
+being ridiculous right now, you need to stop.". Well, we can do something like
+this,
+
+```javascript
+let counter = 0;
+
+function inception() {
+    if (counter > 3) {
+        return "done";
+};
+    counter++;
+    inception();
+};
+
+inception();
+
+// Result
+// => Undefined
+```
+
+We can create a `counter`; and we'll say, this counter is `0`; and we can add a
+_conditional statement_, will say that `if` the counter is greater that `3`, in
+that case just return `done`.
+
+Otherwise, we'll call inception; But we also want to increment the `counter++`
+by `1`.
+
+So, if I run this function right now, what do you think will happen? I get
+`undefined`.
+
+Is that what you expected? Just to show you something,
+
+```javascript
+let counter = 0;
+
+function inception() {
+//     if (counter > 3) {
+//         return "done";
+// };
+//    counter++;
+    inception();                // [1]
+    console.loog("hello?");
+};
+
+inception();                    // [2]
+
+// Result
+// => Undefined
+
+RangeError: Maximum call stack size exceeded
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+    at inception2 ()
+```
+
+If I comment above code out and we just do this `inception()` where we just keep
+inception and perhaps do a `console.log()` here, saying `"hello?"` and I click
+run. I get "`RangeError Maximum call stack size exceeded`".
+
+We know, by looking at above function, this version of the function that it's
+never going to get to `console.log()`, because as soon as it hits the first line of
+the function it's going to go back and say, "Oh, I'm calling this `[1]` " and
+then kind of go to call function at here, `[2]`, is just to bounce back and
+forth back and forth, never getting to `console.log()`.
+
+But, if we go back to what we have before, well our function clearly has ended,
+it hasn't done Stack Overflow and at one point it's ended, because increment the
+counter.
+
+```javascript
+function inception() {
+    console.log(counter)
+    if (counter > 3) {
+        return "done!";
+    }
+}
+```
