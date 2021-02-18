@@ -361,10 +361,175 @@ it hasn't done Stack Overflow and at one point it's ended, because increment the
 counter.
 
 ```javascript
+let counter = 0;
+
 function inception() {
     console.log(counter)
     if (counter > 3) {
         return "done!";
-    }
-}
+    };
+    counter++;
+    inception();
+};
+
+// Result
+// 0
+// 1
+// 2
+// 3
+// 4
 ```
+
+So, let me `console.log(counter)`, if I click run I get `0, 1, 2, 3, 4`; when it
+gets to `4`, `counter > 3` we `return "done!"`; but why there's no `"done!"` in
+result? This is a great illustration of how recursion works.
+
+Let try this small function into Web-browser console,
+
+```javascript
+let counter = 0;
+
+function inception() {
+    console.log(counter)
+    debugger;
+
+    if (counter > 3) {
+        return "done!";
+    };
+    counter++;
+    inception();        // [XX]
+};
+
+inception();
+```
+
+This time around I'm going to add the `debugger` keyword, so that we can
+debug our code and go step by step through it. Let's run our `inception()` in
+debugger mode.
+
+We see that we have the Call Stack, `inception()` has just been called by me,
+and I also open up this little tab called _Scope_. For our case we want to just
+open up the _script Scope_, it shows us what variables we have available to us;
+in this case we have a `counter` which is `0`.
+
+So, I'm going to click _Step Over_, and it's going to say, "Hey, we have counter
+is equal to `0` is that greeter then `3`?" Nope, I'm going to skip over
+increment `counter`, and run `inception()`; you see that? `counter` has now been
+incremented, because we've gone through to `counter++`; and now we go to
+`inception()`, we're going to run the function again, and you'll notice that the
+Call Stack when I click _Step Over_, is going to increase.
+
+You'll see counter goes to `2` in _Scope_ tabs, and we're going to run
+`inception()` again. We keep going once more, passing through, `counter` becomes
+`3` in _Scope_ tabs, adding `inception()` to Stack Call, and then one more time,
+and `3` is not greater then `3` cause now counter is `3` right?.
+
+So, we go one more time, calling `inception()`, adding into Stack, we have `5`
+function at our Stack, `counter` is it `4` now in _Scope_ tabs which is greater
+than `3`, We're finally going to enter the `if` condition, that going to return
+done for us.
+
+I click next or we called _Step Over_ icon button, look that, we have a local
+variable now, that has return value `"done!"`. We've now return `"done!"` and
+we're no longer going to call `inception()`, the Call Stack is now going to
+start is going to start popping off all the function because we have a `return`
+keyword, I'm going to stop whatever I'm doing at the bottom, and return from
+this function.
+
+So, this `inception()` function is going to get return `"done!"`, but notice
+what happens next. I get `Return value: undefined` in _Scope_ tabs as we popped
+off the tip item form the Call Stack; and if I keep popping things from the Call
+Stack, the return value is undefined, and tht's why we get.
+
+Now, why is that? Well, if we go back to our functions, what you just saw was us
+essentially doing calling `inception()`, we called inception 4 times.
+
+```javascript
+inception(inception(inception(inception())))
+|         |         |         |
+|         |         |         |-- 4th
+|         |         |-- 3rd
+|         |-- 2rd
+|-- 1rd
+```
+
+Within the `4th` call, we said return `"done!"`. So the `4th` inception function
+turns into done,
+
+
+```javascript
+inception(inception(inception("done!")))
+|         |         |         |
+|         |         |         |-- 4th
+|         |         |-- 3rd
+|         |-- 2rd
+|-- 1rd
+```
+
+
+Then we go the `3rd` function. Now, the problem with this, and I know this
+little bit confusing, is that once we returned, once we popped off the Stack, and
+we're now at `3rd` part of the inception; But this inception `[XX]` never return
+anything. Wen a function doesn't return anything, it just return `undefined`.
+
+So, we need to keep telling it, to return this `"done!"` and bubble it up
+towards the very end; and this is something that you have to keep in mind with
+recursion.
+
+There is usually a **_base case_** and you always want to make sure, you return;
+So, that the value you want gets bubbled up all the way to top. In our case, all
+we need to do is, say `return inception()`
+
+
+```javascript
+let counter = 0;
+
+function inception() {
+    console.log(counter);
+
+    if (counter > 3) {
+        return "done!";
+    }
+    counter++;
+
+    return inception();
+}
+// Result
+// 0
+// 1
+// 2
+// 3
+// 4
+// => "done!"
+```
+
+With this way, the `3rd` inception function knows to return whatever
+its result was, which was `"done!"` in the `4th` function, which again is
+`"done!"`; so on and so forth, until we get return value which is `"done!"`.
+
+### Tips `debugger` Keyword
+
+What  I just showed you is all you need to build Recursive function. You have
+the **three rules**:
+
+1. Identify the **base case**.
+2. Identify the **recursive case**.
+3. Get closer and closer an return when needed. Usually you have 2 returns for
+   the **base case** and **recursive case**,
+
+Because you want to return something at the end of the function.
+
+
+We have an idea of how Recursion works, the function simply get closer and loser
+to the **base case**, and once it gets to the **base case** it finally return
+and pops functions off the Stack.
+
+But that's enough talking for me, I think it's time for us to do some coding
+exercises to get really familiar with this topic.
+
+I'll see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
