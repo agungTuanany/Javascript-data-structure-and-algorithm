@@ -5,6 +5,7 @@
 2. [Recursion Introduction](#recursion-introduction)
 3. [Stack Overflow](#stack-overflow)
 4. [Anatomy Of Recursion](#anatomy-of-recursion)
+5. [Exercise Factorial](#exercise-factorial)
 
 
 </br>
@@ -37,7 +38,7 @@ actions on that data.
 
 </br>
 
-![chapter-10-1.png](./images/chapter-10-1.png "Introduction to algorithms)
+![chapter-10-1.png](./images/chapter-10-1.png "Introduction to algorithms")
 </br>
 
 Remember this right, **Data Structure and Algorithms create Programs**. In this
@@ -49,7 +50,7 @@ when it comes to algorithms.
 
 </br>
 
-![chapter-10-2.png](./images/chapter-10-2.png "Introduction to algorithms)
+![chapter-10-2.png](./images/chapter-10-2.png "Introduction to algorithms")
 </br>
 
 
@@ -528,6 +529,67 @@ But that's enough talking for me, I think it's time for us to do some coding
 exercises to get really familiar with this topic.
 
 I'll see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Factorial
+
+Welcome back, I have a fun little exercise for you, and now you're asking
+yourself, Andrea you say all the exercise are fun? You are the big liar.
+Alright, fair point, I think this one's going to be fun.
+
+I want you to write actually two functions that finds the _factorial_ of any
+number. Why two functions? Well, one function is going to be recursive using
+what we just learned, where we have to create a **_base case_**, we have to
+follow the steps right?. If we go back we have to `[1]` Identify a base case,
+`[2]` Identify the recursive case, and then finally `[3]`  make sure that we
+were return to turn both cases.
+
+So this recursive function `findFactorialRecursive()` is going to return an
+answer, but what is a factorial?
+
+<!-- images -->
+</br>
+
+![chapter-10-3.png](./images/chapter-10-3.png "What is factorial")
+</br>
+
+A good way to think about factorial, is this notation `5!`, five exclamation
+mark. Factorial simply means multiply `5 * 4 * 3 * 2 * 1`, you keep going down
+one by one, multiplying each number until you get to `1`. So, `6!` factorial
+will be `6 * 5 * 4 * 3 * 2 * 1`.
+
+You'll notice here, that it's a recursion pattern that we're doing, we call the
+function and we have two cases that can happen, we have the **_base case_** to
+stop, or **_recursive case_** and so on and so forth; we keep going and keep
+going until we hit `1`.
+
+</br>
+
+![chapter-10-1.gif](./images/gif/chapter-10-1.gif "What is factorial")
+</br>
+
+So, I want to build a function that does this for us. I'm going to write the
+function `factorial(5)`, and it's going to run through this. But remember, our
+definition of recursion; **recursion is when you define something in terms of
+itself**.
+
+Now a good way to think about factorial is this, `5!` factorial is simply `5  *
+4!`. `5! = 5 * 4 * 3!', because `4 * 3!` is factorial(4).
+
+You can see here, how we might have a recursion function that we can write.
+
+Using this knowledge, see if you can create a function that allows you to do
+this. Now, when it comes to this question, there's two ways that you can go
+about it. you can do the _recursive approach_, where the function calls itself;
+or you can do _iterative approach_. which means looping and most of you are
+probably to find it easier to solve it with _iterative approach_ with just a
+`for-loop` for example.
+
+I'm going to leave this up to you to figure out. See if you can do both
+functions, and see if they give you the right number.
 
 **[⬆ back to top](#table-of-contents)**
 </br>

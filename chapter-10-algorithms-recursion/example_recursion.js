@@ -24,8 +24,22 @@ function inception2() {
     inception2();
 };
 
-inception();
-console.log("================================================");
+//inception();
 //inception2();
 
-// console.log("Having some Question")
+// ===========================================================================
+// ==================== EXERCISE FACTORIAL ===================================
+// ===========================================================================
+
+// Write two functions that find the factorial of any number. One should use
+// recursive, the other should just use a for loop
+
+function findFactorialRecursive(number) {
+    // code here
+    return answer;
+}
+
+function findFactorialiterative(number) {
+    // code here
+    return asnwer;
+}
