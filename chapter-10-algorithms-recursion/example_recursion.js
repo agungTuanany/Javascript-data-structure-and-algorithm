@@ -32,14 +32,37 @@ function inception2() {
 // ===========================================================================
 
 // Write two functions that find the factorial of any number. One should use
-// recursive, the other should just use a for loop
+// recursive, the other should just use a for loop.
 
 function findFactorialRecursive(number) {
+
+    if (number === 2) {
+        return number;
+    };
+
+    const answer = number * findFactorialRecursive(number-1);
+    console.log(answer);
+    return answer;
+    ;
+};
+
+findFactorialRecursive(5)
+
+function findFactorialIterative(number) {
+
+    let answer = 1;
+    if (number === 2) {
+        answer = 2;
+    };
+
+    for (let i = 2; i <= number; i++) {
+        answer = answer * i;
+    }
+
     // code here
+    console.log(answer)
     return answer;
 }
 
-function findFactorialiterative(number) {
-    // code here
-    return asnwer;
-}
+// findFactorialIterative(5);
+// findFactorialRecursive(1)

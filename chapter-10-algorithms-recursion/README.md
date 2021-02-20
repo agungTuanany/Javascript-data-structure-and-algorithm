@@ -591,7 +591,124 @@ probably to find it easier to solve it with _iterative approach_ with just a
 I'm going to leave this up to you to figure out. See if you can do both
 functions, and see if they give you the right number.
 
+### Solution Factorial
+
+#### Iterative Approach
+
+Let's start off with the **iterative approach**, that is no recursion. If we
+want to run the function let's say
+
+```javascript
+findFactorialIterative(5);
+```
+
+Well, we can create a variable,
+
+
+```javascript
+function findFactorialIterative(number) {
+    let answer = 1;
+
+    if (number === 2) {
+        answer = 2;
+    };
+
+    for (let i = 2; i < number; i++) {
+    }
+
+    console.log(answer);
+};
+
+findFactorialIterative(2)
+
+// Result
+// 2
+```
+
+let's say `answer` and for now this answer will be `1`. All we're going to do is
+do a `for-loop`; will say `let i = 2;`, in our case to simplify things we start
+`i` with `2`, I'm going to explain in a second, why we want to start a `2`. I'm
+going to say `1 < number`; and then we're going to increment `i` by one `i++`.
+
+Why are we starting at `2`? You might notice a shortcut here, `1!` factorial is
+just `1`; `2!` factorial is `2 * 1` which is just `2`. So these last two bits,
+if somebody says `1!` or `2!` factorial which is just simply return the number
+that they're entered; because there's no real calculation that we need to do.
+
+So this is a little shortcut, we avoid extra loops, but just saying that if the
+number that the user enters, is let's say `2`; so that is `2 < 2`; the way we
+have it now, if somebody enters `findFactorialRecursive(2)` we're going to
+return `1`.
+
+But instead we can just say maybe a _simple conditional check_, saying that if
+`number === 2` we'll just say `answer` is equal to `2`.
+
+I run this function, `findFactorialIterative(2)` I get `2`. If I say
+`findFactorialIterative(1)` I get `1`; and there's other check that we can do
+obviously, but for our case this is good enough.
+
+Let's look at what we can do inside the `for-loop`. Well the way factorial works
+is to simply to say `answer = answer * i`. So that if I test with
+`findFactorialIterative(5)` I get `24`; which is actually not the right answer,
+because it's clearly higher then `24`. That because a little mistake in `for
+(let i =2; i <= number; i++`. If I run this again, I get `120` which is the
+right answer for `5!` factorial.
+
+
+#### Recursive Approach
+
+```javascript
+function findFactorialRecursive(number) {
+
+    if (number === 2 || number < 2) {
+        return 2;
+    }
+
+    return number * findFactorialRecursive(number-1)
+}
+findFactorialRecursive(5);
+
+// Result
+// 120
+```
+
+What about the Recursive approach? In the recursive version, we'll just do a
+simple check saying if `number === 2`, and we can do other check as well, but
+that should be enough; for now, for us to create a **_base case_**; so, if the
+number gets to `2` we'll just return `2`. There's our _base case_, that's how we
+stop.
+
+We could also do the check `number < 2`, so we return `1` when number is less
+then `2`.
+
+Next, we're going to return our recursive version which will simply be number
+times the function `findFactorialRecursive()` with `number - 1`, and that's the
+key here. We want to always get lower and lower until we hit the base case.
+
+Now, if I run this function `findFactorialRecursive(5)` I also got `120`.
+
+This is a little hard to wrap your mind around. So, you might want to copy
+`findFactorialRecursive()` code and open up your console browser developer tools
+like I showed you, and got step by step.
+
+But, if we start with the number `5`, it's `5` equal `2`? Nope, then we'll say
+`5 * findFactorialRecursive(4)` should be our answer. Just like the diagram that
+I showed you. We keep going and keep going until we hit the _base case_ of the
+number equal to.
+
+Now, one last bit, what do you think the Time Complexity of these two functions
+are? One uses a `for-loop`  with the loop being the number associated with it,
+and we're doing a but of shortcut here, so it's technically less than of `O(n)`,
+but because of our Big-O rules, this is still going to be `O(n)`.
+
+the recursive function, if we look at this, we are looping how many times? Well,
+we calling the function, function find factorial recursive, the same number of
+times as the number itself; or with shortcut in case of _base case_. So this
+also become `O(n)`.
+
+If you got these question, good job it's tough one, if you didn't, don't worry
+we have another one coming up. I'll see you in the next one.
+
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
-
