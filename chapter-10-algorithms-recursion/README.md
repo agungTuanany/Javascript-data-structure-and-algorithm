@@ -6,6 +6,7 @@
 3. [Stack Overflow](#stack-overflow)
 4. [Anatomy Of Recursion](#anatomy-of-recursion)
 5. [Exercise Factorial](#exercise-factorial)
+6. [Exercise Fibonacci](#exercise-fibonacci)
 
 
 </br>
@@ -708,6 +709,38 @@ also become `O(n)`.
 
 If you got these question, good job it's tough one, if you didn't, don't worry
 we have another one coming up. I'll see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Fibonacci
+
+You can't talk about Recursion without talking about the Fibonacci sequence.
+What is the Fibonacci sequence? Well it's this
+
+```javascript
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
+```
+
+If you notice, the pattern is that we're always adding the first two items
+equals the next number. So `0 + 1` is equal `1`; `1 + 1` is equal `2`; `1 + 2`
+is equal `3`, so on and so forth. So, the previous two numbers always equals the
+current number.
+
+So, I have another exercise for you; this one a little bit tougher than previous
+one. Given a number `N` that the function's going to receive; return the index
+value of the Fibonacci sequence. So, if I say, that I want the `N` to equal `2`
+it's going to give me `0, 1, 1`, this function is going to return `1`. If I say
+Fibonacci number `8` I would get `0, 1, 1, 2, 3, 5, 13, 21`, I would get `21`.
+
+The function will tell me what number is associated with the index that I give
+it. Once again I have the **iterative approach**, that is using just simple
+`for-loop`; and also the **recursive approach**.
+
+I challenge you to try both of these, and see if you can do it. A big hint here
+is, that the _recursive approach_ is actually easier that the _iterative
+approach_. So, good luck out there, and I'll see you in the solution lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
