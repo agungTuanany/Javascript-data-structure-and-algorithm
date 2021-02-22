@@ -551,7 +551,6 @@ were return to turn both cases.
 So this recursive function `findFactorialRecursive()` is going to return an
 answer, but what is a factorial?
 
-<!-- images -->
 </br>
 
 ![chapter-10-3.png](./images/chapter-10-3.png "What is factorial")
@@ -741,6 +740,166 @@ it. Once again I have the **iterative approach**, that is using just simple
 I challenge you to try both of these, and see if you can do it. A big hint here
 is, that the _recursive approach_ is actually easier that the _iterative
 approach_. So, good luck out there, and I'll see you in the solution lecture.
+
+### Solution Fibonacci
+
+Let's actually start off with the _recursive approach_ this time, because in
+this case the _recursive approach_ is actually a lot simpler to think about.
+
+#### Recursive Approach
+
+```javascript
+function fibonacciRecursive(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fibonacciRecursive(n-1) + fibonacciRecursive(n-2);
+}
+
+fibonacciRecursive(3)
+```
+
+All we would do with our Recursive function s to say, well the base case is
+going to say number for `(n)` is going to equal to `2` if that's the case,
+if we actually look at the sequence (`0, 1, 1, 2, 3, 5, ...`) we see that if the
+index is `0`, the answer is `0`; if the index is `1`, the answer is `1`; and if
+the index is `2`, the answer changes to `1`.
+
+So, instead our _base case_ can maybe just simply be, `if (n)` less then `2`
+we're always going to just return whatever the `n` is. So, if we say `0`, it's
+going to return `0`; if we say `1`, is going to return `1`; if we have an index
+higher than that, well then we have to do some recursion.
+
+All we're going to do here, is have another return statement, and say this
+function is going to equal `fibonacciRecursive(n-1) + fibonacciRecursive(n-2)`,
+because, remember the sum is always, the answer is always the numbers `1` and
+`2` before it. So, we're just adding the number `1` and `2` before our
+sequence, that's it.
+
+If we run this function, let's say if we've `fibonacciRecursive(3)` I get result
+`2`, because index `3` from Fibonacci sequence is `2`. Let's do
+`fibonacciRecursive(8)`, I get result `21`, nice. If I do
+`fibonacciRecursive(0)` I get `0`; if I do `fibonacciRecursive(1)` I get `1`; if
+I do `fibonacciRecursive(2)` I get `1`.
+
+Nice and simple. Well, I don't know about simple. You really have to get
+comfortable with this before you truly understand what's happening. But, I have
+a little diagram here to help you.
+
+</br>
+
+![chapter-10-4.png](./images/chapter-10-4.png "Fibonacci diagram")
+</br>
+
+All we've done is simply this. If I added `7` here, our recursive function is
+going to get one less then `7`, and two less then `7`; and then within those
+function, do the same thing, one less than `6`, two less then `6`; one less than
+`5`, two less than `5`; and it's doing all of these until we get to `fib(1)` to
+where we have our _base case_ that returns that number.
+
+This is a diagram that we're going to get back to; but you see, we're doing a
+lot of calculations; but simply put this is all we're doing.
+
+Now, I said that, the _recursive approach_ is actually simpler than the
+_iterative approach_. Let's have a look at what the iterative approach would
+look like.
+
+#### Iterative Approach
+
+```javascript
+function fibonacciIterative(n) {
+    let arr = [0, 1];
+
+    for (let i = 2; i < n + 1; i++) {
+        arr.push(arr[i-2] + arr[i-1]);
+    };
+
+    return arr[n];
+};
+
+fibonacciIterative(3)
+```
+
+We'll create an array, and there's many ways of doing this, this is my preferred
+way, and this array is going to have to the initial items of the sequence,
+that's `0` and `1`.
+
+This is going to first of all return the array an item of `[n]`; we're creating
+of Fibonacci list, and then grabbing whatever index the user wants. In our case,
+if the user requests `0` or `1`, we already have the array refilled with `0` and
+`1`, and it's going to return the same, but we still need to calculate for all
+the other ones.
+
+That's where we do a `for-loop`, and say let `i` equal `2`, because we're going
+to start adding, when the index `2` to start filling this array. We'll say `1`
+is less than `n + 1`, or we can do equal here if you want, we'll leave it at
+that for now, and we'll increment `i++`.
+
+In this `loop` we're going to keep going until we hit the number of index that
+we're interested in, and all we're going to say is `arr.push(arr[i-2] +
+arr[i-1]`)`. Similar to what we did before, we're just summing the previous two
+numbers and pushing it to the array.
+
+Let's see if this work, If I run `fibonacciIterative(3)`, I get `2`; what about
+`findFactorialIterative(8), I get `21`, perfect; and if I do
+`fibonacciIterative(0)`, I get `0`; `fibonacciIterative(1)`, I get `1`; and the
+last `fibonacciIterative(2)`, I get `1`.
+
+Now, I said that, the _recursive approach_ is simpler than the _iterative
+approach_, that's my personal opinion, you might not think that _iterative
+approach_ is quite easy, but to me _recursive approach_ is reads a lot nicer
+than all _iterative approach_ we're doing. This is something we're going to get
+into in the next lecture, where we talk about the trade-offs between the
+_iterative_ and the _recursive_ approaches to these problems, and why? Maybe
+you're wondering right now, why would we ever write anything Recursive, if you
+find this confusing? We'll get to that.
+
+The one thing I want to show you is, something that we just learn here, that is
+new to us. What do you think the Big-O of these two functions are? Well, in our
+_iterative approach__ the Big-O is linear time right?  It's `O(n)`; basically
+we're just iterating through the `loop` and `O(n-2)` times, because we're skipping
+the first two items which in turn makes it `O(n)`.
+
+What about the _recursive approach_? Remember the diagram I showed you, that's a
+lot more calculation than just the seven right? We've a lot of function calls,
+that happen in this case in the recursion solution, it takes what we call
+**Exponential Time**, the size of the Tree, exponential grows when and
+increases. If Fibonacci number was `8` we would have this Tree as well as
+another Tree underneath the `fib(8)`. So what is the Big-O of that?
+
+This is very exciting, because we're learning about a new Big-O notation. We
+learning about `O(2^N)`, we're learning about Exponential Time. Which can be
+seen with recursive algorithms that solve a problem of size `N`. _`2` to the
+power of `N`_.
+
+If we go to our Big-O cheat-sheet, we can look _`2` to the power of `N`_, you
+see how much it increases? That's pretty bad. It's bigger than even `O(n^2)` (n
+square), the two nested `for-loops`.
+
+Exponential Time means, every additional elements in the Fibonacci sequence, we
+get an increase in function calls exponentially.
+
+Here's a fun little trick, although this is `O(n)` the _iterative approach_; the
+_recursive approach_ because it's `O(2^n)`, If I run
+`findFactorialRecursive(40)` you can see how much longer that took to calculate.
+Because our Time Complexity is increasing more and more. Now, if I do
+`fibonacciRecursive(43)`, you'll see that we're waiting and waiting for the
+calculation to happen, and eventually the browser comes up with the calculation.
+As a bonus question, think of how many calculation `fibonacciRecursive(43)`
+required? Although, might be more readable, is not in **ideal solution**, as you
+can see Big Time Complexity is pretty big, and this is something that you might
+get asked in an interview, and I know what you're thinking; Andre, you just
+taught us about Recursion, and it's not even good, it's slow, it's confusing,
+why would I ever want to use Recursion?
+
+In the next lecture, I'm going to talk about this trade-off. Why would you ever
+use Recursion over something that is iterative. Why would any sane person do? As
+you find out there, some pros and cons and as a matter of fact like `O(2^n)`
+such as Fibonacci sequence and recursion can be made to `O(n)` using something
+like dynamic programming and memorization, which we're going to talk about
+toward the end of this course, and we're going to get back to this; but let's
+finally answer the question in the next lecture. **Why would you ever use
+Recursion over something iterative?**
 
 **[⬆ back to top](#table-of-contents)**
 </br>
