@@ -7,6 +7,7 @@
 4. [Anatomy Of Recursion](#anatomy-of-recursion)
 5. [Exercise Factorial](#exercise-factorial)
 6. [Exercise Fibonacci](#exercise-fibonacci)
+7. [Recursive vs Iterative](#recursive-vs-iterative)
 
 
 </br>
@@ -904,3 +905,78 @@ Recursion over something iterative?**
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+
+## Recursive vs Iterative
+
+</br>
+
+![chapter-10-5.png](./images/chapter-10-5.png "Recursive vs Iterative")
+</br>
+
+There is a theorem that states anything that can be implemented recursively can
+be implemented iteratively. That is, you can go your whole life without
+implementing _recursive function_ and just use `loops`.
+
+So, why would we ever want to confuse yourself with a topic like Recursion that
+can be a little confusing? Well, some problems it's actually easier to write,
+but it really depends on the situation. Keep in mind, that there's two options;
+and by now you know that with programming, there's always pros and cons; and a
+good engineer is somebody who can make the right decision based on those pros
+and cons.
+
+But, I want you to keep this on mind for interviews, because interviewers will
+ask you to solve a problems; and the problems can solve with Recursion can
+usually be solved Iteratively as well.
+
+
+Looking at our Fibonacci functions, this is a simpler example of Recursion, but
+there are times when Recursion can keep you code DRY; A big rule when it comes
+to programming, and there are a lot problems when it comes to Recursion, as it
+get harder and harder; when using recursive functions, it's allow your code to
+be more readable and also DRY; simpler, have less loops happening with confusing
+code. I'm little bit biased, because although, recursion is a powerful
+technique, in my opinion it's not always the best approach.  So, you need to
+make sure, because of it;s main drawback.
+
+</br>
+
+![chapter-10-2.gif](./images/gif/chapter-10-2.gif "pros and cons recursion")
+</br>
+
+
+That is, although recursion can keep your code DRY, and make your code more
+readable, it also creates this extra memory footprint. Because, every time we
+add a function to the Call Stack, it adds extra piece of memory. So, you have
+cases where you can get Stack Overflow; or if you system has expensive memory,
+you want to avoid making too many recursive calls, and for some people recursion
+is also something that is hard to wrap your mind around; and if we have a team
+of young engineers of developers that aren't familiar with recursion that may
+not be the best option.
+
+But, the main drawback is this, that iterative approaches tend to be more
+efficient, because they don't make these additional function calls, that take up
+the Stack Space, with the downside being that, iterative solutions might be not
+as readable; and the rule that I like to follow is, that **I like to use recursion
+when you're working with data structures**, that you're not really sure how deep
+they are, where you don't know how many loops to go through.
+
+As you'll see, recursion is really useful for things such as Tree data
+structures and doing traversal, because that is often the case.
+
+In the next lecture, I want to talk about this topic a little bit deeper and
+when to use recursion; but, I do want to point one thing quickly, there's
+something call **Tail Call optimization** in many languages. For example, in
+JavaScript with ES6, it allows recursion to be called without increasing the
+Call Stack. You can read more about it, in the resources that are provided to
+you in this [course](https://2ality.com/2015/06/tail-call-optimization.html);
+but in another language as well, there are certain ways to write recursion; So,
+there are more memory efficient.
+
+So, this large Stack issue can actually be resolved during production, but let's
+talk about a definitive guide to when to use recursion in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
