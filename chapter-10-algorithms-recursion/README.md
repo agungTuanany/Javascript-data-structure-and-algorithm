@@ -8,6 +8,7 @@
 5. [Exercise Factorial](#exercise-factorial)
 6. [Exercise Fibonacci](#exercise-fibonacci)
 7. [Recursive vs Iterative](#recursive-vs-iterative)
+8. [When To Use Recursion](#when-to-use-recursion)
 
 
 </br>
@@ -980,3 +981,78 @@ talk about a definitive guide to when to use recursion in the next lecture.
 </br>
 </br>
 
+## When To Use Recursion
+
+When should we use Recursion? This is the role that I like to use. When it gets
+to complicated problems like _traversing_ or _searching trough Trees or Graphs_,
+something that we're going to talk about with Brute Force Search (BFS) search
+and Depth Force Search (DFS), Recursion is really really useful, and better than
+_iterative approaches_, and we're _sorting through **items**_. There's also
+cases that will see that Recursion is preferred.
+
+</br>
+
+![chapter-10-6.png](./images/chapter-10-6.png "When to use recursion")
+</br>
+
+When it comes to Recursion, these are the rules that I like to follow every time
+we're using a Tree or converting something into Tree consider Recursion; and
+there's **three key** thing in an interview question that might trigger a
+recursive solution.
+
+One, is that a problem can be divided into a number of sub-problems that are
+smaller instances of that same problems. Such as exercises we've done with
+Fibonacci numbers or Factorial. We can break those down into little Trees that
+break down to smaller and smaller pieces, those are inherently recursive
+problems.
+
+Second factor, is that each of these instances of problem is in identical in
+nature. That is, the calculations that we need to do are pretty much the same.
+They maybe smaller values but the actual calculations underneath it is all the
+same over and over.
+
+The third point, is those solutions if you solve the smaller problems those leaf
+nodes of that Tree and you combine them, that solves the problem at hand, then
+that is a recursive solution that you can use.
+
+You'll see a lot of Divide and Conquer using Recursion. Remember Divide and
+Conquer which we mentioned when we got to the Tree data structure lesson's, it's
+kind of like looking through a _phone book_; when you're looking for _Bell_ in the
+phone book, you're not starting from _"A"_, and simply go one page at a time
+from left to right; No, you usually split the phone book in the middle or try to
+go to the _"B"_ section of the phone book and start dividing up the problem;
+page by page until you get closer and closer. This Divide and Conquer type of
+question usually have recursive in them.
+
+As we know, the one thing that recursion can do, that looping can't; is that they
+can make tasks super super easy, such as these types of problems (in term of
+readability and coding).
+
+```javascript
+// Write down Traverse function with Recursion
+
+function traverse(node) {
+    // code here ...
+};
+```
+
+As a matter a fact, I encourage you to write your own Traverse function, that we
+use in our Tree data structure. This is something that we're going to get to
+when we get to searching; in the algorithms section. But if you want to
+challenge your self, see if we can write a Traverse function like I did above
+using Recursion; and then also tried to write it with `loops`, you'll see that
+with `loops` thing like Tree Traversal is a headache. I can't even do it on the
+top of my head, with Recursion it's pretty straightforward, with `loop` you
+usually have to maintain some sort of Stack to keep track of things, and it
+really adds a lot of complexity.
+
+So, use the rules above to notice when a recursive problem present itself during
+an interview. I'll leave a few more exercise for you after this lecture; but as
+we'll see we'll come back to this topic when we get into other algorithms
+sections; and things will start to get clearer and clearer.
+
+I'll see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
