@@ -66,7 +66,7 @@ function findFactorialIterative(number) {
 
 // findFactorialIterative(5);
 // findFactorialRecursive(1)
-//
+
 // ===========================================================================
 // ==================== EXERCISE FIBONACCI ===================================
 // ===========================================================================
@@ -105,3 +105,51 @@ function fibonacciRecursive(n) {
 }
 
 //fibonacciRecursive(3)
+
+// ===========================================================================
+// ==================== Reverse String =======================================
+// ===========================================================================
+
+/*
+ * source:
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+*/
+
+// Implement a function that reverse a string using Iteration and Recursion
+function reverseStringIterative(str) {
+    let arrayStr = str.split("");
+    let reversedArray = [];
+
+    // We are using closure here, so that we don't add the above variable to the global scope
+
+    function addToArray(array){
+        if (array.length > 0) {
+            reversedArray.push(array.pop());
+            addToArray(array);
+        };
+        return;
+    }
+
+    addToArray(arrayStr);
+    let result = reversedArray.join("");
+
+    console.log(result);
+    return result;
+}
+
+reverseStringIterative("yoyo master");
+
+function reverseStringRecursive(str) {
+    if (str === "") {
+        return "";
+    }
+
+    let result = reverseStringRecursive(str.substr(1)) + str.charAt(0);
+
+    console.log(result);
+    return result;
+}
+
+reverseStringRecursive("yoyo master");
+
