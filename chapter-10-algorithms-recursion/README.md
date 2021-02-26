@@ -9,6 +9,7 @@
 6. [Exercise Fibonacci](#exercise-fibonacci)
 7. [Recursive vs Iterative](#recursive-vs-iterative)
 8. [When To Use Recursion](#when-to-use-recursion)
+9. [Recursion Review](#recursion-review)
 
 
 </br>
@@ -1056,3 +1057,74 @@ I'll see you in the next one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Recursion Review
+
+When we talk about Recursion and Computer Science we're talking about a function
+that calls itself. This type of technique is really good at some problems,
+because of its ability to maintain **_state_** a different level of recursion.
+
+</br>
+
+![chapter-10-3.gif](./images/gif/chapter-10-3.gif "Recursion review")
+</br>
+
+
+Just like our coachmen watching TV here, Recursion can be thought of as a but of
+glass that gets filled up with _recursive calls_ of functions; and then we start
+popping from the top until the very last function get popped off, and return a
+value.
+
+</br>
+
+![chapter-10-4.gif](./images/gif/chapter-10-4.gif "Recursion review")
+</br>
+
+One thing that w want to be careful of with Recursion, was this idea of Stack
+Overflow, this added _Memory Space_ as we keep calling the same function over
+and over until we possibly can reach a limit and get Stack Overflow.
+
+
+The Rule of thumb that we learned is, that we should _use Recursion_ when it
+makes code more _readable_; but sometimes it can be less efficient than
+iterative (looping) solution; so we have to be careful.
+
+</br>
+
+![chapter-10-5.png](./images/chapter-10-5.png "Recursion review")
+</br>
+
+We also learned the rule, that anything you do with Recursion can be done
+iteratively; and in interviews you'll get asked the question of the pros and
+cons of why we might want to use Recursive over Iterative.
+
+I know I've brought this up before, but it's worth repeating. Recursion is
+interesting and clever, but can be costly. So, you have to be really careful
+with it, because _Recursion and Space Complexity are not friends_.
+
+But, when it comes to some problems like Sorting and Tree Traversal, you'll see
+that we're going to have to use Recursive solutions to make things simpler.
+
+</br>
+
+![chapter-10-7.png](./images/chapter-10-7.png "Recursion review")
+</br>
+
+Specifically, when we talk about these upcoming topics, we're going to be using
+Recursion. So, get ready for it. Merge Sort, Quick Sort, Tree Traversal, Graph
+Traversal all use Recursion.
+
+Now, we're equips a lot better to handle those situations that are going to come
+up.
+
+We're starting to build our mind map slowly and slowly, and you can see that
+when it comes to Tree data structure, ask your self, should we use Recursion?
+Most of the time you do want to use Recursion, but be mindful, that Space
+Complexity or Stack Overflow can happen.
+
+I'll see you in the next chapter.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
