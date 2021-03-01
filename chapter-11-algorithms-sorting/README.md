@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Sorting Introduction](#sorting-introduction)
 2. [The Issue With Sort Function](#the-issue-with-sort-function)
+3. [Bubble Sort](#bubble-sort)
 
 </br>
 
@@ -292,6 +293,124 @@ run this function, we see that our _basket numbers_ are sorted.
 
 That's enough for now. Let's talk about the Sorting Algorithms that are being
 used in Computer Science in next lecture. I'll see you in that one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Bubble Sort
+
+</br>
+
+![chapter-11-1.gif](./images/gif/chapter-11-1.gif "Bubble sort list")
+</br>
+
+Let's start off with the very first item on our list. Bubble sort is part of
+these first three Sorting algorithms. Here that are called **_Elementary
+Sorts_**. They're very simple basic Sorting algorithms that you would usually
+think of,if somebody asked you to Sort something at the top of your head.
+
+The second item here that we're going to get into later Merge Sort and Quick
+Sort are more complex algorithms; that most of the time can be more efficient
+than the first ones.
+
+But, to build that Lego block, let's start off with Bubble Sort. How does Bubble
+Sort work?
+
+</br>
+
+![chapter-11-4.png](./images/chapter-11-4.png "How to sort with Bubble sort")
+</br>
+
+
+Well, let me ask you question, if I gave you a list and I ask to sort it in your
+head; imagining that you had blocks of above letters, how would you move them
+around? Or how would you tell a computer to move them around to Sort it; and
+Bubble Sort might be the one of the first thing that comes into mind;s it the
+Bubble Sort comes from the idea of _Bubbling Up_ the largest value using
+_Multiple Pass_; let's see what I mean by that.
+
+</br>
+
+![chapter-11-2.gif](./images/gif/chapter-11-2.gif "Bubble sort example")
+</br>
+
+We look at `6` and `5`, and say is `6` is larger than `5`?; and then we look at
+`6` and `3`, and say is `6` larger than `3`? Let swap them out; and then `6` and
+`1`, once again `6` is lager than `1`, let's sort them up. We look at `6` and
+`8`, `8` is _larger_ than `6` So we keep the way it is;
+
+Let's move onto next one, `8` and `7`, `8` is larger than `7`, let's sort them
+out; and `8` and `2`, swap them out; `8` and `4`,swap them out.
+
+
+</br>
+
+![chapter-11-3.gif](./images/gif/chapter-11-3.gif "Bubble sort example")
+</br>
+
+We Bubble Up the highest number and then we go from beginning. `5` and `3`; `5`
+and `1`, we Bubble Up the largest number.
+
+</br>
+
+![chapter-11-4.gif](./images/gif/chapter-11-4.gif "Bubble sort example")
+</br>
+
+So, that `7` comes next;
+
+</br>
+
+![chapter-11-5.gif](./images/gif/chapter-11-5.gif "Bubble sort example")
+</br>
+
+Then we keep going and going, until `6` coming next.
+
+</br>
+
+![chapter-11-6.gif](./images/gif/chapter-11-6.gif "Bubble sort example")
+</br>
+
+Then we keep `looping` until we Bubble Up the highest number, one by one.
+
+</br>
+
+![chapter-11-7.gif](./images/gif/chapter-11-7.gif "Bubble sort example")
+</br>
+
+Until we have a sorted list.
+
+
+That is Bubble Sort.
+
+Now, before we even code this, what do you think of Bubble Sort? As you might
+have guessed, is not the most efficient, is it? Look at how many comparisons we
+did, and everything was one by one looping and looping; and Bubble Sort is one
+of the simplest Sorting algorithm, but also one of the least efficient. So,
+don't have me for showing you how this works.
+
+It's usually used as a learning tool, as the first step in learning a certain
+algorithm.
+
+What do you think the Time Complexity and Space Complexity of this algorithm is?
+The answer, we can use Big-O cheat-sheet.
+
+</br>
+
+![chapter-11-5.png](./images/chapter-11-5.png "Bubble Sort Time and Space Complexity")
+</br>
+
+If we look at Bubble Sort, we see that the cases we're most interested in is,
+the **_Average_**, and the **_worst case_**. We see that it's `O(n^2)`; with the
+Space Complexity_ of `O(1)`, we're not really creating any new data structures,
+we're _just comparing items in nested loops one by one_.
+
+But, let's see it in code, to see why this is all over `O(n^2)`?; and I want to
+challenge you here. In the next lecture, we're going to code along the Bubble
+Sort algorithm.
+
+But if you want, go ahead and try implementing this on your own, and see how
+your code matches up with me mine in the next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
