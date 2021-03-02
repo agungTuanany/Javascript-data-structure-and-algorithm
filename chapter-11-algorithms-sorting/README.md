@@ -4,6 +4,7 @@
 1. [Sorting Introduction](#sorting-introduction)
 2. [The Issue With Sort Function](#the-issue-with-sort-function)
 3. [Bubble Sort](#bubble-sort)
+4. [Exercise Bubble Sort](#exercise-bubble-sort)
 
 </br>
 
@@ -310,9 +311,9 @@ these first three Sorting algorithms. Here that are called **_Elementary
 Sorts_**. They're very simple basic Sorting algorithms that you would usually
 think of,if somebody asked you to Sort something at the top of your head.
 
-The second item here that we're going to get into later Merge Sort and Quick
-Sort are more complex algorithms; that most of the time can be more efficient
-than the first ones.
+The second item here that we're going to get into later **Merge Sort** and
+**Quick Sort** are more complex algorithms; that most of the time can be more
+efficient than the first ones.
 
 But, to build that Lego block, let's start off with Bubble Sort. How does Bubble
 Sort work?
@@ -392,8 +393,8 @@ don't have me for showing you how this works.
 It's usually used as a learning tool, as the first step in learning a certain
 algorithm.
 
-What do you think the Time Complexity and Space Complexity of this algorithm is?
-The answer, we can use Big-O cheat-sheet.
+What do you think the **Time Complexity** and **Space Complexity** of this
+algorithm is?  The answer, we can use Big-O cheat-sheet.
 
 </br>
 
@@ -402,7 +403,7 @@ The answer, we can use Big-O cheat-sheet.
 
 If we look at Bubble Sort, we see that the cases we're most interested in is,
 the **_Average_**, and the **_worst case_**. We see that it's `O(n^2)`; with the
-Space Complexity_ of `O(1)`, we're not really creating any new data structures,
+_Space Complexity_ of `O(1)`, we're not really creating any new data structures,
 we're _just comparing items in nested loops one by one_.
 
 But, let's see it in code, to see why this is all over `O(n^2)`?; and I want to
@@ -415,3 +416,86 @@ your code matches up with me mine in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Exercise Bubble Sort
+
+Let's code our own Bubble Sort Algorithm.
+
+```javascript
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function bubbleSort(array) {
+    const length = array.length;
+
+    for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length; j++) {
+
+            if(array[j] > array[j+1]) {
+                // Swap numbers
+                let temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            };
+        };
+    };
+};
+
+// Result
+[ 0,  1,  2,  4,  5, 6, 44, 63, 87, 99, 283 ]
+```
+
+I'm creating a function called `bubbleSort()` that's going to taken a `array` as
+parameter; and I have an array in variable called `numbers`. Ideally when we
+enter this array of `numbers` into this functions, it spits out a sorted way.
+
+Based on animation we saw, we ideally start from the beginning, compare first
+and second item, swap out the items if the left one is larger than the right;
+and keep going until the largest item ends up in the last index, and then we
+loop over things again.
+
+The first thing I want to do is, I'll just create a variable so I don't have to
+keep repeating my self named `length = array.length` here; it shall be the
+length of the items `numbers` variable, which should be `11`.
+
+Inside here, we'll do a `for-loop` and we'll say `let i = 0; i < length; i++`;
+and with in the `loop` we grab the first item; we know want to compare it with
+second item and so on and so forth. We should know this by now.
+
+We want to add another `for-loop`, it's going to `let j = 0; j < length; j++;`.
+Now, in the second `for-loop` here, we'll say that _if_ `array[j]` at index of
+`0`; so that is `99`; `99` is greater than `array[j+1]`, that is `44`.
+
+So, if `99` is greater than `44`, in the _nested `loop`_; we'll say, let's **_swap
+numbers_**. We can simply do that by saying creating `temp` variable, that holds
+`array[j]` which the first pass will be `99`; and give the first index of `0` to
+`array[j] = array[j+44]`.
+
+Now, `99` goes into the second index, so than means `array[j+1] = temps`.
+
+You might to go back to reading this nested loop. But all we're doing is just
+swapping `numbers`; if the _left hand side_ is bigger than the _right hand
+side_; and once is done we increment `j` to `1`; so, that we compare _index of
+`1` and `2`_; and then we compare index of `2` and `3`; `3` to `4`; `4` to `5`
+until we Bubble things up; and then we go to the top (`for-loop`) and compares the
+items again in the _outer `for-loop`_.
+
+Let's see if this works. If we run `bubbleSort(numbers)` and console log
+`numbers` if it's Sorted; and now look at that `[ 0,  1,  2,  4,  5, 6, 44, 63,
+87, 99, 283 ]`, our list (`numbers`) is now sorted.
+
+That was Bubble Sort. As you can see, we have two nested `for-loop`; giving us
+`O(n^2)`; but we're not really holding variables to another data structure, or
+holding the `numbers` into other data structures. So the Space Complexity is
+`O(1)`. As we can see in our Big-O cheat-sheet, Sort is probably not the best
+algorithm, although it has good Space Complexity.
+
+You can use the code hat I leave for you to play around with; but for now, let's
+go on to our next Sorting algorithms.
+
+Congratulations, you've just completed your first Sorting algorithm, but we have
+more to go.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
