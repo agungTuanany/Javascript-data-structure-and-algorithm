@@ -5,6 +5,7 @@
 2. [The Issue With Sort Function](#the-issue-with-sort-function)
 3. [Bubble Sort](#bubble-sort)
 4. [Exercise Bubble Sort](#exercise-bubble-sort)
+5. [Selection Sort](#selection-sort)
 
 </br>
 
@@ -499,3 +500,111 @@ more to go.
 </br>
 </br>
 
+## Selection Sort
+
+</br>
+
+![chapter-11-6.png](./images/chapter-11-6.png "Selection Sort")
+</br>
+
+Let's talk about selection Algorithm; and it's called **Selection Sort**.
+_Selection Sort_ is again one of the simpler possible ways to Sort the _list_
+and the algorithm works by _**scanning a list of items for the smallest
+element**; and then swapping that element for the one in the first position_.
+
+Let's me show you with this animation here,
+
+</br>
+
+![chapter-11-8.gif](./images/gif/chapter-11-8.gif "Selection Sort animation")
+</br>
+
+We start with the first item and the second item. The **red** here signifies
+that it's the smallest item that it's seen; and then the **blue** is scanning
+ahead to find the smallest item.
+
+So, right now `8` is the smallest item, but we encounter `5`; so `5` switches to
+the smallest item. We encounter `2`; so `2` becomes a smallest item. We keep
+going, `6` is not smaller than `2`; `9` isn't; `3` isn't.
+
+We encounter `1`; `1` becomes the smallest item. We keep going, we find `0`; `0`
+becomes smallest item; and we just finished the list.
+
+So now, we move `0` to the first index in our list. We swap it put.
+
+
+</br>
+
+![chapter-11-9.gif](./images/gif/chapter-11-9.gif "Selection Sort animation")
+</br>
+
+Then we keep going back to the beginning finding the smallest item, which is
+`1`; and then placing `1` in the second item.
+
+
+</br>
+
+![chapter-11-10.gif](./images/gif/chapter-11-10.gif "Selection Sort animation")
+</br>
+
+</br>
+
+![chapter-11-11.gif](./images/gif/chapter-11-11.gif "Selection Sort animation")
+</br>
+
+
+</br>
+
+![chapter-11-12.gif](./images/gif/chapter-11-12.gif "Selection Sort animation")
+</br>
+
+</br>
+
+![chapter-11-13.gif](./images/gif/chapter-11-13.gif "Selection Sort animation")
+</br>
+
+</br>
+
+![chapter-11-14.gif](./images/gif/chapter-11-14.gif "Selection Sort animation")
+</br>
+
+</br>
+
+![chapter-11-15.gif](./images/gif/chapter-11-15.gif "Selection Sort animation")
+</br>
+
+Then we keep going and repeating the process until we found the smallest item,
+place it next in the list, until we have our list completely sorted.
+
+</br>
+
+![chapter-11-7.png](./images/chapter-11-7.png "Selection Sort Time Complexity")
+</br>
+
+As you can see Selection Sort, we're still going to see a Time Complexity of
+`O(n^2)`, if we look back at the Time Complexity chart, we see then Selection
+Sort not very fast similar to Bubble Sort. We have those **nested `for-loops`**,
+but uses a Space Complexity of `O(1)`, it doesn't really add any additional data
+besides the input.
+
+Now, using the animation that you just saw, you can implement your own
+Selection Sort. I'm going to leave the starter code for you as an exercise.
+
+```javascript
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function selectionSort(array) {
+}
+
+selectionSort(numbers);
+
+console.log(numbers);
+```
+
+Using what you know from the Bubble Sort, and what you just saw for Selection
+Sort animation. How you can use that information to Sort the list using
+algorithm; and I'll show you the solution in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
