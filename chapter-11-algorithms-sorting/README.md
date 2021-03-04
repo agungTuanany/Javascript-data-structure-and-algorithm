@@ -6,6 +6,7 @@
 3. [Bubble Sort](#bubble-sort)
 4. [Exercise Bubble Sort](#exercise-bubble-sort)
 5. [Selection Sort](#selection-sort)
+6. [Exercise Selection Sort](#exercise-selection-sort)
 
 </br>
 
@@ -519,9 +520,9 @@ Let's me show you with this animation here,
 ![chapter-11-8.gif](./images/gif/chapter-11-8.gif "Selection Sort animation")
 </br>
 
-We start with the first item and the second item. The **red** here signifies
-that it's the smallest item that it's seen; and then the **blue** is scanning
-ahead to find the smallest item.
+We start with the first item and the second item. The **red** here _signifies
+that it's the **smallest item** that it's seen_; and then the **blue** is
+_**scanning ahead** to find the smallest item_.
 
 So, right now `8` is the smallest item, but we encounter `5`; so `5` switches to
 the smallest item. We encounter `2`; so `2` becomes a smallest item. We keep
@@ -604,6 +605,81 @@ console.log(numbers);
 Using what you know from the Bubble Sort, and what you just saw for Selection
 Sort animation. How you can use that information to Sort the list using
 algorithm; and I'll show you the solution in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Exercise Selection Sort
+
+```javascript
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function selectionSort(array) {
+    const length = array.length;
+    for(let i = 0; i < length; i++){
+        // set current index as minimum
+        let min = i;
+        let temp = array[i];
+        for(let j = i+1; j < length; j++){
+            if (array[j] < array[min]){
+                //update minimum if current is lower that what we had previously
+                min = j;
+            };
+        }:
+        array[i] = array[min];
+        array[min] = temp;
+    }:
+    return array;
+};
+
+selectionSort(numbers);
+console.log(numbers);
+
+// Result
+[ 0,  1,  2,  4,  5, 6, 44, 63, 87, 99, 283 ]
+```
+
+I've left for you the solution for the Selection Sort; now, I'm not going to be
+going one by one to each Sorting algorithm, because it does take a lot of time.
+I don't want to bore you and lose you, because there's so many more exciting
+things happening throughout the next couple lectures.
+
+So, I'll leave this for you to see how it works. It's not that much different
+from Bubble Sort.
+
+We see that with Selection Sort, We're setting the _current index as minimum_.
+So, the very first item in the array becomes the minimum.
+
+But, when we loop through the rest of the list, we want to _**update** the
+minimum, if the current is lower that what we had previously_.
+
+So, what we had here `let min = i`, where we initially set the first item in the
+array. `99` as the minimum. A soon we get to `44`, we're going to say, "oh `44`
+is less than `99`", let's update the minimum `min = j`; so, that index where
+`44` is now the minimum.
+
+We're going to swap out those numbers just like we saw in the animation; and it
+also is a really well documented thing on the internet.
+
+For example, if you are a Python developer, you can just type search "Python
+selection sort" and you'll find how Selection Sort it's implemented in Python;
+and you can run the programs as well.
+
+So, depending on your language, you can usually search on Google in first or
+second link, and show you how algorithms implemented.
+
+As you can see in above code, we have **two nested `for-loops`** through the
+entire array, so it's `O(n^2)`.
+
+For the rest Sorting Algorithms, I will have the code provided for you, so you
+can play with it, and interact with it.
+
+If I run this `selectionSort()`, you see the result above function, it's works
+properly; but you can also search for you own language to find Sorting
+algorithm, so yo understand it on a deeper level.
+
+Let's talk about the next Sorting Algorithm in the next lecture coming up.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
