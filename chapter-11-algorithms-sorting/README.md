@@ -7,6 +7,7 @@
 4. [Exercise Bubble Sort](#exercise-bubble-sort)
 5. [Selection Sort](#selection-sort)
 6. [Exercise Selection Sort](#exercise-selection-sort)
+7. [Insertion Sort](#insertion-sort)
 
 </br>
 
@@ -680,6 +681,71 @@ properly; but you can also search for you own language to find Sorting
 algorithm, so yo understand it on a deeper level.
 
 Let's talk about the next Sorting Algorithm in the next lecture coming up.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Insertion Sort
+
+Up until this point we've talked about Sorting algorithms that weren't very
+efficient and aren't commonly used. Now Insertion Sort is _not the most efficient
+algorithm either_, but there's cases where it's actually extremely fast, which
+we're going to talk about. So pay attention, because **this one starts to get
+important**.
+
+You see, Insertion Sort is useful for times when you're pretty sure their **list
+is almost sorted** or it's already sorted; which sound silly, but sometimes is
+important in Computer Science; and in a best case scenario you can get `O(n)` or
+linear time when the list is almost sorted.
+
+Let's see how it's work,
+
+</br>
+
+![chapter-11-16.gif](./images/gif/chapter-11-16.gif "Insertion Sort animation")
+</br>
+
+We have a list and we look at `6`; we look at the first sign and just leave it
+where it is. We now look at the next item, `5`; and because `5` is less than `6`
+we switch it over; and then we go next into the list.
+
+We say, "hey `3` where are you in relation to `5` and `6`? Well, it's less than
+those two item, so we shift over, and `3` gets placed in front.
+
+So we know have the list of `3, 5, 6`; We look at `1`, and say "oh yeah, that's
+the first item we want to shift everything", we put `1` to the left.
+
+We then look at `8`; well, `8` is larger than all those items, so let's just
+attach it to the end of our list.
+
+We look at `7`; well, `7` shifted between `6` and `8`.
+
+We look at `2`; We shifted `2` between `1` and `3`;
+
+We look at `4`; we place it between `3` and `5`. That's it.
+
+This is probably the way that your brain works; if you physically had Lego block
+with these numbers, you would move things around; and this type of Sorting
+perform really really well when it comes to small data sets, which we'll get
+into later on with our exercises. But can you do this type of Sorting in code?
+
+See if you can implement your own Insertion Sort.
+
+```javascript
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function insertionSort(array) {
+
+}
+
+insertionSort(numbers);
+console.log(numbers);
+```
+
+Same thing as before, this time we have the Insertion Sort algorithm based on
+the animation, can you implement your own Insertion algorithm. In the next
+lecture I'll show you the answer.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
