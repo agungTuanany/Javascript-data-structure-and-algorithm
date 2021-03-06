@@ -747,6 +747,68 @@ Same thing as before, this time we have the Insertion Sort algorithm based on
 the animation, can you implement your own Insertion algorithm. In the next
 lecture I'll show you the answer.
 
+### Solution Insertion Sort
+
+```javascript
+function insertionSort(array) {
+    const length = array.length;
+
+    for (let i = 0; i < length; i++) {
+        // move number to the first position
+        if (array[i] < array[0]) {
+            array.unshift(array.splice(i, 1)[0]);
+        }
+        else {
+            // find where number should go
+            for  (let j = 1; j < i; j++) {
+                if (array[i] < array[j-1] && array [i] < array[j]) {
+                    // move number to the right spot
+                    array.splice(j, 0, array.splice(i, 1)[0]);
+                };
+            };
+        };
+    };
+};
+
+insertionSort(numbers)
+console.log(numbers)
+```
+
+Just like it happened in the animation. We first `loop` over the `array`; and if
+the _item we're `looping`_ for is **less than** the _first item_ in the `array`;
+Well, we just  move that item use the `unshift()` method in `array`, and added
+to the first index in the `array`.
+
+Otherwise, if the _item we're currently loping over_ is **not less than** the
+_first index_; in that case we got to figure out where the number should go.
+
+So, we're going to `loop` through things. Do an `if` statement to see where the
+numbers should go; and then we move that number to the right spot using the
+`splice()` method; so that if we click run the `insertionSort()` function; we
+have our list sorted.
+
+I'll once again leave this function here for you to play around with.
+
+</br>
+
+![chapter-11-8.png](./images/chapter-11-8.png "Insertion Sort Time Complexity")
+</br>
+
+I want to talk about Big-O complexity of Insertion Sort. There are times where
+Insertion Sort can work really really well. The **best case** scenario for
+Insertion Sort when the list almost sorted or the data is really small it can be
+really fast is `O(n)`.
+
+If we go back to our little animation, and we look at Insertion Sort in a nearly
+sorted data; I click play, you'll notice that it's the first none that will
+finish; it's quite fast actually compared to all the other ones.
+
+As well, we discuss in the next videos when it comes to small data sets or data
+sets that are nearly sorted, you want to use Insertion Sort over most other
+sorting algorithms.
+
+Let's move on on to the next Sorting algorithm.
+
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
