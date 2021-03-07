@@ -8,6 +8,7 @@
 5. [Selection Sort](#selection-sort)
 6. [Exercise Selection Sort](#exercise-selection-sort)
 7. [Insertion Sort](#insertion-sort)
+8. [Merge Sort](#merge-sort)
 
 </br>
 
@@ -808,6 +809,209 @@ sets that are nearly sorted, you want to use Insertion Sort over most other
 sorting algorithms.
 
 Let's move on on to the next Sorting algorithm.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Merge Sort
+
+### O(n log n)
+</br>
+
+![chapter-11-17.gif](./images/gif/chapter-11-17.gif "O(n log n)"
+</br>
+
+Up until this point, we talked about Sorting algorithm, Bubble Sort, Insertion
+Sort, Selection Sort that we called **elementary Sort**; they are OK, but they
+have those nested `for-loops`, and most of the time it was `0(n^2)`, which was
+a little bit slow; can we do better? Well, yes we can.
+
+We're going to encounter our last Big-O in our list `O(n log n)`. Now in order
+to understand what `O(n log n)` means, we have to talk about next sorting
+algorithm, **_Merge Sort_** and **_Quick Sort_**.
+
+</br>
+
+![chapter-11-9.png](./images/chapter-11-9.png "Divide and Conquer")
+</br>
+
+Unlike Bubble Sort, Insertion Sort and Selection Sort; they use the technique
+that we've heard of before. _Divide and Conquer_. We learned about this when we
+learning about Trees.
+
+Remember, when looking through a _phone book_, we open up that book, not form
+the first page, but from the middle page, and we keep breaking up the pages
+until we find the name we're looking for.
+
+Merge Sort and Quick Sort use this concept of Divide and Conquer; and the idea
+of _Recursion_, which we've talked about.to divide the problem down to do work
+on each subset and then combining the solutions.
+
+We're going to see how this actually works. But I want to remind you, that any
+time we see something like Divide and Conquer, it usually gives you a `O(log n)`
+advantages.
+
+</br>
+
+![chapter-11-10.png](./images/chapter-11-10.png "Big-O Complexity Chart")
+</br>
+
+As you can see above diagram, it is the last piece of the puzzle.That actually
+improves is better than `O(n^2)`.
+
+The next couple Sorting algorithms we're going to look at are now going to have
+nested for loops, and have `O(n^2)`. Instead they're going to have `O(n log n)`
+time complexity, which makes things a lot better, and save companies a lot of
+time.
+
+In order to understand what `0(n log n)` means, we have to start off with
+looking at Merge Sort.  Let's have look at how it works, and then I'm going to
+explain what the benefits are.
+
+
+We have the same list as before. We're going to take this list and actually
+divide it in half; and then we're going to divide each of these subset into half
+again; and again we're going to divide those sub-list into half again until we
+have one item.
+
+Once we have that divide up, we're going to take the first item and second item,
+and say "hey which one should I put first?" Let's put `5` firs, and then `6`
+right after;
+
+Notice here, how we're building a **Reverse Tree** in a sense.
+
+Then we look at `3` and `1`; and say "`1` and `3`. So we are getting closer and
+closer to that root note.
+
+We then comparing `8` and `7`; `7` comes before `8`.
+
+Then we comparing `2` and `4`; `2` before `4`.
+
+Now, we again combine those list in **Reverse Tree**. Saying `5` and `1`, which
+one come first? `1` come first; and then let's compare `5` and `3`; `3` comes
+first; then `5` and `6`.
+
+Then we look on the right side, we say, `7` and `2`; `2` comes before `7`; and
+then what about `4`? `4` comes before `7`; and because we know that `7` and `8`
+are already Sorted, we just place `7` and `8` right next to each other.
+
+Finally, we combine these last two lists into our root node to combine the list
+and make it sorted.
+
+`1` comes first, and `2` comes after. `3` and `4` comes; then `6`; `7` and `8`;
+then we have our Sorted list.
+
+Now, that look extremely complicated. A lot more complicated that the other
+Sorting algorithms right?
+
+Merge Sort is one o the most efficient ways. You can Sort a list of things and
+typically is going to perform better than most other Sorting algorithms; and in
+terms of Complexity, well it;s definitely more complex isn't it?.
+
+We're using Divide and Conquer approach which should tip you off, that it's
+going to use some sort of Recursion.
+
+The first part of `n` in `(n log n)`, is comes from the fact that we're still
+comparing everything. We have to look at each one of the numbers, and compare
+them in order to Sort it.
+
+Now, once we divide the list into one (single entities/item), which finding the
+middle index of these things, are actually `O(1)`, because it's an easy
+mathematical operations. Get the length of the list, and find the middle.
+
+But, once we _divide the array_, we need to Sort the items, which going to take
+`O(n)`, we have to look at every single item; and actually sort them, and were
+able to create the list.
+
+But unlike Bubble Sort for example, although we have to compare everything at
+least once. We don't have compare everything to everything, like we did with
+Bubble Sort. All we have to do is compare their local list to each other.
+
+> Remember: `(log n)` is kind of like the height of the Tree.
+
+It's something like Bubble Sort or Insertion Sort. Once we thought the list;
+once we then compared the next item to the rest of the list.
+
+Merge Sort is also helpful, because it's what we call **stable**, which just
+means that if you have equivalent elements that is, let's say `6` and `6`, or
+a name that is the same, it will keep the original order in the array. This can
+sometimes be important, depending on the type of data.
+
+Let's have a look at it's own Big-O.
+
+</br>
+
+![chapter-11-10.png](./images/chapter-11-10.png "Merge Sort Time and Space Complexity")
+</br>
+
+We see that Merge Sort has `O(n log(n))`, and with Space Complexity `O(n)`.
+Unlike Bubble Sort, Insertion Sort, and Selection Sort we have a bigger Space
+Complexity, because we have to hold on to that divided up list and memory.
+
+So, that is one downside of Merge Sort, but we've now managed to make our
+sorting algorithm a lot faster.  Now, how do we implement Merge Sort?
+
+I have here for you an exercise,
+
+
+```javascript
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function mergeSort(array) {
+    if (array.length === 1) {
+
+        return array;
+    };
+
+    // Split Array in into right and left
+
+    return merge (
+        mergeSort(left);
+        mergerSort(right);
+    );
+};
+
+function merge(left, rigth) {
+
+};
+
+cons answer = mergeSort(numbers);
+console.log(answwer);
+```
+
+I want you warn you this is really difficult. Merge Sort is really hard to
+implement, and wrap your mind around. If you don't feel comfortable with
+Recursion, it's going to be a little bit tough.
+
+Keep in mind that, I'm showing you here how to do it, just for your own
+interest, but most likely in an interview you're never going to be asked to
+implement your own Merge Sort. You're just going to be asked maybe, how it's
+implemented.
+
+I've created a little skeleton to help you out. We have the Merge Sort that is
+going to have a function takes an array.
+
+We have the base case, because we're going to use Recursion here, saying that,
+when `array.length === 1`, remember there's only one item in the list. That is
+when each `numbers` at the top in its own list. We're going just to return the
+`array`.
+
+We're going to return and we're going to me `mergeSort()` the _left_
+hand-side, and the right hand-side;
+
+We're going use `merge()` function, that is going to merge the left and the
+right hand-side.
+
+So, the first step is, for you to split the array down the middle in the
+left-hand and right-hand side. Then run it, with the `mergeSort()` algorithm;
+and in the `merge()` function I want you to actually do the **_comparison_**.
+
+I don't expect you to get this right away. There's very few people that can do
+this on top of their head. But see if you can use all your resources available,
+Google it, to figure out how to create your own Merge Sort algorithm.
+
+I'll see you in the solution chapter.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
