@@ -817,9 +817,10 @@ Let's move on on to the next Sorting algorithm.
 ## Merge Sort
 
 ### O(n log n)
+
 </br>
 
-![chapter-11-17.gif](./images/gif/chapter-11-17.gif "O(n log n)"
+![chapter-11-17.gif](./images/gif/chapter-11-17.gif 'O(n log n)')
 </br>
 
 Up until this point, we talked about Sorting algorithm, Bubble Sort, Insertion
@@ -869,11 +870,20 @@ In order to understand what `0(n log n)` means, we have to start off with
 looking at Merge Sort.  Let's have look at how it works, and then I'm going to
 explain what the benefits are.
 
+</br>
+
+![chapter-11-18.gif](./images/gif/chapter-11-18.gif 'Merge Sort animation')
+</br>
 
 We have the same list as before. We're going to take this list and actually
 divide it in half; and then we're going to divide each of these subset into half
 again; and again we're going to divide those sub-list into half again until we
 have one item.
+
+</br>
+
+[chapter-11-19.gif](./images/gif/chapter-11-19.gif 'Merge Sort animation')
+</br>
 
 Once we have that divide up, we're going to take the first item and second item,
 and say "hey which one should I put first?" Let's put `5` firs, and then `6`
@@ -888,13 +898,28 @@ We then comparing `8` and `7`; `7` comes before `8`.
 
 Then we comparing `2` and `4`; `2` before `4`.
 
+</br>
+
+[chapter-11-20.gif](./images/gif/chapter-11-20.gif 'Merge Sort animation')
+</br>
+
 Now, we again combine those list in **Reverse Tree**. Saying `5` and `1`, which
 one come first? `1` come first; and then let's compare `5` and `3`; `3` comes
 first; then `5` and `6`.
 
+</br>
+
+[chapter-11-21.gif](./images/gif/chapter-11-21.gif 'Merge Sort animation')
+</br>
+
 Then we look on the right side, we say, `7` and `2`; `2` comes before `7`; and
 then what about `4`? `4` comes before `7`; and because we know that `7` and `8`
 are already Sorted, we just place `7` and `8` right next to each other.
+
+</br>
+
+[chapter-11-22.gif](./images/gif/chapter-11-22.gif 'Merge Sort animation')
+</br>
 
 Finally, we combine these last two lists into our root node to combine the list
 and make it sorted.
@@ -902,7 +927,7 @@ and make it sorted.
 `1` comes first, and `2` comes after. `3` and `4` comes; then `6`; `7` and `8`;
 then we have our Sorted list.
 
-Now, that look extremely complicated. A lot more complicated that the other
+Now, that look extremely complicated. A lot more complicated than the other
 Sorting algorithms right?
 
 Merge Sort is one o the most efficient ways. You can Sort a list of things and
@@ -942,7 +967,7 @@ Let's have a look at it's own Big-O.
 
 </br>
 
-![chapter-11-10.png](./images/chapter-11-10.png "Merge Sort Time and Space Complexity")
+![chapter-11-11.png](./images/chapter-11-11.png "Merge Sort Time and Space Complexity")
 </br>
 
 We see that Merge Sort has `O(n log(n))`, and with Space Complexity `O(n)`.
@@ -952,8 +977,9 @@ Complexity, because we have to hold on to that divided up list and memory.
 So, that is one downside of Merge Sort, but we've now managed to make our
 sorting algorithm a lot faster.  Now, how do we implement Merge Sort?
 
-I have here for you an exercise,
+### Merge Sort Exercise
 
+I have here for you an exercise,
 
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
@@ -968,16 +994,16 @@ function mergeSort(array) {
 
     return merge (
         mergeSort(left);
-        mergerSort(right);
+        mergeSort(right);
     );
 };
 
-function merge(left, rigth) {
+function merge(left, right) {
 
 };
 
-cons answer = mergeSort(numbers);
-console.log(answwer);
+const answer = mergeSort(numbers);
+console.log(answer);
 ```
 
 I want you warn you this is really difficult. Merge Sort is really hard to
@@ -1012,6 +1038,172 @@ this on top of their head. But see if you can use all your resources available,
 Google it, to figure out how to create your own Merge Sort algorithm.
 
 I'll see you in the solution chapter.
+
+### Merge Sort Solution
+
+```javascript
+function mergeSort(array) {
+
+    if (array.length === 1) {
+        return array;
+    };
+
+    // Split Array in into right and left
+    const length = array.length;
+    const middle = Math.floor(length / 2);
+    const left = array.slice(0, middle);
+    const right = array.slice(middle);
+
+    //console.log(length);
+    //console.log("left", left);
+    //console.log("right", right);
+
+    return merge (
+        mergeSort(left),
+        mergeSort(right)
+    );
+};
+
+function merge(left, right) {
+
+    const result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+
+    while (leftIndex < left.length && rightIndex < right.length) {
+
+        if (left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex]);
+            leftIndex++;
+        }
+        else {
+            result.push(right[rightIndex]);
+            rightIndex++;
+        };
+    };
+
+    //console.log(left, right);
+    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+};
+
+const answer = mergeSort(numbers);
+console.log(answer);
+```
+
+I have the answer for you here, and I'm not going to code along, because well
+this is one of those pieces of code that me just writing in and typing it in
+a 30 minute, isn't really going to help your understanding.
+
+**I recommend you go through this code line by line to fully understand**.
+
+But, if we take a look here, all we're doing in the fist pass in the
+`mergeSort()` function is we're going to get the `length` of the `array`; find
+the `middle` of the `array`; and then we're going to `slice` the `array` into
+the `left` hand-side, and `right` hand-side.
+
+
+So, that if console log here, and I click run, we see the result
+
+```javascript
+left [ 99, 44, 6, 2, 1 ]
+right [ 5, 63, 87, 283, 4, 0 ]
+
+left [ 99, 44 ]
+right [ 6, 2, 1 ]
+
+left [ 99 ]
+right [ 44 ]
+
+left [ 6 ]
+right [ 2, 1 ]
+
+left [ 2 ]
+right [ 1 ]
+
+left [ 5, 63, 87 ]
+right [ 283, 4, 0 ]
+
+left [ 5 ]
+right [ 63, 87 ]
+
+left [ 63 ]
+right [ 87 ]
+
+left [ 283 ]
+right [ 4, 0 ]
+
+left [ 4 ]
+right [ 0 ]
+```
+We see that the first time around, we're just splitting the item right down the
+middle, where we have `[99, 44, 6, 2, 1]` in the `left` hand-side; we have `[5,
+63, 87, 283, 4, 0]` in the `right` hand-side.
+
+In the next pass; because, remember we're doing recursion and
+`merge(mergeSort(left), mergeSort(right))` has being called again; we're now
+dividing up `[99, 44]` and `[6, 2, 1]` into it's own pass;
+
+Then the `left` hand-side we splitting out. `[99]` and `[44]` into individual
+items. `[6]` and `[2, 1]` into left and right, until we have everting into one
+item.
+
+Then we start splitting off the `right` hand-side as well.
+
+What about the `merge()` function? The merge function is going to be a little
+bit hard to read; but if we take a look here, all we're saying is, we have
+a `result` which is hold an empty `array`, that we're going to fill everything
+with.
+
+Then we are going to have a `leftIndex` and `rightIndex`.
+
+We're going to compare here. Is the `leftIndex` less than the length of the left
+`array` and the `rightIndex` less than the right `array.length`, which is make
+sure that we have items in our array.
+
+If that's the case then let's compare out our **left-Item** to the
+**right-item**; and `push()` into a new array, into our `result` array the item
+that is less. In this case it will be the **left-hand item**; and then we
+increment.
+
+Otherwise, if the **left-item** is higher than the **right-item**, we do the
+opposite; and the right-item goes into our `result`.
+
+Remember, this `merge()` function is doing what we saw in the animation, where
+splitting the function down in the first part of the function; and then, in the
+**merge** we're going to take the left and right compare it and place it into
+the `result` array; and then go to the next, and keep doing this over and over;
+and creating our `result` array.
+
+
+If I console log in `merge()` function, we can see exactly what we're doing.
+
+```javascript
+[ 99 ] [ 44 ]
+[ 2 ] [ 1 ]
+
+[ 6 ] [ 1, 2 ]
+[ 44, 99 ] [ 1, 2, 6 ]
+
+[ 63 ] [ 87 ]
+[ 5 ] [ 63, 87 ]
+
+[ 4 ] [ 0 ]
+[ 283 ] [ 0, 4 ]
+
+[ 5, 63, 87 ] [ 0, 4, 283 ]
+[ 1, 2, 6, 44, 99 ] [ 0, 4, 5, 63, 87, 283 ]
+```
+
+We have `[99] [44]` and then `[2] [1]`.
+
+So on the `left` hand-side and `right` hand-side. `[99]` and `[44]` get compare,
+becomes `[44, 99]`.
+
+Then we compare `[2] [1]`, which becomes `[1, 2]`.
+
+Then `[6]` and `[1, 2]`, which becomes `[1, 2, 6]`.
+
+We keep going and keep going until the very last step.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
