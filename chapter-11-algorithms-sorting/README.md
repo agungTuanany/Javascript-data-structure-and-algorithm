@@ -9,6 +9,7 @@
 6. [Exercise Selection Sort](#exercise-selection-sort)
 7. [Insertion Sort](#insertion-sort)
 8. [Merge Sort](#merge-sort)
+9. [Quick Sort](#quick-sort)
 
 </br>
 
@@ -1203,7 +1204,142 @@ Then we compare `[2] [1]`, which becomes `[1, 2]`.
 
 Then `[6]` and `[1, 2]`, which becomes `[1, 2, 6]`.
 
-We keep going and keep going until the very last step.
+We keep going and keep going until the very last step, where we have two list
+here `[ 1, 2, 6, 44, 99 ] [ 0, 4, 5, 63, 87, 283 ]`, and we compare `[0]` and
+`[1]`, we place `[0]` in the result array, and then we place `[1, 2]` and just
+keeps going and keeps going exactly like our animation.
+
+Now, I encourage you to play around with this, and perhaps go steps by steps;
+the bad news is that, the next algorithm is even more complicated. But luckily
+for you as I said, you don't have to ever do this in an interview. You just need
+to know that Merge Sort is great algorithms to use, because we get `O(n
+log(n))` Big-O.
+
+Let's take a look another Sorting algorithm.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Quick Sort
+
+Let's even talk about our fifth sorting algorithm, Quick Sort; even just from
+the name you're thinking, this is going to be quick. Quick Sort, just like Merge
+Sort, is a _Divide and Conquer algorithm_, which mean and ring a bell in your
+head saying, that there's probably going to be `O(n log(n))`, and if you
+thinking that, you're right.
+
+You see, Quick Sort uses something called a **pivoting technique** to break the
+**main list** into **smaller lists**; and the _smaller list_ use the _pivoting
+technique_ until they are sorted.
+
+Let me show you the animation of Quick Sort,
+
+</br>
+
+![chapter-11-1.png](./images/mp4/chapter-11-1.mp4 "Quick Sort diagram")
+</br>
+
+Quick Sort works like this, and if you're looking at this diagram, you're
+completely confused as to what is happening. This describes Quick Sort fairly
+well, it's pretty complex to understand.
+
+Let' me show you a better demonstration.
+
+</br>
+
+![chapter-11-12.png](./images/chapter-11-12.png "Quick Sort example")
+</br>
+
+I have a little diagram here, let's say we have a list that look like this, we
+have `3, 7, 8, 5, 2, 1, 9, 5, 4`. What we do here is, we pick a **random
+pivot**. Let's say that `4` is going to be our pivot. Once we pick _pivot item_
+we're going to say, "all right, I want all numbers that are less than `4` to
+come to it's left and all numbers that are greater than `4` to come to its
+right.
+
+So what we do?
+
+Well, we start comparing the numbers, we look at `3` and `4`. `3` is to the left
+of `4`, that fine. What about `7`? `7` is higher than `4`, so it should be to
+it's right. We're going to move `4` to the left position to make a space for
+`7`; `7` jumps over to the right, and we swap the `5` that `4` came into the `7`
+position;
+
+Now we check `5` and `4`, we've got to do the same thing, We put `5` to the
+right of `4` and swap `9` in there. Once again `9` is higher than `4`. So `9`
+comes to the right of `4`.
+
+Then we look at `8`, same thing with `8`; and then finally `5` and `4`, well `4`
+and `5` switch places.
+
+Now, we have a list `3, 1, 2, 4, 5, 8, 9, 5, 7`, that has `4` as the _pivot_;
+and we know that `4` is going to be in that position in the array, and
+everything else to the left of it and to the right of it it still needs to get
+sorted; but at least we know where `4` stands.
+
+From there, using Divide and Conquer we now split the list, and we do the same
+thing. We get a _pivot_ on the left list, which will be `2`, and we say
+everting to the right of `2` should be higher, everything to the left of `2`
+should be lower; And we have this left list sorted.
+
+On the right, we do the same thing until we split the list with `7` in the
+middle, and we keep breaking things down and keep breaking things down like
+a Tree, and this is where Divide and Conquer comes from. Until we have all the
+individual list sorted and we combine them.
+
+Now, you might have two question for me looking at this?
+
+**_One_** is, how do we even pick this **pivot point**? The answer is, that is
+kind of random. It really really depends on the situation, but as you see here,
+we just happen to pick the _pivot point_ as always the last item in the array.
+
+The **_second_** is, how am I ever going to code this? This is pretty challenge
+and I don't expect you to get it. I'll leave code for you, and you can try it
+out if you want, but the best way to understand the Quick Sort is by watching
+the video [Hungarian Quick Sort](https://www.youtube.com/watch?v=ywWBy6J5gz8).
+The implementation and the visual is a little bit different here. But the idea
+is the same, **Quick Sort can be implemented in different ways**, but the idea
+of the pivot is the same.
+
+Let's got to main concepts. Quick Sort is really really useful; and between
+Quick Sort and Merge Sort, I would say that the most used Sorting algorithms.
+
+</br>
+
+![chapter-11-11.png](./images/chapter-11-11.png "Quick Sort Time and Space Complexity")
+</br>
+
+You'll notice here **_two things_**,
+
+**One** is, that Quick Sorts Space Complexity plays really really good, I mean
+not as good as Bubble Sort, or Insertion Sort, or Selection Sort, but is still
+better than Merge Sort, its **worst case** is `O(n^2)`, that is because t can be
+`0(n^2)` when the _pivot_ is the **smallest** or the **larger** item in the
+list, because, then you're not really splitting the list in half, and because
+of this you really want to make sure that you pick a good pivot for Quick Sort.
+
+You'll get the better Space Complexity, but the worst case could be bad. So, in
+those cases, Merge Sort might be better if your list was presorted for whatever
+reason, and in that list if we pick the _pivot_ to be the first item or the last
+item, then our Sorting routine here would be take a very very long time, because
+again the list will not really be split in half.
+
+Ideally in a Quick Sort, you're **picking** the pivot intelligently based on your
+list.
+
+Now, Quick Sort there is a lot of variance to it, and there's different
+implementations. But I want you to take this away from this lecture. Quick Sort
+is usually the fastest on average, but the downside is, that it has some pretty
+nasty worst case behaviors. So, if you have to guarantee no bad data or you can
+guarantee that the pivot is going to be good, then you should be avoiding the
+Quick Sort; but on average it's usually the best Sorting algorithm.
+
+Alright, so we've learn five different Sorting algorithms, but the most
+important part is, when should I use what?.
+
+In the next lecture, we're going t go over exactly that, follow by a fun little
+exercise.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
