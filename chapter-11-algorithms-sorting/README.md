@@ -10,6 +10,7 @@
 7. [Insertion Sort](#insertion-sort)
 8. [Merge Sort](#merge-sort)
 9. [Quick Sort](#quick-sort)
+10. [Which Sort is Best](#which-sort-is-best)
 
 </br>
 
@@ -1237,7 +1238,7 @@ Let me show you the animation of Quick Sort,
 
 </br>
 
-![chapter-11-1.png](./images/mp4/chapter-11-1.mp4 "Quick Sort diagram")
+[chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
 </br>
 
 Quick Sort works like this, and if you're looking at this diagram, you're
@@ -1340,6 +1341,86 @@ important part is, when should I use what?.
 
 In the next lecture, we're going t go over exactly that, follow by a fun little
 exercise.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Which Sort is Best
+
+We've learned our Sorting algorithms, but you might be asking yourself, I'm
+still confused about when to use what? What about if I asked you in an interview
+a question about which Sorting algorithm will be best, if I had a user's data of
+100 million names that need to be sorted? Well, let's go over some **rules**.
+
+**When you should use Insertion Sort**? Well, Insertion Short should be used with
+**only a few items**, if your input is small or items are mostly sorted, it's
+really really fast. It uses very little Space, and most importantly it's really
+easy to implement in code.
+
+So remember this, only a few items and mostly sorted data you should use
+Insertion Sort.
+
+**When you should use Bubble Sort**? To be honest, you're never going to be use
+Bubble Sort. It's only really used for **educational purpose**, as a way to
+teach sorting; but, it's very rare that you'll find this in real life, because
+is just **not very efficient**.
+
+**When you should use Selection Sort**? Again, same thing with Selection Sort,
+as you can see, it's numbers aren't very good. So, most likely you won't be
+using it. Mostly it's being used as a teaching mechanism which I did.
+
+Sorry, didn't mean to waste your time with learning Selection Sort; but, it is
+important to build the foundation.
+
+**When you should use Merge Sort**? This one is my favorite, Why? Well, Merge
+Sort is really good, because of Divide and Conquer. We have `O(n log(n))`, it's
+fast; and because best average in _worst case_ is always `O(n log(n))`,we always
+divide up the list evenly. You can always guarantee that, this is going to be
+the case, which is not the case for most other algorithms.
+
+So, if you worried about _worst case_ scenario, you should use Merge Sort; but,
+if you want to **sort in memory on your machine** and you're worried about Space
+Complexity, Merge Sort is going to be really expensive. A it's use Space Complexity
+`O(n)`.
+
+However, if you had _huge files that can be sorted in memory_, so you have
+external-sorting that you need, maybe like a _process outside of memory_, it's
+suitable for external sorting, then Merge Sort is good, because we won't care
+much as much Space Complexity.
+
+**When you should use Quick Sort**? Quick Sort is actually better than Merge
+Sort, _average case_ and Space Complexity, I mean it has the same speed as time
+as Merge Sort, but less Space Complexity.
+
+It's probably one of the most popular Sorting algorithms; But, the one downside
+is the _worst case_ scenario; if you don't pick the **pivot** properly, you
+could have really really slow sorting.
+
+So, you have to be careful, and if you're really worried about _worst case_ then
+you rather pick something else.
+
+Now, you might be asking yourself, **what about Heap Sort**? We haven't really
+talk about that.
+
+I'm going to leave a resources for you, so you can learn about Heap Sort as
+well. It's very similar to Quick Sort and Merge Sort, but you see here, that it
+has a Space Complexity `O(1)`. Isn't Heap Sort better than all of the above?
+Well, Heap Sort can Sort in place, and doesn't have the _worst case_ quadratic
+behavior that Quick Sort has, or the memory usage that Merge Sort has.
+
+
+But, on average is _actually slower than Quick Sort_ in most cases.
+
+It's one of those things where with Heap Sort, unless you really really worried
+about _worst case_ and memory, then you might use it; but most of the time
+I would say, you're using Quick Sort or Merge Sort.
+
+What about Shell Sort, Bucket Sort, Radix Sort, Counting Sort? How come we're
+not talking about these one? Why can we just use these, they look a lot better
+than all the other ones?, especially when it comes to Time Complexity.
+
+Good Question, let's talk about in the next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
