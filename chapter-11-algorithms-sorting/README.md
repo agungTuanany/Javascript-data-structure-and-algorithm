@@ -11,6 +11,7 @@
 8. [Merge Sort](#merge-sort)
 9. [Quick Sort](#quick-sort)
 10. [Which Sort is Best](#which-sort-is-best)
+11. [Radix Sort and Counting Sort](#radix-sort-and-counting-sort)
 
 </br>
 
@@ -1421,6 +1422,96 @@ not talking about these one? Why can we just use these, they look a lot better
 than all the other ones?, especially when it comes to Time Complexity.
 
 Good Question, let's talk about in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+
+## Radix Sort and Counting Sort
+
+</br>
+
+[chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
+</br>
+
+We have talked about these five shorting algorithms, and by now you should know
+that Merge Sort and Quick Sort, although they're harder to implement, are the
+most often used algorithms in real life, because they use Divide and Conquer to
+get us this `O(n log(n))` performance boost.
+
+Can we beat `O(n log(n))`? Here's the thing, mathematically it is impossible to
+improve on this. If any body comes up with an algorithm that is faster than `O(n
+log(n))`, they're going to be very very rich.
+
+Mathematically it's impossible, because `O(n log(n))` means that we have to Sort
+by **comparison**. All of these (Bubble, Insertion, Selection, Merge, Quick
+sort) are Sorting algorithms have to compare every number to each other.
+
+But, there is one exception to this rule. **You can improve this if you don't
+make comparisons**. What that's mean? There's a small section of input that we
+can actually beat `O(n log(n))` and these are called a **Non-Comparison Sort**;
+and you'll most likely see **Counting Sort** and **Radix Sort**.
+
+What does that mean?
+
+Counting Sort and Radix Sort is an entire different way to think about Sorting.
+With **Comparison Sort**, we decided the order of the numbers based on asking the
+question, "hey, is this element bigger than the one over there?", and we just
+kept doing that, every number got compared to each other.
+
+Non-Comparison does it a little bit different. We're going to use the way that
+numbers and data is stored on our computers, in `0` and `1`; and take advantage
+of that value to Sort thing.
+
+</br>
+
+![chapter-11-13.png](./images/chapter-11-13.png "Non Comparison Sort")
+</br>
+
+This can get pretty complex, as you can see above paper, just looking at the
+diagrams, and for example Radix Sort here, how we store numbers in `0` and `1`.
+
+</br>
+
+![chapter-11-14.png](./images/chapter-11-14.png "Radix Sort example")
+</br>
+
+We can use this knowledge to actually Sort some things.
+
+I'm going to leave resources for you, if you want to get really technical and
+into this topic, I do warn you, you can get a little bit mathy, but the one
+thing to note here is, that these type of Sorting algorithms, Counting Sort and
+Radix Sort, **only work with numbers**, specifically _integers_, in a restricted
+range.
+
+So, if you have only numbers that you want to solve Sort, and the range of those
+numbers go fro, let's say from `0` to `100`, that is a small range, then you
+would use something like above diagram to make things really fast; but it
+wouldn't work on any type of data. It only really works on numbers, because of
+the way numbers are stored in memory.
+
+You see, unlike something like Merge Sort or Quick Sort that are universal, that
+is they can Sort any type of data. Things like Counting Sort and Radix Sort, is
+only useful for fixed length integers. They are able to beat the speed of `O(n
+log(n))`.
+
+</br>
+
+![chapter-11-11.png](./images/chapter-11-11.png "Array Sorting Algorithms comparison diagram")
+</br>
+
+As you can see above diagram, Bucket Sort, Radix Sort, Counting Sort, in their
+average cases have `O(n+k)`, `0(nk)`. What `k` and `n` means, is beyond the
+scope of this course, and some argue that in the end, this actually still turns
+out to be pretty slow or the same `O(n log(n))`.
+
+### Resources
+
+- [Radix Sort](https://brilliant.org/wiki/radix-sort/)
+- [Radix Sort Animation](https://www.cs.usfca.edu/~galles/visualization/RadixSort.html)
+- [Counting Sort](https://brilliant.org/wiki/counting-sort/)
+- [Counting Sort Animation](https://www.cs.usfca.edu/~galles/visualization/CountingSort.html)
 
 **[⬆ back to top](#table-of-contents)**
 </br>
