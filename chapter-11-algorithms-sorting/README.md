@@ -12,6 +12,7 @@
 9. [Quick Sort](#quick-sort)
 10. [Which Sort is Best](#which-sort-is-best)
 11. [Radix Sort and Counting Sort](#radix-sort-and-counting-sort)
+12. [Exercise Sorting Interview](#exercise-sorting-interview)
 
 </br>
 
@@ -1427,7 +1428,6 @@ Good Question, let's talk about in the next lecture.
 </br>
 </br>
 
-
 ## Radix Sort and Counting Sort
 
 </br>
@@ -1506,6 +1506,13 @@ average cases have `O(n+k)`, `0(nk)`. What `k` and `n` means, is beyond the
 scope of this course, and some argue that in the end, this actually still turns
 out to be pretty slow or the same `O(n log(n))`.
 
+The only thing you need to know about this is, _that sometimes if you have
+**numbers** that are within a certain range_, it could be faster than Quick Sort
+or Merge Sort.
+
+Now, we know this, let's do some interview exercise based on Sorting, to solidity
+what we just learn.
+
 ### Resources
 
 - [Radix Sort](https://brilliant.org/wiki/radix-sort/)
@@ -1516,3 +1523,52 @@ out to be pretty slow or the same `O(n log(n))`.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+## Exercise Sorting Interview
+
+Most people focus on just coding Sorting algorithms, which just doesn't apply in
+real life. Most developers and engineers go their entire life not ever coding
+a Sorting algorithm from scratch; but we are going to encounter situations,
+where we need to make decisions on which Sorting algorithms to use.
+
+So, to prepare you for that, I have a couple question,
+
+```javascript
+//#1 - Sort 10 schools around your house by distance:
+A: Quick Sort. the distance is a number, I can use Merge or Quick Sort
+algorithms cause.
+
+//#2 - eBay sorts listings by the current Bid amount:
+A: Merge Sort, Bid amount is a certain number, I can use Merge Sort.
+
+//#3 - Sport scores on ESPN
+A: Quick Sort
+
+//#4 - Massive database (can't fit all into memory) needs to sort through past year's user data
+A: Merge Sort
+
+//#5 - Almost sorted Udemy review data needs to update and add 2 new reviews
+A: Merge Sort
+
+//#6 - Temperature Records for the past 50 years in Canada
+A: Quick Sort
+
+//#7 - Large user name database needs to be sorted. Data is very random.
+A: Merge Sort
+
+//#8 - You want to teach sorting for the first time
+A: Buble Sort
+```
+
+The question are number above, and I want you to answer each question each
+question, if this was asked to you by your employer or boss, or maybe an
+interview, what type of Sorting algorithms would you'd used based on above
+factor?
+
+For example, we have 10 schools around your house, and you want to Sort
+them by _distance_, what type of Sorting algorithm would you use?.
+
+You'll see here, we have 8 questions. Give it a try; and in the next lecture
+I'll give you my opinion.
+
+
