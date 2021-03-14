@@ -1571,4 +1571,109 @@ them by _distance_, what type of Sorting algorithm would you use?.
 You'll see here, we have 8 questions. Give it a try; and in the next lecture
 I'll give you my opinion.
 
+### Solution Sorting Interview
 
+Let's go step by step, and see how your answer match up
+
+> Sort 10 schools around your house by distance
+
+So, the input is only `10`, it's fairy small, we need something simple. In this
+case, I'll probably use **Insertion Sort**, it's really fast on _small sorts_,
+it's easy to code, and it has Space Complexity `O(1)`.
+
+It also could be that these `10` schools are already _presorted_ or nearly
+sorted on our list. So, Insertion is just the simplest for this type of small
+data. I like Insertion Sort for this type of things.
+
+> eBay sorts listing by the current Bid amount
+
+What would you use for this? I would actually use something like **Radix** or
+**Counting Sort**, because, well a bid is usually a number between, let's say
+_$1_ to let's say _$5000_, probably even less when it comes to payment on eBay.
+Let's say $1 to $100. These are numbers that need to be sorted; and because it's
+a _fixed length of integers_, integers are most likely not going to be
+a _$1.000.000_, because, well, hopefully nobody's bidding that much on eBay.
+
+So, how do you use Radix or Counting Sort to beat that `O(n log(n))`?; Knowing
+that the bids are always going to be a number within a certain range.
+
+> Sport scores on ESPN
+
+It's can vary, there's decimal places sometimes there's. There's different
+formats, such as _tennis_ and _soccer_, and different things, and there's
+definitely lots of sports and lots of scores to handle.
+
+In this case, I'm going to use **Quick Sort**. It's going to be the most
+efficient, an we might have the _Worst Case_, I doubt that scores are going to
+be sorted, because there are just so many different kinds; but, I'm also worried
+about _in-memory sorting_.
+
+So, if I use Merge Sort, it might be a little too much for this, because of our
+increase Space Complexity `O(n)` _versus_ Quick Sort, which if you remember, has
+better Space Complexity `O(n log(n))`.
+
+By the way, you might have your own answer for this. Maybe you thought that the
+sport scores on ESPN will be, they input's would be a little bit different. You
+could have your different types of answers. The idea here in an interview
+situation is, to explain yourself, and if you know the principles, then the
+interviewers is going to say, "oh, he or she knows what they're talking about".
+
+> Massive database (can't fit all into memory), needs to sort through past
+> year's user data.
+
+Massive database;so, we can _fill all this data into **memory**_ to sort it. We
+probably need to sort out externally, and let's say we need to sort through past
+years user data. So, it's a ton of data, and we need to sort it somehow; let's
+say by some _sort of a date_.A
+
+Base on that information that i got here, it sounds like I need to do something
+called **Merge Sort**. The reason I would pick this is, because well, it sounds
+that we're not going to be sorting really in-memory, because the data so big,
+but because the data is big, I'm really worried about the performance. I don't
+want the Worst Case of Quick Sort `O(n^2)`. I want to make sure that no matter
+what I'm going to get `O(n log(n))`.
+
+> Almost sorted Udemy review data needs to be update and add 2 new reviews
+
+So, we have a massive list of your reviews. Let's say that you raided the
+course, and this course you're taking has 500 reviews, and you've added review,
+and your friends just added two new reviews to the scores.
+
+In this case, I'm going to use **Insertion Sort**. Why is that? Well, although,
+this data might be huge, and maybe I have a lot of reviews. I'm assuming that
+most of the _previous data is already sorted_; and all I'm doing is adding two
+new reviews to this data. Insertion Sort for pre-ordered list is going to be
+work better than any other type presorted.
+
+> Temperature Records for the past 50 years in Canada
+
+This is a little tricky, firs, I would use something like Radix or Counting
+Sort, _if the temperatures have *8no decimal places**_. If we're saying, you
+know it's `-30` to let's say `40` degrees, that's a integer number between
+a small range, that might work well.
+
+But, if I want to Sort through  data that also has, maybe temperatures that are
+really accurate, and have decimal places, which you can do with Radix or
+Counting Sort, than I'm probably going to use **Quick Sort**, again just we can
+do some in **memory sorting**, and hopefully save on that Space Complexity.
+
+> Large use name database needs t be sorted. Data is very random
+
+All right, so we have a _user name database_, that need to be Sorted. I'm not
+really sure, I don't have enough information to make a decision here. Maybe
+I would use **Merge Sort**, if we have enough memory; and memory isn't too
+expensive on the machine. Or I'll use **Quick Sort**, if I'm not too worried
+about Worst Case, and that user name databases isn't that large. Maybe I'll just
+use Quick Sort, just to save Memory Space and I can just pick a good **pivot**.
+
+> You want to teach Sorting for the first time
+
+I'll choose **Bubble Sort** and **Selection Sort**.
+
+Hopefully you have fun with these Sorting algorithms questions. This is probably
+the finest I can get it. I hope you get a good idea of ow to answer these
+questions when they come to the interview.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
