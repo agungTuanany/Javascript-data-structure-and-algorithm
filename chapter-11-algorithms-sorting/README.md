@@ -13,6 +13,7 @@
 10. [Which Sort is Best](#which-sort-is-best)
 11. [Radix Sort and Counting Sort](#radix-sort-and-counting-sort)
 12. [Exercise Sorting Interview](#exercise-sorting-interview)
+13. [Sorting In Your Language](#sorting-in-your-language)
 
 </br>
 
@@ -1460,9 +1461,9 @@ With **Comparison Sort**, we decided the order of the numbers based on asking th
 question, "hey, is this element bigger than the one over there?", and we just
 kept doing that, every number got compared to each other.
 
-Non-Comparison does it a little bit different. We're going to use the way that
-numbers and data is stored on our computers, in `0` and `1`; and take advantage
-of that value to Sort thing.
+**Non-Comparison** does it a little bit different. We're going to use the way
+that numbers and data is stored on our computers, in `0` and `1`; and take
+advantage of that value to Sort thing.
 
 </br>
 
@@ -1671,8 +1672,42 @@ use Quick Sort, just to save Memory Space and I can just pick a good **pivot**.
 I'll choose **Bubble Sort** and **Selection Sort**.
 
 Hopefully you have fun with these Sorting algorithms questions. This is probably
-the finest I can get it. I hope you get a good idea of ow to answer these
+the finest I can get it. I hope you get a good idea of how to answer these
 questions when they come to the interview.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Sorting In Your Language
+
+I want have just quick lecture to tell you about something interesting, and this
+depends on your language; but, remember the Sort method that we had in
+JavaScript or perhaps your language.
+
+```javascript
+[1, 3, 2].sort();
+```
+
+I challenge you to figure out what Sort of Sorting algorithm it's using
+underneath the hood.
+
+In most cases, it's either going to be Quick Sort or Insertion Sort and Merge
+Sort combined together. So go out and search what Sorting algorithm your
+language uses.
+
+When it comes to JavaScript, there's actually no requirement to JavaScript as to
+which Sorting algorithm to use. We have ECMAScript in JavaScript which is the
+standard; but, because the standard doesn't mention how `sort()` method should
+be implemented. Different browser that have different JavaScript Engines, Chrome
+has V-8, Mozilla has its own engine, Safari its own engine, they all implement
+differently.
+
+Last time I checked, in Mozilla they use Merge Sort for sorting. In Chrome the
+V-8 engine sort is implemented with Quick Sort and also Insertion Sort for the
+smaller arrays.
+
+I thought that was interesting. I see you in the next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
