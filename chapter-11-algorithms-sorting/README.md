@@ -14,6 +14,7 @@
 11. [Radix Sort and Counting Sort](#radix-sort-and-counting-sort)
 12. [Exercise Sorting Interview](#exercise-sorting-interview)
 13. [Sorting In Your Language](#sorting-in-your-language)
+14. [Sorting Review](#sorting-review)
 
 </br>
 
@@ -1708,6 +1709,59 @@ V-8 engine sort is implemented with Quick Sort and also Insertion Sort for the
 smaller arrays.
 
 I thought that was interesting. I see you in the next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Sorting Review
+
+Another section done, and we covered Sorting specifically Sorting algorithm in
+this section. Most of the time, when talking about Sorting algorithms, we're
+going to be talking about `O(n log(n))`.
+
+We learned that there is a ton of Sorting algorithms, and we covered the main
+ones they get use more often. If you really excited about the topic, and you
+find this interesting, then well, good for you. You're one of few.
+
+I encourage you to search different Sorting algorithms, but to review,
+
+**Quick Sort** you want to _use when your average case **Performance** matters more
+than the **Worst Case**_, because Quick sort allow us to Sort in `O(n log(n))`,
+but in worst case is `0(n^2)`.
+
+**Merge Sort** on the other hand is great, because it's always `O(n log(n))`,
+and it's also **stable**; which means, that it always gives the same result in
+order if two items are same. Although, the Space Complexity is a little bit
+higher than Quick Sort, it's `O(n)`. It's definitely a useful Sort.
+
+We also talk about, Insertion Sort, Selection Sort and Bubble Sort. Those are
+fun when you're doing something **quick and dirty** and you want to just
+experiment around with Sorting; but, in **real life, you're not going to use
+them**. Most likely in real life you are using the framework or languages or
+libraries Sorting algorithm.
+
+> Although Insertion Sort is great for small or nearly sorted inputs.
+
+Their advantages is that their fairly easy to implement in code.
+
+During the interview you might something like this, in those rare cases that
+they ask you to implement a Sorting algorithm you'll say,"Well, because we have
+a _time constraint_ I like to use something naive and not efficient like Bubble
+Sort, which is slow in real life. Instead of implementing like Merge Sort if
+it's OK with you"; because we can assume that Merge Sort is something that we
+can implement with a library or fairly easily with documentation, or you can say
+something like, "We can just use Merge Sort to Divide and Conquer the code to
+make it more efficient".
+
+With above way, you show the interviewer that, yes, you can implement Sorting,
+like Bubble Sort, but you also know about things like Merge Sort to make it more
+efficient without having to actually implement it.
+
+So, by the end of this, all I hope you now understand the trade-offs where you
+can look at Sorting algorithms, and decide base on their **Speed Ability**, and
+their **Readability**, whether the input is already sorted or nearly sorted, how
+large the input; you can make the right decision on Sorting.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
