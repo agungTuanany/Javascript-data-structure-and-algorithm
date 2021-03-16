@@ -334,8 +334,8 @@ to some data structures.
 
 You can see above, some of other languages that we can use in this course and
 whether they have them available. We see that Java has ArrayList, Linkedlist,
-Stacks, PriorityQueue, and many other types. Now doesn't that mean that if we're
-using JavaScript we can only use Arrays and Object? Well no, not really
+Stacks, Priority-Queue, and many other types. Now doesn't that mean that if
+we're using JavaScript we can only use Arrays and Object? Well no, not really
 although these languages come with data structure built in. We can also built
 our own, and most languages have enough data structures and data-types or us to
 build and create our own data structures.
@@ -368,7 +368,7 @@ structures? Because as we learn in our previous lectures data structure are
 simply way to organize our data on our computers, and the data structures that
 we'll see throughout this course are simply variations of how we stored this
 data on our computers, this information; And each data structures has their
-tradeoffs some one good at certain operations, others are good at at other
+trade-off some one good at certain operations, others are good at at other
 operations.
 
 One type of action that we're going to performed with data structures, well is

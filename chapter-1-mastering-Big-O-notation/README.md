@@ -200,7 +200,7 @@ a functions_**.
 
 ### - What can cause time in a function? -
 
-Operations (+, -, *, /) </br>
+Operations (`+`, `-`, `*`, `/`) </br>
 Comparison (<, >, ==) </br>
 Looping (for, while) </br>
 Outside Function call (function()) </br>
@@ -211,7 +211,7 @@ Outside Function call (function()) </br>
 **Rule 2:** Remove Constant </br>
 **Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` </br>
 `+` for steps in order </br>
-`*` for nesteds steps </br>
+`*` for nested steps </br>
 **Rule 4:** Drop Non-dominant terms
 
 ### - What causes Space complexity -
@@ -252,6 +252,7 @@ this function and its runtime grow as our input increases. As our inputs goes
 from just a single item in an array `nemo`, to 10 items in array `everyone1
 | everyone2` to 100.000 `largeArray`. How does the efficiency of this function
 increase?.
+
 </br>
 
 ![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
@@ -288,6 +289,7 @@ means_**, as things grow larger and larger, does it scale?
 
 So the `findNemo` function is `O` of `n` and linear time. Another way to think
 about it is this,
+
 </br>
 
 ![chapter-1-4.gif](./images/gif/chapter-1-4.gif "O(n) single element")
@@ -296,10 +298,11 @@ about it is this,
 If we have the compression algorithm, let's say this `function()` is the little
 compression, and the `Input` is the little box, what's the Big-O notation of
 this function? Well if we had one element it will just compress one item.
+
 </br>
 
 ![chapter-1-5.gif](./images/gif/chapter-1-5.gif "O(n) multiple elements")
-</br/>
+</br>
 
 If we have multiple elements, again we still have to run each box through the
 compression algorithm to compress the box.
@@ -401,7 +404,7 @@ If we looks at the graph,
 </br>
 
 Instead of having `O` of `1`, like we have before, we have `0` of `2`, and then
-if we had three opertions it will just be `O` of `3`. But overall it's still
+if we had three operations it will just be `O` of `3`. But overall it's still
 a **_flat line_**, and this is something we're going to get into later on. But
 when it comes to constant time we don't care about the nitty gritty `O` of `1`,
 `O` of `2`, or `O` of `3`, or `O` of `100`. We round this down to just simply
@@ -499,7 +502,7 @@ one of Big-Os kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`. You're most
 likely never going to actually calculate precisely `O(3n)`, or `3n + 2 + 1`; So how
 was I able to simplify the exercise and just say that they `O(n)`?. Luckily for
 you, there are just several rules that we can follow when it came to the
-Big-O. Check the [cheatsheet Rule Book](#big-o-cheat-sheet)
+Big-O. Check the [cheat-sheet Rule Book](#big-o-cheat-sheet)
 
 **[⬆ back to top](#table-of-contents)**
 </br>
@@ -1225,8 +1228,8 @@ talk about recursion, but when it comes to _space complexity_ you're either
 adding additional memory that you need to use and that's sometimes a big
 concern, and sometimes there isn't, and something that comes up a lot in
 interviews; And something that we'll talk about in the next section that is
-sometimes _there's a tradeoff_ between _saving time_ and _saving space_.  You
-have to decide, which one you're optimizing for.
+sometimes _there's a **trade-off**_ between _saving time_ and _saving space_.
+You have to decide, which one you're optimizing for.
 
 Let's get into some fun examples based on what we've just learned in the next
 chapter.
@@ -1319,7 +1322,7 @@ console.log(stringOne.length)
 // 19
 ```
 
-What is the length of our `stringOne`? that is `19` items in string. What do you
+What is the length of our `stringOne`? That is `19` items in string. What do you
 think the Big-O notation of this string? This is a bit trick question, and
 something that you might get asked in an interview, because the answer to this
 is _depends_ on the language that you working with.
@@ -1429,7 +1432,7 @@ a lot of money, if people they hire know how to write efficient code.
 
 In this section we learned about the idea of _time complexity_ and _space
 complexity_, how we can use Big-O to measure both things. But each one is
-a tradeoff between the other, and Big-O describes the upper bound of our
+a trade-off between the other, and Big-O describes the upper bound of our
 estimate.
 
 We're always looking at the _worst case scenario_. We want to be pessimistic and
@@ -1448,9 +1451,9 @@ Sometimes Readability maybe matters more than scalability, maybe Time Complexity
 is less important than Space Complexity. That's something you want to be care
 full of.
 
-Now, **_with this newfound knowledge, premature optimization can be the root of all
-evil_**. It's a famous quote that a lot of developers know. Sometimes optimizing
-for Time or Space can negatively impact the readability of code.
+Now, **_with this newfound knowledge, premature optimization can be the root of
+all evil_**. It's a famous quote that a lot of developers know. Sometimes
+optimizing for Time or Space can negatively impact the readability of code.
 
 If you working at young startup for example, might be more important for you to
 write code that's easy to ship and perhaps easy to understand later. Perhaps not

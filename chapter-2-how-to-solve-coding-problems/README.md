@@ -41,11 +41,11 @@ If you're a genius but you can't talk to people, you don't work well with others
 or you write ugly code that people don't understand, or you can't communicate
 a solution to a problem then you won't get a job. It's not necessarily about the
 solution to a problem, in a coding interview it's about the **thought process**,
-and knowing the tradeoffs **_between data structures and algorithm, space and time
+and knowing the trade-off **_between data structures and algorithm, space and time
 complexity_**.
 
 Just like in real life coding, you don't memorize things. You have to _deeply
-understand them_, understand the _tradeoffs_. That's what  we're doing here.
+understand them_, understand the _trade-off_. That's what  we're doing here.
 
 I know I'm taking a long time to get my points here, but we're trying to build
 the fundamental before we dive in really deep, so we **_understand the why of each
@@ -87,7 +87,7 @@ and _time_.
 By the end of this section, you're going to have a big '_aha_'  moment.
 I guarantee it, where we're going to take everything we've learned up until now
 into our data structure and algorithm section to really understand the
-tradeoffs.
+trade-off.
 
 **[⬆ back to top](#table-of-contents)**
 </br>

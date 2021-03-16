@@ -22,9 +22,9 @@
 
 In the past when I learned about Sorting, it involved a lot of math, a lot of
 different algorithms, and I just never really enjoyed it, because I didn't
-understand why we need to know Sorting?, I mean, you just have a _sort function_
-usually in programming language and that's it, right? I just never understood
-the point of it, and you probably thinking the same thing.
+understand why we need to know Sorting?, I mean, you just have a `sort()`
+function usually in programming language and that's it, right? I just never
+understood the point of it, and you probably thinking the same thing.
 
 Let me explain, in interview Sorting is _really important_. You hear question
 lake take an array of numbers and _sort_ them; or the interviewer want you to
@@ -45,7 +45,6 @@ letters.sort();
 ["a", "b", "d", "e", "r", "z"]
 ```
 
-
 We've an array of `letters`, and this array simply has `["a", "d", "z", "e", "r",
 "b" ]`; and if somebody asked to sort this, well we can just use something like
 a _sort method_ that comes in most languages `letters.sort()`, If I run this
@@ -63,12 +62,11 @@ a little bit crazy and expensive.
 ![chapter-11-1.png](./images/chapter-11-1.png "Sorting introduction")
 </br>
 
-
 For example, Google has a ton of Websites that are indexed. What if they need to
-sort those Websites? In a way, perhaps _sorting a news article_ based on the time
-that it was released?; and because we are talking about Google here, we're not
-talking about ten articles, we're talking about thousand, million more articles
-sorted based on _date_.
+sort those Websites? In a way, perhaps _sorting a news article_ based on the
+time that it was released?; and because we are talking about Google here, we're
+not talking about ten articles, we're talking about thousand, million more
+articles sorted based on _date_.
 
 What about Amazon? Amazon is all about Sorting, they sort their product based
 on _category_, based on _price_, based on _rating_, and they have millions of
@@ -201,7 +199,7 @@ grab the character code in the first index;
 55
 ```
 
- So, we can use the method `charCodeAt()` and give it `0`; it's going to measure
+So, we can use the method `charCodeAt()` and give it `0`; it's going to measure
 the character code at `65`, if I run this I get `54`.
 
 </br>
@@ -333,7 +331,6 @@ Sort work?
 ![chapter-11-4.png](./images/chapter-11-4.png "How to sort with Bubble sort")
 </br>
 
-
 Well, let me ask you question, if I gave you a list and I ask to sort it in your
 head; imagining that you had blocks of above letters, how would you move them
 around? Or how would you tell a computer to move them around to Sort it; and
@@ -353,7 +350,6 @@ We look at `6` and `5`, and say is `6` is larger than `5`?; and then we look at
 
 Let's move onto next one, `8` and `7`, `8` is larger than `7`, let's sort them
 out; and `8` and `2`, swap them out; `8` and `4`,swap them out.
-
 
 </br>
 
@@ -390,7 +386,6 @@ Then we keep `looping` until we Bubble Up the highest number, one by one.
 </br>
 
 Until we have a sorted list.
-
 
 That is Bubble Sort.
 
@@ -475,10 +470,10 @@ We want to add another `for-loop`, it's going to `let j = 0; j < length; j++;`.
 Now, in the second `for-loop` here, we'll say that _if_ `array[j]` at index of
 `0`; so that is `99`; `99` is greater than `array[j+1]`, that is `44`.
 
-So, if `99` is greater than `44`, in the _nested `loop`_; we'll say, let's **_swap
-numbers_**. We can simply do that by saying creating `temp` variable, that holds
-`array[j]` which the first pass will be `99`; and give the first index of `0` to
-`array[j] = array[j+44]`.
+So, if `99` is greater than `44`, in the _nested `loop`_; we'll say, let's
+**_swap numbers_**. We can simply do that by saying creating `temp` variable,
+that holds `array[j]` which the first pass will be `99`; and give the first
+index of `0` to `array[j] = array[j+44]`.
 
 Now, `99` goes into the second index, so than means `array[j+1] = temps`.
 
@@ -486,8 +481,8 @@ You might to go back to reading this nested loop. But all we're doing is just
 swapping `numbers`; if the _left hand side_ is bigger than the _right hand
 side_; and once is done we increment `j` to `1`; so, that we compare _index of
 `1` and `2`_; and then we compare index of `2` and `3`; `3` to `4`; `4` to `5`
-until we Bubble things up; and then we go to the top (`for-loop`) and compares the
-items again in the _outer `for-loop`_.
+until we Bubble things up; and then we go to the top (`for-loop`) and compares
+the items again in the _outer `for-loop`_.
 
 Let's see if this works. If we run `bubbleSort(numbers)` and console log
 `numbers` if it's Sorted; and now look at that `[ 0,  1,  2,  4,  5, 6, 44, 63,
@@ -560,7 +555,6 @@ Then we keep going back to the beginning finding the smallest item, which is
 
 ![chapter-11-11.gif](./images/gif/chapter-11-11.gif "Selection Sort animation")
 </br>
-
 
 </br>
 
@@ -878,7 +872,7 @@ explain what the benefits are.
 
 </br>
 
-![chapter-11-18.gif](./images/gif/chapter-11-18.gif 'Merge Sort animation')
+![chapter-11-18.gif](./images/gif/chapter-11-18.gif "Merge Sort animation")
 </br>
 
 We have the same list as before. We're going to take this list and actually
@@ -888,7 +882,7 @@ have one item.
 
 </br>
 
-[chapter-11-19.gif](./images/gif/chapter-11-19.gif 'Merge Sort animation')
+![chapter-11-19.gif](./images/gif/chapter-11-19.gif "Merge Sort animation")
 </br>
 
 Once we have that divide up, we're going to take the first item and second item,
@@ -906,7 +900,7 @@ Then we comparing `2` and `4`; `2` before `4`.
 
 </br>
 
-[chapter-11-20.gif](./images/gif/chapter-11-20.gif 'Merge Sort animation')
+![chapter-11-20.gif](./images/gif/chapter-11-20.gif 'Merge Sort animation')
 </br>
 
 Now, we again combine those list in **Reverse Tree**. Saying `5` and `1`, which
@@ -915,7 +909,7 @@ first; then `5` and `6`.
 
 </br>
 
-[chapter-11-21.gif](./images/gif/chapter-11-21.gif 'Merge Sort animation')
+![chapter-11-21.gif](./images/gif/chapter-11-21.gif "Merge Sort animation")
 </br>
 
 Then we look on the right side, we say, `7` and `2`; `2` comes before `7`; and
@@ -924,7 +918,7 @@ are already Sorted, we just place `7` and `8` right next to each other.
 
 </br>
 
-[chapter-11-22.gif](./images/gif/chapter-11-22.gif 'Merge Sort animation')
+![chapter-11-22.gif](./images/gif/chapter-11-22.gif "Merge Sort animation")
 </br>
 
 Finally, we combine these last two lists into our root node to combine the list
@@ -1242,7 +1236,7 @@ Let me show you the animation of Quick Sort,
 
 </br>
 
-[chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
+![chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
 </br>
 
 Quick Sort works like this, and if you're looking at this diagram, you're
@@ -1488,7 +1482,7 @@ Radix Sort, **only work with numbers**, specifically _integers_, in a restricted
 range.
 
 So, if you have only numbers that you want to solve Sort, and the range of those
-numbers go fro, let's say from `0` to `100`, that is a small range, then you
+numbers go from, let's say from `0` to `100`, that is a small range, then you
 would use something like above diagram to make things really fast; but it
 wouldn't work on any type of data. It only really works on numbers, because of
 the way numbers are stored in memory.
@@ -1623,10 +1617,10 @@ interviewers is going to say, "oh, he or she knows what they're talking about".
 > Massive database (can't fit all into memory), needs to sort through past
 > year's user data.
 
-Massive database;so, we can _fill all this data into **memory**_ to sort it. We
+Massive database; so, we can _fill all this data into **memory**_ to sort it. We
 probably need to sort out externally, and let's say we need to sort through past
 years user data. So, it's a ton of data, and we need to sort it somehow; let's
-say by some _sort of a date_.A
+say by some _sort of a date_.
 
 Base on that information that i got here, it sounds like I need to do something
 called **Merge Sort**. The reason I would pick this is, because well, it sounds

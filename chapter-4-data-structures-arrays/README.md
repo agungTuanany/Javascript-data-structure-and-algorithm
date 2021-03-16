@@ -109,7 +109,7 @@ and `strings[2]` it's grabbing it for me.
 All right, so let's do a few more operations with arrays, and see what the pros
 and cons are. In JavaScript we have a few methods that we can use with arrays.
 
-`[1]` **_Push_**, _which simply allows us to add something at the end of the arra_.
+`[1]` **_Push_**, _which simply allows us to add something at the end of the array_.
 
 ```javascript
 const string = ["a", "b", "c", "d"];
