@@ -4,6 +4,7 @@
 1. [Searching + Traversal Introduction](#searching-+-traversal-introduction)
 2. [Linear Search](#linear-search)
 3. [Binary Search](#binary-search)
+4. [Graph - Tree Traversals](#graph---tree-traversals)
 
 </br>
 
@@ -257,9 +258,9 @@ So, we know how to do Linear Search and Binary Search. We know that Binary
 Search is going to be `O(Log n)` Time Complexity **versus** Linear Search which
 is `O(n)`.
 
-But, what about the rest? Well up until this point, we've talked a out when we're
-Searching for an item, where we know that `34` exists; our list is Sorted in
-a Binary Search Tree; and we know where to go, left or right;
+But, what about the rest? Well up until this point, we've talked about when
+we're Searching for an item, where we know that `34` exists; our list is Sorted
+in a Binary Search Tree; and we know where to go, left or right;
 
 But sometimes, we have to do something call **Traversals**, and Traversals
 simply means, well, going from node to node, either finding a specific thing, or
@@ -269,6 +270,80 @@ multiply them by two, in that case we have to visit every single node. How we do
 that?
 
 Let's find out in the next chapter.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## Graph - Tree Traversals
+
+There are times when we want to do something called Traversal, and the name
+Traversal and Search s often used interchangeably, sometimes meaning the same
+things, sometimes not.
+
+</br>
+
+![chapter-12-8.gif](./images/gif/chapter-12-8.gif "Graph - Tree Traversal")
+</br>
+
+Up until now we talked about Binary Search Trees, and we knew what we're looking
+for, and we always knew where to go, left or right; but, other times we want to
+do some operations on the same node, as I mentioned before, we might want to
+**add some color** property to this node.
+
+Perhaps if we had a _user node_, we want to add an 'H' property to all our users
+that are in a Tree structure. Perhaps you want to add `shape` property to these
+nodes.
+
+Or perhaps, we don't have a Sorted Tree, it's not a Binary Search Tree, or we
+have a Graph that has _no order_ to it, in which case we have to visit every
+node.
+
+Or, maybe we're working on Google, and our boss asked us to, "hey, can we check
+if our Binary Search Tree we entered into our databases is correct", and that
+it's actually valid, and making sure that the left item is always lower than the
+right item; and in order for us to check that, we have to touch every single
+node, but ho would we go about doing this?
+
+You can think of Traversals as visiting every node, and as you can imagine,
+because we're visiting every node that's an `O(n)` operation - Linear Time.
+
+Up until now, we did `loops` to visit all of our Data Structure. Like arrays,
+Linked List, Hash Tables, Queues, Stack. So, how do we go about doing this in
+a Data Structure like a Tree or even a Graph?
+
+</br>
+
+![chapter-12-5.png](./images/chapter-12-5.png "Graph Traversal - Tree Traversal")
+</br>
+
+Luckily for us there's **two ways** of doing this, that we need to learn. `[1]`
+Do we have to do a Tree Traversal? Or `[2]` do we have to do a Graph Traversal?
+In that case, our two options are the exact same. We have Breadth First Search
+(BFS) and Depth First Search (DFS), and sometimes this is called Traversal
+instead of Search.
+
+
+As you can see both with Trees and Graphs it's the same thing. The Big-O is
+`O(n)`, because we have to visit every single node using these two techniques.
+
+But, let's review why this is important, and why we don't store everything and
+just Lists, which is simpler to understand. Well, the main benefit of why we
+don't put complex data into just Lists, like arrays that are sorted is that, we
+get the `O(log(n))` of arrays.
+
+What about Hash Tables? Those are easy. Well, remember that Hash tables aren't
+_order_, and at the end of the day, when you represent data with different Data
+Structure based on their needs; and, Trees and Graphs worked really well for
+a lot of cases which we've already discussed; when we Search for things, we have
+the benefit, but also when we _insert_ or _delete_ items, we have better
+performance than something like an array, but we also maintain the order that we
+wouldn't have otherwise with hash Tables. Tree and Graph used a lot, when we
+want to Search nodes, or visit every node, and it represent a lot of data that
+models the real world.
+
+Now, let's explore how these two (BFS, DFS) Traversal techniques works. I'll see
+you in the next chapter.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
