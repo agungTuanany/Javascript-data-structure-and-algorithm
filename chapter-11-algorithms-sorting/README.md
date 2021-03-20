@@ -449,8 +449,8 @@ function bubbleSort(array) {
 [ 0,  1,  2,  4,  5, 6, 44, 63, 87, 99, 283 ]
 ```
 
-I'm creating a function called `bubbleSort()` that's going to taken a `array` as
-parameter; and I have an array in variable called `numbers`. Ideally when we
+I'm creating a function called `bubbleSort()` that's going to taken an `array`
+as parameter; and I have an array in variable called `numbers`. Ideally when we
 enter this array of `numbers` into this functions, it spits out a sorted way.
 
 Based on animation we saw, we ideally start from the beginning, compare first
@@ -459,8 +459,8 @@ and keep going until the largest item ends up in the last index, and then we
 loop over things again.
 
 The first thing I want to do is, I'll just create a variable so I don't have to
-keep repeating my self named `length = array.length` here; it shall be the
-length of the items `numbers` variable, which should be `11`.
+keep repeating my self named, `const length = array.length` here; it shall be
+the length of the items `numbers` variable, which should be `11`.
 
 Inside here, we'll do a `for-loop` and we'll say `let i = 0; i < length; i++`;
 and with in the `loop` we grab the first item; we know want to compare it with
@@ -494,8 +494,8 @@ holding the `numbers` into other data structures. So the Space Complexity is
 `O(1)`. As we can see in our Big-O cheat-sheet, Sort is probably not the best
 algorithm, although it has good Space Complexity.
 
-You can use the code hat I leave for you to play around with; but for now, let's
-go on to our next Sorting algorithms.
+You can use the code that I leave for you to play around with; but for now,
+let's go on to our next Sorting algorithms.
 
 Congratulations, you've just completed your first Sorting algorithm, but we have
 more to go.

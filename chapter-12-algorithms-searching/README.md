@@ -5,6 +5,7 @@
 2. [Linear Search](#linear-search)
 3. [Binary Search](#binary-search)
 4. [Graph - Tree Traversals](#graph---tree-traversals)
+5. [BFS Introduction](#bfs-introduction)
 
 </br>
 
@@ -344,6 +345,82 @@ models the real world.
 
 Now, let's explore how these two (BFS, DFS) Traversal techniques works. I'll see
 you in the next chapter.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## BFS Introduction
+
+Let's look at the first of the two types of Searching or Traversing a Tree or
+Graph, it's called Breadth First Search.
+
+The way Breadth First search works is, that you start with the _root-node_ and
+_move left to right_ across the second level, then move left to right across the
+third level, and so on and so forth.
+
+</br>
+
+![chapter-12-9.gif](./images/gif/chapter-12-9.gif "Breadth First Search introduction")
+</br>
+
+You just keep going from left to the right, level by level, and you keep going
+until you find the node your are looking for, or the Tree ends.
+
+Let's have a look at another visual Breadth First Search works like this,
+
+</br>
+
+![chapter-12-10.gif](./images/gif/chapter-12-10.gif "Breadth First Search introduction | from tre")
+</br>
+
+We go to the root-node, then the second level, then the third level, and then
+finally the fourth level. You can see here how they're numbered, going one by
+one.
+
+Now, we're going to code Breadth First Search, and understand how it's works.
+But I want to mention, that Breadth First Search **uses additional memory**,
+because it's necessary to track the **child node** of al the nodes on a given
+level, while searching that level. This means that, we need to track every node
+and its children in order.
+
+We're also going to talk about some of those implications, when we code Breadth
+First Search, and also look at the **pros** and **cons** compared to the other
+kind, that first.
+
+Let's go to our code code for quick example.  We have here the Tree that we
+created in our [Tree Data Structure section](../chapter-8-data-structure-trees)
+section,
+a [BinarySearchTree](../chapter-8-data-structure-trees/BinarySearchTree.js) that
+creates a Tree for us that look like below,
+
+```
+// Trees
+               9
+
+        4             20
+
+     1     6     15        170
+
+// List
+[9, 4, 20, 1, 6, 15, 170]
+```
+
+`9` is a root-node, we have `4` and `20` on second level, `1`, `6`, `15`, `170`
+in third level.
+
+If we did Breadth First Search, what would do you think the order would be? If
+we wanted to convert that into a List. Well, we'd first visit `9`; then we'd
+visit second level `4` and `20`, and then we visit the third level, again going
+from left to right, we'd visit `1`, `6`, `15`, `170`; and using Breadth First
+Search, we're able to create this List.
+
+Let's have a look at the second way of Traversing a Tree or a Graph, and that is
+Depth First Search. Let's have a look at next chapter.
+
+### Resources
+
+[trekhleb](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
 
 **[⬆ back to top](#table-of-contents)**
 </br>
