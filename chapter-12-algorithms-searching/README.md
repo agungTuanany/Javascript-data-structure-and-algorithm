@@ -6,6 +6,7 @@
 3. [Binary Search](#binary-search)
 4. [Graph - Tree Traversals](#graph---tree-traversals)
 5. [BFS Introduction](#bfs-introduction)
+6. [DFS Introduction](#dfs-introduction)
 
 </br>
 
@@ -402,7 +403,7 @@ creates a Tree for us that look like below,
 
      1     6     15        170
 
-// List
+// List | Breadth First Search
 [9, 4, 20, 1, 6, 15, 170]
 ```
 
@@ -420,7 +421,101 @@ Depth First Search. Let's have a look at next chapter.
 
 ### Resources
 
-[trekhleb](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
+[trekhleb-Breadth First
+Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+##  DFS Introduction
+
+Depth First Search on like a Breadth First Search is a little bit different. The
+Search follows one branch of the Tree down as many level as possible until the
+_target notice found_ or the _end is reached_.
+
+When the Search can go on any further, it continuous at the nearest ancestor
+with an unexplored child. Let me show you,
+
+</br>
+
+![chapter-12-11.gif](./images/gif/chapter-12-11.gif "Depth First Search introduction")
+</br>
+
+We start off with `9`; then we go to `6`, then we go to `1`, and we've reached
+a leaf node, there's no more leaf children.
+
+So, we go back, up to `6`, to our ancestor; and then see if there's any more
+unexplored children, in this case haven't gone to `4`; So, lets go back up to
+`4`.
+
+Now we go up, because there's no more children, all the way up to `9` and say,
+"All right, let's go to the right now". We go to `12`, then `34`, and then come
+back up, and then search `45` as well.
+
+Now, Depth First Search has a **lower memory requirement** then Breadth First
+Search, because it's _**not** necessary to store all the child pointers at each
+level_. Something  that we'll see when we actually coded.
+
+The idea with Depth First Search is, that we want to go as deep as possible into
+a Graph or Tree; usually starting from the lift side and then start going to the
+right until the Traversal of the Tree is done.
+
+As the name suggest, we go **Depth first** _deep first_ versus Breadth.
+
+</br>
+
+![chapter-12-12.gif](./images/gif/chapter-12-12.gif "Depth First Search introduction")
+</br>
+
+Depth Search looks something above. Once again, we go all the way down, come
+back up then all the way down; come back up all the way down. As you can see,
+going _deep first_, then keep going to the right.
+
+I like to think of Depth First Search was like walking through a maze right?
+We're going as far as we can, and when we hit a Deep end; well, you turn back
+around, and go to the next point, where you can make perhaps a left to a far
+right until you get to the end of the maze, or the maze are end.
+
+So, if we go back to our code, how Depth First Search would look?
+
+```
+// Trees
+               9
+
+        4             20
+
+     1     6     15        170
+
+// List | Breadth First Search
+[9, 4, 20, 1, 6, 15, 170]
+
+// List | Depth First Search
+[9, 4, 1, 6, 20, 15, 170]
+```
+
+Well, form what we know,
+
+< Hint, there's going to be different variations for Depth Search
+
+Form what we know, we would start off with `9`, then `4`, then `1`; go back up
+to `4` and then find `6`; go back up to find `20`, go the left found `15` and go
+to the right one find `170`.
+
+So, our list is a little bit different than Breadth First Search. We have
+**different orders**, but why do we have these two ways of exploring a Tree or
+a Graph? What the pros and cons?
+
+Up until now, I've just been talking, but you might not understand why one is
+better than the other?.
+
+Before we implement this into code, I want to go over the pros and cons of each.
+Let's do that in the next chapter.
+
+### Resources
+
+[trekhleb-Depth First
+Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
 
 **[⬆ back to top](#table-of-contents)**
 </br>
