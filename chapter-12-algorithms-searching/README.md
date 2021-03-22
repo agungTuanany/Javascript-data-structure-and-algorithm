@@ -7,6 +7,7 @@
 4. [Graph - Tree Traversals](#graph---tree-traversals)
 5. [BFS Introduction](#bfs-introduction)
 6. [DFS Introduction](#dfs-introduction)
+7. [BFS vs DFS](#bfs-vs-dfs)
 
 </br>
 
@@ -516,6 +517,79 @@ Let's do that in the next chapter.
 
 [trekhleb-Depth First
 Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
+## BFS vs DFS
+
+I like to think of Breadth First Search as a water flooding from the top. Kind
+of like where we check from the top all the way down.
+
+I like to think Depth First Search for a search as little lines go one as deep
+as they can, and then they keep going to the right.
+
+But, what is the advantages over the other? They both do the same thing,
+Traversal. But each one is use for different reasons; and in interviews, you'll
+get question about what type of Traversal to do? And usually, you'll have one of
+these two answer that you have to say.
+
+So, when should use one over the other? And we're going to explore that
+throughout the next couple of lectures.
+
+But I want to start off with the main pros and cons. The Time Complexity for
+Breadth First Search and Depth First Search is the same, right?. They all visit
+the nodes at least once, so it's all `O(n)`, all Traversal is `O(n)`.
+
+So, when we're trying to Traverse through a Tree or a Graph, we're really to do
+is, walk through the Tree without ever repeating ourselves and the *order* is the
+thing matters when it comes to Breadth First Search and Depth First Search.
+
+</br>
+
+![chapter-12-6.png](./images/chapter-12-6.png "Breadth First Search Pros and Cons")
+</br>
+
+Now, Let's talk about Breadth Firs Search first. With Breadth First Search It's
+very good for *finding the shortest path* between a _starting point_ and any
+other reachable node, because we always start off with the _root node_, and then
+search the closest nodes first; and then the nodes furthers.
+
+With this, is going to become more apparent when we talk about Graph Traversal,
+and we have some chapters specifically for this discussion, but the one
+*downside* with Breadth First Search is, that it *requires more memory* than
+Depth First Search.
+
+Again, something we'll discuss more of, when we start coding it. But a *good
+rule of thumb* is, that if you have additional information on the location of
+the target node, and you know that the node is likely in the upper level of
+a Tree then Breadth First Search is better, because it will search trough the
+closest nodes first.
+
+</br>
+
+![chapter-12-7.png](./images/chapter-12-7.png "Depth First Search Pros and Cons")
+</br>
+
+On the other hand, Depth First Search is the opposite. If you know that the node
+is likely at the lower level of a Tree, perhaps Depth First Search is better in
+that case.
+
+Depth First Search is really good at asking the question, does the path exist
+to us or not? From a source node to a target node.
+
+Again, something we'll get more into when we talk about Graphs.
+
+The biggest advantages with Depth First Search is, that it *uses less memory*
+then Breadth First Search.
+
+The downside with Depth First Search is, that it can get slow, especially if the
+Tree or Graph is really really deep, and it`s *not* necessarily good at *finding
+shortest path* like Breadth First Search.
+
+Now, that w have an idea of when to use what; I know it's not 100% yet, we're
+getting there. But first I want to do is a bit of an exercise.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
