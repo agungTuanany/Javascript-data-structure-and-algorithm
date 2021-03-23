@@ -8,10 +8,13 @@
 5. [BFS Introduction](#bfs-introduction)
 6. [DFS Introduction](#dfs-introduction)
 7. [BFS vs DFS](#bfs-vs-dfs)
+8. [Exercise BFS vs DFS](#exercise-bfs-vs-dfs)
 
 </br>
 
-## Searching + Traversal Introduction
+<!--{{{ ## searching + traversal introduction -->
+
+## searching + traversal introduction
 
 </br>
 
@@ -51,7 +54,9 @@ Let's get started.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## linear Search -->
 ## linear Search
 
 Let's talk about the very first type of Search, Linear Search. In Computer
@@ -136,7 +141,9 @@ answer that question in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Binary Search -->
 ## Binary Search
 
 In the last chapter we ask the question, is there a better way to find number in
@@ -277,7 +284,9 @@ Let's find out in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Graph - Tree Traversals -->
 ## Graph - Tree Traversals
 
 There are times when we want to do something called Traversal, and the name
@@ -351,7 +360,9 @@ you in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## BFS Introduction -->
 ## BFS Introduction
 
 Let's look at the first of the two types of Searching or Traversing a Tree or
@@ -428,7 +439,9 @@ Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algori
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ##  DFS Introduction -->
 ##  DFS Introduction
 
 Depth First Search on like a Breadth First Search is a little bit different. The
@@ -497,7 +510,7 @@ So, if we go back to our code, how Depth First Search would look?
 
 Well, form what we know,
 
-< Hint, there's going to be different variations for Depth Search
+> Hint, there's going to be different variations for Depth Search
 
 Form what we know, we would start off with `9`, then `4`, then `1`; go back up
 to `4` and then find `6`; go back up to find `20`, go the left found `15` and go
@@ -521,7 +534,9 @@ Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algori
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## BFS vs DFS -->
 ## BFS vs DFS
 
 I like to think of Breadth First Search as a water flooding from the top. Kind
@@ -585,7 +600,7 @@ The biggest advantages with Depth First Search is, that it *uses less memory*
 then Breadth First Search.
 
 The downside with Depth First Search is, that it can get slow, especially if the
-Tree or Graph is really really deep, and it`s *not* necessarily good at *finding
+Tree or Graph is really really deep, and it's *not* necessarily good at *finding
 shortest path* like Breadth First Search.
 
 Now, that w have an idea of when to use what; I know it's not 100% yet, we're
@@ -594,3 +609,69 @@ getting there. But first I want to do is a bit of an exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+
+<!--}}}-->
+
+## Exercise BFS vs DFS
+
+sss
+
+```lang-txt
+//If you know a solution is not far from the root of the tree:
+A: BFS,
+
+Reason: cause it like water fall, it check for each level that contain
+the target. As the hint is the target is "not far from the root Tree", it will
+stop until the target found.
+
+//If the tree is very deep and solutions are rare:
+A: DFS,
+
+Reason: cause it check in every branch level, from left - leaf to bottom
+level; and go to right - leaf to bottom level, so Time Complexity will be
+
+//If the tree is very wide:
+A: BFS
+
+Reason: I choose BFS, cause I do not search the target on deep side, with BFS
+I can jump from one branch to another branch in same level.
+
+//If solutions are frequent but located deep in the tree:
+A: DFS
+
+Reason: As the target are located `*deep*` in the Tree, I choose DFS.
+
+//Determining whether a path exists between two nodes:
+A: DFS
+
+Reason: If the target is unknown, DFS will be the choice, cause it start search
+from every branch, and if is target is on left - leaf it will find fast; if not,
+it will consume more Memory - Space.
+
+//Finding the shortest path:
+A: BFS
+
+Reason: If the target position was known and mostly the Tree is sorted, BFS will
+be the choice. If not, still the BFS is advantages is can seek the shortest path
+with more Memory - Complexity is higher than DFS.
+```
+
+Let's do a little exercise with just general information with these two
+Traversal techniques.
+
+I have question above for you; and Underneath it  I want you to answer whether
+you should use Breadth First Search or Depth First Search, and these are the
+type of questions that you're going to get asked in an interview; and it's good
+to understand.
+
+I know, our knowledge is not complete yet, because we haven't coded anything.
+But I want to lay the foundation is, that when we start coding, you understand
+why we have these things.
+
+So, give it a go, try and answer these question above, and in the next lecture,
+I'll go over the solution.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+
