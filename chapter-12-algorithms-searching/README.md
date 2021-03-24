@@ -10,11 +10,12 @@
 6. [DFS Introduction](#dfs-introduction)
 7. [BFS vs DFS](#bfs-vs-dfs)
 8. [Exercise BFS vs DFS](#exercise-bfs-vs-dfs)
+9. [Breadth First Search Function](#breadth-first-search-function)
 
 </br>
 <!--}}}-->
 
-<!--{{{ ## searching + traversal introduction -->
+<!--{{{ 1 ## searching + traversal introduction -->
 
 ## searching + traversal introduction
 
@@ -58,7 +59,7 @@ Let's get started.
 </br>
 <!--}}}-->
 
-<!--{{{ ## linear Search -->
+<!--{{{ 2 ## linear Search -->
 ## linear Search
 
 Let's talk about the very first type of Search, Linear Search. In Computer
@@ -145,7 +146,7 @@ answer that question in the next chapter.
 </br>
 <!--}}}-->
 
-<!--{{{ ## Binary Search -->
+<!--{{{ 3 ## Binary Search -->
 ## Binary Search
 
 In the last chapter we ask the question, is there a better way to find number in
@@ -288,7 +289,7 @@ Let's find out in the next chapter.
 </br>
 <!--}}}-->
 
-<!--{{{ ## Graph - Tree Traversals -->
+<!--{{{ 4 ## Graph - Tree Traversals -->
 ## Graph - Tree Traversals
 
 There are times when we want to do something called Traversal, and the name
@@ -364,7 +365,7 @@ you in the next chapter.
 </br>
 <!--}}}-->
 
-<!--{{{ ## BFS Introduction -->
+<!--{{{ 5 ## BFS Introduction -->
 ## BFS Introduction
 
 Let's look at the first of the two types of Searching or Traversing a Tree or
@@ -443,7 +444,7 @@ Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algori
 </br>
 <!--}}}-->
 
-<!--{{{ ##  DFS Introduction -->
+<!--{{{ 6 ##  DFS Introduction -->
 ##  DFS Introduction
 
 Depth First Search on like a Breadth First Search is a little bit different. The
@@ -538,7 +539,7 @@ Search](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algori
 </br>
 <!--}}}-->
 
-<!--{{{ ## BFS vs DFS -->
+<!--{{{ 7 ## BFS vs DFS -->
 ## BFS vs DFS
 
 I like to think of Breadth First Search as a water flooding from the top. Kind
@@ -614,10 +615,8 @@ getting there. But first I want to do is a bit of an exercise.
 
 <!--}}}-->
 
-<!--{{{ ## Exercise BFS vs DFS -->
+<!--{{{ 8 ## Exercise BFS vs DFS -->
 ## Exercise BFS vs DFS
-
-sss
 
 ```lang-txt
 //If you know a solution is not far from the root of the tree:
@@ -737,6 +736,248 @@ in case you get asked these questions.
 
 Enough talking for now, I think it's time to start coding these algorithms. I'll
 see you in the next one.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->
+
+<!--{{{ 9 ## Breadth First Search Function -->
+## Breadth First Search Function
+
+```
+                9
+        6               12
+    1       4       34      45
+
+// List | Breadth First Search
+[9, 6, 12, 1, 4, 34, 45]
+```
+
+Let's start to code our very first algorithm with Breadth First Search. If you
+remember, with Breadth First Search we have to go from the top - root, then to
+the left and then visit all the nodes in that level; and when I said that it
+*uses a lot of Memory* is, that when it visits `6` and `12`, from there, it's
+going to back to `1`, `4` then `34` then `45`.
+
+So, as it goes through this level (`'6'`, `'12'`) we need to keep *a reference*
+to all the children nodes of every node that we visit. So, that we can go back
+to them and visit `1` and `4`, that's where the memory is coming from. Because
+we have *to keep track* of those children of the level that we're on.
+
+You'll also notice these path that we're talking from `9` to `6` to `12` to `1`
+to `4` to `34` to `45`.
+
+We're going to be using a Queues - Data Structure, which allows us to keep
+a reference to the nodes that we want to come back to, because we know `6` is in
+front of `12`. We can go back to it, and discover it's child nodes.
+
+So, let's get coding with our Breadth First Search algorithms.
+
+```javascript
+// BinarySearchTree.js
+class BinarySearchTree {
+
+    constructor() {
+        ...
+        ...
+    }
+
+    insert(value) {
+        ...
+        ...
+    }
+
+    lookup(value) {
+    }
+
+    remove(value) {
+    }
+}
+```
+
+We have over here our `BinarySearchTree` (class) from our [Tree - Data
+Structure](../chapter-8-data-structure-trees/BinarySearchTree.js) chapter.
+
+We've already implemented the `insert()`, `lookup()`, `remove()` methods,
+
+```javascript
+//               9
+//
+//        4             20
+//
+//     1     6     15        170
+```
+and we've created this `BinarySearchTree()`  that give us above type of Tree.
+
+Enough for repetition of what we done, let's start coding our own Breadth
+First Search implementation; and ideally by above functions, we get a list of
+all the items n the order of Breadth First Search, that is `[9, 4, 20, 1, 6, 15
+170]`.
+
+###  breadthFirstSearch() functions
+
+```javascript
+class BinarySearchTree {
+    ...
+    ...
+
+    breadthFirstSearch() {
+        let currentNode = this.root;
+        let list = [];
+        let queue = [];
+        queue.push(currentNode);
+
+        while(queue.length > 0){
+            currentNode = queue.shift();
+            console.log(currentNode.value);         //[1]
+            list.push(currentNode.value);
+            if(currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if(currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+
+        console.log("=>", list);
+        return list;
+    }
+}
+
+tree.breadthFirstSearch();
+// Result
+9
+4
+20
+1
+6
+15
+170
+
+// => [ 9,  4,  20, 1, 6, 15, 170 ]
+
+```
+
+In this functions we need three things,
+
+- First, the `currentNode`, which will start with the root - node (`this.root`)
+
+- Second, the actual list `list = []` of an Array type, that will be our answer.
+  Will have an array here, where we insert the numbers into in the order of
+  Breadth First Search.
+
+- Third, we also need a Queue - Data Structure `queue = []` which will use an
+  Array for this example. To keep track of the level we're at, so that we can
+  access the children once we go through it.
+
+  Remember, we going to keep track of `*9*` then we're going to keep track of
+  `*6*` and `*12*`; and when we get to `6` and `12`, that's going to be in our
+  Queue. But we have to go back once we're at the end of that level to `6`, so
+  that we can discover `1` and `4`.
+
+  So, that's what the Queue will be used for.
+
+The very first thing we're going to do is, to add the Queue the very first item
+the root - node. So, we're going to say `queue.push(currentNode)`. What we need
+to to in here is, go from the `currentNode` down to our children node, and again
+go from left to right; and then go to their children node and go from left to
+right.
+
+Th way we're going to do that i to use `while-loop` and we'll that as log as
+`queue.length` is greater than `0`, that is we have nothing left in the Queue.
+In that case, we'll say the `currentNode` will be `queue.shift()`.
+
+`shift()` simply means, that we *take the very first item* in the Queue.
+Remember, a `queue` is just the line up to the roller coaster; and the first
+person that comes in gets to go first on the roller coaster, and `shift()`
+simply *returns and removes* the first item in the `queue`.
+
+In our case, will have `9` as the first item in the Queue; and we're going to
+_shift_ that and assign it to the `currentNode`; and because this is the
+root-node, we want to start off in our answer that the `list` will have the
+number `9` at the top.
+
+Still inside `while-loop`, we're going to do is, say `list.push()` the
+`currentNode.value`, which will be `9`.
+
+So, we have the first answer in our list, which `9`.
+
+From there, we're going to say, "hey, does the `9` node have a left children?"
+(`if (currentNode.left)`). Because if it does, let's add it to the `queue`,
+saying that would you need to check out that node, and we'll push it to the
+`queue` the `currentNode.left`. (`queue.push(currentNode.left)`).
+
+So what we just did here is, we've added `4` to the `queue`.
+
+We also want to add `20` to the `queue`.
+
+So, I'm going to say, after you've added `4` to the `queue`, I'm going to say,
+"hey, does `currentNode` have a right child node?" (`if (currentNode.right)`).
+In that case, we'll added to the `queue` again as the *second item* in the
+`queue`; and the `currentNode.right` will be push to the `queue`.
+(`queue.push(currentNode.right)`)
+
+This is the amazing thing of all we just did. Now that the `queue` has two items
+as if passes you will have `4` and `20`. It's going to `loop` through come to
+`currentNode = queue.shift()` and say, `queue.shift()` is going to grab `4` and
+say `push(4)` to the `list`. (`list.push(4)`).
+
+Then going to say, "hey, does `4` have a left child?" Yes it does, it has `1`.
+Well, then added to the `queue`. So `1` gets added to the `queue` that has `[4,
+20]`, now is `1`.
+
+Then we say, "hey does `4` have a right child?" Yes it does, we have `6`. Well,
+we're going to add `6` to the `queue` again. So, we're going to have `[4, 20, 1,
+6]`.
+
+Then we go back to the top, and say, "what's next in `line`?" Well, we have
+`20`. So let's `shift(20)`. Grab that. Remove that from our `queue` and go
+through it again and again as we give example for `4`.
+
+Again, left child will be `15`, and right child will be `170`.
+
+Now, we test the result, we console log our `currentNode.value` in `while-loop`,
+which will be the _shifted - node_, that is the node that we're going to be
+operating on, and checking out.
+
+```lang-text
+9
+4
+201
+6
+15
+170
+```
+
+We see that, first I'm checking `9`, then I'm checking `4`, then I'm checking
+`20`, than `6`, than `15`, than `170`. Very very cool. We're pushing the list
+every time.
+
+So, all we need to do at the end is, just save `return list`. So that, if I run
+this,
+
+```JavaScript
+[ 9,  4,  20, 1, 6, 15, 170 ]
+```
+
+We can look at that, I have my Breadth First Search. That return `[ 9,  4,  20,
+1, 6, 15, 170 ]`.
+
+There's wasn't to bad was it? We see from this code here, that it's quite simple
+and the only issue that we have is, that this `queue[]`  can get pretty large,
+because we have to keep reference to our child nodes.
+
+The Memory Consumption that can really hurt us is this `queue` that we keep
+adding to. We keep popping things, we also add the `queue`. So that if we have
+a *really wide Tree*, instead of a Binary Tree where we just have a left and
+a right leaf, and maybe we have 10 child nodes, this `queue` can get pretty big;
+and depending on the _data that memory consumption_ might be big.
+
+That's one the *main downside* with Breadth First Search.
+
+Hopefully, you see the _simplicity_ of Breadth First Search, wasn't too bad, it
+was?. All right I'll see you in the next lecture.
 
 **[⬆ back to top](#table-of-contents)**
 </br>

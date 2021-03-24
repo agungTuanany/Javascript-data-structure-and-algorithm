@@ -33,7 +33,7 @@ class BinarySearchTree {
         this.root = null;
     };
 
-    insert(value){
+    insert(value){//{{{
         const newNode = new Node(value);
 
         if (this.root === null) {
@@ -63,10 +63,9 @@ class BinarySearchTree {
         };
 
         // console.log(JSON.stringify(newNode))
-    }
+    }//}}}
 
-
-    lookup(value) {
+    lookup(value) {//{{{
         if (!this.root) {
             return false;
         };
@@ -89,9 +88,9 @@ class BinarySearchTree {
 
         console.log("currentNode:", currentNode,  "or",  false )
         return false;
-    };
+    };//}}}
 
-    remove(value) {
+    remove(value) {//{{{
         if (!this.root) {
             return false;
         };
@@ -176,10 +175,33 @@ class BinarySearchTree {
                 return true;
             };
         };
-    };
+    };//}}}
+
+    breadthFirstSearch() {//{{{
+        let currentNode = this.root;
+        let list = [];
+        let queue = [];
+        queue.push(currentNode);
+
+        while(queue.length > 0){
+            currentNode = queue.shift();
+            console.log(currentNode.value)
+            list.push(currentNode.value);
+            if(currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if(currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+
+        console.log(list)
+        return list;
+    }//}}}
+
 };
 
-function traverse(node) {
+function traverse(node) {//{{{
     const tree = { value: node.value };
 
     tree.left = node.left === null ? null : traverse(node.left);
@@ -187,7 +209,7 @@ function traverse(node) {
     console.log(tree)
 
     return tree;
-};
+};//}}}
 
 const tree = new BinarySearchTree();
 
@@ -199,7 +221,9 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 
-tree.lookup(20)
+tree.breadthFirstSearch();
+
+// tree.lookup(20)
 // tree.lookup(2)
 // tree.lookup(1)
 // tree.lookup(20)
