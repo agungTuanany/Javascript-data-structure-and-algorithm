@@ -1,6 +1,6 @@
 # Chapter-8 Data Structure Tree
 
-
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Tree Introduction](#tree-introduction)
@@ -21,7 +21,9 @@
 16. [Tree Review](#tree-review)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Tree Introduction -->
 ## Tree Introduction
 
 Welcome back, it's time to learn another data structure. This is a big one, and
@@ -121,7 +123,9 @@ see you in next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## Binary Trees -->
 ## Binary Trees
 
 We're now into the Tree data structure section, if we go to our [mind
@@ -228,13 +232,14 @@ implications are. I'll see you in the next one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ### Big-O log of N -->
 ### Big-O log of N
 
 In previous lectures we talked about a special characteristic or properties of
 Binary Trees; and because of the way Binary Trees are structured, there is
 a certain way for us to calculate the number of nodes they have;
-
 
 ```javascript
 Level 0: 2^0 = 1
@@ -244,7 +249,6 @@ For example, on `Level 0` of a Binary Tree, that is the very top level, where we
 only have one Root node, we can calculate how many node they are by doing two to
 the _power_ of the level which is `0`. So if I do `2^0` it's going to equal `1`,
 that is we have one node.
-
 
 ```javascript
 level 1: 2^1 = 2
@@ -302,7 +306,6 @@ log 100 = 2;
 10^2 = 100
 
 log of nodes = steps
-
 ```
 
 If we actually simplify `2^h - 1` we can just simply say `log nodes = height` or
@@ -330,7 +333,6 @@ this the node that we're looking for?" (that's our second steps), if the answer
 is _no_ then either to go Left or Right, and we say is this node we are looking
 for? Yes, so we have maximum `3` steps here; instead of, if we went `7` steps,
 you can see that there's some sort of efficiencies here.
-
 
 
 Coming up, we're going to learn about **binary Search Tree** where we're able to
@@ -375,8 +377,9 @@ a lot faster with something like `O(log N)`.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-
+<!--{{{ 4 ## Binary Search Tree -->
 ## Binary Search Tree
 
 Let's continue our discussion with the most common Tree data structure. That is
@@ -497,7 +500,9 @@ in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Balanced vs Unbalanced BST -->
 ## Balanced vs Unbalanced BST
 
 While playing with visualgo did you notice a problem with Binary Search Trees?
@@ -578,7 +583,9 @@ lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## BST Pros and Cons -->
 ## BST Pros and Cons
 
 </br>
@@ -624,7 +631,9 @@ work, we should code our own, I'll see you in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Exercise Binary Search Tree -->
 ## Exercise Binary Search Tree
 
 It's time to write our own Binary Search Tree. In this exercise I'm going to
@@ -739,7 +748,9 @@ Lookup, and I'll see you in the solution lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Solution Insert Method -->
 ## Solution Insert Method
 
 Final `insert()` method,
@@ -973,7 +984,9 @@ it's all logic, and  something that we've learned when working with liked lists.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 9 ## Solution Lookup Method -->
 ## Solution Lookup Method
 
 Let's try implement a `lookup()` function, or the search function. We want to
@@ -1103,7 +1116,9 @@ Right.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 10 ## Solution Remove Method -->
 ## Solution Remove Method
 
 This exercise is a little bit advanced, and you most likely won't encounter it
@@ -1428,7 +1443,9 @@ and `lookup()` that's was matter for interviews.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 11 ## AVL Trees -->
 ## AVL Trees
 
 Now, that we have implemented our Binary Search Tree, I want to talk a little
@@ -1489,7 +1506,9 @@ use to keep track of, when we need to rebalance.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 12 ## Binary Heaps -->
 ## Binary Heaps
 
 We've talked about Binary Trees, Binary Search Trees, and then we learned about
@@ -1590,7 +1609,9 @@ talk about Priory Queues.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 13 ## Quick Note on Heaps -->
 ## Quick Note on Heaps
 
 </br>
@@ -1619,12 +1640,13 @@ throwing out there.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-
+<!--{{{ 14 ## Priority Queues -->
 ## Priority Queues
 
 Now we learned about Binary Heaps and we mentioned that unlike a Binary Search
-Tree, there is no order from Left to Right, 
+Tree, there is no order from Left to Right,
 
 </br>
 
@@ -1716,7 +1738,9 @@ operations it's really really fast and great. There you have it.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 15 ## Trie -->
 ## Trie
 
 We have one last Tree that I want to talk about, and that is a Trie, or Tree
@@ -1766,7 +1790,9 @@ extra `N`.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 16 ## Tree Review -->
 ## Tree Review
 
 Although there are a ton of Trees as you can saw, and we even talked about a lot
@@ -1783,3 +1809,8 @@ anymore.
 At the end of the day, they're just structures with a few different rules apply
 to them, something that you should be easily be able to do with a bit of
 research.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->

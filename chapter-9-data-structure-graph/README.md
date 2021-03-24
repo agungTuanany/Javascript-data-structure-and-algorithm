@@ -1,5 +1,6 @@
 # Chapter-9 Data Structure Graph
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Graph Introduction](#graph-Introduction)
@@ -12,7 +13,9 @@
 8. [What Else Is Coming Up](#what-else-is-coming-up)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Graph Introduction -->
 ## Graph Introduction
 
 Let's learn about the last data structure in this course, Graphs; Graphs are one
@@ -65,7 +68,9 @@ So, in the next couple lectures, let's learn all about Graphs.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## Types of Graphs -->
 ## Types of Graphs
 
 As we saw, there are many types of Graphs but there are certain characteristics
@@ -151,9 +156,10 @@ a nice fun exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## Exercise Guess The Graph -->
 ## Exercise Guess The Graph
-
 
 We have our best friend visualgo, and once again hey have a great diagram for
 us to play with. Now I'm going to give you four different Graphs, and you're
@@ -167,7 +173,7 @@ far, whether it's Weighted, Cyclic, Undirected, Directed.
 
 What do you think above one is?  Before I show you the answer. Above diagram is
 Undirected Graph, there's no arrow Unweighted Graph, and you can see it's also
-Cyclic, because you can go from `0`, `1`, `2' and back to `0`.
+Cyclic, because you can go from `0`, `1`, `2` and back to `0`.
 
 </br>
 
@@ -218,7 +224,9 @@ the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Graph Data -->
 ## Graph Data
 
 Let's learn how to build our own Graph. Graphs when you look at them look very
@@ -264,7 +272,7 @@ _states the connection_, that is we have `0`, and `2` as the first item in the
 array; we have `2` and `3` as the second array, inside of the array; then `2`
 and `1`; and `1` and `3`.
 
-An Edge List simply show the connection that `0` is connected to `2`, and `2'
+An Edge List simply show the connection that `0` is connected to `2`, and `2`
 connected to `0`; `2` connected to `3`, and `3` connected to `2`; `2` to `1`;
 `1` to `3`, so on and so fort, quit simple.
 
@@ -297,7 +305,6 @@ implement our own Graph, we're going to use an Adjacent List using an Object,
 you'll see what I mean.
 
 ### Adjacent Matrix
-
 
 Finally I want to show you the last method to represent Graphs, it's called
 **Adjacent Matrix**. An Adjacent Matrix is going to look something like this,
@@ -394,7 +401,9 @@ build our own Graph to finalize our understanding.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Exercise Graph Implementation -->
 ## Exercise Graph Implementation
 
 It's time to create our own Graph, and I've created template here for you. You
@@ -495,7 +504,7 @@ If you scroll down in above code, I've actually created the function calls that
 we're going to do. We've created the `Graph()`, and then I'm creating `0` all
 the way through `6`, just like we have on the Graph diagram above; and then
 we're going to add the **_edges_**, that is the connection between everything.
-`1` is connected to `0`, `0` is connected to `2`, `6' is connected to `5`;
+`1` is connected to `0`, `0` is connected to `2`, `6` is connected to `5`;
 simply just saying this, "I'm never repeating myself", that means I'm never
 saying add `3` in `1`, and then saying add edge `1` and `3`. I only say this
 once, and that's the key.
@@ -630,7 +639,9 @@ Graph, I'll see you in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## Graph Review -->
 ## Graph Review
 
 What are the pros and cons of Graphs? Well, when it comes to performance and
@@ -662,7 +673,9 @@ drink some coffee or tea and I'll see you in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Data Structures Review -->
 ## Data Structures Review
 
 There we have it, our end to the data structures section, was it as scary as you
@@ -695,7 +708,9 @@ structure.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## What Else Is Coming Up -->
 ## What Else Is Coming Up
 
 </br>
@@ -732,5 +747,6 @@ I'll see you in algorithms section
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
 <!-- set textwidth=80 tabstop=8 shiftwidth=4 softtabstop=4 -->

@@ -1,5 +1,5 @@
 # Chapter-11 Algorithms Sorting
-
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 1. [Sorting Introduction](#sorting-introduction)
 2. [The Issue With Sort Function](#the-issue-with-sort-function)
@@ -17,7 +17,9 @@
 14. [Sorting Review](#sorting-review)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Sorting Introduction -->
 ## Sorting Introduction
 
 In the past when I learned about Sorting, it involved a lot of math, a lot of
@@ -139,7 +141,9 @@ learn how to make a good decision when ti comes to Sorting.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## The Issue With Sort Function-->
 ## The Issue With Sort Function
 
 Let's start about Sorting; when it comes to specific languages, and I'm going to
@@ -306,7 +310,9 @@ used in Computer Science in next lecture. I'll see you in that one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## Bubble Sort -->
 ## Bubble Sort
 
 </br>
@@ -421,7 +427,9 @@ your code matches up with me mine in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Exercise Bubble Sort -->
 ## Exercise Bubble Sort
 
 Let's code our own Bubble Sort Algorithm.
@@ -503,7 +511,9 @@ more to go.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Selection Sort -->
 ## Selection Sort
 
 </br>
@@ -536,7 +546,6 @@ becomes smallest item; and we just finished the list.
 
 So now, we move `0` to the first index in our list. We swap it put.
 
-
 </br>
 
 ![chapter-11-9.gif](./images/gif/chapter-11-9.gif "Selection Sort animation")
@@ -544,7 +553,6 @@ So now, we move `0` to the first index in our list. We swap it put.
 
 Then we keep going back to the beginning finding the smallest item, which is
 `1`; and then placing `1` in the second item.
-
 
 </br>
 
@@ -611,8 +619,10 @@ algorithm; and I'll show you the solution in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-## Exercise Selection Sort
+<!--{{{ 6 ## exercise selection sort -->
+## exercise selection sort
 
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
@@ -686,7 +696,9 @@ Let's talk about the next Sorting Algorithm in the next lecture coming up.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Insertion Sort -->
 ## Insertion Sort
 
 Up until this point we've talked about Sorting algorithms that weren't very
@@ -813,7 +825,9 @@ Let's move on on to the next Sorting algorithm.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Merge Sort -->
 ## Merge Sort
 
 ### O(n log n)
@@ -1219,7 +1233,9 @@ Let's take a look another Sorting algorithm.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 9 ## Quick Sort -->
 ## Quick Sort
 
 Let's even talk about our fifth sorting algorithm, Quick Sort; even just from
@@ -1343,7 +1359,9 @@ exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 10 ## Which Sort is Best -->
 ## Which Sort is Best
 
 We've learned our Sorting algorithms, but you might be asking yourself, I'm
@@ -1379,8 +1397,8 @@ the case, which is not the case for most other algorithms.
 
 So, if you worried about _worst case_ scenario, you should use Merge Sort; but,
 if you want to **sort in memory on your machine** and you're worried about Space
-Complexity, Merge Sort is going to be really expensive. A it's use Space Complexity
-`O(n)`.
+Complexity, Merge Sort is going to be really expensive. A it's use Space
+Complexity `O(n)`.
 
 However, if you had _huge files that can be sorted in memory_, so you have
 external-sorting that you need, maybe like a _process outside of memory_, it's
@@ -1407,7 +1425,6 @@ has a Space Complexity `O(1)`. Isn't Heap Sort better than all of the above?
 Well, Heap Sort can Sort in place, and doesn't have the _worst case_ quadratic
 behavior that Quick Sort has, or the memory usage that Merge Sort has.
 
-
 But, on average is _actually slower than Quick Sort_ in most cases.
 
 It's one of those things where with Heap Sort, unless you really really worried
@@ -1423,7 +1440,9 @@ Good Question, let's talk about in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 11 ## Radix Sort and Counting Sort -->
 ## Radix Sort and Counting Sort
 
 </br>
@@ -1519,7 +1538,9 @@ what we just learn.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 12 ## Exercise Sorting Interview -->
 ## Exercise Sorting Interview
 
 Most people focus on just coding Sorting algorithms, which just doesn't apply in
@@ -1673,7 +1694,9 @@ questions when they come to the interview.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 13 ## Sorting In Your Language -->
 ## Sorting In Your Language
 
 I want have just quick lecture to tell you about something interesting, and this
@@ -1707,7 +1730,9 @@ I thought that was interesting. I see you in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 14 ## Sorting Review -->
 ## Sorting Review
 
 Another section done, and we covered Sorting specifically Sorting algorithm in
@@ -1760,3 +1785,4 @@ large the input; you can make the right decision on Sorting.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->

@@ -1,5 +1,6 @@
 # Chapter-2 How To solve Coding problems
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Module Introduction](#module-introduction)
@@ -8,7 +9,9 @@
 4. [Module Summary](#module-summary)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Module Introduction -->
 ## Module Introduction
 
 At the end of the day, an interview is a way for company to find out can you
@@ -92,7 +95,9 @@ trade-off.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## What Are Companies Looking For -->
 ## What Are Companies Looking For
 
 </br>
@@ -154,7 +159,9 @@ Again, don't worry we're going to practice this muscle throughout.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## What We Need For Coding Interview -->
 ## What We Need For Coding Interview
 
 </br>
@@ -217,7 +224,9 @@ looking for, but we haven't talked about others parts.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Module Summary -->
 ## Module Summary
 
 One big misconception is that you're either a good problem solver or you aren't.
@@ -276,3 +285,4 @@ the companies that we're interviewing for.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->

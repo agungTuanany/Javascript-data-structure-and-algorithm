@@ -1,5 +1,6 @@
 # Chapter-7 Data Structure Stacks and Queues
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Stacks and Queues Introduction](#stacks-and-queues-introduction)
@@ -13,9 +14,10 @@
 9. [Queue Using Stacks](#queue-using-stacks)
 10. [Stacks and Queues Summary](#stacks-and-queues-summary)
 
-
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Stacks and Queues Introduction -->
 ## Stacks and Queues Introduction
 
 </br>
@@ -63,7 +65,9 @@ understand how they work, and then finally code our own.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## What is Stacks -->
 ## What is Stacks
 
 </br>
@@ -119,7 +123,9 @@ Let's talk queues in next lectures.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## What is Queues -->
 ## What is Queues
 
 </br>
@@ -176,7 +182,9 @@ OK, that enough for queue, let's go to our first exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Exercise Stacks Vs Queues -->
 ## Exercise Stacks Vs Queues
 
 ### Differ with Stacks
@@ -349,7 +357,9 @@ structures from the ground up.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## How JavaScript Works -->
 ## How JavaScript Works
 
 How does JavaScript actually work? Imagine getting this question during an
@@ -969,7 +979,9 @@ confidence to answer that question, and I hope that this was helpful.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## Exercise Stack Implementations Linked List -->
 ## Exercise Stack Implementations Linked List
 
 It's time to code our Stack, and I have a little exercise for you here.
@@ -1366,7 +1378,9 @@ exercise in he next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Exercise Stack Implementations Array -->
 ## Exercise Stack Implementations Array
 
 We just implemented our own stack and hopefully you're able to code along as
@@ -1526,7 +1540,9 @@ Enough about Stack, let's implement our own Queue  this time around.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Exercise Queue Implementations -->
 ## Exercise Queue Implementations
 
 It's time for another exercise. We've learned how to create a Stack data
@@ -1566,7 +1582,6 @@ class Queue {
 };
 
 const myQueue = new Queue();
-
 
 //Joy
 //Matt
@@ -1983,7 +1998,9 @@ fun.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 9 ## Queue Using Stacks -->
 ## Queue Using Stacks
 
 One of the most common interview question when it comes to Queues and Stacks is
@@ -1996,7 +2013,9 @@ Check the code [here](./Queues_using_stack.js)
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 10 ## Stacks and Queues Summary -->
 ## Stacks and Queues Summary
 
 Now, we've learned Stacks and Queue; and easy way to remember them is just
@@ -2042,3 +2061,5 @@ part.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
+

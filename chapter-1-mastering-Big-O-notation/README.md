@@ -1,5 +1,6 @@
 # Chapter-1 Big O -- Asymptotic Analysis
 
+<!--{{{ ## Table of Contents-->
 ## Table of Contents
 1. [Module Introduction](#module-introduction)
 2. [What is Good Code](#what-is-good-code)
@@ -23,7 +24,9 @@
 20. [Module Summary](#module-summary)
 
 </br>
+<!--}}}-->
 
+<!--{{{ ## Module Introduction -->
 ## Module Introduction
 
 The Big-O is a concept will be around for very long time, and something will
@@ -49,7 +52,9 @@ structures_ and _algorithms_.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## What is Good Code-->
 ## What is Good Code
 
 There are two main things we talk about when we say this is good code. What
@@ -114,7 +119,9 @@ what scaleable means, and how Big-O allows us to measure the scalability.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Scalability-->
 ## Big-O Scalability
 
 How we make sure that there is a away for use to measure in terms of efficiency?
@@ -180,7 +187,9 @@ a functions_**.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Cheat Sheet -->
 ## Big-O Cheat Sheet
 
 ### - Big Os -
@@ -196,7 +205,6 @@ a functions_**.
 **NOTE:** </br>
 **_Iterating through half a collection is still O(n)_** </br>
 **_Two separate collections: O(a * b)_** </br>
-
 
 ### - What can cause time in a function? -
 
@@ -224,7 +232,9 @@ Allocation </br>
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Linear -->
 ## Big-O Linear
 
 ### -- O(n) --
@@ -258,7 +268,8 @@ increase?.
 ![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
 </br>
 
-> The above diagram is linear. As our number input `(Elements)` increase the number of `Operations` increase as well.
+> The above diagram is linear. As our number input `(Elements)` increase the
+> number of `Operations` increase as well.
 
 </br>
 
@@ -270,9 +281,10 @@ arbitrary letter, and we usually give `n` when it comes to Big-O. This is just
 a standard that you'll see across the board and simply means _the Big-O depends
 on the number of the inputs_.
 
-If we just had the `nemo` array `const nemo` this `n` would just be `O(1)`; </br>
-If we had the `const everyone1 or const everyone2` array this `n` just be `O(10)`; </br>
-And if we had the `const largeArray` arrays this `n` just be `O(100000)` </br>
+- If we just had the `nemo` array `const nemo` this `n` would just be `O(1)`;
+- If we had the `const everyone1 or const everyone2` array this `n` just be
+  `O(10)`;
+- And if we had the `const largeArray` arrays this `n` just be `O(100000)`
 
 As the inputs increase, you see that the number of `Operations` increase
 linearly with it. `O(n)` it's probably the most common Big-O notation you'll
@@ -330,7 +342,9 @@ number of `Operations` increase; And that is `O(n)` - linear-time.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Constant -->
 ## Big-O Constant
 
 ### -- n(1) --
@@ -425,7 +439,9 @@ a bit of fun exercise to really solidify our knowledge.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Exercise-1 -->
 ## Big-O Exercise-1
 
 ```javascript
@@ -453,7 +469,9 @@ function funChallenge(input) {
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Exercise-2 -->
 ## Big-O Exercise-2
 
 ```javascript
@@ -489,9 +507,11 @@ function anotherFunChallenge(input) {
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Simplifying Big-O  -->
 ## Simplifying Big-O
-j
+
 </br>
 
 ![chapter-1-2.png](./images/chapter-1-2.png "Simplifying Big-O")
@@ -507,7 +527,9 @@ Big-O. Check the [cheat-sheet Rule Book](#big-o-cheat-sheet)
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{## Big-O Rule 1 -->
 ## Big-O Rule 1
 
 ### Worst Case
@@ -545,7 +567,6 @@ findNemo(everyone1);
 // running
 // running
 // running
-
 ```
 
 The function is not efficient, Because if you look this function we're looping
@@ -619,7 +640,9 @@ finding.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Rule 2 -->
 ## Big-O Rule 2
 
 ### Remove Constants
@@ -747,7 +770,9 @@ on our graph usually the only time you see numbers is when you have `O(1)`,
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Rule 3 -->
 ## Big-O Rule 3
 
 ### Different terms of inputs
@@ -820,7 +845,9 @@ talk about another _common pattern_ we see with Big-O that is nested loops.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Quadratic -->
 ## Big-O Quadratic
 
 ### O(n^2)
@@ -906,7 +933,9 @@ Let's move on to the last Big-O rule.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Big-O Rule 4 -->
 ## Big-O Rule 4
 
 ### Drop Non Dominants terms
@@ -1035,9 +1064,10 @@ complexity of a function is.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Pillars Of Programming -->
 ## Pillars Of Programming
-
 </br>
 
 ![chapter-1-9.gif](./images/gif/chapter-1-9.gif "Pillar of programming 1")
@@ -1096,7 +1126,9 @@ Let's get into the nitty gritty of how we measure _space complexity_.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Space Complexity -->
 ## Space Complexity
 
 When a program executes, it has two ways to remember things, the **_heap_** and
@@ -1136,7 +1168,9 @@ how we can give the Big-O notation to the subject.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Exercise Space Scalability -->
 ## Exercise Space Scalability
 
 ### Example - 1
@@ -1237,7 +1271,9 @@ chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Exercise Twitter -->
 ## Exercise Twitter
 
 Let's say you're working at Twitter, and I hope everybody knows Twitter here. If
@@ -1353,7 +1389,9 @@ use up these resource (_space_), and that alone makes you a better engineers.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Optional JavaScript Loop -->
 ## Optional JavaScript Loop
 
 I just want you to show a quick tips, especially for those that are familiar
@@ -1410,7 +1448,9 @@ loops.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ ## Module Summary -->
 ## Module Summary
 
 Big-O says, which function algorithm or code is best? We learned that when it
@@ -1487,3 +1527,4 @@ and measuring things.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->

@@ -1,5 +1,6 @@
 # Chapter-4 Data Structures Arrays
 
+<!---{{{  ## Table of Contents -->
 ## Table of Contents
 
 1. [Array Introduction](#array-introduction)
@@ -12,7 +13,9 @@
 8. [Array Summary](#array-summary)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Array Introduction -->
 ## Array Introduction
 
 ### Array chart
@@ -271,7 +274,9 @@ we're going to talk about these two types.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## Static vs Dynamic Arrays -->
 ## Static vs Dynamic Arrays
 
 As I mention in the previous videos, there are two types of arrays, it's called
@@ -369,7 +374,9 @@ it's `O(n)` linear time.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## Optional Classes In JavaScript -->
 ## Optional Classes In JavaScript
 
 Now as I said with both arrays and functions, these are advanced concepts you're
@@ -592,7 +599,7 @@ Imagine you're building a big multiplayer game online, and this game's going to
 have many's player you can have, like _wizard_, _trolls_, _warlocks_, _elves_;
 Now if you had to create an object for every single players, that's a lot of
 repeated code, that's a lot of hassle, and that's a lot of your time, and it's
-not very efficient. to solve that, you can do something called instantiation,
+not very efficient. To solve that, you can do something called instantiation,
 you're making instances or **_multiple copies of an object_**.
 
 Let me show you how we do instantiation in JavaScript again.
@@ -831,7 +838,9 @@ a lot of power. Good luck.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Implementing An Array -->
 ## Implementing An Array
 
 </br>
@@ -1174,7 +1183,9 @@ makes it `O(n)` or linear time.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!---}}}-->
 
+<!--{{{ 5 ## Strings and Arrays -->
 ## Strings and Arrays
 
 I wanted to add a quick video (note) to let you know about a common **_interview
@@ -1199,7 +1210,9 @@ a very common interview question.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Exercise Reverse A Strings -->
 ## Exercise Reverse A Strings
 
 We're going to start off with a very very common one, and it's shouldn't be too
@@ -1424,7 +1437,9 @@ a great engineer.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Exercise Merge Sorted Arrays -->
 ## Exercise Merge Sorted Arrays
 
 Welcome back, it's time to do another fun or re-interview question. An
@@ -1739,7 +1754,9 @@ Hope you got this far, and I'll see you in next lectures.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 9 ## Array Summary -->
 ## Array Summary
 
 </br>
@@ -1827,3 +1844,5 @@ a few to go through.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
+

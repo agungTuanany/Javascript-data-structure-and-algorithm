@@ -1,5 +1,6 @@
 # Chapter-3 Data Structures Introduction
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Module Introduction](#module-introduction)
@@ -9,7 +10,9 @@
 5. [Operations On Data Structures](#operations-on-data-structures)
 
 </br>
+<!---}}}-->
 
+<!--{{{ 1 ## Module Introduction-->
 ## Module Introduction
 
 What is a **data structure**? Is a collection of values. What is
@@ -42,7 +45,9 @@ structures and algorithms, so can write a good programs. Let's get started.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## What is a Data Structure-->
 ## What is a Data Structure
 
 Data structure is a **_collection of values_**, the values can have relationship
@@ -140,7 +145,9 @@ Let's get a little bit deeper into this topic.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## How Computer Store Data -->
 ## How Computer Store Data
 
 In order to truly understand the value of data structures, we have to go deep
@@ -311,7 +318,9 @@ to write great code.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Data Structure In Different Languages -->
 ## Data Structure In Different Languages
 
 Each language has their **_own data-types or builtin data-types_**. JavaScript for
@@ -355,7 +364,9 @@ we're going to talk about.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!---{{{ 5 ## Operations On Data Structures -->
 ## Operations On Data Structures
 
 </br>
@@ -416,3 +427,4 @@ should I use on next project.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->

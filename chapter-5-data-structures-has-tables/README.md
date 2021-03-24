@@ -1,5 +1,6 @@
 # Chapter-5 Data Structures Hash Tables
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1.  [Hash Tables Introduction](#Hash-Tables-Introduction)
@@ -12,7 +13,9 @@
 8.  [Hash Tables Review](#hash-tables-review)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Hash Tables Introduction -->
 ## Hash Tables Introduction
 
 It's time for our next data structure _hash tables_. Hash tables or _hash map_,
@@ -79,7 +82,9 @@ For that I'll see you in the next lectures.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## Hash Function -->
 ## Hash Function
 
 There are some key aspects of hash functions, `[1]` **_is one way_**, in the
@@ -134,7 +139,9 @@ arrays?.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## Hash Collision -->
 ## Hash Collision
 
 ### Hash Tables
@@ -304,7 +311,9 @@ Let's keep going, expand our knowledge of hash tables at next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Hash Tables in Different Languages -->
 ## Hash Tables in Different Languages
 
 Hash tables are implemented differently in different languages, but most of the
@@ -373,7 +382,9 @@ in the next section we are just going to do just that.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Exercise Implement a Hash Table -->
 ## Exercise Implement a Hash Table
 
 It's time for us to implement our own hash table, but let's do a bit of an
@@ -1045,7 +1056,9 @@ our talk of hash tables by comparing them to arrays.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## Hash Tables VS Arrays -->
 ## Hash Tables VS Arrays
 
 </br>
@@ -1083,7 +1096,9 @@ hash tables in their answers. I'll see you on that one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Exercise - First Recurring Character -->
 ## Exercise - First Recurring Character
 
 It's time for an exciting interview question question; and this question comes
@@ -1376,7 +1391,9 @@ Good luck with that.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Hash Tables Review -->
 ## Hash Tables Review
 
 </br>
@@ -1474,4 +1491,5 @@ see you in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 

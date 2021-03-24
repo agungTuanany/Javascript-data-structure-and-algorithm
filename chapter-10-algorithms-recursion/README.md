@@ -1,5 +1,5 @@
 # Chapter-10 Algorithms Recursion
-
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 1. [Introduction to Algorithms](#introduction-to-algorithms)
 2. [Recursion Introduction](#recursion-introduction)
@@ -11,9 +11,10 @@
 8. [When To Use Recursion](#when-to-use-recursion)
 9. [Recursion Review](#recursion-review)
 
-
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Introduction to Algorithms -->
 ## Introduction to Algorithms
 
 Welcome to the algorithm section; this us a word that immediately just sounds
@@ -57,7 +58,6 @@ when it comes to algorithms.
 ![chapter-10-2.png](./images/chapter-10-2.png "Introduction to algorithms")
 </br>
 
-
 Now, whey are these algorithms so common in interviews, and especially in big
 companies; Well, you can get away with not knowing these topics for a long time
 as a programmer, but as we have learned Big-O and scalability of code, is
@@ -77,8 +77,9 @@ grows and grows, these topics will be more and more important to you.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-
+<!--{{{ 2 ## Recursion Introduction -->
 ## Recursion Introduction
 
 I'm actually starting with a bit of a trick here; recursion, which we're going
@@ -90,13 +91,11 @@ a lot; so, I want to prepare you, and obviously it's also a common topic in
 interviews.  Actually this is the most popular topics I would say when it comes
 to interview.
 
-
 Now, what is Recursion? Really, when you're searching for files on a computer;
 for example, if you're on your desktop and you want to find all music files
 you're using MP3 files on your computer, you can't do it by just looking at one
 folder, you want to look at folders recursively to find all your music. Let me
 show you what I mean.
-
 
 I have the [project
 here](htttps://github.com/aneagoie/smart-brain-boost-api-dockerized) that we've
@@ -106,12 +105,11 @@ search through all the files in this project I can simply type an `ls` to show
 me the files; but as you see, in blue here we also have folders that inside of
 them also have files, how can I also see the files in this blue folders? I can
 do something called `ls -R`, `-R` stand for recursively, if I do press Enter
-loot at that, I get also the files inside of the folders. You see I have a
-controllers folder with `.js` files, I have postgres folder with some
-`Dokcerfile`, some  `.sql` file, and with in those I also have another folder that
-has different files but, because I was able to lust items recursively, my
+loot at that, I get also the files inside of the folders. You see I have
+a controllers folder with `.js` files, I have *Postgres* folder with some
+`Dokcerfile`, some `.sql` file, and with in those I also have another folder
+that has different files but, because I was able to lust items recursively, my
 computer went inside of each folder and printed out the files.
-
 
 So, what is Recursion? Well, recursion is when you define something in terms of
 itself, simply it's a function that refers to itself inside of the function.
@@ -174,8 +172,9 @@ recursions, so let's get started.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-
+<!--{{{ 3 ## Stack Overflow -->
 ## Stack Overflow
 
 I'm about to show you my favorite animation of the course, I'm very proud of it;
@@ -215,13 +214,11 @@ call stack size, you've got stop what you're doing".
 Now, this is called stack overflow, why is that? Let's dive deeper into this
 topic.
 
-
 ```javascript
 function inception() {
     debugger;
     inception();
 }
-
 ```
 
 This time, I'm going to add a keyword called `debugger` that the browser is
@@ -275,7 +272,9 @@ Stack.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## Anatomy Of Recursion -->
 ## Anatomy Of Recursion
 
 Every recursive function needs to have something called a **_base case_** or a
@@ -356,8 +355,8 @@ inception and perhaps do a `console.log()` here, saying `"hello?"` and I click
 run. I get "`RangeError Maximum call stack size exceeded`".
 
 We know, by looking at above function, this version of the function that it's
-never going to get to `console.log()`, because as soon as it hits the first line of
-the function it's going to go back and say, "Oh, I'm calling this `[1]` " and
+never going to get to `console.log()`, because as soon as it hits the first line
+of the function it's going to go back and say, "Oh, I'm calling this `[1]` " and
 then kind of go to call function at here, `[2]`, is just to bounce back and
 forth back and forth, never getting to `console.log()`.
 
@@ -444,7 +443,7 @@ this function.
 So, this `inception()` function is going to get return `"done!"`, but notice
 what happens next. I get `Return value: undefined` in _Scope_ tabs as we popped
 off the tip item form the Call Stack; and if I keep popping things from the Call
-Stack, the return value is undefined, and tht's why we get.
+Stack, the return value is undefined, and that's why we get.
 
 Now, why is that? Well, if we go back to our functions, what you just saw was us
 essentially doing calling `inception()`, we called inception 4 times.
@@ -471,7 +470,6 @@ inception(inception(inception("done!")))
 |-- 1rd
 ```
 
-
 Then we go the `3rd` function. Now, the problem with this, and I know this
 little bit confusing, is that once we returned, once we popped off the Stack, and
 we're now at `3rd` part of the inception; But this inception `[XX]` never return
@@ -484,7 +482,6 @@ recursion.
 There is usually a **_base case_** and you always want to make sure, you return;
 So, that the value you want gets bubbled up all the way to top. In our case, all
 we need to do is, say `return inception()`
-
 
 ```javascript
 let counter = 0;
@@ -524,7 +521,6 @@ the **three rules**:
 
 Because you want to return something at the end of the function.
 
-
 We have an idea of how Recursion works, the function simply get closer and loser
 to the **base case**, and once it gets to the **base case** it finally return
 and pops functions off the Stack.
@@ -537,7 +533,9 @@ I'll see you in the next one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Exercise Factorial -->
 ## Exercise Factorial
 
 Welcome back, I have a fun little exercise for you, and now you're asking
@@ -580,14 +578,14 @@ definition of recursion; **recursion is when you define something in terms of
 itself**.
 
 Now a good way to think about factorial is this, `5!` factorial is simply `5  *
-4!`. `5! = 5 * 4 * 3!', because `4 * 3!` is factorial(4).
+4!`. `5! = 5 * 4 * 3!`, because `4 * 3!` is factorial(4).
 
 You can see here, how we might have a recursion function that we can write.
 
 Using this knowledge, see if you can create a function that allows you to do
 this. Now, when it comes to this question, there's two ways that you can go
-about it. you can do the _recursive approach_, where the function calls itself;
-or you can do _iterative approach_. which means looping and most of you are
+about it. You can do the _recursive approach_, where the function calls itself;
+or you can do _iterative approach_. Which means looping and most of you are
 probably to find it easier to solve it with _iterative approach_ with just a
 `for-loop` for example.
 
@@ -628,7 +626,7 @@ findFactorialIterative(2)
 // 2
 ```
 
-let's say `answer` and for now this answer will be `1`. All we're going to do is
+Let's say `answer` and for now this answer will be `1`. All we're going to do is
 do a `for-loop`; will say `let i = 2;`, in our case to simplify things we start
 `i` with `2`, I'm going to explain in a second, why we want to start a `2`. I'm
 going to say `1 < number`; and then we're going to increment `i` by one `i++`.
@@ -704,7 +702,7 @@ are? One uses a `for-loop`  with the loop being the number associated with it,
 and we're doing a but of shortcut here, so it's technically less than of `O(n)`,
 but because of our Big-O rules, this is still going to be `O(n)`.
 
-the recursive function, if we look at this, we are looping how many times? Well,
+The recursive function, if we look at this, we are looping how many times? Well,
 we calling the function, function find factorial recursive, the same number of
 times as the number itself; or with shortcut in case of _base case_. So this
 also become `O(n)`.
@@ -715,7 +713,9 @@ we have another one coming up. I'll see you in the next one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## Exercise Fibonacci -->
 ## Exercise Fibonacci
 
 You can't talk about Recursion without talking about the Fibonacci sequence.
@@ -907,8 +907,9 @@ Recursion over something iterative?**
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-
+<!--{{{ 7 ## Recursive vs Iterative -->
 ## Recursive vs Iterative
 
 </br>
@@ -981,7 +982,9 @@ talk about a definitive guide to when to use recursion in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## When To Use Recursion -->
 ## When To Use Recursion
 
 When should we use Recursion? This is the role that I like to use. When it gets
@@ -1057,8 +1060,10 @@ I'll see you in the next one.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
-## Recursion Review
+<!--{{{ 9 ## recursion review -->
+## recursion review
 
 When we talk about Recursion and Computer Science we're talking about a function
 that calls itself. This type of technique is really good at some problems,
@@ -1068,7 +1073,6 @@ because of its ability to maintain **_state_** a different level of recursion.
 
 ![chapter-10-3.gif](./images/gif/chapter-10-3.gif "Recursion review")
 </br>
-
 
 Just like our coachmen watching TV here, Recursion can be thought of as a but of
 glass that gets filled up with _recursive calls_ of functions; and then we start
@@ -1083,7 +1087,6 @@ value.
 One thing that w want to be careful of with Recursion, was this idea of Stack
 Overflow, this added _Memory Space_ as we keep calling the same function over
 and over until we possibly can reach a limit and get Stack Overflow.
-
 
 The Rule of thumb that we learned is, that we should _use Recursion_ when it
 makes code more _readable_; but sometimes it can be less efficient than
@@ -1127,4 +1130,4 @@ I'll see you in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
-
+<!--}}}-->

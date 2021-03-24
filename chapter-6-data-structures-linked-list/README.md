@@ -1,5 +1,6 @@
 # Chapter-6 Data Structures Linked List
 
+<!--{{{ ## Table of Contents -->
 ## Table of Contents
 
 1. [Linked List Introduction](#linked-list-introduction)
@@ -15,7 +16,9 @@
 11. [Linked List Summary](#linked-list-summary)
 
 </br>
+<!--}}}-->
 
+<!--{{{ 1 ## Linked List Introduction -->
 ## Linked List Introduction
 
 </br>
@@ -62,7 +65,9 @@ are.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 2 ## What is a Linked List -->
 ## What is a Linked List
 
 </br>
@@ -153,7 +158,9 @@ structure, let's do a fun little exercise.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 3 ## Exercise Why Linked List -->
 ## Exercise Why Linked List
 
 ### Linked List Example - visualgo
@@ -283,7 +290,9 @@ the Big-O implications a little bit better.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 4 ## What is Pointer -->
 ## What is Pointer
 
 Let's quickly talk about _pointers_. Something that you'll hear a lot in
@@ -386,7 +395,9 @@ create our very first linked list data structure.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 5 ## Our First Linked List -->
 ## Our First Linked List
 
 ### Linked List Structure
@@ -913,7 +924,9 @@ and we might want to do with it.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 6 ## Node Class -->
 ## Node Class
 
 We talked about how `newNode` gets repeated both times in `append()` and
@@ -974,7 +987,9 @@ to do that on your own.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 7 ## Insert method -->
 ## Insert method
 
 We've just implemented `prepend()`, `append()`, as this
@@ -1526,7 +1541,9 @@ list**. What does that mean for that? I'll see you in the next lecture.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 8 ## Doubly Linked List -->
 ## Doubly Linked List
 
 Up until this point we talked about **singly linked list**, and we should have
@@ -1941,7 +1958,9 @@ impressed.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 9 ## Singly VS Doubly Linked List -->
 ## Singly VS Doubly Linked List
 
 </br>
@@ -1993,7 +2012,9 @@ to see.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 10 ## Exercise Reverse Method -->
 ## Exercise Reverse Method
 
 ```javascript
@@ -2207,7 +2228,9 @@ _differ, but the logic is the same_.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
+<!--{{{ 11 ## Linked List Summary -->
 ## Linked List Summary
 
 Linked list doesn't come pre-built i a lot of languages such as JavaScript, but
@@ -2317,3 +2340,4 @@ in the next chapter.
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->

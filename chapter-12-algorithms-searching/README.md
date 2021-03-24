@@ -1,5 +1,6 @@
 # Chapter-12 Algorithms Searching BFS + DFS
 
+<!--{{{ ## Table of Contents-->
 ## Table of Contents
 1. [Searching + Traversal Introduction](#searching-+-traversal-introduction)
 2. [Linear Search](#linear-search)
@@ -11,6 +12,7 @@
 8. [Exercise BFS vs DFS](#exercise-bfs-vs-dfs)
 
 </br>
+<!--}}}-->
 
 <!--{{{ ## searching + traversal introduction -->
 
@@ -612,6 +614,7 @@ getting there. But first I want to do is a bit of an exercise.
 
 <!--}}}-->
 
+<!--{{{ ## Exercise BFS vs DFS -->
 ## Exercise BFS vs DFS
 
 sss
@@ -628,7 +631,7 @@ stop until the target found.
 A: DFS,
 
 Reason: cause it check in every branch level, from left - leaf to bottom
-level; and go to right - leaf to bottom level, so Time Complexity will be
+level; and go to right - leaf to bottom level.
 
 //If the tree is very wide:
 A: BFS
@@ -671,7 +674,72 @@ why we have these things.
 So, give it a go, try and answer these question above, and in the next lecture,
 I'll go over the solution.
 
+### Solution BFS Vs DFS
+
+How was the exercise? Hopefully it wasn't too difficult. If you're able to
+answer these questions, you're most likely you're going to be OK in an
+interview, if you get asked about Breadth First Search or Depth First Search.
+
+So, let's go to the answer.
+
+> If you know a solution is not far from the root of the Tree
+
+Well, we talked about this, we want to use *Breadth First Search | BFS*, because
+it starts searching the closest nodes to the parent first.
+
+> If the Tree is very deep and solution are rare
+
+Well, this is a bit of a tougher question, but we would use *Breadth first
+Search | BFS*; and the reason we do that over something like Depth First Search
+is, that Depth First Search will take a really long time with this type of
+a Tree.  Because the Tree is really deep, it's going to go one by one, going
+really really down below;
+
+Because solutions are rare, it's most likely going to just repeat that over and
+over; and as you'll see, with Breadth First Search, we use Recursive functions;
+and with Depth First Search that can take a really really long time.
+
+Although with this one, we also have some *Memory concern* with Breadth First
+Search.
+
+So your answer may vary, but this is what I would us as long as you an explain
+that to the interviewer you're find.
+
+> If the Tree is very wide
+
+Well, that is there's a lot of nodes, it's not a Binary Tree, it just has a ton
+of nodes underneath each parent.
+
+Again, this is a bit a tougher one, but we want to use *Depth First Search
+| DFS*, because a Breadth First Search is going to *_need to much Memory _*. The
+way Breadth First Search works is, that it has to keep track of the nodes, and
+the current level in, something called Queue that we'll see.
+
+Because of that, it might take up too much Memory.
+
+> If the solution are frequent but located deep in the Tree
+
+Well, in that case we do use *Depth First Search | DFS*. So hopefully we''ll be
+able to find an answer quicker than Breadth First Search.
+
+> Determining whether a path exists between two nodes
+
+That is what *Depth First Search is built for*.
+
+> Finding the shortest path.
+
+That is for Breadth First Search.
+
+Now, keep this document in mind, and revisit it as we learn more and more about
+these two algorithms, because things are going to start making sense more and
+more. But these is a good sheet to keep in mind before you go to an interview,
+in case you get asked these questions.
+
+Enough talking for now, I think it's time to start coding these algorithms. I'll
+see you in the next one.
+
 **[⬆ back to top](#table-of-contents)**
 </br>
 </br>
+<!--}}}-->
 
