@@ -11,6 +11,7 @@
 7. [BFS vs DFS](#bfs-vs-dfs)
 8. [Exercise BFS vs DFS](#exercise-bfs-vs-dfs)
 9. [Breadth First Search Function](#breadth-first-search-function)
+10. [Breadth First Search Recursive Function](#breadth-first-search-recursive-function)
 
 </br>
 <!--}}}-->
@@ -861,18 +862,18 @@ tree.breadthFirstSearch();
 
 In this functions we need three things,
 
-- First, the `currentNode`, which will start with the root - node (`this.root`)
+- First, the `*currentNode*`, which will start with the root - node (`this.root`)
 
-- Second, the actual list `list = []` of an Array type, that will be our answer.
+- Second, the actual *list* `list = []` type of an Array, that will be our answer.
   Will have an array here, where we insert the numbers into in the order of
   Breadth First Search.
 
-- Third, we also need a Queue - Data Structure `queue = []` which will use an
+- Third, we also need a *Queue*-Data Structure `queue = []`; which will use an
   Array for this example. To keep track of the level we're at, so that we can
   access the children once we go through it.
 
-  Remember, we going to keep track of `*9*` then we're going to keep track of
-  `*6*` and `*12*`; and when we get to `6` and `12`, that's going to be in our
+  Remember, we going to keep track of *`9`* then we're going to keep track of
+  *`6`* and *`12`*; and when we get to `6` and `12`, that's going to be in our
   Queue. But we have to go back once we're at the end of that level to `6`, so
   that we can discover `1` and `4`.
 
@@ -984,3 +985,182 @@ was?. All right I'll see you in the next lecture.
 </br>
 <!--}}}-->
 
+<!--{{{ 10 ## Breadth First Search Recursion Function-->
+## Breadth First Search Recursion Function
+
+All right, we're going to do this just for fun, usually Breadth First Search is
+implemented the way we saw it. Just using a **Iterative - approach**. But for
+fun I want to see if we can do a **Recursive** - Breadth First Search.
+
+```javascript
+// BinarySearchTree.js
+class BinarySearchTree {
+    ...
+    ...
+
+    breadthFirstSearch() {}
+
+    breadthFirstSearchR(queue, list) {
+	if (!queue.length) {
+	    return list;
+	}
+	const currentNode = queue.shift();
+	list.push(currentNode.value);
+
+	if (currentNode.left) {
+	    queue.push(currentNode.left);
+	}
+	if (currentNode.right) {
+	    queue.push(currentNode.right);
+	}
+
+	return this.breadthFirstSearchR(queue, list);
+    }
+}
+```
+
+In order for us to do a Recursive Breadth First Search, we can create a new
+function called `breadthFirstSearchR()`, will have *`R`* here for Recursive, and
+in here we need to create a *base - case* when to stop.
+
+We will stop, if `queue.length` is `0`, or we can just say `(!queue.length)`
+like this, if that's the case, we want to to have our base - case and we *return
+the list* (`return list`).
+
+But you'll notice here, that I haven't *defined* what `queue` and `list` is,
+like i did with our **Iterative - approach**; and that's because if I go to the
+top on `breadthFirstSearch()` and declare the variables like I did, because in
+every Recursive - functions, this `breadthFirstSearch()` function will be called
+over and over. We're going to be **resetting all these variables**, and a `list
+= []` of an Array it's resetting over and over to an **empty Array**.
+
+```javascript
+breadthFirstSearchR(queue, list) {}
+````
+
+So the way we would do this in a *Recursive - function* is, that we need to
+actually pass `queue` and `list` **as a parameter**.
+
+So that when we call it at the bottom, instead of doing it this way,
+
+```javascript
+tree.breadthFirstSearch()
+```
+
+We'd have to say,
+
+```javascript
+tree.breadthFirstSearchR([this.root], [])
+```
+
+That the `queue` will have `this.root` - node. But remember the `queue` has to
+be an Array, so we just wrap **`this.root`** in curly bracket **`[]`** with item
+of this **`.root`** kind of like we did with Breadth First Search the first time
+around right?.
+
+The initial `queue` had the `currentNode` in `queue.push(currentNode)`, which
+was `currentNode = this.root`.
+
+Our second parameter would be the `list`. That will be our **answer** which will
+start off with an empty Array.
+
+So now we have these `tree.breadthFirstSearchR([this.root], [])`, and that's
+a **bit of gotcha**, when it comes to **Recursive - functions**, we can now do
+something similar to how we did the first time around with our
+**Iterative - approach**.
+
+We'll say that our our `let = currentNode` is equal to `this.queue.shift()`.
+Again, same thing as we did with up above `currentNode = queue.shift()`. To grab
+the `currentNode`, and then we can actually did is, just copying what we did as
+**Iterative - approach**.
+
+```javascript
+if (currentNode.left) {
+    queue.push(currentNode.left);
+}
+if (currentNode.right) {
+    queue.push(currentNode.right);
+}
+```
+
+If the `currentNode.left` has a child, `queue` push the left - node. If the
+`current.right` has a child, `queue` push the right - node.
+
+```
+return breadthFirstSearchR(queue, list);
+```
+
+Finally, because this is a _Recursive - function_, we want return the function.
+So that it goes through again and again; and this time we giving it the `queue`
+and the `list`.
+
+I know it can get a little bit confusing. You might have to look at it. But,
+going through it step by step with in your imagination on your head, you might
+want to grab this complete **Recursive - code** approach to see how it works.
+It's not much different from the **Iterative - approach**, and because this is
+referring to a method inside of a class, the way it works in JavaScript is, we
+have to say is,
+
+```javascript
+return this.breadthFirstSearchR(queue, list);
+```
+
+We have to say **`this.`** which refers to the class root, and use the method
+within this class for Recursive purpose until our `list` is completed.
+
+I notice, that we don't need **`this`** for the `queue.shift()`, because
+`queue` is just a **_parameter_**.
+
+Now, we also want to make sure that we push to the `list` when we're in `if`-
+statement, ` if (currentNode.left)` and ` if (currentNode.right)`.
+
+So, just like we did above, we're going to say, a `list.push(currentNode.value)`.
+Is same exactly what we've done before. We want to push the last `value` to the
+`list`, because the `list` is our answer.
+
+If I click run here, I'm going to get an error,
+
+```bash
+list.push(currentNode.value);
+                      ^
+TypeError: Cannot read property 'value' of undefined
+```
+
+This is a bit a gotcha, a little bit JavaScript specific, and one of the reasons
+I can get frustrating with JavaScript is, that **`this`** - keyword on
+`tree.breadthFirstSearchR([this.tree], [])` only works when we're inside of the
+class.
+
+When we call the `breadthFirstSearchR()`, it is outside of the class. So how to
+resolve this? Remember that we have the `const tree = new BinarySearchTree()`
+that we instantiated. We grab the variable **`tree`**, and we attach to
+`[tree.root]` of an Array as a first parameter.
+
+So, we change over,
+
+```javascript
+tree.breadthFirstSearchR([tree.root], [])
+```
+
+If we run this,
+
+```javascript
+===> [ 9 ]
+===> [ 9, 4 ]
+===> [ 9, 4, 20 ]
+===> [ 9, 4, 20, 1 ]
+===> [ 9, 4, 20, 1, 6 ]
+===> [ 9, 4, 20, 1, 6, 15 ]
+===> [ 9,  4,  20, 1, 6, 15, 170 ]
+```
+
+We now have our `list`, with this time done Recursively.
+
+I'll leave this code for you to play around with, and see which one you like
+better. But both of these now, give us the same results. I'll see you in the
+next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->

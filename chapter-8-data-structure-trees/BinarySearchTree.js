@@ -195,8 +195,26 @@ class BinarySearchTree {
             }
         }
 
-        console.log(list)
+        console.log(list);
         return list;
+    }//}}}
+
+    breadthFirstSearchR(queue, list) {//{{{
+        if (!queue.length) {
+            return list;
+        }
+        const currentNode = queue.shift();
+        list.push(currentNode.value);
+
+        if (currentNode.left) {
+            queue.push(currentNode.left);
+        }
+        if (currentNode.right) {
+            queue.push(currentNode.right);
+        }
+
+        console.log("===>", list)
+        return this.breadthFirstSearchR(queue, list);
     }//}}}
 
 };
@@ -221,7 +239,8 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 
-tree.breadthFirstSearch();
+//tree.breadthFirstSearch();
+tree.breadthFirstSearchR([tree.root], [])
 
 // tree.lookup(20)
 // tree.lookup(2)
