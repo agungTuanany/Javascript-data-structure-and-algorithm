@@ -13,6 +13,7 @@
 9. [Breadth First Search Function](#breadth-first-search-function)
 10. [Breadth First Search Recursive Function](#breadth-first-search-recursive-function)
 11. [Graph Traversal](#graph-traversal)
+12. [BFS in Graphs](#bfs_in_graphs)
 
 </br>
 <!--}}}-->
@@ -1237,7 +1238,7 @@ Now, with Depth First Search, We starting at `0`, and I hit go,
 
 - We're going to go all the way back and go to the next in the list.
 
-- Is `3` and `4`, then `5`, and `6`. Same here, we ask does they have a child?
+- we go `3` and `4`, then `5`, and `6`, and ask in each node, does they have a child?
 
 So just by looking at above Graph, you might see what I meant. When I gave you
 the information at the beginning of the section, that is,
@@ -1256,6 +1257,53 @@ With Depth First Search, we're able to go really deep into a Graph fairly fast
 then Breadth First Search that might cost a bit of **extra - memory**.
 
 Let's talk about these two algorithms in more detail when it comes to Graphs.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->
+
+<!--{{{ 12 ## BFS in Graphs -->
+## BFS in Graphs
+
+</br>
+
+![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search")
+</br>
+
+Welcome back. I encourage you to play with visualgo, and create your own Graph
+as I talk throughout these **gif** - picture above about Depth First Search and
+Breadth First Search when it comes to Graph - Traversal.
+
+While I'm explaining with above animation running, The unique thing about
+Breadth First Search is, that i lends itself really nice to determining the
+**shortest -  path** between any node. Especially when it comes to saying, "hey,
+what's the closest node to **`0`**?" That's a really easy question to ask when
+it comes to Breadth First Search.
+
+We've talked about how that is used in recommendation - engines, peer to peer
+networks, even Google Maps, right?, Facebook friend - request, and
+Instagram - recommendation.
+
+Breadth First Search or BFS allows us to convert a Graph, essentially into
+a Tree. Because we know who the children of the parent node is, and then the
+grandchildren and then so on and so forth.
+
+</br>
+
+![chapter-12-6.png](./images/chapter-12-6.png "Breadth First Search Pros and Cons")
+</br>
+
+So, if you remember above diagram, we now understand. That Breadth First Search,
+YES! It uses **more - memory** to keep track of the parent node and the children
+nodes of that **level**. But it also helps us determine the **shortest - path**
+and it's better if we know a node we're looking for is close to us, because it's
+going to look at the closer nodes first.
+
+So that when you get asked this in an interview, you know Breadth First Search
+either in Graph - Traversal or Tree - Traversal is going work well for these
+type of question. Because Breadth First Search for is **crafted** to help us
+determine the shortest path between two nodes in a Graph.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
