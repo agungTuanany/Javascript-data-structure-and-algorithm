@@ -12,6 +12,7 @@
 8. [Exercise BFS vs DFS](#exercise-bfs-vs-dfs)
 9. [Breadth First Search Function](#breadth-first-search-function)
 10. [Breadth First Search Recursive Function](#breadth-first-search-recursive-function)
+11. [Graph Traversal](#graph-traversal)
 
 </br>
 <!--}}}-->
@@ -570,7 +571,7 @@ thing matters when it comes to Breadth First Search and Depth First Search.
 ![chapter-12-6.png](./images/chapter-12-6.png "Breadth First Search Pros and Cons")
 </br>
 
-Now, Let's talk about Breadth Firs Search first. With Breadth First Search It's
+Now, Let's talk about Breadth First Search first. With Breadth First Search It's
 very good for *finding the shortest path* between a _starting point_ and any
 other reachable node, because we always start off with the _root node_, and then
 search the closest nodes first; and then the nodes furthers.
@@ -1159,6 +1160,102 @@ We now have our `list`, with this time done Recursively.
 I'll leave this code for you to play around with, and see which one you like
 better. But both of these now, give us the same results. I'll see you in the
 next lecture.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->
+
+<!--{{{ 11 ## Graph Traversal -->
+
+## Graph Traversal
+
+The beauty of what we just learned in **_Tree - Traversal_** which was `O(n)`.
+We're visiting every node, is that it's the same as in **Graph - Traversal**.
+Because Trees are just simply a Type of Graph.
+
+So using the same technique instead of using left and right properties perhaps
+there's **10** - children. Well we can do the same thing using Depth First
+Search and Breadth First Search; and this is really powerful right?
+
+Because Graphs are used to model real - life models, such as recommendation
+engine in Amazon. We can now see what Type of items are perhaps related, or are
+the closest - relation to the last book that we bought; and in that case, they
+would use something like Breadth First Search for a search.
+
+Second example, like Facebook. To see what type of friend - request I should be
+recommended?.
+
+Third example, If I have a connection on Linked-In, perhaps I might use Depth
+First Search to see what **_degree of connection_** I have with that really
+important SEO, we use Depth First Search.
+
+These are the bases of how peer to peer networks work. How Google - Maps works
+right?. Which is really really powerful and I have a nice visual here. I have
+our [visualgo](https://visualgo.net/en/dfsbfs) here, they have an example for
+Depth First Search and I made this little graph,
+
+### Visual Graph with Breadth First Search
+
+</br>
+
+![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search")
+</br>
+
+I made this little Graph here. We look for Breadth First search. We start off
+with **0**, and see how Depth First Search would works.
+
+- We check all the closest nodes, `1`, `3`, `4`, `5`, and `6`.
+
+- Then we start with `1`. Doesn't have any children? Yes, we got `2`, `7`, and
+  `8`.
+
+- Then we go next in `3`, doesn't have a child.
+
+- What about `4`, doesn't have a child.
+
+- What about `5`, doesn't have a child.
+
+- What about `6`, doesn't have a child.
+
+
+We keep going down, to the next place that has children; and we Traverse the
+Graph. As you can see, Breadth First Search is starting with our
+**closest - neighbors**, and then going further and further out.
+
+### Visual Graph with Depth First Search
+
+Now, with Depth First Search, We starting at `0`, and I hit go,
+
+</br>
+
+![chapter-12-14.gif](./images/gif/chapter-12-14.gif "Visual Graph with Depth First Search")
+</br>
+
+- We go to `1`, then `2`, then `7`, and then we're going to keep deeper to `8`,
+  we're going to `9`, the `10`. There's no more node.
+
+- We're going to go all the way back and go to the next in the list.
+
+- Is `3` and `4`, then `5`, and `6`. Same here, we ask does they have a child?
+
+So just by looking at above Graph, you might see what I meant. When I gave you
+the information at the beginning of the section, that is,
+
+</br>
+
+![chapter-12-8.png](./images/chapter-12-8.png "The advantage Graph Traversal and Tree Traversal")
+</br>
+
+Breadth First Search is usually good for **shortest path**. That is what's the
+**closest to our node**. What are the most **related -  item** item on Amazon.
+Who are our closest friends on Facebook or closest connections on Linked-In.
+
+Versus Depth First Search, which is really good to see **if something exists**.
+With Depth First Search, we're able to go really deep into a Graph fairly fast
+then Breadth First Search that might cost a bit of **extra - memory**.
+
+Let's talk about these two algorithms in more detail when it comes to Graphs.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
