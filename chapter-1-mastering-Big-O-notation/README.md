@@ -194,40 +194,40 @@ a functions_**.
 
 ### - Big Os -
 
-**O(1)** Constant -- No loops </br>
-**O(log N)** Logarithmic -- Usually searching algorithm `log n` if they are sorted (Binary search) </br>
-**O(n)** Linear -- for loops, while loops through `n` items </br>
-**O(n log(n))** Log Linear -- Usually sorting operations </br>
-**O(n^2)**  Quadratic  -- Every element in a collection needs ti be compared to ever other element. Two nested loops</br>
-**O(2^n)** Exponential -- Recursive algorithms that solves a problem of size `N`  </br>
-**O(n!)** Factorial -- You are adding a loop for every elements </br>
+- **O(1)** Constant -- No loops
+- **O(log N)** Logarithmic -- Usually searching algorithm `log n` if they are sorted (Binary search)
+- **O(n)** Linear -- for loops, while loops through `n` items
+- **O(n log(n))** Log Linear -- Usually sorting operations
+- **O(n^2)**  Quadratic  -- Every element in a collection needs to be compared to every other element. Two nested loops
+- **O(2^n)** Exponential -- Recursive algorithms that solves a problem of size `N`
+- **O(n!)** Factorial -- You are adding a loop for every elements
 
-**NOTE:** </br>
-**_Iterating through half a collection is still O(n)_** </br>
-**_Two separate collections: O(a * b)_** </br>
+**NOTE:**
+- **_Iterating through half a collection is still O(n)_**
+- **_Two separate collections: O(a * b)_**
 
 ### - What can cause time in a function? -
 
-Operations (`+`, `-`, `*`, `/`) </br>
-Comparison (<, >, ==) </br>
-Looping (for, while) </br>
-Outside Function call (function()) </br>
+- Operations (`+`, `-`, `*`, `/`)
+- Comparison (<, >, ==)
+- Looping (for, while)
+- Outside Function call (function())
 
 ### - Rule Book -
 
-**Rule 1:** Always worst Case </br>
-**Rule 2:** Remove Constant </br>
-**Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)` </br>
-`+` for steps in order </br>
-`*` for nested steps </br>
-**Rule 4:** Drop Non-dominant terms
+- **Rule 1:** Always worst Case
+- **Rule 2:** Remove Constant
+- **Rule 3:** Different inputs should have different variables. `O(a+b)`, A and B arrays nested would be `O(a*b)`
+    - `+` for steps in order
+    - `*` for nested steps
+- **Rule 4:** Drop Non-dominant terms
 
 ### - What causes Space complexity -
 
-Variables </br>
-Data Structure </br>
-Function Call </br>
-Allocation </br>
+- **Variables
+- Data Structure
+- Function Call
+- Allocation**
 
 **[⬆ back to top](#table-of-contents)**
 </br>
@@ -517,12 +517,14 @@ function anotherFunChallenge(input) {
 ![chapter-1-2.png](./images/chapter-1-2.png "Simplifying Big-O")
 </br>
 
-When we talk about Big-O in interviews most of the time you're only going to give
-one of Big-Os kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`. You're most
-likely never going to actually calculate precisely `O(3n)`, or `3n + 2 + 1`; So how
-was I able to simplify the exercise and just say that they `O(n)`?. Luckily for
-you, there are just several rules that we can follow when it came to the
-Big-O. Check the [cheat-sheet Rule Book](#big-o-cheat-sheet)
+When we talk about Big-O in interviews most of the time you're only going to
+give one of Big-O's kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`.
+You're most likely **never** going to actually calculate precisely `O(3n)`, or
+`3n + 2 + 1`; So how was I able to simplify the exercise and just say that they
+`O(n)`?. Luckily for you, there are just several rules that we can follow when
+it came to the Big-O.
+
+Check the [cheat-sheet Rule Book](#big-o-cheat-sheet).
 
 **[⬆ back to top](#table-of-contents)**
 </br>
@@ -535,8 +537,8 @@ Big-O. Check the [cheat-sheet Rule Book](#big-o-cheat-sheet)
 ### Worst Case
 
 Let's talk about the very first role when it comes to Big-O, that is worst case
-when calculating Big-O we always think about the worst case. What do I mean by
-that? Well if we go back to [findNemo](./findNemo.js) for example,
+when **calculating** Big-O **we always think about the worst case**. What do
+I mean by that? Well if we go back to [findNemo](./findNemo.js) for example,
 
 ```javascript
 const nemo = ["nemo"];
@@ -573,7 +575,7 @@ The function is not efficient, Because if you look this function we're looping
 through the entire array to find `nemo`. Remember we had the `everyone1` array
 with about 10 different characters or objects. Well `nemo` was the _fourth member
 on the array_; And when we run this function we found `nemo`, but the funny
-things is this function **_ran 10 times not four times_**. We already find
+things is this function **_ran 10 times, not four times_**. We already find
 `nemo`, all after find `nemo` run pretty wasteful.
 
 We can make this function little bit more efficient, in JavaScript we can just
@@ -607,7 +609,7 @@ findNemo(everyone1);
 //We found nemo at index "3"
 ```
 
-In our case, if a condition is met in our case if we find `nemo` just break out
+In our case, if a condition is met; in our case if we find `nemo` just break out
 of this loop. Once we found `nemo` we're done, we're not going to loop through
 the rest of the items or array. Congratulation, we just made our code a little
 bit more efficient. That's a good thing right?

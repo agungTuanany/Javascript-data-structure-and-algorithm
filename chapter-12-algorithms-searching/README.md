@@ -14,6 +14,7 @@
 10. [Breadth First Search Recursive Function](#breadth-first-search-recursive-function)
 11. [Graph Traversal](#graph-traversal)
 12. [BFS in Graphs](#bfs_in_graphs)
+12. [DFS in Graphs](#dfs_in_graphs)
 
 </br>
 <!--}}}-->
@@ -1268,7 +1269,7 @@ Let's talk about these two algorithms in more detail when it comes to Graphs.
 
 </br>
 
-![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search")
+![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search - undericted")
 </br>
 
 Welcome back. I encourage you to play with visualgo, and create your own Graph
@@ -1304,6 +1305,72 @@ So that when you get asked this in an interview, you know Breadth First Search
 either in Graph - Traversal or Tree - Traversal is going work well for these
 type of question. Because Breadth First Search for is **crafted** to help us
 determine the shortest path between two nodes in a Graph.
+
+**[⬆ back to top](#table-of-contents)**
+</br>
+</br>
+<!--}}}-->
+
+<!--{{{ 13 ## DFS in Graphs -->
+## DFS in Graphs
+
+What about Depth First Search in Graphs? You might not know it but you just
+learned how to solve a maze using program. Because Depth First Search is exactly
+like solving a maze right?.
+
+If you ever done a real life maze yourself or looked at a program that tries to
+solve which path to take. The idea was to go as deep as you can and when you hit
+a roadblock or a place where you can't go anymore, you can backtrack and find
+a different route, and then you keep backtracking until you find the desired
+node, or you accept the maze and that's the beauty of Depth First Search.
+
+You can now implement an algorithm that solves a _maze - puzzle_, isn't that cool.
+
+</br>
+
+![chapter-12-15.gif](./images/gif/chapter-12-15.gif "Visual Graph with Depth First Search - directed")
+</br>
+
+Just like above diagram. We do a Depth First Search. Let's say we're staring at
+at number `1` and `9`  the exit, the result is **`1` won't work**. Because this
+Unlike the [previous - graph](./images/gif/chapter-12-14.gif) which was
+**undirected**. That is had a **both - direction**, I can go back and forth.
+
+The below diagram is a **directed - graph**. That has specific directions that
+it can go.
+
+So, let's try again, with starting node `0` to `9`.
+
+</br>
+
+![chapter-12-16.gif](./images/gif/chapter-12-16.gif "Visual Graph with Depth First Search - directed")
+</br>
+
+We can see on diagram, just like looking through a maze, I go first to `1`, and
+then `2`, and keep going and going through my children and then try and go as
+deep as I can. I managed to get out of the maze before I even search for `6` and
+`5`. Obviously this algorithm keeps going, because I can't tell it to stop at
+`9`. But, you see how it was exactly like solving a maze.
+
+That's why we use Recursion for Depth First Search right?.
+
+The idea of **backtracking** after a **depth - end**, and then repeating the walk down
+another path is just Recursion. Each step smaller than other, and then we go
+back and then keep doing the same thing over and over.
+
+</br>
+
+![chapter-12-7.png](./images/chapter-12-7.png "Depth First Search Pros and Cons")
+</br>
+
+The idea of Depth First Search is, that it's really good at saying, Does the
+Path exist? It doesn't tell us the shortest path, but whether it even exists,
+and it use **less -  memory** then Breadth First Search.
+
+The one down side with Depth First Search is, that if you have a really really
+deep - graph, then it can get very slow. Because the deeper the graph, the more
+Recursive calls the more Space - Complexity you add. Because we have to keep
+track of those function calls on a Stack.
 
 **[⬆ back to top](#table-of-contents)**
 </br>
