@@ -59,10 +59,13 @@ structures_ and _algorithms_.
 
 There are two main things we talk about when we say this is good code. What
 would you tell somebody if you're asking them to write good code?.
+
+<!--{{{ chapter-1-1.gif-->
 </br>
 
 ![chapter-1-1.gif](./images/gif/chapter-1-1.gif "What is good code")
 </br>
+<!--}}}-->
 
 Code can be described in tow points, `[1]`**Readability**, is your code just
 generally clean? Can others can understand your code?. `[2]`**Scalable Code**.
@@ -74,10 +77,13 @@ We also going to talk about readable code throughout this entire course, but
 touch upon it a little bit more in the next section. For now, because this is
 the Big-O section, we're focusing on this idea of scalable code. What does this
 really mean thug?
+
+<!--{{{ chapter-1-2.gif-->
 </br>
 
 ![chapter-1-2.gif](./images/gif/chapter-1-2.gif "What is good code")
 </br>
+<!--}}}-->
 
 Well I want you to imagine we have a task where we want to bake a cake. We have
 a recipe, and this recipe we're going to use in our kitchen to bake a cake; And
@@ -102,6 +108,7 @@ We have an example of instruction that we're giving our computer called
 run a certain problem through a function or a task? How can we measure the Big-0
 with this findNemo function? Or the efficiency of this function?.
 
+<!--{{{ function findNemo(array) {-->
 ```javascript
 function findNemo(array) {
     for (let i = 0; i < array.length; i++) {
@@ -111,6 +118,7 @@ function findNemo(array) {
     };
 };
 ```
+<!--}}}-->
 
 We're going to try and measure the performance of findNemo function and see what
 happens when the arrays gets larger. We're going to tie things together as to
@@ -133,10 +141,13 @@ more.
 to run_**. We can compare two different algorithms or in this case functions using
 Big-O and say which one is better then the other when it came to scale?
 Regardless of our computer differences. We can measure Big-O like this chart,
+
+<!--{{{ chapter-1-1.png-->
 </br>
 
 ![chapter-1-1.png](./images/chapter-1-1.png "Big-O complexity Chart graph")
 </br>
+<!--}}}-->
 
 When we talk about Big-O and scalability of code, we simply mean when we grow
 bigger and bigger with our input, how much does the algorithm or function slow
@@ -163,6 +174,7 @@ we simply mean when we grow bigger and bigger with our input; **_How much does
 the algorithm slow down. The less it slows down or the slower it slows the
 better it is_**.
 
+<!--{{{ const measureTime = (array) => {-->
 ```javascript
 const measureTime = (array) => {
 
@@ -177,6 +189,7 @@ const measureTime = (array) => {
     console.info("Execution time (hr): %ds %dms", hrend[0], hrend[1]/1000000);
 };
 ```
+<!--}}}-->
 
 Instead of using `performance.now()` or in NodeJS `process.hrtime()` to measure
 the efficiency of our functions, we can just **_calculate how many operations
@@ -263,10 +276,12 @@ from just a single item in an array `nemo`, to 10 items in array `everyone1
 | everyone2` to 100.000 `largeArray`. How does the efficiency of this function
 increase?.
 
+<!--{{{ chapter-1-3.gif-->
 </br>
 
 ![chapter-1-3.gif](./images/gif/chapter-1-3.gif "the efficiency of function increases")
 </br>
+<!--}}}-->
 
 > The above diagram is linear. As our number input `(Elements)` increase the
 > number of `Operations` increase as well.
@@ -302,19 +317,23 @@ means_**, as things grow larger and larger, does it scale?
 So the `findNemo` function is `O` of `n` and linear time. Another way to think
 about it is this,
 
+<!--{{{ chapter-1-4.gif-->
 </br>
 
 ![chapter-1-4.gif](./images/gif/chapter-1-4.gif "O(n) single element")
 </br/>
+<!--}}}-->
 
 If we have the compression algorithm, let's say this `function()` is the little
 compression, and the `Input` is the little box, what's the Big-O notation of
 this function? Well if we had one element it will just compress one item.
 
+<!--{{{ chapter-1-5.gif-->
 </br>
 
 ![chapter-1-5.gif](./images/gif/chapter-1-5.gif "O(n) multiple elements")
 </br>
+<!--}}}-->
 
 If we have multiple elements, again we still have to run each box through the
 compression algorithm to compress the box.
@@ -368,10 +387,13 @@ here?
 
 That is no matter how many times the boxes increase or however many boxes we
 have we're always just grabbing the first item in the array.
+
+<!--{{{ chapter-1-6.gif-->
 </br>
 
 ![chapter-1-6.gif](./images/gif/chapter-1-6.gif "O(1) - Constant Time")
 </br>
+<!--}}}-->
 
 If we look at this on a graph, If we have one element or one box we do one
 operation.  If we have three elements or three boxes we still do just one
@@ -412,10 +434,13 @@ in total is actually running `O` of `2` operations every time. So no matter how
 big the boxes get, the number of operations here is going to be two.
 
 If we looks at the graph,
+
+<!--{{{ chapter-1-7.gif-->
 </br>
 
 ![chapter-1-7.gif](./images/gif/chapter-1-7.gif "O(1) - Constant Time")
 </br>
+<!--}}}-->
 
 Instead of having `O` of `1`, like we have before, we have `0` of `2`, and then
 if we had three operations it will just be `O` of `3`. But overall it's still
@@ -444,6 +469,7 @@ a bit of fun exercise to really solidify our knowledge.
 <!--{{{ ## Big-O Exercise-1 -->
 ## Big-O Exercise-1
 
+<!--{{{ function funChallenge(input) {-->
 ```javascript
 // What is the Big O of the below function? (Hint, you may want to go line by line)
 function funChallenge(input) {
@@ -465,6 +491,7 @@ function funChallenge(input) {
 // Big-O (3 + 4n)
 // Big-O: O(n)
 ```
+<!--}}}-->
 
 **[⬆ back to top](#table-of-contents)**
 </br>
@@ -474,6 +501,7 @@ function funChallenge(input) {
 <!--{{{ ## Big-O Exercise-2 -->
 ## Big-O Exercise-2
 
+<!--{{{ function anotherFunChallenge(input) {-->
 ```javascript
 // What is the Big O of the below function? (Hint, you may want to go line by line)
 function anotherFunChallenge(input) {
@@ -503,6 +531,7 @@ function anotherFunChallenge(input) {
     // Big-O (4 + 7n)
     // Big-O: O(n)
 ```
+<!--}}}-->
 
 **[⬆ back to top](#table-of-contents)**
 </br>
@@ -512,10 +541,12 @@ function anotherFunChallenge(input) {
 <!--{{{ ## Simplifying Big-O  -->
 ## Simplifying Big-O
 
+<!--{{{ chapter-1-2.png-->
 </br>
 
 ![chapter-1-2.png](./images/chapter-1-2.png "Simplifying Big-O")
 </br>
+<!--}}}-->
 
 When we talk about Big-O in interviews most of the time you're only going to
 give one of Big-O's kinds `O(n), O(1), O(n log n), O(n^2), O(2^n), O(n!)`.
@@ -540,6 +571,7 @@ Let's talk about the very first role when it comes to Big-O, that is worst case
 when **calculating** Big-O **we always think about the worst case**. What do
 I mean by that? Well if we go back to [findNemo](./findNemo.js) for example,
 
+<!--{{{ function findNemo(array) {-->
 ```javascript
 const nemo = ["nemo"];
 
@@ -570,7 +602,7 @@ findNemo(everyone1);
 // running
 // running
 ```
-
+<!--}}}-->
 The function is not efficient, Because if you look this function we're looping
 through the entire array to find `nemo`. Remember we had the `everyone1` array
 with about 10 different characters or objects. Well `nemo` was the _fourth member
@@ -581,6 +613,7 @@ things is this function **_ran 10 times, not four times_**. We already find
 We can make this function little bit more efficient, in JavaScript we can just
 have something called `break`
 
+<!--{{{ function findNemo(array) {-->
 ```javascript
 const nemo = ["nemo"];
 
@@ -608,6 +641,7 @@ findNemo(everyone1);
 //running
 //We found nemo at index "3"
 ```
+<!--}}}-->
 
 In our case, if a condition is met; in our case if we find `nemo` just break out
 of this loop. Once we found `nemo` we're done, we're not going to loop through
@@ -651,6 +685,7 @@ finding.
 
 #### Case - 1
 
+<!--{{{ function printFirstItemThenFirstHalfThenSayHi100Times(items) {-->
 ```javascript
 function printFirstItemThenFirstHalfThenSayHi100Times(items) {
     console.log(items[0]);                              // O(1)
@@ -671,6 +706,7 @@ function printFirstItemThenFirstHalfThenSayHi100Times(items) {
 
 // O(n/2 + 101)
 ```
+<!--}}}-->
 
 We have ridiculous functions in above
 `printFirstItemThenFirstHalfThenSayHi100Times`, probably not the best named
@@ -723,6 +759,7 @@ well.
 
 #### Case - 2
 
+<!--{{{ function compressBoxesTwice(boxes) {-->
 ```javascript
 function compressBoxesTwice(boxes) {
     boxes.forEach(function(boxes) {
@@ -734,6 +771,7 @@ function compressBoxesTwice(boxes) {
     })
 }
 ```
+<!--}}}-->
 
 In case two, we have function `compressBoxesTwice`, where this function actually
 has two `for-loops` where it does the same thing but it's two `for-loops`? We
@@ -748,10 +786,13 @@ constant_ and if we drop what this function equate to? Well it's just `O(n)`.
 > The Big-O mutate `O(n)`.
 
 To prove it we see the graph below,
+
+<!--{{{ chapter-1-3.png-->
 </br>
 
 ![chapter-1-3.png](./images/chapter-1-3.png "Rule - 2 Case - 2")
 </br>
+<!--}}}-->
 
 We see that the `Elements` as the elements increase, we have two `Operations`,
 because we have two `for-loops`. If we have _two_ `Elements`, in that case we do
@@ -784,6 +825,7 @@ makes mistakes on, but once you understand it, it became really easy to spot.
 
 #### Example - 1
 
+<!--{{{ function compressBoxesTwice(boxes) {-->
 ```javascript
 function compressBoxesTwice(boxes) {
     boxes.forEach(function(boxes) {
@@ -798,6 +840,7 @@ function compressBoxesTwice(boxes) {
 // Big-O: O(2n)
 // Big-O mutate: O(n)
 ```
+<!--}}}-->
 
 I have the exact same function we saw in the last video `compressBoxesTwice`. We
 have the boxes array and we just have two loops here, I'm using `for-each`
@@ -808,6 +851,7 @@ became `O(n)`.
 But the third rule states, that _different terms for inputs_ and what that means
 is? Well first all, let me ask you a question,
 
+<!--{{{ function compressBoxesTwice(boxes, boxes2) {-->
 ```javascript
 // Function mutated
 function compressBoxesTwice(boxes, boxes2) {
@@ -822,6 +866,7 @@ function compressBoxesTwice(boxes, boxes2) {
 
 // Big-O: O(a + b)
 ```
+<!--}}}-->
 
 What if here, I have `boxes` as the first parameters, and then we have `boxes2`
 , as the second parameters, and maybe this second `for-loop` actually loops over
@@ -857,10 +902,10 @@ talk about another _common pattern_ we see with Big-O that is nested loops.
 One common interview question that you might get is something along the lines of
 log all pairs of arrays. What that's actually means?
 
+<!--{{{ function logAllPairsOfArray(array) {-->
 ```javascript
 // Log all pairs of array
 const boxes = [1, 2, 3, 4, 5];
-
 
 function logAllPairsOfArray(array) {
 
@@ -876,7 +921,7 @@ function logAllPairsOfArray(array) {
 
 logAllPairsOfArray(boxes2)
 ```
-
+<!--}}}-->
 If we had an array, let's just say variable `boxes`, and this array is just
 contains boxes numbers. Now this array `boxes`, if I want to log all pairs, it
 means that I want to log the number `[1, 2], [1, 3], [1, 4], [1, 5], [2, 1], [2,
@@ -896,10 +941,13 @@ Which when we multiply them becomes, `O` to the `^2`.
 > Big-O mutated: O(n^2)
 
 If we take look in graph below,
+
+<!--{{{ chapter-1-8.gif-->
 </br>
 
 ![chapter-1-8.gif](./images/gif/chapter-1-8.gif "Rule - 3 Quadratic")
 </br>
+<!--}}}-->
 
 That means, every time the number of `Elements` increase, let's say we have
 _two_ elements, we have _four_ `Operations` that we do; if we have _three_
@@ -944,6 +992,7 @@ Let's move on to the last Big-O rule.
 
 #### Example - 1
 
+<!--{{{ function printAllNumbersThenAllPairSums(numbers) {-->
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 
@@ -999,6 +1048,7 @@ function printAllNumbersThenAllPairSums(numbers) {
 // ==> sums: 5 and 4 are: 9
 // ==> sums: 5 and 5 are: 10
 ```
+<!--}}}-->
 
 We have a function `printAllNumbersThenAllPairSums`, let's see what this
 function does. Well, These function takes numbers and these numbers variable
@@ -1070,10 +1120,13 @@ complexity of a function is.
 
 <!--{{{ ## Pillars Of Programming -->
 ## Pillars Of Programming
+
+<!--{{{ chapter-1-9.gif-->
 </br>
 
 ![chapter-1-9.gif](./images/gif/chapter-1-9.gif "Pillar of programming 1")
 </br>
+<!--}}}-->
 
 By this point you should be able to talk a little bit especially about
 _scaleable_ right. Readable we're going to talk about in the next section, but
@@ -1098,10 +1151,13 @@ valuable resources.
 How can we talk about memory? We've talked about speed, what about _memory_; and
 the good news is, that memory is fairly simple, not as complicated as speed, it
 won't take us long to learn as much as we have about speed.
+
+<!--{{{ chapter-1-10.gif-->
 </br>
 
 ![chapter-1-10.gif](./images/gif/chapter-1-10.gif "Pillar of programming 2")
 </br>
+<!--}}}-->
 
 Right now, which code is best can be answered with the three pillars of code?
 Something that I want you to take with you _for the rest of your career_, and
@@ -1149,10 +1205,13 @@ compress let's say some boxes, we just talked about how fast and many operations
 this would take. But in real life, there's this other factor of memory and we
 have this, we have this _pink_ little box of how much this functions can take?
 How much input it;s able to take?.
+
+<!--{{{ chapter-1-4.png-->
 </br>
 
 ![chapter-1-4.png](./images/chapter-1-4.png "Space Complexity (memory)")
 </br>
+<!--}}}-->
 
 For example, if we had a ton of boxes that we have to create to run this
 function, well has limited capacity and it might overflow. By the way things
@@ -1177,6 +1236,7 @@ how we can give the Big-O notation to the subject.
 
 ### Example - 1
 
+<!--{{{ //#5 Space complexity O(1)-->
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 
@@ -1197,6 +1257,7 @@ boooo(numbers)
 // 4 booooo
 // 5 booooo
 ```
+<!--}}}-->
 
 We have function called `boooo`, we know that the _space complexity_ of this
 function or _time complexity_ of this function is `O(n)`. But when to _space
@@ -1221,6 +1282,7 @@ It's nice and simple.
 
 ### Example - 2
 
+<!--{{{ function arrayOfHiNTimes(n) {-->
 ```javascript
 function arrayOfHiNTimes(n) {
     var hiArray = [];               // SC O(n)
@@ -1235,6 +1297,7 @@ function arrayOfHiNTimes(n) {
 // Result
 // [ 'hi', 'hi', 'hi', 'hi', 'hi', 'hi'  ]
 ```
+<!--}}}-->
 
 This time, we have a function `arrayOfHiNTimes`, that doing is creating a new
 array, and for the number of items in our input we're going to just fill up
@@ -1285,6 +1348,7 @@ retrieve their most recent tweet and they're just tweet.  So that is their very
 first tweet and their very latest tweet based on Big-O notation and what we know
 about Big-O notation, what can we assume about this problem?
 
+<!--{{{ // Find 1st, Find Nth...-->
 ```javascript
 // Find 1st, Find Nth...
 const array = ["hi", "tweet", "news"];
@@ -1299,6 +1363,7 @@ console.log(array[array.length - 1])        // O(1)
 // hi
 // news
 ```
+<!--}}}-->
 
 Let's say a constant of array, and we'll have an array of tweets; And let's say
 we have three tweets here `const array = ["hi", "tweet", "news"]`. The index `0`
@@ -1318,6 +1383,7 @@ But now our boss comes back to us, and say hey I want you to compare the _dates_
 of tweets. So I want you to look at every tweet now within each array there's an
 _object_
 
+<!--{{{ // Find 1st, Find Nth...-->
 ```javascript
 // Find 1st, Find Nth...
 const array = [{                            // O(n^2)
@@ -1331,6 +1397,7 @@ const array = [{                            // O(n^2)
     date: 2015
 }];
 ```
+<!--}}}-->
 
 Now, we have to compare each tweet with all the other tweets, and compare their
 data. What is the Big-O of this operation? Well, because we're comparing each
@@ -1350,6 +1417,7 @@ scaleable code.
 By the way as the fun one, What happens if I ask you what is the operation an
 what's going to cost us If I have a string, and I `.length`.
 
+<!--{{{ const stringOne = "helloWorldOnTheSame"-->
 ```javascript
 const stringOne = "helloWorldOnTheSame"
 console.log(stringOne.length)
@@ -1359,6 +1427,7 @@ console.log(stringOne.length)
 // Result
 // 19
 ```
+<!--}}}-->
 
 What is the length of our `stringOne`? That is `19` items in string. What do you
 think the Big-O notation of this string? This is a bit trick question, and
@@ -1406,6 +1475,7 @@ course, just so you're familiar with them.
 For example `findNemo` function that has a `for-loop` can also be written with
 something like `forEach` function.
 
+<!--{{{ const findNemo2 = array => {-->
 ```javascript
 const findNemo2 = array => {
 
@@ -1419,9 +1489,10 @@ const findNemo2 = array => {
     });
 };
 ```
-
+<!--}}}-->
 There is also another way that we can do this in JavaScript with the `for-of-loop`.
 
+<!--{{{ const findNemo3 = array => {-->
 ```javascript
 const findNemo3 = array => {
 
@@ -1434,6 +1505,7 @@ const findNemo3 = array => {
     };
 };
 ```
+<!--}}}-->
 
 We have different way of solving problems. All of them are using loops, but you
 can see some are more readable than others, and that's something that we've

@@ -22,19 +22,23 @@ Let's learn about the last data structure in this course, Graphs; Graphs are one
 of the most useful and most used data structure in computer science. When it
 come to modeling real life.
 
+<!--{{{ chapter-9-1.png-->
 </br>
 
 ![chapter-9-1.png](./images/chapter-9-1.png "Graphs Introduction")
 </br>
+<!--}}}-->
 
 In short a Graph is simply a set of values that are related in a pair wise
 fashion; and you can see above, it's look a little network, there's connection
 to different nodes. In Graph, each item is called a **node** or a **vertex**.
 
+<!--{{{ chapter-9-1.gif-->
 </br>
 
 ![chapter-9-1.gif](./images/gif/chapter-9-1.gif "Graphs vertex/node and edges")
 </br>
+<!--}}}-->
 
 Node are then connected with **edges**. As you can imagine. Graph are great data
 structure to model real world relationships. We're presenting length's, Graphs
@@ -51,10 +55,12 @@ shortest path to where you want to go.
 So, let me ask you a question, do you think above diagram is a Graph? Well, yeah
 obviously we just went through it.
 
+<!--{{{ chapter-9-2.gif-->
 </br>
 
 ![chapter-9-2.gif](./images/gif/chapter-9-2.gif "Graphs kinds")
 </br>
+<!--}}}-->
 
 What about above? Yep they are all Graphs. Even the (blue dot) that kind of
 looks like a linked list, that's a Graph.
@@ -78,10 +84,12 @@ that allow us to describe, let's go over them.
 
 ### Directed vs Undirected
 
+<!--{{{ chapter-9-2.png-->
 </br>
 
 ![chapter-9-2.png](./images/chapter-9-2.png "Types of Graphs Directed vs Undirected")
 </br>
+<!--}}}-->
 
 One thing that you really want to get yourself familiar with, is the idea of
 **Directed** and **Undirected**. These types of Graphs are useful for describing
@@ -103,10 +111,12 @@ don't automatically follow them. So Twitter is more Directed.
 
 ### Weighted vs Unweighted
 
+<!--{{{ chapter-9-3.png-->
 </br>
 
 ![chapter-9-3.png](./images/chapter-9-3.png "Types of Graphs Unweighted vs Weighted")
 </br>
+<!--}}}-->
 
 Another way to describe Graph is, the idea of Weighted Graphs, Unweighted
 Weighted Graphs; and as you can see from above images, values can be applied to
@@ -120,10 +130,12 @@ the fastest way to get to let's say `1` to `6`.
 
 ### Cyclic vs Acyclic
 
+<!--{{{ chapter-9-4.png-->
 </br>
 
 ![chapter-9-4.png](./images/chapter-9-4.png "Types of Graphs Cyclic vs Acyclic")
 </br>
+<!--}}}-->
 
 Lastly, another way to describe Graph is Cyclic or Acyclic; when you have
 vertices connected in a circular fashion, it called a cycle; when you can go
@@ -136,10 +148,12 @@ Google Maps, because most of the time there is a way to get back.
 So, now that we understand a few ways to describe Graphs, let me show you my
 favorite Graphs of all time.
 
+<!--{{{ chapter-9-5.png-->
 </br>
 
 ![chapter-9-5.png](./images/chapter-9-5.png "Types of Graphs")
 </br>
+<!--}}}-->
 
 Above images is my Favorite Graphs. It's by the _Opti project_, and it is a
 partial map of the internet.
@@ -166,29 +180,35 @@ us to play with. Now I'm going to give you four different Graphs, and you're
 going to have to tell me what type of Graph it is based on while we've learn so
 far, whether it's Weighted, Cyclic, Undirected, Directed.
 
+<!--{{{ chapter-9-6.png-->
 </br>
 
 ![chapter-9-6.png](./images/chapter-9-6.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 What do you think above one is?  Before I show you the answer. Above diagram is
 Undirected Graph, there's no arrow Unweighted Graph, and you can see it's also
 Cyclic, because you can go from `0`, `1`, `2` and back to `0`.
 
+<!--{{{ chapter-9-7.png-->
 </br>
 
 ![chapter-9-7.png](./images/chapter-9-7.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 What about next one, what type of Graph above is? Well, this is an Undirected
 Weighted Graph that's also Cyclic. So, you can see that we've weights on the
 edges here, there's no arrows, we can go anywhere we want, back and forth, and
 we can also make Cyclic.
 
+<!--{{{ chapter-9-8.png-->
 </br>
 
 ![chapter-9-8.png](./images/chapter-9-8.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 
 What about this one? Above Graph is a Directed Graph, but Unweighted; and yes
@@ -196,20 +216,24 @@ even `6` and `7` here are Graph; but we see here, that it's not Cyclic, it's
 Acyclic because there's no way for me to go back. Let's say `0` to `1`, I can go
 back to `0`.
 
+<!--{{{ chapter-9-9.png-->
 </br>
 
 ![chapter-9-9.png](./images/chapter-9-9.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 What about this one? This, is a Directed Weighted Graph. We have weights, has
 direction, and when it comes to Cyclic? No, they are no cycles, it's Acyclic.
 
 The final challenge, what type of Graph below?
 
+<!--{{{ chapter-9-10.png-->
 </br>
 
 ![chapter-9-10.png](./images/chapter-9-10.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 Above Graph is a Directed Acyclic Graph. There's no Cyclic, and it's a Graph.
 This Directed Acyclic Graph is quite common and called **DAGH**; and actually a
@@ -233,10 +257,12 @@ Let's learn how to build our own Graph. Graphs when you look at them look very
 intimidating; but here's the thing, we've actually learned the tools necessary
 to build Graphs, because Graphs are built on top of other data structures.
 
+<!--{{{ chapter-9-10.png-->
 </br>
 
 ![chapter-9-10.png](./images/chapter-9-10.png "Directed Acyclic Graph")
 </br>
+<!--}}}-->
 
 Remember above diagram, of the Directed Acyclic Graph; well, many of the data
 structures that we've been playing with, up until now can create something like
@@ -250,10 +276,12 @@ There's **_three ways_** they can think about it. The **first** is called an
 **Edge List**, and I have an example for you that we can use to build something
 like this.
 
+<!--{{{ chapter-9-11.png-->
 </br>
 
 ![chapter-9-11.png](./images/chapter-9-11.png "Simple Graph")
 </br>
+<!--}}}-->
 
 Let's say we want to build this Graph, how wold we go about doing this?.
 
@@ -261,10 +289,12 @@ Let's say we want to build this Graph, how wold we go about doing this?.
 
 With an Edge List, we can say
 
+<!--{{{ // Edge List-->
 ```javascript
 // Edge List
 const graph = [[0, 2]], [2, 3], [2, 1], [1, 3]]
 ```
+<!--}}}-->
 
 Now let's see what I did here, I have an array, and within this array I have `4`
 items that itself they are arrays. But if we took at the Graph, the array simply
@@ -282,12 +312,13 @@ There is another way called **Adjacency** or **Adjacent List**, and in this case
 we can create a Graph where the _index is the node_, and the _value is the nodes
 neighbors_. What I mean by that?
 
+<!--{{{ // Adjacent List-->
 ```javascript
 // Adjacent List
 
 const graph = [[2], [2, 3], [0, 1, 3], [1, 2]]
-
 ```
+<!--}}}-->
 
 > The index of the array is the value of the actual Graph node.
 
@@ -309,6 +340,7 @@ you'll see what I mean.
 Finally I want to show you the last method to represent Graphs, it's called
 **Adjacent Matrix**. An Adjacent Matrix is going to look something like this,
 
+<!--{{{ // Adjacent Matrix-->
 ```javascript
 // Adjacent Matrix
 const graph = [
@@ -318,6 +350,7 @@ const graph = [
     [0, 1, 1, 0]
 ]
 ```
+<!--}}}-->
 
 This matrix is simply going to have `0` and `1`, indicating whether the node
 **X** has a connection to node **Y**; `0` means **No**, `1` means **Yes**; and
@@ -327,39 +360,47 @@ and `0`, so they can actually be numbers.
 Above arrays is the same representation that we've done with Edge List and
 Adjacent List, this time with Adjacent Matrix, what does it mean?
 
+<!--{{{ Y index of node 0	[0, 0, 1, 0]-->
 ```
 Y index of node 0	[0, 0, 1, 0]
 ^			 ^  ^  ^  ^
 |			 0  1  2  3		<-- X index of
 |
 ```
+<!--}}}-->
 
 Well, index of `0` (Y axis) has connection with index of `2` (X axis)
 
+<!--{{{ X index of node 1	[0, 0, 1, 1]-->
 ```
 X index of node 1	[0, 0, 1, 1]
 ^			 ^  ^  ^  ^
 |			 0  1  2  3		<-- Y index of
 |
 ```
+<!--}}}-->
 
 Then node `1` (Y axis) is connected to index `2` and `3` (X axis)
 
+<!--{{{ X index of node 2	[1, 1, 0, 1]-->
 ```
 X index of node 2	[1, 1, 0, 1]
 ^			 ^  ^  ^  ^
 |			 0  1  2  3		<-- Y index of
 |
 ```
+<!--}}}-->
 
 Then node `2` (Y axis) is connected to index `0`, `1`, and `3` (X axis)
 
+<!--{{{ X index of node 3	[0, 1, 1, 0]-->
 ```
 X index of node 3	[0, 1, 1, 0]
 ^			 ^  ^  ^  ^
 |			 0  1  2  3		<-- Y index of
 |
 ```
+<!--}}}-->
 
 The last, node `4` (Y axis) is connected to index `1`, and `2` (X axis)
 
@@ -368,6 +409,7 @@ a key and a value;
 
 So, if we change to an object would be,
 
+<!--{{{ // Adjacent Matrix-->
 ```javascript
 // Adjacent Matrix
 const graph = {
@@ -377,11 +419,14 @@ const graph = {
     3: [0, 1, 1, 0]
 }
 ```
+<!--}}}-->
 
+<!--{{{ chapter-9-9.png-->
 </br>
 
 ![chapter-9-9.png](./images/chapter-9-9.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 If we go to visualgo, you'll actually see that, they have these three ways to
 describe graphs, the Adjacency Matrix, because it's Weighted you see that
@@ -410,6 +455,7 @@ It's time to create our own Graph, and I've created template here for you. You
 can also create your own if you want, but I've include things that lets you
 focus on the critical part.
 
+<!--{{{ class Graph {-->
 ```javascript
 class Graph {
     constructor() {
@@ -457,22 +503,26 @@ myGraph.addEdge('0', '2');
 myGraph.addEdge('6', '5');
 
 myGraph.showConnections();
-//Answer:
-// 0-->1 2
-// 1-->3 2 0
-// 2-->4 1 0
-// 3-->1 4
-// 4-->3 2 5
-// 5-->4 6
-// 6-->5
+
+// Answer:
+0-->1 2
+1-->3 2 0
+2-->4 1 0
+3-->1 4
+4-->3 2 5
+5-->4 6
+6-->5
 ```
+<!--}}}-->
 
 We have a Graph class and a few methods that we're going to have to add.
 
+<!--{{{ chapter-9-6.png-->
 </br>
 
 ![chapter-9-6.png](./images/chapter-9-6.png "Exercise guess Graph")
 </br>
+<!--}}}-->
 
 Now, we are going to recreate a Graph right above, Undirected Unweighted Graph
 like above using Adjacency List; and for Adjacency List, we're going to use a
@@ -520,6 +570,7 @@ it's not really important to the core of the course; but I've made this, so you
 can check your work, because If I run this at the end
 `myGraph.showConnections()`, it's going to printout the answer like this,
 
+<!--{{{ //Answer:-->
 ```javascript
 //Answer:
 // 0-->1 2
@@ -530,6 +581,7 @@ can check your work, because If I run this at the end
 // 5-->4 6
 // 6-->5
 ```
+<!--}}}-->
 
 It's going to show all the connections of the Graphs that you've created; and
 this way, you can check that these connections that is node `4` is connected to
@@ -552,6 +604,7 @@ For those of you that weren't able to solve this problem, it might be because
 you were a little bit intimidated ast to the task at hand; but, let me show you
 how simple this can be. In order to add a _vertex_ to our Adjacency List,
 
+<!--{{{ addVertext(node) {-->
 ```javascript
 addVertext(node) {
     this.adjacentList[node] = [];
@@ -560,15 +613,15 @@ addVertext(node) {
     console.log(node)
 }
 // Result
-// 0-->
-// 1-->
-// 2-->
-// 3-->
-// 4-->
-// 5-->
-// 6-->
+0-->
+1-->
+2-->
+3-->
+4-->
+5-->
+6-->
 ```
-
+<!--}}}-->
 
 All we need to do is to simply say `this.adjacentList[node]`; so, we're adding
 the _key_ into this _object_ of the know that we want to add, that going to
@@ -581,6 +634,7 @@ If I run this, we have `0` all the way through `6`, and they are in our
 Graph. Unfortunately, none of them connect to anything, we've just created the
 nodes, but not the Edges. So let's go ahead and do that.
 
+<!--{{{ addEdge(node1, node2) {-->
 ```javascript
 addEdge(node1, node2) {
     this.adjacentList[node1].push(node2)
@@ -595,6 +649,7 @@ addEdge(node1, node2) {
 // 5-->4 6
 // 6-->5
 ```
+<!--}}}-->
 
 With the Edges, because this is is Undirected Graph; Well, we'll have to do is
 say, `this.adjacentList` is going to a `[node1]`, that is the first node that
@@ -692,10 +747,12 @@ us when we look at technology, they're all built by data structures. We hold
 information in data structure; no matter how many data structure there are and
 there will be in the future, most of the building blocks are right here.
 
+<!--{{{ chapter-9-12.png-->
 </br>
 
 ![chapter-9-12.png](./images/chapter-9-12.png "Block Chain")
 </br>
+<!--}}}-->
 
 You see something like **block chain**, that has become popular in recent years, are
 just data structures that we've learned about. It has some aspects of Linked
@@ -713,10 +770,12 @@ structure.
 <!--{{{ 8 ## What Else Is Coming Up -->
 ## What Else Is Coming Up
 
+<!--{{{ chapter-9-13.png-->
 </br>
 
 ![chapter-9-13.png](./images/chapter-9-13.png "What else is coming")
 </br>
+<!--}}}-->
 
 We've just completed our data structure section. We went through all these data
 structures even some sub data structure, and you know what? We've completed a

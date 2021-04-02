@@ -30,10 +30,12 @@ Welcome back, it's time to learn another data structure. This is a big one, and
 exciting one at that, because it's going to introduce a low more new topics,
 especially when we get into our algorithms as well, they're called Trees,
 
+<!--{{{ chapter-8-1.png-->
 </br>
 
 ![chapter-8-1.png](./images/chapter-8-1.png "Trees Introduction")
 </br>
+<!--}}}-->
 
 Trees are data structure that have what we call a **hierarchical structure**, as
 opposed to something like linked list or arrays which are **linear**. Trees can
@@ -81,10 +83,12 @@ list**, that is we have Nodes, and these Nodes can contains any type of
 information that we want, we can have user information, we can just have numbers
 like we have in picture above, anything we want we can contain within a node.
 
+<!--{{{ chapter-8-2.png-->
 </br>
 
 ![chapter-8-2.png](./images/chapter-8-2.png "Linked list Trees examples")
 </br>
+<!--}}}-->
 
 Now you might be thinking, this kind reminds me of a linked list and you'd be
 right, linked list is technically a type of Tree, but with just one single path
@@ -135,20 +139,24 @@ talked about, but there's a few others that we  haven't yet to talk about, we're
 going to cover that and get familiar with the main different types by starting
 off with Binary Tree, let's get in to it.
 
+<!--{{{ chapter-8-3.png-->
 </br>
 
 ![chapter-8-3.png](./images/chapter-8-3.png "Binary Tree")
 </br>
+<!--}}}-->
 
 A Binary Tree is something you've likely seen before, and it's a type a Tree
 with a few rules that are applied to it; But they're quite straight forward,
 each node can only have either `0`, `1` or `2` nodes, and each child can only
 have one parent. Above diagram is a Binary Tree.
 
+<!--{{{ chapter-8-4.png-->
 </br>
 
 ![chapter-8-4.png](./images/chapter-8-4.png "Not a Binary Tree")
 </br>
+<!--}}}-->
 
 Above diagram is not a Binary Tree, because it has three children, or at least
 one of the nodes have three children.
@@ -157,6 +165,7 @@ If we go to look up at Binary Tree diagram, **each node represents a certain
 state**, and this is very similar to what we've done in the past, especially
 with linked list, if we take a look with an example below,
 
+<!--{{{ function BinaryTreeNode(value) {-->
 ```javascript
 function BinaryTreeNode(value) {
     this.value = value;
@@ -164,6 +173,7 @@ function BinaryTreeNode(value) {
     this.right = null;
 }
 ```
+<!--}}}-->
 
 In order for me to create a Binary Tree, I can just create a function called
 `BinaryTreeNode`, and this `BinaryTreeNode` perhaps will get a `value` and will
@@ -182,10 +192,12 @@ have for past data structures; but I want to also point out a few
 case we're looking at something called a Tree is **completely full**, that means
 there no gaps in the Tree. Let me show you what I mean,
 
+<!--{{{ chapter-8-5.png-->
 </br>
 
 ![chapter-8-5.png](./images/chapter-8-5.png "Tree terminology")
 </br>
+<!--}}}-->
 
 A **Perfect Binary Tree** has _everything filled in_, that means all the leaf
 nodes are full, and there's no node that only has one child; a node either has
@@ -218,10 +230,12 @@ every node even if the node we're looking for is at the very bottom, perhaps
 there is some efficiencies that we can have and you'd be right. Because of this
 type of structure you're going to see a new notation of Big-O,
 
+<!--{{{ chapter-8-6.png-->
 </br>
 
 ![chapter-8-6.png](./images/chapter-8-6.png "Tree Big-O notation")
 </br>
+<!--}}}-->
 
 Something that we've been waiting for a long time `O(log N)`. When we start
 talkie about Binary search Trees you're going to start seeing `O(log N)`
@@ -280,6 +294,7 @@ nodes; if we imagine above data was in an array, that means that we have eight
 places that we need to iterate through eight nodes that we need to check,
 perhaps to search for something.
 
+<!--{{{ # of nodes = 2^h - 1 = 7-->
 ```javascript
 # of nodes = 2^h - 1 = 7
 
@@ -288,6 +303,7 @@ log of nodes = height
 // # = number
 // h = height
 ```
+<!--}}}-->
 
 > `h` starts from count of 1
 
@@ -298,6 +314,7 @@ are with formula `2^h - 1`. Why this `-1`? Well if we go back to our diagram
 (chapter-8-3.png), this Binary Tree we have `7` total nodes and the height of
 the Tree it's **3 level deep**. So `2^h - 1` is `7` nodes.
 
+<!--{{{ log of nodes = 100-->
 ```javascript
 log of nodes = 100
 
@@ -307,6 +324,7 @@ log 100 = 2;
 
 log of nodes = steps
 ```
+<!--}}}-->
 
 If we actually simplify `2^h - 1` we can just simply say `log nodes = height` or
 the _steps_. I use _log_ here just think is you wondering _log_ simply mean that
@@ -320,10 +338,12 @@ would use in a Tree.
 
 Let's me show you on a diagram.
 
+<!--{{{ chapter-8-2.gif-->
 </br>
 
 ![chapter-8-2.gif](./images/gif/chapter-8-2.gif "Leaf level steps")
 </br>
+<!--}}}-->
 
 `log N` is simply means that based on the height, the maximum number of
 decisions; let's say we're looking for a specific node that we're going to take
@@ -355,10 +375,12 @@ book.
 The reason I just talked about `O(log N)` in such detail is, because it's an
 important concepts, it's really really fast, as you can see
 
+<!--{{{ chapter-8-7.png-->
 </br>
 
 ![chapter-8-7.png](./images/chapter-8-7.png "Tree Big-O notation")
 </br>
+<!--}}}-->
 
 `O(log N)` is in the light green good area, that's even better than `O(n)`
 linear time, because we don't need to check every single element.
@@ -394,10 +416,12 @@ wouldn't want your folders on your computer to be a hash table data structure,
 because there is no sort of relationship, instead you want your folders to have
 relationships, to have a parent folder and a subfolder and in a subfolder.
 
+<!--{{{ chapter-8-6.png-->
 </br>
 
 ![chapter-8-6.png](./images/chapter-8-6.png "Binary Search Tree Rules")
 </br>
+<!--}}}-->
 
 A thing like Binary Search Tree allows us to preserve these relationship. When it
 comes to Binary Search Trees, these are the rules:
@@ -459,10 +483,12 @@ We're going to use [visualgo](https:visualgo.net), again and I'll link this and
 I highly recommend that you all play around with Binary Search Trees, but let's
 do a couple of operations here.
 
+<!--{{{ chapter-8-3.gif-->
 </br>
 
 ![chapter-8-3.gif](./images/gif/chapter-8-3.gif "Binary Search Example Insert")
 </br>
+<!--}}}-->
 
 
 See that it generated a random Binary Search Tree for me, let's say I want to do
@@ -470,20 +496,24 @@ an Insert, and I want to insert, let's say the number `1`, by click go, it's
 going to traverse, figure out where it wants to insert and it's going to insert
 `1`.
 
+<!--{{{ chapter-8-4.gif-->
 </br>
 
 ![chapter-8-4.gif](./images/gif/chapter-8-4.gif "Binary Search Example Insert")
 </br>
+<!--}}}-->
 
 What if I want to insert perhaps number `44`, this time around, if I hit go,
 a traverses figures out where `44` should go, and places it on the Right leaf
 with parent node `38`. So we're always traversing and figuring out using `O(log
 N)`, where we should place the item.
 
+<!--{{{ chapter-8-6.gif-->
 </br>
 
 ![chapter-8-6.gif](./images/gif/chapter-8-6.gif "Binary Search Example Delete")
 </br>
+<!--}}}-->
 
 What about removing? Let's add one more node, I add `51` so it will add on the
 Right leaf for parent node `50`. Let's say we want to delete `50`, now if
@@ -508,10 +538,12 @@ in the next lecture.
 While playing with visualgo did you notice a problem with Binary Search Trees?
 If not let me demonstrate something to you.
 
+<!--{{{ chapter-8-8.png-->
 </br>
 
 ![chapter-8-8.png](./images/chapter-8-8.png "Balanced vs Unbalanced Binary Search Tree")
 </br>
+<!--}}}-->
 
 Let's say I keep inserting here, let's say `86` and then while that's going,
 I'll also insert `90`, Finally I'll insert `99`. What is the problem with this
@@ -521,19 +553,23 @@ to the **Right Leaf**. If we imagine we don't have the **Left leaf Tree
 section**, all of sudden _turn into a Link List_, where we're just loop through
 every single node.
 
+<!--{{{ chapter-8-6.png-->
 </br>
 
 ![chapter-8-6.png](./images/chapter-8-6.png "Balanced Binary Search Tree Rules")
 </br>
+<!--}}}-->
 
 This is a big problem that comes with Binary Search Trees, that is you can have
 _Balanced Search Tree_ like the one above, that gives us this `O(log N)`, and
 performance,
 
+<!--{{{ chapter-8-9.png-->
 </br>
 
 ![chapter-8-9.png](./images/chapter-8-9.png "Unbalanced Binary Search Tree")
 </br>
+<!--}}}-->
 
 But then also have _Unbalanced_ ones, where it sort of turns into a long linked
 list, where instead of being able to do the `O(log N)` operations, you now have
@@ -545,10 +581,12 @@ One of the keys that you'll have to remember and this is a question that you
 might get asked in interviews is, **why Unbalanced Binary Search Tree is bad?**,
 and I hope this demonstrate why it's not a good idea.
 
+<!--{{{ chapter-8-10.png-->
 </br>
 
 ![chapter-8-10.png](./images/chapter-8-10.png "Binary Search Tree Cheatsheet")
 </br>
+<!--}}}-->
 
 Ideally we want to balance our Search Trees, so that we can have `O(log N)`
 performance optimization. If we go to our [Big-O
@@ -562,10 +600,12 @@ us, there's algorithms that help us do that. It is really _advanced_, and we
 will talk about it after we build our own Tree, and some of the options that we
 have.
 
+<!--{{{ chapter-8-11.png-->
 </br>
 
 ![chapter-8-11.png](./images/chapter-8-11.png "Binary Search Tree Road map")
 </br>
+<!--}}}-->
 
 For example, we have things like, **AVL Tree**, and **Red Black Tree**, that
 allow us to make sure that our Binary Search tree is going to be balanced;
@@ -588,10 +628,12 @@ lecture.
 <!--{{{ 6 ## BST Pros and Cons -->
 ## BST Pros and Cons
 
+<!--{{{ chapter-8-12.png-->
 </br>
 
 ![chapter-8-12.png](./images/chapter-8-12.png "Binary Search Tree Pros and Const")
 </br>
+<!--}}}-->
 
 Before we code our Binary Search Tree, let's just go over the performance
 implications and why we might want to use it over the data structures.
@@ -647,6 +689,7 @@ I recommend you actually dray  this out on a piece of paper to understand,
 because keeping ever thing in your head and the calculations, might be a little
 bit difficult.
 
+<!--{{{ class Node {-->
 ```javascript
 class Node {
     constructor(value) {
@@ -684,6 +727,7 @@ function traverse(node) {
     return tree;
 };
 ```
+<!--}}}-->
 
 I have started here with all the essentials you need. We've created a Binary
 Search Tree class, We have Node class that we ca use. We start our Binary Search
@@ -695,13 +739,15 @@ _create two methods_, `[1]` _Insert_ and `[2]` _lookup_.
 
 Our goal is to create this tree over below,
 
-```
+<!--{{{ //Tree-->
+```javascript
                9
 
         4             20
 
      1     6     15        170
 ```
+<!--}}}-->
 
 `9` as the Root node, then `4` and `20` as it's children, an then `4` has `1`
 and `6` as it's children; and `20` has `15` and `170` as it's children.
@@ -709,6 +755,7 @@ and `6` as it's children; and `20` has `15` and `170` as it's children.
 So ideally, if we implement Insert correctly, we can say or run the command
 below,
 
+<!--{{{ tree.insert(9)-->
 ```javascript
 tree.insert(9)
 tree.insert(4)
@@ -718,6 +765,7 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 ```
+<!--}}}-->
 
 Then, Ideally after running above command, you're be able to create this Tree
 data structure.
@@ -755,8 +803,8 @@ Lookup, and I'll see you in the solution lecture.
 
 Final `insert()` method,
 
+<!--{{{ insert(value) {-->
 ```javascript
-
 insert(value) {
     const newNode = new Node(value);
 
@@ -774,6 +822,7 @@ tree.insert(9);
 // Result
 // Node { left: null, right: null, value: 9  }
 ```
+<!--}}}-->
 
 Well comeback, hopefully that wasn't too bad. Keep in mind that when it come
 into interviewing, interviewers want you to know that you understand the
@@ -795,13 +844,15 @@ understand how it works.
 
 Let's get to the answer, I want to create a tree that looks like below,
 
-```
+<!--{{{ //Tree-->
+```javascript
                9
 
         4             20
 
      1     6     15        170
 ```
+<!--}}}-->
 
 So the first things I'm going to do is, work on the `insertion()` method.
 
@@ -817,23 +868,25 @@ node now, so we have references to it.
 The first thing we want to check, well, if the Tree is empty and there's no Root
 node, well we should add this as our Root node.
 
-
+<!--{{{ if (this.root === nuill) {-->
 ```javascript
 if (this.root === nuill) {
     this.root = newNode;
 };
 ```
+<!--}}}-->
 
 So I'm going to say, `this.root === null`, if that the case, then simply make
 the Root node, our current node that we inserted; Nice and easy, an just to
 check that this is working.
 
-
+<!--{{{ tree.insert(9);-->
 ```javascript
 tree.insert(9);
 // Result
 // Node { left: null, right: null, value: 9  }
 ```
+<!--}}}-->
 
 I run this command `tree.insert(9)` and click run, there you go, our Node has
 a `value` of `9`; `left` as `null`, `right` as `null`, because it's the only
@@ -842,6 +895,7 @@ note;
 For now, we see that our `insert()` is working, only for if the Root node is
 `null`;
 
+<!--{{{ else  {-->
 ```javascript
 if {
     // ....
@@ -875,6 +929,7 @@ else  {
     }
 }
 ```
+<!--}}}-->
 
 Let's continue if that's not the case, we'll say, `else {}`, if the root node is
 already fill, we'll say that the `currentNode` will be the `this.root`, because
@@ -890,10 +945,10 @@ make sure that there is a way for us to exit out of this loop, otherwise we're
 going to have an infinite loop, and will crash our little page here.
 
 So, what are the condition that we're going to loop through? We want to traverse
-through the Tree; well, the first check we're going to do is say, if `value`, remember
-`value` is what we insert, If `value` is less than the `currentNode.value`; so,
-we start from the root node, and say, hey is the `value` that we are entering
-less than the `currentNode.value`?
+through the Tree; well, the first check we're going to do is say, if `value`,
+remember `value` is what we insert, If `value` is less than the
+`currentNode.value`; so, we start from the root node, and say, hey is the
+`value` that we are entering less than the `currentNode.value`?
 
 If that the case, we know the rules, so we're going to Left leaf, cause `value`
 less then the `currentNode`. Now in here, we want to check first of all if there
@@ -934,6 +989,7 @@ understand what happening step by step.
 
 So if we test,
 
+<!--{{{ tree.insert(9)-->
 ```javascript
 tree.insert(9)
 tree.insert(4)
@@ -977,6 +1033,7 @@ JSON.stringify(traverse(tree.root))
 { value: 15, left: null, right: null }
 { value: 170, left: null, right: null }
 ```
+<!--}}}-->
 
 Once you hang of it, and code this on your own, you'll see that it makes sense;
 it's all logic, and  something that we've learned when working with liked lists.
@@ -992,6 +1049,7 @@ it's all logic, and  something that we've learned when working with liked lists.
 Let's try implement a `lookup()` function, or the search function. We want to
 check if an item, or a node exist i our Tree. Let''s see how we go about this.
 
+<!--{{{ lookup(value) {-->
 ```javascript
 lookup(value) {
     if !(this.root) {
@@ -1015,6 +1073,7 @@ lookup(value) {
     return false;
 };
 ```
+<!--}}}-->
 
 The first thing I would want to do is, to check if there is such a thing as Root
 node, if it's empty `!this.root` or I could have done this by `this.root ===
@@ -1057,6 +1116,7 @@ matching value.
 
 So let see this,
 
+<!--{{{ tree.lookup(9)-->
 ```javascript
 tree.lookup(9)
 
@@ -1075,19 +1135,23 @@ Root: Node {
   value: 9
 }
 ```
+<!--}}}-->
 
 If I now run `tree.lookup(9)`, and I'm click run, there you go, I get the `9`
 node that has reference to all the other nodes beneath it.
 
+<!--{{{ tree.lookup(90)-->
 ```javascript
 tree.lookup(90)
 
 // Result
 currentNode: null or false
 ```
+<!--}}}-->
 
 If I `lookup(90)`, I'll get `false` because it doesn't exists.
 
+<!--{{{ tree.lookup(20)-->
 ```javascript
 tree.lookup(20)
 
@@ -1098,6 +1162,7 @@ Root: Node {
   value: 20
 }
 ```
+<!--}}}-->
 
 If I `lookup(20)`, yep we found `20`.
 
@@ -1131,10 +1196,12 @@ The best way for you to visualize and see what steps we need to do is, to go
 back to visualgo, start to removing some nodes to see what the **logic is** in
 removing nodes. Some steps are really easy.
 
+<!--{{{ chapter-8-5.gif-->
 </br>
 
 ![chapter-8-5.gif](./images/gif/chapter-8-5.gif "Binary Search Example")
 </br>
+<!--}}}-->
 
 If we want to remove `1` for example; well, we simply traverse and find `1` and
 just remove it. But then there's other cases that gets really complicated such
@@ -1155,7 +1222,7 @@ In the next lecture, I'll show you my solution and go over the steps that we
 take for this to work. I'll see you in the next one.
 
 Final `remove()` method
-
+<!--{{{ remove(value) {-->
 ```javascript
 remove(value) {
     if (!this.root) {
@@ -1244,6 +1311,8 @@ remove(value) {
     };
 };
 ```
+<!--}}}-->
+
 ### Chunked Code
 
 It took quite a lot of time to get this working, and I'm going to give you
@@ -1260,68 +1329,81 @@ otherwise if I just coded this along, it would be a 30 minutes explanations,
 and you will be getting bored, and then you're not going to have fun with data
 stricture any more and we don't want that;
 
+<!--{{{ if (!this.root) {-->
 ```javascript
 if (!this.root) {
     return false;
 };
 ```
+<!--}}}-->
 
 So, all we're doing is, well, if we doing remove we're going to check if
 there's anything in the root; if there isn't, while the Tree's empty, there's
 nothing to remove we're going to `return false`.
 
+<!--{{{ let currentNode = this.root;-->
 ```javascript
 let currentNode = this.root;
 let parentNode = null;
 ```
+<!--}}}-->
 
 Otherwise, we're going to grab the `currentNode` as `this,root` first, and then
 we do something new here that haven't seen before, we declare a new variable
 called `parentNode`, and this something you may realized, I was coded this line.
 We need a reference to the parent,
 
+<!--{{{ chapter-8-8.png-->
 </br>
 
 ![chapter-8-8.png](./images/chapter-8-8.png "Unbalanced Binary Search Tree")
 </br>
+<!--}}}-->
 
 
 Because if we remove something from above diagram such as `14`; Well, before we
 get to `1` get reference of `14`, so that when we get to `1` we have access to
 `30`, so we can link `30` to `1`.
 
+<!--{{{ if (value < currentNode.value) {-->
 ```javascript
 if (value < currentNode.value) {
     parentNode = currentNode;
     currentNode = currentNode.left
 };
 ```
+<!--}}}-->
 
 So, if we go back, now that I have `parentNode` variable, and I do my loop to
 check if the `value` is less then the `currentNode.value` in which case I'll go
 Left, and this should be familiar, but this time I'm also keep tracking of the
 `parentNode`,
 
+<!--{{{ else if (value > currentNode.value) {-->
 ```javascript
 else if (value > currentNode.value) {
 
 }
 ```
+<!--}}}-->
 
 Otherwise, if we need to go to the Right, but also keep track of the
 `parentNode`.
 
+<!--{{{ else if (currentNode.value === value) {-->
 ```javascript
 else if (currentNode.value === value) {
     // We have a match, get to work
 }
 ```
+<!--}}}-->
 
 Now we get the interesting part. We're looping through everything here, and
 nothing's too crazy until we get to a match, and we find the `currentNode` that
 we want to delete, we have a match, we need get to work, and we have **three
 options** here.
 
+<!--{{{ // Option 1: No right child-->
 ```javascript
 // Option 1: No right child
 if (currentNode.right === null) {
@@ -1340,6 +1422,7 @@ if (currentNode.right === null) {
     }
 }
 ```
+<!--}}}-->
 
 The **first option** is that, the `currentNode` has no Right child. If the
 `currentNode` has no Right child, let see the above diagram, let say we have
@@ -1360,6 +1443,7 @@ might have to on your own. I'll leave comments out here for you, so you can
 actually play around with it, and play with visualgo so you understand what's
 happening here.
 
+<!--{{{ // Option 2: Right Child which doesn't have a Left child-->
 ```javascript
 // Option 2: Right Child which doesn't have a Left child
 else if (currentNode.right.left === null) {
@@ -1381,6 +1465,7 @@ else if (currentNode.right.left === null) {
     };
 }
 ```
+<!--}}}-->
 
 That the first options, if that's the case then do that. If we have a Right
 child but the Right child doesn't have a Left child; let's find out.
@@ -1390,8 +1475,8 @@ node; Otherwise we go through similar steps to reassign the node.
 
 What about the last option, _Right child that has a Left child_.
 
+<!--{{{ // Option 3: Right child that has a Left child-->
 ```javascript
-
 // Option 3: Right child that has a Left child
 else {
     // find the Right child's Left most child
@@ -1422,6 +1507,7 @@ else {
    };
 }
 ```
+<!--}}}-->
 
 This third option will require you to read through the code, and I've left some
 nice comments for you, so that it makes sense but we're essentially finding the
@@ -1469,19 +1555,23 @@ Trees](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) and history
 works](https://medium.com/basecs/the-little-avl-tree-that-could-86a3cae410c7),
 where visualgo also has it.
 
+<!--{{{ chapter-8-7.gif-->
 </br>
 
 ![chapter-8-7.gif](./images/gif/chapter-8-7.gif "Binary AVL TREE Example Insert")
 </br>
+<!--}}}-->
 
 
 To demonstrate that visualgo also has AVL Trees, I want to insert `77` into my
 AVL Tree, nothing different, we're adding `77` to the Tree.
 
+<!--{{{ chapter-8-8.gif-->
 </br>
 
 ![chapter-8-8.gif](./images/gif/chapter-8-8.gif "Binary AVL TREE Example Insert")
 </br>
+<!--}}}-->
 
 But If I now add, let's say `80` which will make our Tree a little bit
 unbalanced, if I hit go, you'll see that I'm traversing downs, and I add `80`
@@ -1489,10 +1579,12 @@ and then all of a sudden it's unbalanced, it's going to go back and do a little
 bit of a switch or rotation to balance out the Tree to make sure that the levels
 that we have in Tree are always balanced
 
+<!--{{{ chapter-8-9.gif-->
 </br>
 
 ![chapter-8-9.gif](./images/gif/chapter-8-9.gif "Binary RED/BLACK TREE Example Insert")
 </br>
+<!--}}}-->
 
 Then we have Red Black Tree as well, which does things a little bit differently.
 Let's say we inserted `9` here then let's say we insert `10` and then finally
@@ -1523,10 +1615,12 @@ means there's only going to be two children to a node.
 Why are these useful, and how are they different from Binary Trees?, let's go
 have a look.
 
+<!--{{{ chapter-8-13.png-->
 </br>
 
 ![chapter-8-13.png](./images/chapter-8-13.png "Binary Heap")
 </br>
+<!--}}}-->
 
 A Binary Trees every child belongs to a parent node, that has a greater priority
 or value. If you look above diagram, every child that is `72` and `33` is lower
@@ -1574,28 +1668,34 @@ the way down to the nodes.
 Heaps actually used a lot in data storage, priority queues, sorting algorithms.
 So let's have a look at how Binary Heap is implemented visually.
 
+<!--{{{ chapter-8-10.gif-->
 </br>
 
 ![chapter-8-10.gif](./images/gif/chapter-8-10.gif "Binary Heap")
 </br>
+<!--}}}-->
 
 We have Binary Heap here using viualgo, and if we wanted to add, let's say
 insert `26` we hit go, all right that was really fast.
 
+<!--{{{ chapter-8-11.gif-->
 </br>
 
 ![chapter-8-11.gif](./images/gif/chapter-8-11.gif "Binary Heap")
 </br>
+<!--}}}-->
 
 But, what if we wanted to insert, let's say `51`, I had to do a bit of switch
 to. See Heaps add value on the Tree in order from Left to Right  and then
 bubbles up; if it's not in the same order or the priority order that is `1` kind
 like we did here.
 
+<!--{{{ chapter-8-12.gif-->
 </br>
 
 ![chapter-8-12.gif](./images/gif/chapter-8-12.gif "Binary Heap")
 </br>
+<!--}}}-->
 
 So, if I add, let's say `100`, what you think will happen? Well, if I hit go,
 you'll see I add a `100` and then it bubbles up. So, as you can see Insert,
@@ -1614,10 +1714,12 @@ talk about Priory Queues.
 <!--{{{ 13 ## Quick Note on Heaps -->
 ## Quick Note on Heaps
 
+<!--{{{ chapter-8-14.png-->
 </br>
 
 ![chapter-8-14.png](./images/chapter-8-14.png "Binary Heap quick note")
 </br>
+<!--}}}-->
 
 I wanted to add  a quick gotcha when it comes to Heaps; that is when you hear
 **Memory Heaps** that's not the same as the Heap Data Structure. You might have
@@ -1648,10 +1750,12 @@ throwing out there.
 Now we learned about Binary Heaps and we mentioned that unlike a Binary Search
 Tree, there is no order from Left to Right,
 
+<!--{{{ chapter-8-15.png-->
 </br>
 
 ![chapter-8-15.png](./images/chapter-8-15.png "Binary Heap")
 </br>
+<!--}}}-->
 
 This `33` and `77` we can swap them, and they'll still be a Binary Heap.
 
@@ -1668,10 +1772,12 @@ the only guarantee that Binary Heap it gives us is what I mentioned, the parent
 Now, besides memory efficiency, and just compact, because it's always a complete
 Binary Tree; Binary Heaps are really useful for things such as **Priority Queues**.
 
+<!--{{{ chapter-8-13.gif-->
 </br>
 
 ![chapter-8-13.gif](./images/gif/chapter-8-13.gif "Priority Queues")
 </br>
+<!--}}}-->
 
 You just might be asking yourself Priority Queues, and isn't that we just learn
 about Queues and isn't that the same data structure? Well no, because with
@@ -1690,7 +1796,12 @@ thought they arrive later, they get to go when they have higher priority.
 Another good example is an emergency room. You want to treat the patients that
 have the most severe symptom's or condition right?.
 
+<!--{{{ chapter-8-14.gif-->
+</br>
+
 ![chapter-8-14.gif](./images/gif/chapter-8-14.gif "Priority Queues")
+</br>
+<!--}}}-->
 
 Another way to think about it is, let's say we're lining up to get into an
 airplane. We have the first person coming in lining up, and then all of sudden
@@ -1716,7 +1827,12 @@ going, keep going, we know the priority, very easy.
 
 I'm sure, you see where this might be useful in a lot situation.
 
+<!--{{{ chapter-8-16.png-->
+</br>
+
 ![chapter-8-16.png](./images/chapter-8-16.png "Binary Heap pros an cons")
+</br>
+<!--}}}-->
 
 To review, we learned what Binary Search Tree are, they're great, but sometimes
 Binary heaps or Priority Queues are even better. Although Searching through
@@ -1748,7 +1864,12 @@ pronunciation here varies on who you ask, but let's have a lookup what it is. A
 Trie is specialized Tree used in searching most often with text as you can see
 below diagram.
 
+<!--{{{ chapter-8-17.png-->
+</br>
+
 ![chapter-8-17.png](./images/chapter-8-17.png "Tries Tree")
+</br>
+<!--}}}-->
 
 In most cases it can outperform Binary Search Trees, Hash tables and most other
 data structure we've been talking about depending on the type of search you're

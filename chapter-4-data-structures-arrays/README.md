@@ -20,10 +20,12 @@
 
 ### Array chart
 
+<!--{{{ chapter-4-1.png-->
 </br>
 
 ![chapter-4-1.png](./images/chapter-4-1.png "Array introduction")
 </br>
+<!--}}}-->
 
 Arrays which sometimes called **_Lists organizes items sequentially_**, that means
 one after another in memory.
@@ -53,6 +55,7 @@ _Delete_ are `O(n)` or linear time.
 
 In order to demonstrate Arrays, let's actually use code to show you an example.
 
+<!--{{{ const string = ["a", "b", "c", "d"]-->
 ```javascript
 const string = ["a", "b", "c", "d"]
 
@@ -77,6 +80,7 @@ strings[2]      // "c"
 // [14 | d]
 // [15 | d]
 ```
+<!--}}}-->
 
 We have an array `const string = ["a", "b", "c", "d"]`. Now looked on this and
 based on what we've learned so far, we can make a couple assumptions. For
@@ -88,10 +92,13 @@ storage.
 
 If we remember in our little example here, that with `32 bit` systems, we have
 `4` shelf's to store this number `var a = 1`.
+
+<!--{{{ chapter-4-2.png-->
 </br>
 
 ![chapter-4-2.png](./images/chapter-4-2.png "Array introduction - 2")
 </br/>
+<!--}}}-->
 
 Again this is a bit of simplified version of looking at it, but I hope you see
 what we're doing here, we're simply storing `"a","b","c","d"` in sequential
@@ -114,6 +121,7 @@ and cons are. In JavaScript we have a few methods that we can use with arrays.
 
 `[1]` **_Push_**, _which simply allows us to add something at the end of the array_.
 
+<!--{{{ const string = ["a", "b", "c", "d"];-->
 ```javascript
 const string = ["a", "b", "c", "d"];
 
@@ -121,6 +129,7 @@ strings.push("e");          // O(1) - operation.
 
 console.log(strings);       // [ 'a', 'b', 'c', 'd', 'e'  ]
 ```
+<!--}}}-->
 
 If I run I get an array `[ 'a', 'b', 'c', 'd', 'e'  ]`. This `strings.push()`
 operation, because it just adds it at the end of the array is an `O(1)`
@@ -133,6 +142,7 @@ that's very convenient.
 We can also use `[2]` **_Pop_**, and Pop is the opposite of Push. Pop will
 simply mean to _remove the **last** item from the array_.
 
+<!--{{{ console.log(strings);       // [ 'a', 'b', 'c', 'd', 'e'  ]-->
 ```javascript
 console.log(strings);       // [ 'a', 'b', 'c', 'd', 'e'  ]
 
@@ -142,6 +152,7 @@ console.log(strings);       // [ 'a', 'b', 'c', 'd' ]
 strings.pop();              // Time-Complexity: O(1)
 console.log(strings);       // [ 'a', 'b', 'c']
 ```
+<!--}}}-->
 
 You can see the letter `e` was moved. If do `strings.pop()` again, we see that
 this time around we've removed string `d`. What do you think the
@@ -155,12 +166,14 @@ What if we want to add an item at the _beginning_ of an array? Well, we have
 something called `[3]` **_Unshift_** in JavaScript, and depending on your
 language you will have perhaps something different.
 
+<!--{{{ strings.unshift("x");       // 0(n)-->
 ```javascript
 strings.unshift("x");       // 0(n)
 console.log(srings)         // [ 'x', 'a', 'b', 'c']
 ```
-
+<!--}}}-->
 We see that string `x` have been added at the beginning of our array. What do
+
 you think the Time-Complexity of this operation is?;
 
 By the way, as we go through data structures and because we know Big-O notation
@@ -175,27 +188,33 @@ with data structures.
 What are we doing with _Unshift_? Well, remember variable `strings` are
 essentially stored.
 
+<!--{{{ const strings = ["a", "b", "c", "d"];-->
 ```javascript
 const strings = ["a", "b", "c", "d"];
 //index         [ 0,   1,   2,   3 ]
 ```
+<!--}}}-->
 
 When I add letter `x` with _unshift()_, I'm all of sudden adding `x` into our
 array.
 
+<!--{{{ const strings = ["x", "a", "b", "c", "d"];-->
 ```javascript
 const strings = ["x", "a", "b", "c", "d"];
 //index         [   ,  0,   1,   2,   3 ]
 ```
+<!--}}}-->
 
 But we now have to _shift_ the _index number_, because the indexes still like
 this. But this time around we have to say, OK `0` is for `x`; `a` is now index `1`;
 `b` is now index `2`; `c` is now index `3`; `d` is now index `4`;
 
+<!--{{{ const strings = ["x", "a", "b", "c", "d"];-->
 ```javascript
 const strings = ["x", "a", "b", "c", "d"];
 //index         [ 0 ,  1,   2,   3,   4 ]
 ```
+<!--}}}-->
 
 Just by me doing this, you might have seen something we just **iterated `loop`**
 through everything, and  reassign the indexes; and I did _five_ moves or _five_
@@ -211,12 +230,14 @@ structure for **_adding items at the beginning of the array_**.
 What if we wanted to add something in the middle of the array? So we can use
 method `[4]` **_spilce()_**. With _spilce_ I can say `strings.splice()`
 
+<!--{{{ const strings = ["x", "a", "b", "c"];-->
 ```javascript
 const strings = ["x", "a", "b", "c"];
 
 strings.splice(2, 0, "alien")
 console.log(strings)            // [ 'x', 'a', 'alien', 'b', 'c'  ]
 ```
+<!--}}}-->
 
 Again I get a hint of what I can do, the first is the **_start_** number, so
 I want to start at index of `2`; and remember we have an array of `["x", "a",
@@ -229,6 +250,7 @@ string that says `"alien"`.
 So, _splice_ told us, go to index of `2`, where `b` was initially, and add
 `alien` instead of `b` and just _shift_ things over.
 
+<!--{{{ const strings = ["x", "a", "b", "c", "d"];-->
 ```javascript
 // [1]
 const strings = ["x", "a", "b", "c", "d"];
@@ -242,6 +264,7 @@ const strings = ["x", "a", "alien", "b", "c", "d"];
 const strings = ["x", "a", "alien", "b", "c", "d"];         // O(n/2) => mutated into O(n)
 //index         [ 0 ,  1,     2,     3,   4,   5 ]
 ```
+<!--}}}-->
 
 What we've done here is If we go back to our variable `strings` we have the `x`
 in our array and we shifted these indexes of `x` and they are still the same,
@@ -303,6 +326,7 @@ into that new location. Let me show you how this works with code.
 You see in languages like C++, which has a _static array_ to create an array,
 you do something like this,
 
+<!--{{{ // C++-->
 ```c
 // C++
 // [1]
@@ -311,6 +335,7 @@ int  a[20]
 // [2]
 int b[5] {1, 2, 3, 4, 5}
 ```
+<!--}}}-->
 
 Above says, `[1]` I want a new array that has a space of `20` items; Or we can
 do something like `[2]` `int b[5]` with then fill up the array of five items
@@ -337,20 +362,25 @@ don't need to get into that. What we want to get out of this lesson is that
 _dynamic array_ expands as you add more elements. So, you don't need to
 determine the size ahead of time, but you may noticed something with _dynamic
 array_
+
+<!--{{{ chapter-4-3.png-->
 </br>
 
 ![chapter-4-3.png](./images/chapter-4-3.png "Dynamic array")
 </br/>
+<!--}}}-->
 
 You see over dynamic array chart, how I have a point at`append* O(1)`, that is
 the same as the `.push()` command that we did in the previous lesson, But I have
 star `*` that says it can be `o(n)`, why is that? Well, if we remember our
 array,
 
+<!--{{{ const strings = ["a", "b", "c", "d"]-->
 ```javascript
 const strings = ["a", "b", "c", "d"]
                 ["a", "b", "c", "d", "e"]   // add another letter
 ```
+<!--}}}-->
 
 If underneath the hood JavaScript and our machine only created _four_ blocks of
 memory (shelf's) for this array, and we _add another letter_ underneath the hood
@@ -400,15 +430,18 @@ when I do,
 
 > NOTE: Use browser console or NodeJS REPL
 
+<!--{{{ [] === []               // false-->
 ```javascript
 [] === []               // false
 
 // OR
 console.log([] === []) // false
 ```
+<!--}}}-->
 
 arrays equal array? `[] === []`, what do you think the answer is going to be?
 Well, the result is `false`, interesting,
+
 </br>
 
 ```javascript
@@ -417,8 +450,10 @@ Well, the result is `false`, interesting,
 
 What if I do `[1] === [1]` what do you think the result? The result is `false`,
 quite interesting. One more question,
+
 </br>
 
+<!--{{{ var object1 { value: 10 };-->
 ```javascript
 var object1 { value: 10 };
 var object2 = object1
@@ -427,11 +462,13 @@ var object 3 = { value: 10 }
 console.log(object1 === object2)        // true
 console.log(object1 === object3)        // false
 ```
-
+<!--}}}-->
 If I do `obejct1 === object3` I get `falae`, But why is that? We get `value: 10`
 for both, right? Let's pick something else,
+
 </br>
 
+<!--{{{ var object1 { value: 10 };-->
 ```javascript
 var object1 { value: 10 };
 var object2 = object1
@@ -441,16 +478,20 @@ object1.value = 15;
 object2.value;                          // 15
 object3.value                           // 10
 ```
+<!--}}}-->
 
 If I do `object1.value = 15`, and now I do `object2.value` the result is `15`;
 But if I do `object3.value` the result is `10`, well how was confusing right?
 
 Let's look at what's actually going on; And this is the first topic we're
 talking about which is _reference type_, let's look at diagram,
+
+<!--{{{ chapter-4-1.gif-->
 </br>
 
 ![chapter-4-1.gif](./images/gif/chapter-4-1.gif "References type")
 </br>
+<!--}}}-->
 
 Objects are what's called the _referenced type_ in JavaScript, up until this
 point  all the others JavaScript types that we've learned including _Numbers_
@@ -512,6 +553,7 @@ it right? Let's get to next one, this gets little tricky here.
 This one's called **_context_**; and _context_ get confused a lot with
 **_scope_**. If you remember we said that _scope_ is created when it see `{}`.
 
+<!--{{{ function b() {-->
 ```javascript
 function b() {
     let a = 4;
@@ -519,6 +561,7 @@ function b() {
 
 console.log(a)      // ReferenceError: `a` is not defined
 ```
+<!--}}}-->
 
 If we create a function, as soon as we create that function there is a _new
 scope_ that's created. So we can have new variable `let a = a`  that lives
@@ -530,6 +573,7 @@ So that's **_scope_**.
 
 #### Context - example 1
 
+<!--{{{ console.log(this)                   // Window {...}-->
 ```javascript
 // at browser console
 console.log(this)                   // Window {...}
@@ -538,8 +582,9 @@ console.log(this === Window)        // true
 
 this.alert("hello");
 
-.alert("hello");
+alert("hello");
 ```
+<!--}}}-->
 
 Now, how it's _context_ different, _context_ tells you **_where we are within
 the object_**. Let me explain if we `console.log(this)`, `this` probably the
@@ -559,6 +604,7 @@ remember, `this` just **_refers to what object it's inside of_**.
 
 #### Context - example 2
 
+<!--{{{ function a() {-->
 ```javascript
 function a() {
     console.log(this);
@@ -568,6 +614,7 @@ a()         // Window {...}
 
 window.a()
 ```
+<!--}}}-->
 
 I do `function a()` within this function I do  `console.log(this)`; If I call
 `a()` what do you think happens? Still `Window` object, `this` is still refers
@@ -578,6 +625,7 @@ Technically `function a()` I can go `window.a()` to run the function. So the
 left of the `-.` dot, that the Window. In order to create a new value for `this`
 you have to do something like,
 
+<!--{{{ const object4 = {-->
 ```javascript
 const object4 = {
     a: function() {
@@ -587,6 +635,7 @@ const object4 = {
 
 object4.a()             // { a: [Function: a]  }
 ```
+<!--}}}-->
 
 I run `object4.a()` now `this` is the object which is refer to `object4`.
 
@@ -610,6 +659,7 @@ This is going to look a little bit weird at first, just like `for-loops` did,
 just like function did at beginning; but it's just the syntax, and you'll get
 used to it.
 
+<!--{{{ class Player {-->
 ```javascript
 class Player {
     constructor(name, type) {
@@ -622,6 +672,7 @@ class Player {
     }
 }
 ```
+<!--}}}-->
 
 Let's say, we have a class named `Player`. Now you see the new syntax already,
 and I capitalize a class. Now think of a class as something that I want to make
@@ -657,6 +708,7 @@ OK, so we have a player, but when we're building our multiplayer game, we want
 to a new copy of `Player` class built add onto it. Let's say we want to create
 a _wizard_ player.
 
+<!--{{{ class Wizard extends Player {-->
 ```javascript
 class Wizard extends Player {
     constructor(name, type) {
@@ -668,6 +720,7 @@ class Wizard extends Player {
     };
 };
 ```
+<!--}}}-->
 
 `class Wizard extends Player`, What is this code saying? This code saying,
 I want `Wizard` to extend whatever a `Player` has. So I want to add on top
@@ -704,6 +757,7 @@ const wizard2 = new Wizard("Shawn", "Dark Magic");
 So, let's go through it, and make sure we understand everything. As we've learn
 let's use `console.log()` on,
 
+<!--{{{ class Player {-->
 ```javascript
 // Instantiation
 class Player {
@@ -744,6 +798,7 @@ wizard1.introduce()                                 // Hi I am Shelly, I'm a Hea
 
 wizard2.introduce()                                 // Hi I am Shawn, I'm a Dark Magic
 ```
+<!--}}}-->
 
 `[1]` What `console.log(this)` give us? We get `Wizard {...}` object. Let's go
 trough everything here. I say, we have a class `Player`; then a class `Wizard`
@@ -786,6 +841,7 @@ Wizard Wizard { name: 'Shelly', type: 'Healer'  }`
 The keyword `class`, `extends`, `super` is actually new syntax on _ES6_, that
 you'll see a lot on ReactJS. Back in the day this is how we used to do it,
 
+<!--{{{ // Classical inheritance-->
 ```javascript
 // Classical inheritance
 var Player = function(name, type) {
@@ -808,6 +864,7 @@ wizard2.play = function() {
     console.log(`WEEEE I'm a ${this.type}`);
 }
 ```
+<!--}}}-->
 
 The exact same code I have up there `class Player{...}`, it's called _Classical
 inheritance_, it doesn't look too bad, but you see that there's `prototype`
@@ -843,10 +900,12 @@ a lot of power. Good luck.
 <!--{{{ 4 ## Implementing An Array -->
 ## Implementing An Array
 
+<!--{{{ chapter-4-4.png-->
 </br>
 
 ![chapter-4-4.png](./images/chapter-4-4.png "Implementing an array")
 </br>
+<!--}}}-->
 
 Now that we know how to use arrays where they're fast, where they're slow. We're
 going to get into a part that is not crucial for interviews, but it's good to
@@ -876,6 +935,7 @@ build. Different languages will have this implementation differently, but what
 we're going to learn here, is still going to be applicable to how arrays work in
 other languages.
 
+<!--{{{ class MyArray {-->
 ```javascript
 class MyArray {
     constructor()  {
@@ -936,6 +996,7 @@ console.log(newArray)           // MyArray { length: 3, data: { '0':'hi', '1': '
 newArray.pop();
 console.log(newArray)           // MyArray { length: 2, data: { '0':'hi', '1': 'you'  } }
 ```
+<!--}}}-->
 
 We're going to start off with creating a class we call this `MyArray`. Within
 the array we'll have a constructor which is the _initial function_ that will be
@@ -984,7 +1045,7 @@ Because the typical `push()` method in JavaScript will usually return the length
 of the array. If we run this we get result,
 
 ```javascript
- console.log(myArray.push("hi"))       //MyArray { length: 1, data: { '0': 'hi'  } }
+ console.log(myArray.push("hi"))        //MyArray { length: 1, data: { '0': 'hi'  } }
 ```
 
  `data` is going have a property index of `0` with object `"hi"`.
@@ -1020,26 +1081,32 @@ Finally we can just return `item` that we deleted.
 Now, if I run another command add new item to the array `newArray("!")` the
 result,
 
+<!--{{{ console.log(myArray)-->
 ```javascript
 console.log(myArray)                    // MyArray { length: 2, data: { '0':'hi', '1': 'you'  }  }
 
 myArray.push("!")
 console.log(MyArray)                    // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  }  }
 ```
+<!--}}}-->
 
 Now, we try the `pop()` method command `newArray.pop()`, we get result,
 
+<!--{{{ myArray.pop()-->
 ```javascript
 myArray.pop()
 console.log(MyArray)                    // MyArray { length: 2, data: { '0': 'hi', '1': 'you'  }  }
 ```
+<!--}}}-->
 
 If I run `newArray.pop()` again
 
+<!--{{{ myArray.pop()-->
 ```javascript
 myArray.pop()
 console.log(MyArray)                    // MyArray { length: 1, data: { '0': 'hi' }  }
 ```
+<!--}}}-->
 
 I see that I have length of `1` and only `hi` remaining on data, very cool.
 
@@ -1116,6 +1183,7 @@ last item, because we stopped when `i < this.length - 1`. So
 I try comment this line `this.data[this.length - 1]`, and just show you what
 happen if we just leave it like this,
 
+<!--{{{ delete(index) {-->
 ```javascript
 delete(index) {
     const item = this.data[index];
@@ -1132,15 +1200,18 @@ shiftItems(index) {
     // this.data[this.length - 1];
 }
 ```
+<!--}}}-->
 
 I'm going to run,
 
+<!--{{{ console.log(newArray)-->
 ```javascript
 console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': 'you', '2': '!'  } }
 
 newArray.delete(1)
 console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': '!', '2': '!'  } }
 ```
+<!--}}}-->
 
 If I run the command `newArray.delete(1)`, I get `you` is deleted; but then
 I have, explanation mark `!` at index of `1`; So the shifting is working, but
@@ -1152,8 +1223,8 @@ All we need to do to get rid of that issue is the `delete` keyword to delete the
 last item; and obviously to document our length, because we just delete an item,
 we add the command `this.length--`.
 
+<!--{{{ shiftItems(index) {-->
 ```javascript
-
 shiftItems(index) {
     for (let i = index; i < this.length - 1; i++) {
         this.data[i] = this.data[i + 1];
@@ -1168,6 +1239,7 @@ console.log(newArray)       // MyArray { length: 3, data: { '0': 'hi', '1': 'you
 newArray.delete(1)
 console.log(newArray)       // MyArray { length: 2, data: { '0': 'hi', '1': '!'  } }
 ```
+<!--}}}-->
 
 If we run the command above now, we get the result back length of `2` and data
 `2`.
@@ -1192,10 +1264,13 @@ I wanted to add a quick video (note) to let you know about a common **_interview
 trick_**. We're going to be doing some arrays question after this. But in
 interviews, you should treat any **_string question_** like over below as an
 **_array question_**.
+
+<!--{{{ chapter-4-5.png-->
 </br>
 
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
 </br>
+<!--}}}-->
 
 You see, **_strings are simply array of characters_**. Most of the time in an
 interview, when you get a question like _reverse a string_ _you should be
@@ -1218,6 +1293,7 @@ a very common interview question.
 We're going to start off with a very very common one, and it's shouldn't be too
 complicated to start us off.
 
+<!--{{{ function reverseString(str) {-->
 ```javascript
 // Create a function that reverse a string.
 // "Hi My name is Andrei" should be:
@@ -1228,6 +1304,7 @@ function reverseString(str) {
     // .....
 }
 ```
+<!--}}}-->
 
 The interviewer asks you, can you create a function that reverse a string?
 
@@ -1243,6 +1320,7 @@ input.
 
 In my case I'm going to do a simple check
 
+<!--{{{ function reverseString(str) {-->
 ```javascript
 function reverseString(str) {
     // Check input
@@ -1273,6 +1351,7 @@ function reverseString(str) {
 // ]
 // ierdnA si eman yM iH
 ```
+<!--}}}-->
 
 > if (!string || str.length < 2 || typeof str !== "string")
 
@@ -1338,6 +1417,7 @@ In JavaScript, for example we can use some built in methods that come with the
 arrays to just simplify the whole things (exercise Answer - 1), and make our
 code more readable.
 
+<!--{{{ function reverseString2(str) {-->
 ```javascript
 function reverseString2(str) {
 
@@ -1356,6 +1436,7 @@ reverseString2(string);
 // Hi My name is Andrei
 // ==> result: ierdnA si eman yM iH
 ```
+<!--}}}-->
 
 Let's create a new function, and I'm going to call this functions
 `reverseString2()`; and this `reverseString2` once again receive short of an
@@ -1368,15 +1449,18 @@ time. We just straight away converted into an array, so that we can use builtin
 method that comes in JavaScript arrays called `.reverse()`; This reverse does do
 what the loop do in previous answer.
 
+<!--{{{ for (let i = totalItems; i >= 0; i--) {-->
 ```javascript
 for (let i = totalItems; i >= 0; i--) {
     backwards.push(str[i]);
 };
 ```
+<!--}}}-->
 
 Now, we just use another builtin method called `.join` for arrays at the end. By
 using a  builtin method, called `.reverse()` I avoided all this work,
 
+<!--{{{ const backwards = [];-->
 ```javascript
 const backwards = [];
 const totalItems = str.length - 1;
@@ -1386,6 +1470,7 @@ for (let i = totalItems; i >= 0; i--) {
 };
 console.log(backwards);
 ```
+<!--}}}-->
 
 How nice is that?. What about another solution? Again many different ways.
 
@@ -1394,6 +1479,7 @@ How nice is that?. What about another solution? Again many different ways.
 Let's say the interviewer says, is there a more modern cleaner way that you can
 make this function?
 
+<!--{{{ const reverseString3 = str => str.split("").reverse().join("");-->
 ```javascript
 const reverseString3 = str => str.split("").reverse().join("");
 
@@ -1403,6 +1489,7 @@ console.log(reverseString3(string))
 // Result:
 // erdnA si eman yM iH
 ```
+<!--}}}-->
 
 Because in JavaScript there is the new ES6 syntax, you can even create one line
 function call it `reverseString3`; And do the exact same thing using every
@@ -1410,6 +1497,7 @@ builtin method.
 
 Or, you can do more fancy by using _spread operator_, like this,
 
+<!--{{{ st reverseString4 = str => [...str].reverse().join("");-->
 ```javascript
 const reverseString4 = str => [...str].reverse().join("");
 
@@ -1417,8 +1505,9 @@ const string = "Hi My name is Andrei"
 console.log(reverseString3(string))
 
 // Result:
-// erdnA si eman yM iH
+// ierdnA si eman yM iH
 ```
+<!--}}}-->
 
 We no longer need to use the `.split()` method. I run this, I get the same
 thing.
@@ -1446,6 +1535,7 @@ Welcome back, it's time to do another fun or re-interview question. An
 interviewer asks you, given two arrays that are sorted, can you merge these two
 arrays into one big one? That's still sorted.
 
+<!--{{{ // Sort this arrays into one single array.-->
 ```javascript
 // Sort this arrays into one single array.
 const array1 = [0, 3, 4, 31];
@@ -1457,9 +1547,11 @@ function mergeSortedArrays(arr1, arr2) {
 // Result;
 // [0, 3, 4, 4, 6, 30, 31];
 ```
+<!--}}}-->
 
 ### Exercise Answer - 1
 
+<!--{{{ function mergeSortedArrays2(arr1, arr2){-->
 ```javascript
 const array1 = [0, 3, 4, 31];
 const array2 = [4, 6, 30]
@@ -1498,17 +1590,20 @@ function mergeSortedArrays2(arr1, arr2){
 
 mergeSortedArrays2(array1, array2);
 ```
+<!--}}}-->
 
 We'll start off by first defining the function name, called `mergeSortedArray`,
 it's going to take two parameter, first array we named this parameter with
 `arr1` and second array we named this parameter with `arr2`
 
+<!--{{{ const mergedArray = [];-->
 ```javascript
 const mergedArray = [];
 //...
 //...
 return mergedArray;
 ```
+<!--}}}-->
 
 I'm going to first define some variables that we're going to use throughout the
 function. The first one will be `mergedArray` which will be our answer, for now
@@ -1516,10 +1611,12 @@ it's going to be an empty array. We might as well just make sure that we return
 this `mergedArray` at the end. Hopefully it all works, and we can populate this
 with these two arrays; and we can populate `mergedArray` with these two arrays.
 
+<!--{{{ let array1Item = arr1[0];-->
 ```javascript
 let array1Item = arr1[0];
 let array2Item = arr2[0];
 ```
+<!--}}}-->
 
 I also want to grab the `arr1` item with create a new variable `array1Item`,
 just for reference and this is going to e our very first array item. So this
@@ -1528,6 +1625,7 @@ just for reference and this is going to e our very first array item. So this
 We do the same thing, grab the `arr1` item with create new variable
 `array2Item`, which is going to grab the number `4` from second array.
 
+<!--{{{  if(array1.length === 0) {-->
 ```javascript
  if(array1.length === 0) {
      return arr2;
@@ -1537,6 +1635,7 @@ We do the same thing, grab the `arr1` item with create new variable
      return arr1;
  };
 ```
+<!--}}}-->
 
 The very first thing I like doing in functions is _checking_ for some sort of
 input, making sure everything works. I'm going to spare you the time of me doing
@@ -1558,6 +1657,7 @@ so if first array is empty, just simple return the second array `array2`
 We can do the same for the other case, if `array2.length` is empty, then we can
 just return the first array `array1`. Nice and simple.
 
+<!--{{{ while (array1Item || array2Item){-->
 ```javascript
 let i = 1;
 let j = 1;
@@ -1575,6 +1675,7 @@ while (array1Item || array2Item){
     }
 }
 ```
+<!--}}}-->
 
 For now, let's get into harder topic, which is what happens if both of these
 array are full, like they are now. Well, just to change things up, because I've
@@ -1655,6 +1756,7 @@ version and then explain why we did what we did. I'm going to write if
 `!array2Item` _doesn't exist_ or _undefined_ it's going to turn into _true_ so we
 can ran through this code.
 
+<!--{{{ while (array1Item || array2Item) {-->
 ```javascript
 // ...
 //...
@@ -1682,6 +1784,7 @@ mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
 // ===> Debug: 31 30
 // ===> Debug: 31 undefined
 ```
+<!--}}}-->
 
 Notice what we just logging here, we've log `array1Item` and `array2Item`, so
 this is why we're comparing throughout our loop, we get `31` and `undefined`,
@@ -1691,6 +1794,7 @@ of the array.
 
 If the first array is just like this `[0, 3, 4]`,
 
+<!--{{{ mergeSortedArrays([0, 3, 4], [4, 6, 30]);-->
 ```javascript
 mergeSortedArrays([0, 3, 4], [4, 6, 30]);
 // Result:
@@ -1701,6 +1805,7 @@ mergeSortedArrays([0, 3, 4], [4, 6, 30]);
 // ===> Debug: undefined 6
 // ===> Debug: undefined 30
 ```
+<!--}}}-->
 
 We get undefined for the first array. However, because we're doing the second
 check `...||array1Item < array2Item`, which is `array1Item` is **_less then_**
@@ -1712,7 +1817,7 @@ In our case if we logging in `undefined < 6`,
 console.log("===> Answer:", undefined < 6)
 
 // Result:
-// ===> Answwer: false
+// ===> Answer: false
 ```
 
 Well, I get `false`. So, even though in this time around, `array1Item` is
@@ -1759,10 +1864,12 @@ Hope you got this far, and I'll see you in next lectures.
 <!--{{{ 9 ## Array Summary -->
 ## Array Summary
 
+<!--{{{ chapter-4-5.png-->
 </br>
 
 ![chapter-4-5.png](./images/chapter-4-5.png "Implementing an array")
 </br>
+<!--}}}-->
 
 Great, you just finished your first _data structure_, and they're going to get
 more and more fun. You see in the above diagram we've learned to complete our
@@ -1777,10 +1884,13 @@ or expand our memory (space).
 We also talked about how strings and question regarding strings can be treated
 very similar to array question, where you just convert them (string) to an array
 and then _join_ then back up and return a string answer.
+
+<!--{{{ chapter-4-6.png-->
 </br>
 
 ![chapter-4-6.png](./images/chapter-4-6.png "Big-O data structures operations")
 </br/>
+<!--}}}-->
 
 There's a few other point in array we're going to talk about when we get into
 algorithms. By now, you should take a look at the Big-O cheat sheet data
@@ -1793,10 +1903,13 @@ it comes to sorting, arrays are awesome, because they're in memory in
 _sequential order_ according to their index.
 
 When you would want to use an array? When you would it?
+
+<!--{{{ chapter-4-7.png-->
 </br>
 
 ![chapter-4-7.png](./images/chapter-4-7.png "pros and cons using array as data structure")
 </br>
+<!--}}}-->
 
 Arrays are great for `[1]` _fast lookup_, that is just accessing information
 where you know which index you want to look at. `[2]` It's really fast that
@@ -1845,4 +1958,3 @@ a few to go through.
 </br>
 </br>
 <!--}}}-->
-

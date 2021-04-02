@@ -20,10 +20,12 @@
 <!--{{{ 1 ## Stacks and Queues Introduction -->
 ## Stacks and Queues Introduction
 
+<!--{{{ chapter-7-1.png-->
 </br>
 
 ![chapter-7-1.png](./images/chapter-7-1.png "Stacks and Queues Introduction")
 </br>
+<!--}}}-->
 
 We're going to learn two data structures at the same time, stack and queues;
 because they're very similar. They are both what we call **linear data
@@ -70,10 +72,12 @@ understand how they work, and then finally code our own.
 <!--{{{ 2 ## What is Stacks -->
 ## What is Stacks
 
+<!--{{{ chapter-7-1.gif-->
 </br>
 
 ![chapter-7-1.gif](./images/gif/chapter-7-1.gif "What is stacks")
 </br>
+<!--}}}-->
 
 Let's talk about stacks. Stacks is a type of data structure that you can think
 of hem as plate's; that is, we have one piece of data and then another piece of
@@ -128,10 +132,12 @@ Let's talk queues in next lectures.
 <!--{{{ 3 ## What is Queues -->
 ## What is Queues
 
+<!--{{{ chapter-7-1.gif-->
 </br>
 
 ![chapter-7-1.gif](./images/gif/chapter-7-2.gif "What is queues")
 </br>
+<!--}}}-->
 
 The best way to think about queues is like an entrance to a rollercoaster. The
 first person that arrives in line gets to go first on the rollercoaster, and
@@ -192,6 +198,7 @@ OK, that enough for queue, let's go to our first exercise.
 Let's do a quick exercise before we actually create our own stacks and queues,
 because JavaScript doesn't have its own stacks or queues data structure.
 
+<!--{{{ // Stacks-->
 ```javascript
 // Stacks
 
@@ -199,6 +206,7 @@ google
 udemy
 youtube
 ```
+<!--}}}-->
 
 I mentioned that there's two ways that we can build Stacks and Queues, If we
 talk about Stacks we can think of it as our browser history, let's say we visit
@@ -206,6 +214,7 @@ talk about Stacks we can think of it as our browser history, let's say we visit
 a Stack because `Google` was the first item, it would actually be placed on the
 Stack like,
 
+<!--{{{ // Stack placed-->
 ```javascript
 // Stack placed
 
@@ -214,6 +223,7 @@ youtube;
 udemy;
 google;
 ```
+<!--}}}-->
 
 Then we go to `udemy`, so we'd be placed on the Stack, on top, and then we go
 to `youtube`. Now if we want to go to a new website let's say we go to `[4]`
@@ -221,6 +231,7 @@ to `youtube`. Now if we want to go to a new website let's say we go to `[4]`
 
 But then we decide I want I want to go back,
 
+<!--{{{ // Stack placed-->
 ```javascript
 // Stack placed
 
@@ -228,26 +239,31 @@ youtube;
 udemy;
 google;
 ```
+<!--}}}-->
 
 Well we remove `twitter` with press back button on our browser, and we get
 `youtube`.
 
 If we press back again,
 
+<!--{{{ // Stack placed-->
 ```javascript
 // Stack placed
 
 udemy;
 google;
 ```
+<!--}}}-->
 
 We get to `udemy` and then back again,
 
+<!--{{{ // Stack placed-->
 ```javascript
 // Stack placed
 
 google;
 ```
+<!--}}}-->
 
 We go back to Google.
 
@@ -259,11 +275,13 @@ that.
 
 ### Differ with Queues
 
+<!--{{{ // Queues-->
 ```javascript
 // Queues
 
 Matt -- Joy -- Samir -- Pavol
 ```
+<!--}}}-->
 
 What about Queues? Let's say we have a queues, I'm creating a waitlist app, and
 here we have a couple of people that want to on the waitlist. First person that
@@ -377,22 +395,26 @@ years and not know this (**how JavaScript works**); it's like being a pilot and
 not knowing an airplane can fly. OK that's a little bit dramatic there, but you
 get my point.
 
+<!--{{{ chapter-7-2.png-->
 </br>
 
 ![chapter-7-2.png](./images/chapter-7-2.png "How JavaScript works | What is a Program")
 </br>
+<!--}}}-->
 
 First, what is a program? Well, a program has to do some simple things.
 
 - `[1]` it has to **allocate memory**, otherwise we would be able to have
-variables or even have a file on our computer.
+  variables or even have a file on our computer.
 - `[2]` It also **have to parse and execute scripts**, which means read and run
-commands.
+  commands.
 
+<!--{{{ chapter-7-3.png-->
 </br>
 
 ![chapter-7-3.png](./images/chapter-7-3.png "How JavaScript works | JavaScript Engine")
 </br>
+<!--}}}-->
 
 Now, we also know that form our previous discussion, there's the JavaScript
 engine, that each browser implements, in chrome it's the `V8`; and the `V8`
@@ -411,12 +433,14 @@ Let's simplify this and show you what I mean.
 
 ### Memory Leak
 
+<!--{{{ // Memory Heap-->
 ```javascript
 // Memory Heap
 const a = 1:
 const b = 10:
 const c = 100:
 ```
+<!--}}}-->
 
 For us to allocate the memory in the Memory Heap; well it's a simple as dong
 `const a = 1`, we've just allocate a memory; now when we assign this, the
@@ -446,28 +470,34 @@ Heap; and eventually the browser will not be able to work.
 Alright, that's memory. Let's talk about the Call Stack, what is that? Well,
 with a Call Stack, we can have something like this,
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 console.log("1");
 console.log("2");
 console.log("3");
 ```
+<!--}}}-->
 
 We have three console logs that stack with each others, if I run this code in
 the browser terminal,
 
+<!--{{{ chapter-7-3.gif-->
 </br>
 
 ![chapter-7-3.gif](./images/gif/chapter-7-3.gif "Call Stack example - 1")
 </br>
+<!--}}}-->
 
 Well, I get `1`, `2`, `3`. So, the Call Stack if you remember that's what it
 **reads and execute our scripts**.
 
+<!--{{{ chapter-7-4.gif-->
 </br>
 
 ![chapter-7-4.gif](./images/gif/chapter-7-4.gif "Call Stack example - 2")
 </br>
+<!--}}}-->
 
 So, What the Call Stack does, it reads the first line console log, it get puts
 in the Call Stack. So the JavaScript engines says, console log has been added,
@@ -482,6 +512,7 @@ removes it.
 Let's have a bit more of a complex example here, to demonstrate this points.
 Imagine I have something like this,
 
+<!--{{{ const one = () => {-->
 ```javascript
 const one = () => {
     const two = () => {
@@ -494,6 +525,7 @@ const one = () => {
 // Result:
 // 4
 ```
+<!--}}}-->
 
 I have a function called with ES6 features `const one = () => {}`, and inside
 this function I have another function `const two = () => {}`, and for now it's
@@ -502,53 +534,65 @@ not really going to do much, is going to console log `"4"`. and inside function
 
 So, what happens here according to a Call Stack?
 
+<!--{{{ one();-->
 ```javascript
 one();
 // CALL STACK
 ```
+<!--}}}-->
 
 If we have the Call Stack here, we first ran the `one()` function; So, on top of
 Call Stack the `one*()` function gets run.
 
+<!--{{{ two();-->
 ```javascript
 two();
 one();
 // CALL STACK
 ```
+<!--}}}-->
 
 As, we enter into this Call Stack, we see that we run another function `two()`,
 so `two()` goes on top of the Call Stack;
 
+<!--{{{ console.log("4");-->
 ```javascript
 console.log("4");
 two();
 one();
 // CALL STACK
 ```
+<!--}}}-->
 
 Now we run the `two()` function, which is console logging `4`, that run inside
 `two()` function.
 
+<!--{{{ two();-->
 ```javascript
 two();
 one();
 // CALL STACK
 ```
+<!--}}}-->
 
 So, now we _read_ this, the Call Stack is going to say, OK there's nothing else
 inside of this. I'm going to run `console.log("4")`, So it's going to print out
 number `4` on terminal. It's going to remove that from the Call Stack.
 
+<!--{{{ one();-->
 ```javascript
 one();
 // CALL STACK
 ```
+<!--}}}-->
 
 Then remove the `two()`.
 
+<!--{{{ // CALL STACK-->
 ```javascript
 // CALL STACK
 ```
+<!--}}}-->
 
 Then remove the `one()`, because it's just been called; and the Call Stack is
 now empty.
@@ -563,9 +607,9 @@ Let's revisit the statement from the beginning of this lecture,
 
 </br>
 
-Single Thread means **that it has only one Call Stack and one Call Stack
-only**. You can only do one thing at a time. As you saw Call Stack is First In
-Last Out (FILO). So, whatever at the top of Call Stack, gets run first then below that
+Single Thread means **that it has only one Call Stack and one Call Stack only**.
+You can only do one thing at a time. As you saw Call Stack is First In Last Out
+(FILO). So, whatever at the top of Call Stack, gets run first then below that
 until the Call Stack is empty.
 
 Other languages can have multiple Call Stacks, and these are called **multi
@@ -578,12 +622,14 @@ complicated scenarios that arise in multi-thread environment, you just have one
 thing to worry about; and when I say issues with multi-threaded environment, can
 have such thing as **Deadlocks** now.
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 console.log("1"); // Line-1
 console.log("2"); // Line-2
 console.log("3"); // Line-3
 ```
+<!--}}}-->
 
 Guess what,**_you just learn what synchronous programming means_**. Synchronous
 programming simply means, `Line-1` get execute it, `Line-2` get executed, and
@@ -594,10 +640,12 @@ because, well we've looked at the Call Stack.
 
 ### Stack Overflow
 
+<!--{{{ chapter-7-4.png-->
 </br>
 
 ![chapter-7-4.png](./images/chapter-7-4.png "Stack Overflow")
 </br>
+<!--}}}-->
 
 Now, you may have head the site stackoverflow. Have you wonder Stack Overflow
 means?, Stack Overflow is when a stack is overflowing. Kind of like we talked
@@ -608,6 +656,7 @@ that? Can we recreate a Stack Overflow?
 
 #### Recursion
 
+<!--{{{ // Recursion-->
 ```javascript
 // Recursion
 function foo() {
@@ -616,6 +665,7 @@ function foo() {
 
 foo();
 ```
+<!--}}}-->
 
 All you have to do is create a function `foo()` and this function will just have
 `foo()`. What is happening here? This something called **Recursion**; and
@@ -657,6 +707,7 @@ task right?.
 So, you thinking to yourself, how we do asynchronous programming?, we can do
 asynchronous programming by doing something like this,
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 console.log("1");
@@ -665,16 +716,19 @@ setTimeout(() => {
 }, 2000);
 console.log("3");
 ```
+<!--}}}-->
 
 We use `setTimeout()` it's allows us to create a time out; and we can just give
 it a first parameter is the function that we want to run, and then the second
 parameter is how many seconds we want to wait?, Let's run on the console to see
 what happens.
 
+<!--{{{ chapter-7-5.gif-->
 </br>
 
 ![chapter-7-5.gif](./images/gif/chapter-7-5.gif "Call Stack example")
 </br>
+<!--}}}-->
 
 We have `console.log("1")` and get result `1`, then `console.log("3")` with
 result `3`, and then we get `console.log("2")` two second later. It's looks like
@@ -686,10 +740,12 @@ what just happens, well, I need to take you the next part.
 
 ### JavaScript Run-Time Environment
 
+<!--{{{ chapter-7-5.png-->
 </br>
 
 ![chapter-7-5.png](./images/chapter-7-5.png "Stack Overflow")
 </br>
+<!--}}}-->
 
 Above diagram is show us JavaScript engine with heap and call stack to run. We
 need more that just the JavaScript engine, we need what we call a **JavaScript
@@ -705,6 +761,7 @@ we can do asynchronous program.
 
 Looking at this diagram, let see if we can figure out what our code was doing.
 
+<!--{{{ console.log("1"); // [1]-->
 ```javascript
 console.log("1"); // [1]
 setTimeout(() => console.log("2")); // [2]
@@ -718,6 +775,7 @@ console.log("3"); // [3]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 We can create here our own **_Call Stack_**, we'll have a **_Web API_**, and then we'll have
 a **_CallBack Queue_**, and then **_Event Loop_**. Just like we have in our
@@ -725,6 +783,7 @@ JavaScript Run-Time Environment.
 
 So, what's happening here,
 
+<!--{{{ console.log("1"); // [1]-->
 ```javascript
 console.log("1"); // [1]
 // Call Stack
@@ -735,10 +794,12 @@ console.log("1"); // [1]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 Well, first we have a `[1]` console log that goes into the Call Stack, and that
 gets run; so, we log console logging to the browser.
 
+<!--{{{ setTimeout(() => console.log("2")); // [2]-->
 ```javascript
 setTimeout(() => console.log("2")); // [2]
 // Call Stack
@@ -749,6 +810,7 @@ setTimeout(() => console.log("2")); // [2]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 Then we get `setTimeout()` into our Call Stack, because we finished this first
 stack `[1]`, we're going to the second one. What `setTimeout()` going to happen
@@ -756,6 +818,7 @@ is, well in the Call Stack is going to say, OK I have `setTimeout()`, and
 because `setTimeout()` is not part of JavaScript, but part of the Web API, it
 has a special characteristic, what's going to happen is, i triggers the Web API,
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 
@@ -766,11 +829,13 @@ setTimeout(), 2000; // [2]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 Says, hey `setTimeout()` has just been called, and because we notified Web API,
 we can Pop out of the call stack. Now the Web API starts a timer of two seconds,
 it's going to know that in two second you have to do something.
 
+<!--{{{ console.log("3"); // [3]-->
 ```javascript
 console.log("3"); // [3]
 // Call Stack
@@ -782,10 +847,12 @@ setTimeout(), 2000; // [2]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 Because the call stack is empty, the JavaScript engine now goes to
 `console.log("3")`, and execute this.
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 
@@ -796,6 +863,7 @@ setTimeout(), 2000; // [2]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 So, that makes sense right, now we've done `1` and `3` in the terminal browser,
 but we still have `setTimeout()` two seconds in the Web API. Now After two
@@ -803,8 +871,8 @@ seconds, when your time limit is up, the Web API is going to say, Okay
 `setTimeout()` should be run, let's see what's inside of it. We'll we have
 a `console.log("2")`.
 
+<!--{{{ // Call Stack-->
 ```javascript
-
 // Call Stack
 
 setTimeout(),                           // [2]
@@ -814,9 +882,11 @@ setTimeout(),                           // [2]
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 So, what's going o happen is, it's going to say, hey `setTimeout()` is done.
 
+<!--{{{-->
 ```javascript
 // Call Stack
 
@@ -827,10 +897,11 @@ callback();
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 We have a `callback()`, and this `callback()` of `settimeout()` we added to the
-CallBack Queue, to saying that, hey we have to run something, we're ready to run
-it.
+"CallBack -  Queue", to saying that, hey we have to run something, we're ready
+to run it.
 
 Now, the last part, the Event Loop checks and says, hey, is the Call Stack is
 empty?, and it keeps checking all the time. If the Call Stack is empty and
@@ -840,6 +911,7 @@ anything in there? Because the Call Stack is empty, we can throw something in
 there, and make it do some work. In our case we say, oh yeah I do. Let me put
 this (`callback()`) into the Call Stack.
 
+<!--{{{ callback();-->
 ```javascript
 callback();
 // Call Stack
@@ -850,10 +922,12 @@ callback();
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 So, bow we move the code back into the Call Stack, and then the `callback()` we
 run it, and by running it, we see that we have a `console.log("2")`.
 
+<!--{{{ console.log("2");-->
 ```javascript
 console.log("2");
 callback();
@@ -865,10 +939,12 @@ callback();
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 So, it's going to say `console.log("2")`, it's going to run, once it's done it's
 going to pop it out of the Call Stack.
 
+<!--{{{ callback();-->
 ```javascript
 callback();
 // Call Stack
@@ -879,9 +955,11 @@ callback();
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 Again, we're done with the `callback()`, so we remove it.
 
+<!--{{{ // Call Stack-->
 ```javascript
 // Call Stack
 
@@ -891,11 +969,12 @@ Again, we're done with the `callback()`, so we remove it.
 
 // EVENT LOOP
 ```
+<!--}}}-->
 
 There you go, we're done. Everything is empty, and we've just run, and get this
 result on web browser `1, 3` it's going to go through the entire Web API,
-CallBack Queue, Event Loop and then it's going to run the `console.log("2")` to
-get the final result, and finish the running program.
+"CallBack - Queue", Event Loop and then it's going to run the `console.log("2")`
+to get the final result, and finish the running program.
 
 That was a lot of information. So you might need to watch, or read this for few
 times, but hopefully that makes sense to you, of why we noticed this behavior.
@@ -904,10 +983,12 @@ I want to challenge your understanding here, knowing what you know, and what
 I just tell you, what happen if I changes to zero (`setTimeout(), 0`), that
 means zero second, what will happen?
 
+<!--{{{ chapter-7-6.gif-->
 </br>
 
 ![chapter-7-6.gif](./images/gif/chapter-7-6.gif "JavaScript Run-Time Environment")
 </br>
+<!--}}}-->
 
 We get the result `1, 3, 2`. Now think about why that happened. Even though this
 `setTimeout()` is still went through the process. It still got entered into Web
@@ -945,7 +1026,7 @@ That's why we call it a CallBack function, and a Callback Queue, we're calling
 back to let them know that, hey there's some stuff waiting for you.
 
 Now, we see over on the Web API, we have **DOM**, **AJAX**, **Timeout**, and
-there's a few other things; But we also in the CallBack Queue, you have
+there's a few other things; But we also in the "CallBack - Queue", you have
 `onClick`, `Onload`, `onDone`. Do you remember the **_event listeners_**,
 
 ```javascript
@@ -969,7 +1050,7 @@ But, to recap what we just learned, **JavaScript is a single threaded language
 that can be non-blocking**, it has one Call Stack, and it does one thing at
 a time. In order to block the single threaded it can be asynchronous with
 a callback functions, and these callback functions gets run in the background,
-through the CallBack Queue, and then the Event Loop, to bring back to the Call
+through the "CallBack - Queue", and then the Event Loop, to bring back to the Call
 Stack.
 
 So, next time you get asked, what is the difference between asynchronous or
@@ -986,6 +1067,7 @@ confidence to answer that question, and I hope that this was helpful.
 
 It's time to code our Stack, and I have a little exercise for you here.
 
+<!--{{{ class Node {-->
 ```javascript
 class Node {
 	constructor(value) {
@@ -1012,6 +1094,7 @@ const myStack = new Stack();
 // Udemy
 // google
 ```
+<!--}}}-->
 
 I have create the template of what we want our stack data structure to look
 like. We also have a class of `Node`, if you decide to use that and you should
@@ -1038,6 +1121,7 @@ our stack is empty.
 We'll start off with a `myStack` that gets instantiated. Your code works, if you
 can do something like this,
 
+<!--{{{ myStack.push(google);-->
 ```javascript
 myStack.push(google);
 myStack.push(Udemy);
@@ -1047,6 +1131,7 @@ myStack.pop(Discord);
 myStack.pop(Udemy);
 myStack.pop(google);
 ```
+<!--}}}-->
 
 Where you say `myStack.push(google)` , then `.push(Udemy)`, then
 `.push(Discord)` just like browser history; and then you can do `.pop(Discord)`,
@@ -1065,6 +1150,7 @@ on the stack,
 
 ### Exercise - Solution Stack `peek()`
 
+<!--{{{ peek() {-->
 ```javascript
 peek() {
     return this.top;
@@ -1074,6 +1160,7 @@ myStack.peek();
 // Result
 // null
 ```
+<!--}}}-->
 
 So, I can just say `peek()` is going to `return this.top`. So that if we run
 `myStack.peek()` it's going to return `null` because there's nothing in our
@@ -1084,6 +1171,7 @@ Stack?
 
 ### Exercise - Solution Stack `push()`
 
+<!--{{{ push() {-->
 ```javascript
 push() {
     const newNode = new Node(value);
@@ -1109,37 +1197,38 @@ mystack.push("Discord");
 
 myStack.peek()
 // Result
-// Stack {
-//   top: Node { value: 'google', next: null },
-//   bottom: Node { value: 'google', next: null },
-//   length: 1
-// }
+Stack {
+  top: Node { value: 'google', next: null },
+  bottom: Node { value: 'google', next: null },
+  length: 1
+}
 
-// Stack {
-//   top: Node { value: 'Udemy', next: Node { value: 'google', next: null } },
-//   bottom: Node { value: 'google', next: null },
-//   length: 2
-// }
+Stack {
+  top: Node { value: 'Udemy', next: Node { value: 'google', next: null } },
+  bottom: Node { value: 'google', next: null },
+  length: 2
+}
 
-// Stack {
-//   top: Node {
-//     value: 'Discord',
-//     next: Node { value: 'Udemy', next: [Node] }
-//   },
-//   bottom: Node { value: 'google', next: null },
-//   length: 3
-// }
+Stack {
+  top: Node {
+    value: 'Discord',
+    next: Node { value: 'Udemy', next: [Node] }
+  },
+  bottom: Node { value: 'google', next: null },
+  length: 3
+}
 
-// Node {
-//   value: 'Discord',
-//   next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
-// }
+Node {
+  value: 'Discord',
+  next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
+}
 ```
+<!--}}}-->
 
 Well the very first thing we want to do is, to create a `newNode`, create new
-object here if we want, or we can just use the `Node` class that I provide for you here.
-We can use the class by saying `new Node` Which is instantiates a class and
-gives it the value that we're going to push with.
+object here if we want, or we can just use the `Node` class that I provide for
+you here.  We can use the class by saying `new Node` Which is instantiates
+a class and gives it the value that we're going to push with.
 
 Next, we want to check if this is the very first item, because if the Stack is
 empty, and this is very first item, while `this.top`, and `this.bottom` are both
@@ -1160,6 +1249,7 @@ after our `newNode`, and then finally we do that `this.length++` to increment
 the length by `1`, and then finally we want to return `this`, which return us
 the linked list.
 
+<!--{{{ Stack {-->
 ```javascript
 Stack {
     top: Node { value: 'google', next: null },
@@ -1167,6 +1257,7 @@ Stack {
     length: 1
 }
 ```
+<!--}}}-->
 
 Let's try, I want to push to `myStack`, I'm going to say
 `myStack.push("google")` first, because we're visiting Google first, And if
@@ -1175,6 +1266,7 @@ I run this I get the data structure that has `top` that has `Node` with object
 `bottom` is also the same `value: "google"`, with `next: null`, and our Stack
 has `length: 1`.
 
+<!--{{{ Stack {-->
 ```javascript
 Stack {
     top: Node { value: 'Udemy', next: Node { value: 'google', next: null } },
@@ -1182,12 +1274,14 @@ Stack {
     length: 2
 }
 ```
+<!--}}}-->
 
 Let's go try, `myStack.push("Udemy")`, if I click run, I now have a `length: 2`
 Stack, that has `top: Node` as `Udemy`, and `bottom: Node` as `"google"`;
 because remember, with a Stack, we stack plates on top, that is `Udemy` came in
 last, so `Udemy` is on top; remember **LIFO** (Last In First Out).
 
+<!--{{{ Stack {-->
 ```javascript
 Stack {
     top: Node {
@@ -1198,17 +1292,20 @@ Stack {
     length: 3
 }
 ```
+<!--}}}-->
 
 Let's say add one more, that we next visit our `Discord` community with command
 `myStack.push(Discord)`, and I get the result our `Discord` at the `top`, and at
 the `bottom` node is still `google`.
 
+<!--{{{ Node {-->
 ```javascript
 Node {
     value: 'Discord',
     next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
 }
 ```
+<!--}}}-->
 
 Just to make sure that our `peek()` is working, If I do `myStack.peek()` we
 should get `Discord`, because it was the last stand, and the very top of our
@@ -1221,6 +1318,7 @@ Stack.
 
 Final `pop()` function.
 
+<!--{{{ pop(){-->
 ```javascript
 pop(){
     if (!this.top) {
@@ -1238,6 +1336,7 @@ pop(){
     return this;
 }
 ```
+<!--}}}-->
 
 #### Chunk `pop()` method
 
@@ -1261,6 +1360,7 @@ do this (`const holdingPointer = this.top`), well `Discord` (Node) that contains
 Collected language like JavaScript, that it will get automatically removed from
 memory during garbage collection.
 
+<!--{{{ pop() {-->
 ```javascript
 pop() {
     if (!this.top) {
@@ -1283,17 +1383,19 @@ pop() {
 myStack.pop();
 
 // Result
-// Node {
-//   value: 'Discord',
-//   next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
-// }
+Node {
+  value: 'Discord',
+  next: Node { value: 'Udemy', next: Node { value: 'google', next: null } }
+}
 
 ```
+<!--}}}-->
 
 Now, if I run this command `myStack.pop()` nothing happen, right now for `pop()`
 let's return the `holdingPointer`. I get back the `Node`, which is the
 `holdingPointer` in case we still want to have access to it;
 
+<!--{{{ pop() {-->
 ```javascript
 pop() {
     if (!this.top) {
@@ -1311,30 +1413,31 @@ pop() {
 myStack.pop();
 
 // Result
-// Stack {
-//     top: Node { value: 'Udemy', next: Node { value: 'google', next: null  }  },
-//     bottom: Node { value: 'google', next: null  },
-//     length: 2
-// }
+Stack {
+    top: Node { value: 'Udemy', next: Node { value: 'google', next: null  }  },
+    bottom: Node { value: 'google', next: null  },
+    length: 2
+}
 
 myStack.pop()
 
 // Result
-// Stack {
-//   top: Node { value: 'google', next: null },
-//   bottom: Node { value: 'google', next: null },
-//   length: 1
-// }
+Stack {
+  top: Node { value: 'google', next: null },
+  bottom: Node { value: 'google', next: null },
+  length: 1
+}
 
 myStack.pop()
-// Result;
-// Stack {
-//   top: null,
-//   bottom: Node { value: 'google', next: null },
-//   length: 0
-// }
 
+// Result;
+Stack {
+  top: null,
+  bottom: Node { value: 'google', next: null },
+  length: 0
+}
 ```
+<!--}}}-->
 
 Otherwise if we just wanted to disappear and we don't need it anymore we can
 just `return this`, and comment out `const holdingPointer`, and I run, we now
@@ -1353,6 +1456,7 @@ If I do one last `.pop()` here, and I run the code, we have `top` which is not
 `google`, because we never removed in the pop our `bottom` node, all we did was
 replace the `top`.
 
+<!--{{{ if (this.top === this.bottom || this.length === 0) {-->
 ```javascript
 if (this.top === this.bottom || this.length === 0) {
     this.bottom = null;
@@ -1363,6 +1467,7 @@ myStack.pop()
 // Result
 // Stack { top: null, bottom: null, length: 0  }
 ```
+<!--}}}-->
 
 We just need to add one conditional check, which is, if `this.bottom` equal
 `this.bottom` that means there's only one item on the list. I could have also
@@ -1401,6 +1506,7 @@ fairly simple.
 
 Final implementation Stack with an array.
 
+<!--{{{ class Stack {-->
 ```javascript
 class Stack {
     constructor(){
@@ -1433,6 +1539,7 @@ myStack.pop();
 //Udemy
 //google
 ```
+<!--}}}-->
 
 #### Chunked Code
 
@@ -1445,6 +1552,7 @@ different for different programming languages, but for now we have this
 available to us in our language that we're using right now, so there you have
 it. That our constructor.
 
+<!--{{{ peek() {-->
 ```javascript
 peek() {
     if (this.array.length === 0)  {
@@ -1459,6 +1567,7 @@ myStack.peek();
 // Result
 // undefined
 ```
+<!--}}}-->
 
 What about `peak()`?, well Peak simply means, that we want to see the very end of
 the array. Remember with Stack it's Last In First Out. So, when we do a `peak()`
@@ -1476,6 +1585,7 @@ statement for check the array length.
 
 ##### Chunked `push()` method
 
+<!--{{{ push(value){-->
 ```javascript
 push(value){
     this.array.push(value);
@@ -1488,11 +1598,12 @@ myStack.push('discord');
 myStack.peek();
 
 // Result
-// Stack { array: [ 'google' ] }
-// Stack { array: [ 'google', 'Udemy' ] }
-// Stack { array: [ 'google', 'Udemy', 'Discord' ] }
-// Peek: Stack { array: [ 'google', 'Udemy', 'Discord'  ]  }
+Stack { array: [ 'google' ] }
+Stack { array: [ 'google', 'Udemy' ] }
+Stack { array: [ 'google', 'Udemy', 'Discord' ] }
+Peek: Stack { array: [ 'google', 'Udemy', 'Discord'  ]  }
 ```
+<!--}}}-->
 
 With push we get to delete all code, and simply say `this.array.push(value)`,
 How nice is that, now it is nice and clean. Comes pre-built with the array, we
@@ -1505,6 +1616,7 @@ it's the latest entry. How simple is that.
 
 ##### Chunked `pop()` method
 
+<!--{{{ pop(){-->
 ```javascript
 pop(){
     this.array.pop();
@@ -1517,10 +1629,11 @@ myStack.pop();
 myStack.pop();
 
 // Result
-// Stack { array: [ 'google', 'Udemy' ] }
-// Stack { array: [ 'google' ] }
-// Stack { array: [] }
+Stack { array: [ 'google', 'Udemy' ] }
+Stack { array: [ 'google' ] }
+Stack { array: [] }
 ```
+<!--}}}-->
 
 Now we get into `pop()`, it also going to be very simple, right? Absolutely
 feels good deleting code doesn't it?. What we do is `this.array.pop()` that
@@ -1551,7 +1664,7 @@ principle are going to be same, and if you are able to understand how the Stack
 data structure works, then you should have no problem building a Queue data
 structure.
 
-
+<!--{{{ class Node {-->
 ```javascript
 class Node {
     constructor(value) {
@@ -1588,6 +1701,7 @@ const myQueue = new Queue();
 //Pavel
 //Samir
 ```
+<!--}}}-->
 
 I've created a template to start off, and your job is create these three
 methods, `peek()` which we're familiar with, We want to peek and get the very
@@ -1614,6 +1728,7 @@ Good luck, and I see you in the next lecture, for the answer.
 
 ### Exercise - Solution Queue
 
+<!--{{{ class Node {-->
 ```javascript
 class Node {
     constructor(value) {
@@ -1675,11 +1790,13 @@ class Queue {
   //isEmpty;
 };
 ```
+<!--}}}-->
 
 #### Chunked code
 
 #### Chunked `peek()`
 
+<!--{{{ peek() {-->
 ```javascript
 peek() {
 
@@ -1692,6 +1809,7 @@ myQueue.peek():
 // Result
 // peek: null
 ```
+<!--}}}-->
 
 Let's implement our Queue data structure. The very first thing, we're going to
 do is the nice and simple `peek()` which simply tells us what is the very first
@@ -1701,6 +1819,7 @@ Queue.
 
 #### Chunked `enqueue()`
 
+<!--{{{ enqueue(value){-->
 ```javascript
 enqueue(value){
     const newNode = new Node(value);
@@ -1732,6 +1851,7 @@ myQueue.enqueue("Samir");
 
 myQueue.peek();
 ```
+<!--}}}-->
 
 We want to add our waitlist, again similar to what we did with Stacks, we're
 going to create a `newNode`, and we're going to instantiate this `new
@@ -1755,6 +1875,7 @@ which is going to make sure that `this.last` points to `null`.
 Finally we can't forget to increase the length by one, and then we can just
 simply `return this` our data structure.
 
+<!--{{{ myQueue.enqueue("Joy");-->
 ```javascript
 myQueue.enqueue("Joy");
 {
@@ -1768,15 +1889,15 @@ myQueue.enqueue("Joy");
     },
     "length": 1
 }
-
 ```
+<!--}}}-->
 
 So, let's have a look, we want to make create a line, so all we're going to do
 is say, we want `.enqueue("Joy")` if I click run, _first_ node I get `Joy` , with
 next is `null`; and _last_ node again `Joy`, with next `null`; and length of
 `1`, so far so good.
 
-
+<!--{{{ myQueue.enqueue("Matt");-->
 ```javascript
 myQueue.enqueue("Matt");
 {
@@ -1794,11 +1915,13 @@ myQueue.enqueue("Matt");
     "length": 2
 }
 ```
+<!--}}}-->
 
 What if `Matt`, we want `.enqueue("Matt")`, we now have _first_ Node that is
 `Joy`, and `last` one that is `Matt`. You can see here that the first node of
 `Joy` is pointing to _next_ node that is `Matt`.
 
+<!--{{{ myQueue.enqueue("Pavel");-->
 ```javascript
 myQueue.enqueue("Pavel");
 {
@@ -1847,6 +1970,7 @@ peek: Node {
   next: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } }
 }
 ```
+<!--}}}-->
 
 We add few more, we get `.enqueue("Pavel")` just inline, and then finally
 `.enqueue(Samir)` a little bit late but he got in line as well. If I click run,
@@ -1859,6 +1983,7 @@ end.
 
 #### Chunked `dequeue()`
 
+<!--{{{ dequeue(){-->
 ```javascript
 dequeue(){
     if (!this.first && this.length === 0) {
@@ -1887,6 +2012,7 @@ myQueue.dequeue();
 
 myQueue.peek();
 ```
+<!--}}}-->
 
 Once again it's very similar to a Stack, except that we grab the node from the
 beginning instead of it the end; So, we're first going to say with `if`
@@ -1906,6 +2032,7 @@ whoever is first now, because we're going to remove `Joy`, we want who is after
 `Joy`, that is `Matt` to be in first priority now.  Then we simply say
 `this.length--` to decrease the length, and we can `return this`.
 
+<!--{{{ myQueue.peek();-->
 ```javascript
 myQueue.peek();
 // Result
@@ -1915,6 +2042,7 @@ peek: Node {
 }
 
 myQueue.dequeue();
+
 // Result
 dequeue-list: Queue {
   first: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } },
@@ -1922,6 +2050,7 @@ dequeue-list: Queue {
   length: 3
 }
 ```
+<!--}}}-->
 
 Let's first of all run `myQueue.peek()` to see who should be coming out of the
 queue, and that is `Joy`; So if I do `myQueue.dequeue()` and I click run, we see
@@ -1932,6 +2061,7 @@ is pointing to that memory space; and JavaScript, the way it works is going to
 garbage collect and remove joy, if we wanted to hold a pointer to `Joy`, we
 could add:
 
+<!--{{{ const holdingPointer = this.first;-->
 ```javascript
 const holdingPointer = this.first;
 
@@ -1942,6 +2072,7 @@ holdingPointer: Node {
   next: Node { value: 'Matt', next: Node { value: 'Pavel', next: [Node] } }
 }
 ```
+<!--}}}-->
 
 So that, before we update whoever is first we can reference it with
 `holdingPointer`, so that we could potentially if we still want to use `Joy` for
@@ -1949,8 +2080,10 @@ example in waiting list app, maybe we still want do something to the user, we
 can do this and console logging `holdingPointer`, and still have access to the
 `Joy` node.
 
+<!--{{{ myQueue.dequeue();-->
 ```javascript
 myQueue.dequeue();
+
 // Result
 dequeue-list: Queue {
   first: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } },
@@ -1962,11 +2095,13 @@ holdingPointer: Node {
   next: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } }
 }
 ```
+<!--}}}-->
 
 Alright, let's finish this Queue, let's dequeue everybody from here, if I do
 `.dequeue()`, if I run now `Pavel` is first line, and `Samir` is last in line;
 and we still get access to `Matt`.
 
+<!--{{{ myQueue.dequeue();-->
 ```javascript
 myQueue.dequeue();
 // Result
@@ -1977,20 +2112,22 @@ dequeue-list: Queue {
 }
 holdingPointer: Node { value: 'Pavel', next: Node { value: 'Samir', next: null } }
 ```
+<!--}}}-->
 
 We try to run `.dequeue()` again, now we get `Samir` is last person on the list,
 and still we can access `Pavel` that not on the list anymore.
 
+<!--{{{ myQueue.dequeue();-->
 ```javascript
 myQueue.dequeue();
 // Result
 dequeue-list: Queue { first: null, last: null, length: 0 }
 holdingPointer: Node { value: 'Samir', next: null }
 ```
+<!--}}}-->
 
 Finally we can let `Samir` in as well; there we go, now we have an empty Queue,
 with still can access `Samir` as pointer.
-
 
 We've just implemented our own Queue data structure, well done, hope you had
 fun.
@@ -2024,10 +2161,12 @@ data structure like linked lists and arrays. We also talked about how to build
 Stacks with the arrays and Linked lists; also why we might not want to use an
 array to build Queues, and also build Queue data structure with linked list.
 
+<!--{{{ chapter-7-6.png-->
 </br>
 
 ![chapter-7-6.png](./images/chapter-7-6.png "Stack and Queues pros and cons")
 </br>
+<!--}}}-->
 
 We learned that Stacks and Queues are great for some fast operations that they
 have, such as removing and inserting, such as at the end of the data structure.

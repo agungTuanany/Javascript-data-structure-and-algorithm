@@ -21,10 +21,12 @@
 <!--{{{ 1 ## Linked List Introduction -->
 ## Linked List Introduction
 
+<!--{{{ chapter-6-1.png-->
 </br>
 
 ![chapter-6-1.png](./images/chapter-6-1.png "Linked list Introduction")
 </br>
+<!--}}}-->
 
 It's time to talk about our third data structure, and we're going to be talking
 about two types of linked list in the next coming lectures. `[1]` **Singly**,
@@ -47,13 +49,16 @@ weren't really ordered. How to solve this problems? Linked list to the rescue.
 
 So, does mean this we all should just be using linked list all the time and
 disregard arrays and hash tables, because linked list are the best data
-structure? No, _as always there are **tradeoffs** when it comes to data
+structure? No, _as always there are **trade-offs** when it comes to data
 structures_. In the next coming lectures, let's learn more about them, so we can
 get a clear picture.
+
+<!--{{{ chapter-6-2.png-->
 </br>
 
 ![chapter-6-2.png](./images/chapter-6-2.png "Linked list Introduction")
 </br>
+<!--}}}-->
 
 By the way, remember this above diagram, that I showed you in the has table
 chapter? And I said that when we had **collision**, one way to solved it was
@@ -70,10 +75,12 @@ are.
 <!--{{{ 2 ## What is a Linked List -->
 ## What is a Linked List
 
+<!--{{{ chapter-6-1.png-->
 </br>
 
 ![chapter-6-1.png](./images/chapter-6-1.png "Linked list Introduction")
 </br>
+<!--}}}-->
 
 What is a linked list? As the name suggests it's a list that is linked; that's
 answer is not very helpful can you actually explain it to us? Alright, as
@@ -104,6 +111,7 @@ data type.
 
 Let's take a look at some pseudo code,
 
+<!--{{{ const basket = ["apples", "grapes", "pears"];-->
 ```javascript
 const basket = ["apples", "grapes", "pears"];
 
@@ -120,6 +128,7 @@ apples
                   372 --> null
 */
 ```
+<!--}}}-->
 
 Up until now we learned how arrays work, and here I can just create a simple
 array, let's say a `basket` that contains our grocery list. We have _apples_, we
@@ -165,10 +174,12 @@ structure, let's do a fun little exercise.
 
 ### Linked List Example - visualgo
 
+<!--{{{ chapter-6-1.gif-->
 </br>
 
 ![chapter-6-1.gif](./images/gif/chapter-6-1.gif "Exercise why Linked list")
 </br>
+<!--}}}-->
 
 It's time for little exercise, why do you think linked list may be better than
 hash tables or array? Just from what we know right now. I want you to answer
@@ -201,10 +212,13 @@ simply resetting a few pointers, just like we saw in the animation.
 I can **insert** anything that I want, and the only changes that happen
 is in the middle of nodes that we insert to it. This is the same for
 **deleting** node in a linked list.
+
+<!--{{{ chapter-6-3.png-->
 </br>
 
 ![chapter-6-3.png](./images/chapter-6-3.png "Exercise Linked list")
 </br>
+<!--}}}-->
 
 We remember with array data structure, how when we wanted to insert something
 that wasn't at the end of the array, we had to add the item, let's say in memory
@@ -237,10 +251,13 @@ array. Even though, they're technically both `O(n)`. However, these **insert**
 that we can do in the middle of a linked list, is a lot better than array.
 
 What about hash tables?
+
+<!--{{{ chapter-6-4.png-->
 </br>
 
 ![chapter-6-4.png](./images/chapter-6-4.png "Exercise Linked list")
 </br>
+<!--}}}-->
 
 Remember hash tables, when we talked about hash tables, well just like hash
 tables, when we insert something into a linked list, we just scatter it all over
@@ -255,10 +272,12 @@ a hash tables;
 
 ### Linked List Big-O
 
+<!--{{{ chapter-6-5.png-->
 </br>
 
 ![chapter-6-5.png](./images/chapter-6-5.png "Linked List Big-O notations")
 </br>
+<!--}}}-->
 
 If we look at our Big-O of linked list, we can see that **_prepend_**, which is
 common language we say to add to the beginning of a linked list, **prepend** is
@@ -300,6 +319,7 @@ Computer Science topics. A pointer is simply is **_a reference to another place 
 memory, or another object, or another node_**. In JavaScript we can demonstrate
 it something like this,
 
+<!--{{{ let obj1 = {a; true};-->
 ```javascript
 let obj1 = {a; true};
 let obj2 = obj1;
@@ -335,6 +355,7 @@ console.log("obj2", obj2)       // [I]
 // [H]: obj1 { a: 'booya'  }
 // [G]: obj2 hello
 ```
+<!--}}}-->
 
 If I have an object, let's call it `obj1` that is a simple object that as `a` as
 `true` |`{a: true}`; And now we do something like `obj2 = obj1`. We've just
@@ -354,10 +375,13 @@ created a pointer here, saying `obj2` is going to reference `obj1` | (`obj2
 
 That's what pointer is. It's simply saying, "hey, this is where it is in
 memory". And when we look at our above linked list example,
+
+<!--{{{ chapter-6-2.gif-->
 </br>
 
 ![chapter-6-2.gif](./images/gif/chapter-6-2.gif "Linked list delete node")
 </br>
+<!--}}}-->
 
 When remove, let's say a node at index of `2 [77]`, we remove that and that just
 disappears from memory; how does that work?
@@ -407,8 +431,8 @@ I wanted to create a linked list that has `10`, pointing to `5`, pointing to
 `16`, nice little simple one. First off, how will we go about visualizing this
 in a language like JavaScript that doesn't have linked list.
 
+<!--{{{ const myLinkedList = {-->
 ```javascript
-
 // 10 --> 5 --> 16
 
 const myLinkedList = {
@@ -420,6 +444,7 @@ const myLinkedList = {
     }
 }
 ```
+<!--}}}-->
 
 Well we can simply that we have a new linked list, let just say here
 `myLinkedList`, and this is going to equal to an object that has a **head**
@@ -441,6 +466,7 @@ property.
 
 Let me show you what I mean,
 
+<!--{{{ const myLinkedList = {-->
 ```javascript
 // 10 --> 5 --> 16
 
@@ -457,6 +483,7 @@ const myLinkedList = {
     },
 };
 ```
+<!--}}}-->
 
 We have the head here, in which case it's `10` so we want to set `10` as our
 _value_, and this head is going to reference point to the next node, which will
@@ -469,6 +496,7 @@ So, this is what we want to create, a linked list, using this as our structure.
 
 ### Implement Linked List Structure
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 class Linkedlist {
     constructor(value) {}
@@ -476,6 +504,7 @@ class Linkedlist {
 
 const myLinkedList = new Linkedlist(10);
 ```
+<!--}}}-->
 
 We're going to create a class called `Linkedlist`, and this class will have the
 constructor, which is the function that gets run at the very beginning when we
@@ -491,6 +520,7 @@ So, in our case, we want to started with `10`, and ideally by running command
 `new Linkedlist(10)`, we've created the first part of our linked list, just the
 `10`.
 
+<!--{{{ constructor(value) {-->
 ```javascript
 constructor(value) {
     this.head = {
@@ -502,6 +532,7 @@ constructor(value) {
     this.length =  1
 }
 ```
+<!--}}}-->
 
 Within this constructor, we have `this.head` reference, because while we need to
 keep track of the _head_, and `this.head` is going to simply have a `value` that
@@ -533,6 +564,7 @@ length of the linked list_. This is optional, but I think it's good to keep
 track and because we have one item when we create this linked list; we give it
 a value, we'll give it a length of `1` (`this.length = 1`);
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 class Linkedlist {
     constructor(value) {
@@ -557,6 +589,7 @@ console.log(myLinkedList);
 //   length: 1
 // }
 ```
+<!--}}}-->
 
 So, we put the all the puzzle into one piece, If I run this, look at that,
 I have a linked list with object **_head_** have _value_ is `10`, and _next_ is
@@ -566,6 +599,7 @@ of `1`.
 
 ### Exercise - 1 create `append()` method
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 class Linkedlist {
     // ....
@@ -579,6 +613,7 @@ class Linkedlist {
 myLinkedList.append(5);
 myLinkedList.append(16);
 ```
+<!--}}}-->
 
 Congratulations, we just built our very first linked list. However it's time for
 a little bit of an exercise, Our list is not complete right? We need to create
@@ -603,6 +638,7 @@ Let me show you what I would done here.
 
 Final `append()` method,
 
+<!--{{{ append(value) {-->
 ```javascript
 append(value) {
 
@@ -649,15 +685,18 @@ console.log("==>[16]", JSON.stringify(myLinkedList, null, 4))
 //     "length": 3
 // }
 ```
+<!--}}}-->
 
 #### Chunked `append()` method
 
+<!--{{{ const newNode = {-->
 ```javascript
 const newNode = {
     value: value,
     next: null,
 };
 ```
+<!--}}}-->
 
 The first thing we would want to do is to create a new node with the _value_. We
 can do that quite easily saying `const newNode`, that's going to equal an
@@ -670,6 +709,7 @@ So, we have our `newNode` here, and we want to attach it now after the `10`,
 which is our very first node. Well we can simply do that by saying
 `this.tail.next`.
 
+<!--{{{ myLinkedList(5);-->
 ```javascript
 myLinkedList(5);
 
@@ -685,12 +725,14 @@ console.log(myLinkedList);
 console.log(myLinkedList.tail.value); // Result: 10
 console.log(myLinkedList.tail.next); // Result: null
 ```
+<!--}}}-->
 
 Remember, the _next_ value on _tail_ is equal _null_ (`myLinkedList.tail.next`);
 So, that is what is the _tail_ (`this.tail`), that is the last item in our list;
 Because this method (`append()`) doesn't know that we only have one item, we
 could have hundred items, we just want to _add at the end_.
 
+<!--{{{ this.tail.next = newNode;-->
 ```javascript
 this.tail.next = newNode;
 this.tail = newNode;
@@ -698,6 +740,7 @@ this.length++;
 
 return this;
 ```
+<!--}}}-->
 
 So, it's going grab the tail (`this.tail`) and then grab the _next_ value of the
 _tail_ (`myLinkedList.tail.next`). It's going grab the **_pointer_** of the
@@ -726,17 +769,19 @@ we do this right, we want to `return this` which is the `Linkedlist`. Remember
 We're going to say `return this`, so that we get back our linked list
 (`myLinkedList`).
 
+<!--{{{ myLinkedList.append(5);-->
 ```javascript
 myLinkedList.append(5);
 console.log(myLinkedList);
 
 // Result:
-// Linkedlist {
-//   head: { value: 10, next: { value: 5, next: null } },
-//   tail: { value: 5, next: null },
-//   length: 2
-// }
+Linkedlist {
+  head: { value: 10, next: { value: 5, next: null } },
+  tail: { value: 5, next: null },
+  length: 2
+}
 ```
+<!--}}}-->
 
 We see, when we run `myLinkedList.append(5)`, I've get return our linked list
 which has a _head_ with property of _value_ is `10`, and property _next_ is the
@@ -745,28 +790,30 @@ property is _null_. The _tail_ now have property of _value_ now which is `5`,
 and _next_ property is _null_; with a length now is `2`. It's look like it's
 working.
 
+<!--{{{ myLinkedList.append(16);-->
 ```javascript
 myLinkedList.append(16);
 console.log("==>[16]", JSON.stringify(myLinkedList, null, 4));
-// Result:
-// ==>[16] {
-//     "head": {
-//         "value": 10,
-//         "next": {
-//             "value": 5,
-//             "next": {
-//                 "value": 16,
-//                 "next": null
-//             }
-//         }
-//     },
-//     "tail": {
-//         "value": 16,
-//         "next": null
-//     },
-//     "length": 3
-// }
+Result:
+==>[16] {
+    "head": {
+        "value": 10,
+        "next": {
+            "value": 5,
+            "next": {
+                "value": 16,
+                "next": null
+            }
+        }
+    },
+    "tail": {
+        "value": 16,
+        "next": null
+    },
+    "length": 3
+}
 ```
+<!--}}}-->
 
 We do `myLinkedList.append(16)` as well, I use `JSON.stringify()` to print the
 logging with nice structure and readable, because the way logging works, it
@@ -787,6 +834,7 @@ Prepend is adding to the beginning of the list.
 
 ### Exercise - 2 create `prepend()` method
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 class Linkedlist {
     // ...
@@ -799,6 +847,7 @@ class Linkedlist {
 
 myLinkedList.prepend(1);
 ```
+<!--}}}-->
 
 Let's say that in our list (`10 --> 5 --> 16`) we want to add `1` as our new
 head now instead of `10`; So our linked list now become `1 --> 10 --> 5 --> 16`,
@@ -810,6 +859,7 @@ a _value_ as parameter. And we're going to be able to run a command like
 
 Final `prepend()` method
 
+<!--{{{ prepend(value) {-->
 ```javascript
 prepend(value) {
 
@@ -831,44 +881,45 @@ console.log("==>{1}", JSON.stringify(myLinkedList, null, 4))
 
 // Result:
 
-// Linkedlist {
-//   head: { value: 1, next: { value: 10, next: [Object] } },
-//   tail: { value: 29, next: null },
-//   length: 5
-// }
-// ==>{1} {
-//     "head": {
-//         "value": 1,
-//         "next": {
-//             "value": 10,
-//             "next": {
-//                 "value": 5,
-//                 "next": {
-//                     "value": 16,
-//                 }
-//             }
-//         }
-//     },
-//     "tail": {
-//         "value": 16,
-//         "next": null
-//     },
-//     "length": 4
-// }
-
-
+Linkedlist {
+  head: { value: 1, next: { value: 10, next: [Object] } },
+  tail: { value: 29, next: null },
+  length: 5
+}
+==>{1} {
+    "head": {
+        "value": 1,
+        "next": {
+            "value": 10,
+            "next": {
+                "value": 5,
+                "next": {
+                    "value": 16,
+                }
+            }
+        }
+    },
+    "tail": {
+        "value": 16,
+        "next": null
+    },
+    "length": 4
+}
 ```
+<!--}}}-->
 
 #### Chunked `prepend()` method
 
 Let's look at what the code should like,
 
+<!--{{{ const newNode = {-->
 ```javascript
 const newNode = {
     value: value,
     next: null,
 };
 ```
+<!--}}}-->
 
 The very first thing we do, just like we did with `append()`, is to create the
 node, that we're going to add. So, I'm going to say `newNode`, that have two
@@ -880,6 +931,7 @@ to reference the very first item in our list which is `10`, but for now just
 trust me, that this `next` we want to leave as `nuill`, because we can do that
 later. Right now we're just creating an empty node with the `value`.
 
+<!--{{{ newNode.next = this.head;-->
 ```javascript
 newNode.next = this.head;
 this.head = newNode;
@@ -887,6 +939,7 @@ this.length++;
 
 return this;
 ```
+<!--}}}-->
 
 Next, we want to say our `newNode.next` which this value (`next: null`), is going
 to equal `this.head`. So, we've just created a _pointer_ saying that the new
@@ -902,17 +955,19 @@ the length of our list,
 Finally if we `return this` our linked list, and we can run the method, we get
 the result,
 
+<!--{{{ myLinkedList.prepend(1);-->
 ```javascript
 myLinkedList.prepend(1);
 console.log(myLinkedList);
 
-// Result:
-// Linkedlist {
-//   head: { value: 1, next: { value: 10, next: [Object] } },
-//   tail: { value: 16, next: null },
-//   length: 4
-// }
+//Result:
+Linkedlist {
+  head: { value: 1, next: { value: 10, next: [Object] } },
+  tail: { value: 16, next: null },
+  length: 4
+}
 ```
+<!--}}}-->
 
 Look at that, we've prepend `1` to the very first item on the list, the
 **_head_** is now referencing `10`, and the **_tail_** of our list is now `16`.
@@ -935,6 +990,7 @@ to constantly say `newNode` with object inside of it `value: value`, `next:
 null`. Usually we want to keep things DRY. Many implementation of linked list,
 you'll see something like this, where `newNode` is actually another class.
 
+<!--{{{ class Node {-->
 ```javascript
 class Node {
     constructor(value) {
@@ -960,6 +1016,7 @@ class Linkedlist {
     }
 }
 ```
+<!--}}}-->
 
 For example, I can create a new class, and this is how object oriented
 programming usually works, we have classes that interact with other classes ti
@@ -1004,6 +1061,7 @@ I think we should code those as well to fully understand how linked list work.
 This exercise is going to be a little bit tougher. But, I'm going to give you
 a heads up, that there's going to be some _looping involved_.
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 // 1 --> 10 --> 5 --> 16
 class Linkedlist {
@@ -1028,6 +1086,7 @@ class Linkedlist {
 
 myLinkedList.insert(2, 99);
 ```
+<!--}}}-->
 
 We want to create a `insert()` method, in this method is going to have an
 `index` and `value` as parameter. Because, we're going to want to be able to say
@@ -1042,10 +1101,13 @@ mean I want to insert `99` and have that point to `5` (`1 --> 10 --> 99 -->
 I want to warn you, this can get little tricky, and the best way to really think
 about it, is to grab a piece of paper and a pen and draw out the steps that you
 should do.
+
+<!--{{{ chapter-6-3.gif-->
 </br>
 
 ![chapter-6-3.gif](./images/gif/chapter-6-3.gif "Linked list insert node")
 </br>
+<!--}}}-->
 
 A good way to practice this, and make sure you get it right, is to use the
 [visualgo](https://visualgo.net/en/list) and practice _inserting_ and see what
@@ -1059,6 +1121,7 @@ we're going to do some sort of traversal to find the index.
 
 I also want to code a quick `printList()` function;
 
+<!--{{{ Linkedlist {-->
 ```javascript
 Linkedlist {
   head: { value: 1, next: { value: 10, next: [Object] } },
@@ -1066,6 +1129,7 @@ Linkedlist {
   length: 4
 }
 ```
+<!--}}}-->
 
 So that instead of using way of this way of printing our list, which as it gets
 deeper and deeper, it gets harder and harder to understand, I'm going to just
@@ -1095,12 +1159,14 @@ something while a condition is met_.
 
 At last, we can simply return the array. If I run the `printList()`,
 
+<!--{{{ myLinkedList.printList();-->
 ```javascript
 myLinkedList.printList();
 
 // Result
 // [ 1, 10, 5, 16 ]
 ```
+<!--}}}-->
 
 We get back our linked list as an array.
 
@@ -1111,6 +1177,7 @@ So, using the `printList()` command to check your work, see if you can create
 
 Final `insert()` method,
 
+<!--{{{ insert(index, value) {-->
 ```javascript
 insert(index, value) {
     // check params
@@ -1159,9 +1226,11 @@ traverseToIndex(index) {
     return currentNode;
 }
 ```
+<!--}}}-->
 
 ### Chunked `insert()` method
 
+<!--{{{ if (index >= this.length) {-->
 ```javascript
 // Check params
 if (index >= this.length) {
@@ -1176,6 +1245,7 @@ if (index === 0) {
     return this.printList();
 }
 ```
+<!--}}}-->
 
 The very first thing I want to do, is well first of all check my parameters and
 this is something that you usually want to do with all methods, I know we
@@ -1195,12 +1265,14 @@ To simplify things, I think is good enough and we can just say return
 
 We can try this by simply run this command,
 
+<!--{{{ myLinkedList.insert(200, 98);-->
 ```javascript
 myLinkedList.insert(200, 98);
 
 // Result
 // [ 1, 10, 5, 16, 98 ]
 ```
+<!--}}}-->
 
 Now, what if I'm inserting index of `2`?
 
@@ -1210,6 +1282,7 @@ myLinkedList.insert(2, 98);
 
 Now, it's the hard part.
 
+<!--{{{ const newNode = {-->
 ```javascript
 const newNode = {
     value: value,
@@ -1219,6 +1292,7 @@ const newNode = {
 const leader = this.traverseToIndex(index - 1);
 const holdingPointer = leader.next;
 ```
+<!--}}}-->
 
 We want to first create the `newNode` and remember we can create a new class
 instance, if we wanted to, but in our case we'll just create a new object that
@@ -1228,6 +1302,7 @@ before.
 Comes the trick part; And I like to comment this out or at least visualize it so
 we understand what we are doing,
 
+<!--{{{ node list:        [1, 10, 5, 16, 98]-->
 ```javascript
 node list:        [1, 10, 5, 16, 98]
 index of:          0   1  2   3   4
@@ -1237,6 +1312,7 @@ node1(10)---------------node2(5)
 
         inserted-node(99)
 ```
+<!--}}}-->
 
 We have two nodes, that are connected, and then we have new node that come
 along, an says "Hey, I want you to insert me right in between", what should the
@@ -1270,6 +1346,7 @@ that we want of the list. So I'm going to do is `- 1`,
 This new method `traverseToIndex()` we're going to create it. I have `this`
 keyword here, because again it's a method onto `Linkedlist` class.
 
+<!--{{{ traverseToIndex(index) {-->
 ```javascript
 traverseToIndex(index) {
     // check params
@@ -1287,6 +1364,7 @@ traverseToIndex(index) {
     return currentNode;
 }
 ```
+<!--}}}-->
 
 I'm going to say `traverseToIndex` that going to get an `index`, and this is
 where we do our traversal or looping. We want to do _check for parameter_ and
@@ -1336,6 +1414,7 @@ going to pointer to `newNode`, (`leader.next = newNode`). Remember, because of
 how references is work, we've deleted the reference of `[5]` so, `[10]` no
 longer points to `[5]`, but we've saved the reference to it in `holdingPointer`.
 
+<!--{{{ node1(10)           node2(5)-->
 ```javascript
 node1(10)           node2(5)
     \
@@ -1343,10 +1422,12 @@ node1(10)           node2(5)
       \
       inserted-node(99)
 ```
+<!--}}}-->
 
 We have remove the references to `node2`, now `[10]` points to `[99]`. What we
 do next? We need inserted node to point `[5]`.
 
+<!--{{{ node1(10)           node2(5)-->
 ```javascript
 node1(10)           node2(5)
     \                   /
@@ -1354,6 +1435,7 @@ node1(10)           node2(5)
       \               /
       inserted-node(99)
 ```
+<!--}}}-->
 
 That's pretty simple, we simply say `newNode.next` is going to equal to
 `holdingPointer`, (`newNode.next = holdingPointer`), the `[5]` that we are
@@ -1367,11 +1449,13 @@ Finally we say `this.length++`, because we added to the list. Just we know we
 did it properly we can return `this.printList()`. Once we insert something we
 just want to print the list. Let see if that works.
 
+<!--{{{ myLinkedList.printList();-->
 ```javascript
 myLinkedList.printList(); // [ 1, 10, 5, 16, 98 ]
 myLinkedList.insert(2, 99); // [ 1, 10, 99, 5, 16, 98 ]
 myLinkedList.insert(20, 79); // [ 1, 10, 99, 5, 16, 98, 79 ]
 ```
+<!--}}}-->
 
 Before we had `[ 1, 10, 5, 16, 98 ]`, when we run `insert(2, 99)` we get back
 the list `[ 1, 10, 99, 5, 16, 98 ]`. If we do to test one more time `insert(20,
@@ -1399,6 +1483,7 @@ own, that is `delete O(n)`. Using something very similar to how we did with
 `insert()`; Or I like to call this `remove()`, let's have a `remove()` that have
 the parameter `index` of what you want to remove.
 
+<!--{{{ class Linkedlist {-->
 ```javascript
 class Linkedlist {
     // ...
@@ -1410,6 +1495,7 @@ class Linkedlist {
     }
 }
 ```
+<!--}}}-->
 
 Good luck coding this.
 
@@ -1417,6 +1503,7 @@ Good luck coding this.
 
 Final `remove()` method,
 
+<!--{{{ remove(index) {-->
 ```javascript
 remove(index) {
     // Check Parameters
@@ -1429,6 +1516,7 @@ remove(index) {
     return this.printList();
 }
 ```
+<!--}}}-->
 
 ### Chunked `remove()` method
 
@@ -1448,6 +1536,7 @@ and instead point `[10]` to `[5]`; and because of how memory works, and garbage
 collected languages like JavaScript as soon as we remove that reference. `[99]`
 is going to get deleted.
 
+<!--{{{ node1(10)           node2(5)-->
 ```javascript
 node1(10)           node2(5)
     \
@@ -1455,16 +1544,19 @@ node1(10)           node2(5)
       \
       deleted-node(99)
 ```
+<!--}}}-->
 
 All we're saying is, remove `deleted-node` _pointer_ from `node2`
 
+<!--{{{ node1(10)--------------node2(5)-->
 ```javascript
 node1(10)--------------node2(5)
 
       deleted-node(99)
 ```
+<!--}}}-->
 
-and then just updated `node1` _pointer_ reference to `node2`.
+,and then just updated `node1` _pointer_ reference to `node2`.
 
 ```javascript
 node1(10)--------------node2(5)
@@ -1472,6 +1564,7 @@ node1(10)--------------node2(5)
 
 I hope above little diagram make sense. Let's code this out.
 
+<!--{{{ const leader = this.traverseToIndex(index - 1);-->
 ```javascript
 const leader = this.traverseToIndex(index - 1);
 const unwantedNode = leader.next;
@@ -1481,6 +1574,7 @@ this.length--;
 
 return this.printList();
 ```
+<!--}}}-->
 
 First, we find the `leader` like just we did in `insert()` function by using
 `this.traverseToIndex(index - 1)`. Now, we have the `leader`, and we can point
@@ -1498,11 +1592,13 @@ make sure that we get the pointer that is `[99]` to `[5]`, which is
 Of course, we don't forget we have to decrease the length (`this.length`),
 because we're removing a node. The last, we can just `return this.printList()`
 
+<!--{{{ myLinkedList.printList()-->
 ```javascript
 myLinkedList.printList(); // [ 1, 10, 99, 5, 16, 98, 79 ]
 myLinkedList.remove(2); // [ 1, 10, 5, 16, 98, 79 ]
 myLinkedList.remove(2); // [ 1, 10, 16, 98, 79 ]
 ```
+<!--}}}-->
 
 I'm going to say, that we want to remove index of `2` (`remove(2)`) to remove
 `[99]`. If we run this function we get back a linked list `[ 1, 10, 5, 16, 98, 79 ]`.
@@ -1512,10 +1608,13 @@ deleted.
 
 Once again, we know why `delete` is an operation of `O(n)`, because we have to
 `traverseToIndex`.
+
+<!--{{{ chapter-6-4.gif-->
 </br>
 
 ![chapter-6-4.gif](./images/gif/chapter-6-4.gif "remove() method or delete operation in linked list")
 </br>
+<!--}}}-->
 
 Going back to [visualgo](https://visualgo.net/en/list), we now have a better
 understanding of how above diagram works. If I remove the _tail_ I've to
@@ -1551,10 +1650,13 @@ a good idea of how they work, but what is **doubly linked list**?
 
 Doubly linked list is similar except it **_links to the node before it_**. Let's
 have a look a little animation below,
+
+<!--{{{ chapter-6-5.gif-->
 </br>
 
 ![chapter-6-5.gif](./images/gif/chapter-6-5.gif "Doubly linked list")
 </br>
+<!--}}}-->
 
 We have a head node, let's say we just have one node, you see we have an extra
 block here; We're not really sure what this does yet. Now, if we want to add
@@ -1595,6 +1697,7 @@ Let's go have a look at how to do that.
 
 Final `DoublyLinkedList` class,
 
+<!--{{{ constructor(value) {-->
 ```javascript
 class DoublyLinkedList {
     constructor(value) {
@@ -1707,9 +1810,11 @@ class DoublyLinkedList {
     }
 }
 ```
+<!--}}}-->
 
 ### Chunked `DoublyLinkedList` class
 
+<!--{{{ constructor(value) {-->
 ```javascript
 constructor(value) {
 
@@ -1722,6 +1827,7 @@ constructor(value) {
     this.length = 1;
 };
 ```
+<!--}}}-->
 
 We add extra features of an extra pointer for convert the singly linked list
 code into doubly linked list, let go line by line. Luckily for us it's not that
@@ -1730,6 +1836,7 @@ one extra piece of information is we need to add now is `this.prev` pointer will
 be `null` to begin with, so the _head_ is going to point to `null`, and
 everything else is still the same.
 
+<!--{{{ append(value) {-->
 ```javascript
 append(value) {
 
@@ -1755,20 +1862,21 @@ myDoublyLinkedList.append(16)
 console.log(myDoublyLinkedList)
 
 // Result:
-// DoublyLinkedList {
-//   head: <ref *1> {
-//     value: 10,
-//     next: { value: 5, prev: [Circular *1], next: [Object] }
-//     prev: null,
-//   },
-//   tail: <ref *2> {
-//     value: 16,
-//     next: null
-//     prev: { value: 5, prev: [Object], next: [Circular *2] },
-//   },
-//   length: 3
-// }
+DoublyLinkedList {
+  head: <ref *1> {
+    value: 10,
+    next: { value: 5, prev: [Circular *1], next: [Object] }
+    prev: null,
+  },
+  tail: <ref *2> {
+    value: 16,
+    next: null
+    prev: { value: 5, prev: [Object], next: [Circular *2] },
+  },
+  length: 3
+}
 ```
+<!--}}}-->
 
 What happens when we append something in `DoublyLinkedList`? We're going to add
 a `newNode` that also has `prev` property that points points to `null`.
@@ -1795,6 +1903,7 @@ All we've added is the **_previous reference_**.
 
 Now let's do a `prepend()`, that is to add at the beginning of the list.
 
+<!--{{{ prepend(value) {-->
 ```javascript
 prepend(value) {
 
@@ -1816,23 +1925,25 @@ prepend(value) {
 myDoublyLinkedList.prepend(1)
 console.log(myDoublyLinkedList)
 printList()
+
 // Result:
-// DoublyLinkedList {
-//   head: <ref *1> {
-//     value: 1,
-//     next: { value: 10, next: [Object], prev: [Circular *1] },
-//     prev: null
-//   },
-//   tail: <ref *2> {
-//     value: 16,
-//     prev: { value: 5, prev: [Object], next: [Circular *2] },
-//     next: null
-//   },
-//   length: 4
-// }
-//
-// [ 1, 10, 5, 16  ]
+DoublyLinkedList {
+  head: <ref *1> {
+    value: 1,
+    next: { value: 10, next: [Object], prev: [Circular *1] },
+    prev: null
+  },
+  tail: <ref *2> {
+    value: 16,
+    prev: { value: 5, prev: [Object], next: [Circular *2] },
+    next: null
+  },
+  length: 4
+}
+
+[ 1, 10, 5, 16  ]
 ```
+<!--}}}-->
 
 We once again to add a new property which will be `prev` that will equal to
 `null` for now. We want to keep everything the same way; we want to make sure
@@ -1851,7 +1962,7 @@ So, we test with `prepend(1)` to the beginning at the list, We see that our
 16]` as we expected.
 
 We going to next method, the `insert()`, how would that work?
-
+<!--{{{ insert(index, value) {-->
 ```javascript
 insert(index, value) {
     // Check for proper params
@@ -1881,24 +1992,25 @@ insert(index, value) {
     return this.printList()
 };
 
-myDoublyLinkedList.insert(1, 99)
+myDoublyLinkedList.insert(1, 99);
 
 // Result:
-// insert: DoublyLinkedList {
-//   head: <ref *1> {
-//     value: 1,
-//     next: { value: 99, next: [Object], prev: [Circular *1] },
-//     prev: null
-//   },
-//   tail: <ref *2> {
-//     value: 16,
-//     prev: { value: 5, prev: [Object], next: [Circular *2] },
-//     next: null
-//   },
-//   length: 5
-// }
-// [ 1, 99, 10, 5, 16 ]
+insert: DoublyLinkedList {
+  head: <ref *1> {
+    value: 1,
+    next: { value: 99, next: [Object], prev: [Circular *1] },
+    prev: null
+  },
+  tail: <ref *2> {
+    value: 16,
+    prev: { value: 5, prev: [Object], next: [Circular *2] },
+    next: null
+  },
+  length: 5
+}
+[ 1, 99, 10, 5, 16 ]
 ```
+<!--}}}-->
 
 We go line by line, the check `if` parts, everything's OK. We have `newNode`, so
 again we'll add a `prev` property that will be `null` for now. We still grabbing
@@ -1963,10 +2075,12 @@ impressed.
 <!--{{{ 9 ## Singly VS Doubly Linked List -->
 ## Singly VS Doubly Linked List
 
+<!--{{{ chapter-6-6.png-->
 </br>
 
 ![chapter-6-6.png](./images/chapter-6-6.png "Singly vs Doubly linked list")
 </br>
+<!--}}}-->
 
 We've learn about singly and doubly linked list. So let's talk about when you
 should use one over the other.
@@ -2017,6 +2131,7 @@ to see.
 <!--{{{ 10 ## Exercise Reverse Method -->
 ## Exercise Reverse Method
 
+<!--{{{ class DoublyLinkedList {-->
 ```javascript
 class DoublyLinkedList {
     // ...
@@ -2027,6 +2142,7 @@ class DoublyLinkedList {
     }
 }
 ```
+<!--}}}-->
 
 One of the most popular interview questions when it comes to linked list is to
 **_reverse a linked list_**. What I mean by that? Well, an interviewers is going
@@ -2047,6 +2163,7 @@ How you go about doing this? Good luck for the exercise.
 
 Final `reverse()` method on singly linked list,
 
+<!--{{{ reverse() {-->
 ```javascript
 // List: [1, 10, 16, 88];
 
@@ -2078,16 +2195,18 @@ myLinkedList.reverse()
 
 // Result:
 
-// Linkedlist {
-//   head: { value: 88, next: { value: 16, next: [Object] } },
-//   tail: { value: 1, next: null },
-//   length: 4
-// }
-// [ 88, 16, 10, 1 ]
+Linkedlist {
+  head: { value: 88, next: { value: 16, next: [Object] } },
+  tail: { value: 1, next: null },
+  length: 4
+}
+[ 88, 16, 10, 1 ]
 ```
+<!--}}}-->
 
 ### Chunked `reverse()` method
 
+<!--{{{ // List: [1, 10, 16, 88];-->
 ```javascript
 // List: [1, 10, 16, 88];
 
@@ -2096,6 +2215,7 @@ if (!this.head.next) {
     return this.head
 };
 ```
+<!--}}}-->
 
 The first thing we want to do, is to do a bit a check, imagine if we only had
 one item in the list. If there's one node or item in the list, then well we
@@ -2116,10 +2236,12 @@ well.
 
 Otherwise let go into the fun coding part.
 
+<!--{{{ let first = this.head;-->
 ```javascript
 let first = this.head;
 let second = first.next;
 ```
+<!--}}}-->
 
 The first thing we want to do, is say we want to have the first item `first` is
 equal to `this.head`. We just keeping track of it in `first` variable. So, we
@@ -2128,6 +2250,7 @@ going to say, we now have a reference to `this.head`,
 We also have a reference now to the second item in the list. So we write `second
 = first.next`. We now have `first` and `second`, we can do some looping.
 
+<!--{{{ while (second) {-->
 ```javascript
 while (second) {
     let temp = second.next;
@@ -2136,6 +2259,7 @@ while (second) {
     second = temp;
 }
 ```
+<!--}}}-->
 
 We can say while  the `second` node exists, that is as long as `second` is not
 null. So as long as that's happening, we're going to create a temporary variable
@@ -2166,10 +2290,12 @@ loop through; and do the same thing where we have the pointer `[10]` to `[16]`
 reversed, so that `[16]` points to `[10]`, and we changed a variable so hat it's
 `[16]` and `[88]`.
 
+<!--{{{ this.head.next = null;-->
 ```javascript
 this.head.next = null;
 this.head = first;
 ```
+<!--}}}-->
 
 We loop through until the final thing we need to do is to say `this.head`,
 because `this.head` still have value of `[1]` in it. We are going to say `.next`
@@ -2196,19 +2322,20 @@ by looking at this code, it's  really hard for you to understand what's going
 on. I recommend you code this along step by step, perhaps console logging it to
 understand what's going on.
 
+<!--{{{ console.log(this);-->
 ```javascript
 console.log(this);
 return printList();
 
 // Result:
-// Linkedlist {
-//   head: { value: 88, next: { value: 16, next: [Object] } },
-//   tail: { value: 1, next: null },
-//   length: 4
-// }
-// [ 88, 16, 10, 1 ]
-
+Linkedlist {
+  head: { value: 88, next: { value: 16, next: [Object] } },
+  tail: { value: 1, next: null },
+  length: 4
+}
+[ 88, 16, 10, 1 ]
 ```
+<!--}}}-->
 
 At last we should return something, let's return `printList()` on the screen,
 otherwise we get `undefined`. Let's also log `this`, so we get entire linked
@@ -2244,10 +2371,12 @@ Science. Also a very popular question when it comes to interviewing.
 
 ### Linked List Pros and Cons
 
+<!--{{{ chapter-6-7.png-->
 </br>
 
 ![chapter-6-7.png](./images/chapter-6-7.png "Linked list pros and cons")
 </br>
+<!--}}}-->
 
 We learned that when it comes to linked list, there's **no random access** in
 the sense that when looking for something, you have to actually **traverse the
@@ -2278,10 +2407,12 @@ _file system_ on your computer, or even browser history right? When you back and
 forth on a browser, you can think of that as a linked list, because you can
 traverse one by one from one place to another.
 
+<!--{{{ chapter-6-8.png-->
 </br>
 
 ![chapter-6-8.png](./images/chapter-6-8.png "hash tables data structures")
 </br>
+<!--}}}-->
 
 Remember with our has tables, how we had this issue of **collision**. When we
 had a collision, we had to do something like like we combined `John Smith` and
@@ -2292,6 +2423,7 @@ class](./../chapter-5-data-structures-has-tables/example.js) that we created, if
 we scroll down to the `set()` method, where we set a key and value in the has
 table.
 
+<!--{{{ set(key, value) {-->
 ```javascript
 set(key, value) {
 
@@ -2308,6 +2440,7 @@ set(key, value) {
     return this.data;
 }; // O(1)
 ```
+<!--}}}-->
 
 We did a check `if (!this.data[address])` exists, and then afterwards we used an
 array to push our items (`this.data[address].push([key, value])`) in case we had
@@ -2334,7 +2467,7 @@ as you can see the linked list are related to something we're going to talk
 about coming up, that is **trees** and **grass**.
 
 At the end of the day, we've just managed to add another data structure to our
-toolbelt as engineers. Congratulations and let's learn about more data structure
+"tool-belt" as engineers. Congratulations and let's learn about more data structure
 in the next chapter.
 
 **[⬆ back to top](#table-of-contents)**

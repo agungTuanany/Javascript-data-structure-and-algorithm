@@ -23,10 +23,12 @@
 
 ## searching + traversal introduction
 
+<!--{{{ chapter-12-1.png-->
 </br>
 
 ![chapter-12-1.png](./images/chapter-12-1.png "Searching introduction")
 </br>
+<!--}}}-->
 
 We've talked about Recursion and Sorting, we have a few more to go. In this
 section, we're going to talk about **Searching and Traversal**, including
@@ -46,10 +48,12 @@ things so fast?
 
 Well, in this section we're going to build this foundation of how it all works.
 
+<!--{{{ chapter-12-2.png-->
 </br>
 
 ![chapter-12-2.png](./images/chapter-12-2.png "Searching introduction")
 </br>
+<!--}}}-->
 
 We're going to be talking about a few types of Searching and Traversal, and
 hopefully by the end of it all, you're going to understand how places like,
@@ -75,10 +79,12 @@ until all the elements have been searched.
 
 Let's take a look at visual,
 
+<!--{{{ chapter-12-1.gif-->
 </br>
 
 ![chapter-12-1.gif](./images/gif/chapter-12-1.gif "Linear Search")
 </br>
+<!--}}}-->
 
 Linear Search is simply this. We have items that can be nodes, that can be
 numbers, that can be anything, and we go one by one looking through the list.
@@ -95,6 +101,7 @@ type of Sorting is very familiar to us.
 
 For example, if we take a look at JavaScript,
 
+<!--{{{ var beasts = ['Centaur', 'Godzilla', 'Mosura', 'Minotaur', 'Hydra', 'Nessie'];-->
 ```javascript
 var beasts = ['Centaur', 'Godzilla', 'Mosura', 'Minotaur', 'Hydra', 'Nessie'];
 
@@ -110,6 +117,7 @@ beasts.find(function(item) {
 
 beasts.includes('Godzilla');
 ```
+<!--}}}-->
 
 I have a list above, of `beasts`, and let's say, we're looking for `Godzilla`.
 There's many way that I could search for this item `Godzilla` in this list. One
@@ -135,10 +143,12 @@ large, with Linear Time `O(n)` is OK, but it's not the fastest.
 We **can't** use Linear Search to index Websites like Google, or search for
 friends like Facebook, because it's going to cost us a lot of time.
 
+<!--{{{ chapter-12-2.gif-->
 </br>
 
 ![chapter-12-2.gif](./images/gif/chapter-12-2.gif "Linear Search")
 </br>
+<!--}}}-->
 
 Is there a better way? Well, what if the list of our data here was, perhaps
 sorted, would that help us in any way? Would we be able to improve, let's say
@@ -158,10 +168,12 @@ a Sorted  List?
 
 Just for this example, let's add an extra number to our list,
 
+<!--{{{ chapter-12-3.png-->
 </br>
 
 ![chapter-12-3.png](./images/chapter-12-3.png "Binary Search")
 </br>
+<!--}}}-->
 
 Let's say I was looking for `34`, and I knew that my list, let's say **array was
 sorted**. What's a better way to go about it, instead of checking every single
@@ -171,48 +183,57 @@ Well, we can use something called Binary Search, because we know _list is
 sorted_, we can discard half the items instead of one at a time, let me sow
 you.
 
+<!--{{{ chapter-12-3.gif-->
 </br>
 
 ![chapter-12-3.gif](./images/gif/chapter-12-3.gif "Binary Search Animation")
 </br>
+<!--}}}-->
 
 We can start in the middle of the list, and say is `9` higher or lower than
 `34`? Well, `34` is higher than `9`, so let's discard everything to the left of
 it.
 
+<!--{{{ chapter-12-4.gif-->
 </br>
 
 ![chapter-12-4.gif](./images/gif/chapter-12-4.gif "Binary Search Animation")
 </br>
+<!--}}}-->
 
 Then, we go to the middle index again, in this case there's no technically
 a medium, so let's just choose `12`, go the left of the media. Is `12` higher or
 lower than `34`? Well, it's definitely lower, so let's remove everting to the
 left of it.
 
+<!--{{{ chapter-12-5.gif-->
 </br>
 
 ![chapter-12-5.gif](./images/gif/chapter-12-5.gif "Binary Search Animation")
 </br>
+<!--}}}-->
 
 Then, let's find the middle index; and, Oh we just found `34`. Instead of going
 through the item one by one, we did that in **three operations**, and this looks
 familiar right?
 
+<!--{{{ chapter-12-4.png-->
 </br>
 
 ![chapter-12-4.png](./images/chapter-12-4.png "Binary Search")
 </br>
+<!--}}}-->
 
 It's something we learned about when we talked about Trees, specifically Binary
 Search Trees, because if our data is sorted, we can do better than `O(n)` or
 _linear time_,
 
+<!--{{{ chapter-12-6.gif-->
 </br>
 
 ![chapter-12-6.gif](./images/gif/chapter-12-6.gif "Binary Search Animation")
 </br>
-
+<!--}}}-->
 
 Because this Sorted List might remind of something. We're essentially creating
 a Binary Search Tree.
@@ -239,10 +260,12 @@ item, `[2]` and decide from there, whether item you're looking for is in the
 left or the right of the list?, and because the List is Sorted, you can make
 that decision very easily, with just comparing things;
 
+<!--{{{ chapter-12-7.gif-->
 </br>
 
 ![chapter-12-7.gif](./images/gif/chapter-12-7.gif "Binary Search Animation")
 </br>
+<!--}}}-->
 
 We just keep going until we find what we want, in this case number `34`. We make
 `3` decisions.
@@ -266,10 +289,12 @@ With Linear Search we have `for-loops`. With Binary Search Tree, we have our
 'lookup()' method, where we checked the **_left node_** and the **_right
 node_**, and divide up the list using a `while-loop` in half each time.
 
+<!--{{{ chapter-12-2.png-->
 </br>
 
 ![chapter-12-2.png](./images/chapter-12-2.png "Searching or Traversals")
 </br>
+<!--}}}-->
 
 So, we know how to do Linear Search and Binary Search. We know that Binary
 Search is going to be `O(Log n)` Time Complexity **versus** Linear Search which
@@ -300,10 +325,12 @@ There are times when we want to do something called Traversal, and the name
 Traversal and Search s often used interchangeably, sometimes meaning the same
 things, sometimes not.
 
+<!--{{{ chapter-12-8.gif-->
 </br>
 
 ![chapter-12-8.gif](./images/gif/chapter-12-8.gif "Graph - Tree Traversal")
 </br>
+<!--}}}-->
 
 Up until now we talked about Binary Search Trees, and we knew what we're looking
 for, and we always knew where to go, left or right; but, other times we want to
@@ -331,10 +358,12 @@ Up until now, we did `loops` to visit all of our Data Structure. Like arrays,
 Linked List, Hash Tables, Queues, Stack. So, how do we go about doing this in
 a Data Structure like a Tree or even a Graph?
 
+<!--{{{ chapter-12-5.png-->
 </br>
 
 ![chapter-12-5.png](./images/chapter-12-5.png "Graph Traversal - Tree Traversal")
 </br>
+<!--}}}-->
 
 Luckily for us there's **two ways** of doing this, that we need to learn. `[1]`
 Do we have to do a Tree Traversal? Or `[2]` do we have to do a Graph Traversal?
@@ -379,20 +408,24 @@ The way Breadth First search works is, that you start with the _root-node_ and
 _move left to right_ across the second level, then move left to right across the
 third level, and so on and so forth.
 
+<!--{{{ chapter-12-9.gif-->
 </br>
 
 ![chapter-12-9.gif](./images/gif/chapter-12-9.gif "Breadth First Search introduction")
 </br>
+<!--}}}-->
 
 You just keep going from left to the right, level by level, and you keep going
 until you find the node your are looking for, or the Tree ends.
 
 Let's have a look at another visual Breadth First Search works like this,
 
+<!--{{{ chapter-12-10.gif-->
 </br>
 
 ![chapter-12-10.gif](./images/gif/chapter-12-10.gif "Breadth First Search introduction | from tre")
 </br>
+<!--}}}-->
 
 We go to the root-node, then the second level, then the third level, and then
 finally the fourth level. You can see here how they're numbered, going one by
@@ -414,7 +447,8 @@ section,
 a [BinarySearchTree](../chapter-8-data-structure-trees/BinarySearchTree.js) that
 creates a Tree for us that look like below,
 
-```
+<!--{{{ // Trees-->
+```javascript
 // Trees
                9
 
@@ -425,6 +459,7 @@ creates a Tree for us that look like below,
 // List | Breadth First Search
 [9, 4, 20, 1, 6, 15, 170]
 ```
+<!--}}}-->
 
 `9` is a root-node, we have `4` and `20` on second level, `1`, `6`, `15`, `170`
 in third level.
@@ -458,10 +493,12 @@ _target notice found_ or the _end is reached_.
 When the Search can go on any further, it continuous at the nearest ancestor
 with an unexplored child. Let me show you,
 
+<!--{{{ chapter-12-11.gif-->
 </br>
 
 ![chapter-12-11.gif](./images/gif/chapter-12-11.gif "Depth First Search introduction")
 </br>
+<!--}}}-->
 
 We start off with `9`; then we go to `6`, then we go to `1`, and we've reached
 a leaf node, there's no more leaf children.
@@ -484,10 +521,12 @@ right until the Traversal of the Tree is done.
 
 As the name suggest, we go **Depth first** _deep first_ versus Breadth.
 
+<!--{{{ chapter-12-12.gif-->
 </br>
 
 ![chapter-12-12.gif](./images/gif/chapter-12-12.gif "Depth First Search introduction")
 </br>
+<!--}}}-->
 
 Depth Search looks something above. Once again, we go all the way down, come
 back up then all the way down; come back up all the way down. As you can see,
@@ -500,7 +539,8 @@ right until you get to the end of the maze, or the maze are end.
 
 So, if we go back to our code, how Depth First Search would look?
 
-```
+<!--{{{ // Trees-->
+```javascript
 // Trees
                9
 
@@ -514,6 +554,7 @@ So, if we go back to our code, how Depth First Search would look?
 // List | Depth First Search
 [9, 4, 1, 6, 20, 15, 170]
 ```
+<!--}}}-->
 
 Well, form what we know,
 
@@ -568,10 +609,12 @@ So, when we're trying to Traverse through a Tree or a Graph, we're really to do
 is, walk through the Tree without ever repeating ourselves and the *order* is the
 thing matters when it comes to Breadth First Search and Depth First Search.
 
+<!--{{{ chapter-12-6.png-->
 </br>
 
 ![chapter-12-6.png](./images/chapter-12-6.png "Breadth First Search Pros and Cons")
 </br>
+<!--}}}-->
 
 Now, Let's talk about Breadth First Search first. With Breadth First Search It's
 very good for *finding the shortest path* between a _starting point_ and any
@@ -589,10 +632,12 @@ the target node, and you know that the node is likely in the upper level of
 a Tree then Breadth First Search is better, because it will search trough the
 closest nodes first.
 
+<!--{{{ chapter-12-7.png-->
 </br>
 
 ![chapter-12-7.png](./images/chapter-12-7.png "Depth First Search Pros and Cons")
 </br>
+<!--}}}-->
 
 On the other hand, Depth First Search is the opposite. If you know that the node
 is likely at the lower level of a Tree, perhaps Depth First Search is better in
@@ -622,6 +667,7 @@ getting there. But first I want to do is a bit of an exercise.
 <!--{{{ 8 ## Exercise BFS vs DFS -->
 ## Exercise BFS vs DFS
 
+<!--{{{ Exercise Questions-->
 ```lang-txt
 //If you know a solution is not far from the root of the tree:
 A: BFS,
@@ -661,6 +707,7 @@ Reason: If the target position was known and mostly the Tree is sorted, BFS will
 be the choice. If not, still the BFS is advantages is can seek the shortest path
 with more Memory - Complexity is higher than DFS.
 ```
+<!--}}}-->
 
 Let's do a little exercise with just general information with these two
 Traversal techniques.
@@ -749,7 +796,9 @@ see you in the next one.
 <!--{{{ 9 ## Breadth First Search Function -->
 ## Breadth First Search Function
 
-```
+<!--{{{ // Tree-->
+```javascript
+// Tree
                 9
         6               12
     1       4       34      45
@@ -757,6 +806,7 @@ see you in the next one.
 // List | Breadth First Search
 [9, 6, 12, 1, 4, 34, 45]
 ```
+<!--}}}-->
 
 Let's start to code our very first algorithm with Breadth First Search. If you
 remember, with Breadth First Search we have to go from the top - root, then to
@@ -778,6 +828,7 @@ front of `12`. We can go back to it, and discover it's child nodes.
 
 So, let's get coding with our Breadth First Search algorithms.
 
+<!--{{{ // BinarySearchTree.js-->
 ```javascript
 // BinarySearchTree.js
 class BinarySearchTree {
@@ -799,12 +850,14 @@ class BinarySearchTree {
     }
 }
 ```
+<!--}}}-->
 
 We have over here our `BinarySearchTree` (class) from our [Tree - Data
 Structure](../chapter-8-data-structure-trees/BinarySearchTree.js) chapter.
 
 We've already implemented the `insert()`, `lookup()`, `remove()` methods,
 
+<!--{{{ // Tree-->
 ```javascript
 //               9
 //
@@ -812,6 +865,8 @@ We've already implemented the `insert()`, `lookup()`, `remove()` methods,
 //
 //     1     6     15        170
 ```
+<!--}}}-->
+
 and we've created this `BinarySearchTree()`  that give us above type of Tree.
 
 Enough for repetition of what we done, let's start coding our own Breadth
@@ -821,6 +876,7 @@ all the items n the order of Breadth First Search, that is `[9, 4, 20, 1, 6, 15
 
 ###  breadthFirstSearch() functions
 
+<!--{{{ class BinarySearchTree -->
 ```javascript
 class BinarySearchTree {
     ...
@@ -862,6 +918,7 @@ tree.breadthFirstSearch();
 // => [ 9,  4,  20, 1, 6, 15, 170 ]
 
 ```
+<!--}}}-->
 
 In this functions we need three things,
 
@@ -945,6 +1002,7 @@ Now, we test the result, we console log our `currentNode.value` in `while-loop`,
 which will be the _shifted - node_, that is the node that we're going to be
 operating on, and checking out.
 
+<!--{{{ lang-text-->
 ```lang-text
 9
 4
@@ -953,6 +1011,7 @@ operating on, and checking out.
 15
 170
 ```
+<!--}}}-->
 
 We see that, first I'm checking `9`, then I'm checking `4`, then I'm checking
 `20`, than `6`, than `15`, than `170`. Very very cool. We're pushing the list
@@ -961,9 +1020,11 @@ every time.
 So, all we need to do at the end is, just save `return list`. So that, if I run
 this,
 
+<!--{{{ [ 9,  4,  20, 1, 6, 15, 170 ]-->
 ```JavaScript
 [ 9,  4,  20, 1, 6, 15, 170 ]
 ```
+<!--}}}-->
 
 We can look at that, I have my Breadth First Search. That return `[ 9,  4,  20,
 1, 6, 15, 170 ]`.
@@ -995,6 +1056,7 @@ All right, we're going to do this just for fun, usually Breadth First Search is
 implemented the way we saw it. Just using a **Iterative - approach**. But for
 fun I want to see if we can do a **Recursive** - Breadth First Search.
 
+<!--{{{ // BinarySearchTree.js-->
 ```javascript
 // BinarySearchTree.js
 class BinarySearchTree {
@@ -1021,6 +1083,7 @@ class BinarySearchTree {
     }
 }
 ```
+<!--}}}-->
 
 In order for us to do a Recursive Breadth First Search, we can create a new
 function called `breadthFirstSearchR()`, will have *`R`* here for Recursive, and
@@ -1077,6 +1140,7 @@ Again, same thing as we did with up above `currentNode = queue.shift()`. To grab
 the `currentNode`, and then we can actually did is, just copying what we did as
 **Iterative - approach**.
 
+<!--{{{ if (currentNode.left) {-->
 ```javascript
 if (currentNode.left) {
     queue.push(currentNode.left);
@@ -1085,6 +1149,7 @@ if (currentNode.right) {
     queue.push(currentNode.right);
 }
 ```
+<!--}}}-->
 
 If the `currentNode.left` has a child, `queue` push the left - node. If the
 `current.right` has a child, `queue` push the right - node.
@@ -1147,6 +1212,7 @@ tree.breadthFirstSearchR([tree.root], [])
 
 If we run this,
 
+<!--{{{ ===> [ 9,  4,  20, 1, 6, 15, 170 ]-->
 ```javascript
 ===> [ 9 ]
 ===> [ 9, 4 ]
@@ -1156,6 +1222,7 @@ If we run this,
 ===> [ 9, 4, 20, 1, 6, 15 ]
 ===> [ 9,  4,  20, 1, 6, 15, 170 ]
 ```
+<!--}}}-->
 
 We now have our `list`, with this time done Recursively.
 
@@ -1199,10 +1266,12 @@ Depth First Search and I made this little graph,
 
 ### Visual Graph with Breadth First Search
 
+<!--{{{ chapter-12-13.gif-->
 </br>
 
 ![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search")
 </br>
+<!--}}}-->
 
 I made this little Graph here. We look for Breadth First search. We start off
 with **0**, and see how Depth First Search would works.
@@ -1229,10 +1298,12 @@ Graph. As you can see, Breadth First Search is starting with our
 
 Now, with Depth First Search, We starting at `0`, and I hit go,
 
+<!--{{{ chapter-12-14.gif-->
 </br>
 
 ![chapter-12-14.gif](./images/gif/chapter-12-14.gif "Visual Graph with Depth First Search")
 </br>
+<!--}}}-->
 
 - We go to `1`, then `2`, then `7`, and then we're going to keep deeper to `8`,
   we're going to `9`, the `10`. There's no more node.
@@ -1244,10 +1315,12 @@ Now, with Depth First Search, We starting at `0`, and I hit go,
 So just by looking at above Graph, you might see what I meant. When I gave you
 the information at the beginning of the section, that is,
 
+<!--{{{ chapter-12-8.png-->
 </br>
 
 ![chapter-12-8.png](./images/chapter-12-8.png "The advantage Graph Traversal and Tree Traversal")
 </br>
+<!--}}}-->
 
 Breadth First Search is usually good for **shortest path**. That is what's the
 **closest to our node**. What are the most **related -  item** item on Amazon.
@@ -1267,10 +1340,12 @@ Let's talk about these two algorithms in more detail when it comes to Graphs.
 <!--{{{ 12 ## BFS in Graphs -->
 ## BFS in Graphs
 
+<!--{{{ chapter-12-13.gif-->
 </br>
 
 ![chapter-12-13.gif](./images/gif/chapter-12-13.gif "Visual Graph with Breadth First Search - undericted")
 </br>
+<!--}}}-->
 
 Welcome back. I encourage you to play with visualgo, and create your own Graph
 as I talk throughout these **gif** - picture above about Depth First Search and
@@ -1290,10 +1365,12 @@ Breadth First Search or BFS allows us to convert a Graph, essentially into
 a Tree. Because we know who the children of the parent node is, and then the
 grandchildren and then so on and so forth.
 
+<!--{{{ chapter-12-6.png-->
 </br>
 
 ![chapter-12-6.png](./images/chapter-12-6.png "Breadth First Search Pros and Cons")
 </br>
+<!--}}}-->
 
 So, if you remember above diagram, we now understand. That Breadth First Search,
 YES! It uses **more - memory** to keep track of the parent node and the children
@@ -1326,10 +1403,12 @@ node, or you accept the maze and that's the beauty of Depth First Search.
 
 You can now implement an algorithm that solves a _maze - puzzle_, isn't that cool.
 
+<!--{{{ chapter-12-15.gif-->
 </br>
 
 ![chapter-12-15.gif](./images/gif/chapter-12-15.gif "Visual Graph with Depth First Search - directed")
 </br>
+<!--}}}-->
 
 Just like above diagram. We do a Depth First Search. Let's say we're staring at
 at number `1` and `9`  the exit, the result is **`1` won't work**. Because this
@@ -1341,10 +1420,12 @@ it can go.
 
 So, let's try again, with starting node `0` to `9`.
 
+<!--{{{ chapter-12-16.gif-->
 </br>
 
 ![chapter-12-16.gif](./images/gif/chapter-12-16.gif "Visual Graph with Depth First Search - directed")
 </br>
+<!--}}}-->
 
 We can see on diagram, just like looking through a maze, I go first to `1`, and
 then `2`, and keep going and going through my children and then try and go as
@@ -1358,10 +1439,12 @@ The idea of **backtracking** after a **depth - end**, and then repeating the wal
 another path is just Recursion. Each step smaller than other, and then we go
 back and then keep doing the same thing over and over.
 
+<!--{{{ chapter-12-7.png-->
 </br>
 
 ![chapter-12-7.png](./images/chapter-12-7.png "Depth First Search Pros and Cons")
 </br>
+<!--}}}-->
 
 The idea of Depth First Search is, that it's really good at saying, Does the
 Path exist? It doesn't tell us the shortest path, but whether it even exists,

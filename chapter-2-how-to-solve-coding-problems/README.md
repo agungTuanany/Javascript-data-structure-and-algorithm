@@ -53,10 +53,13 @@ understand them_, understand the _trade-off_. That's what  we're doing here.
 I know I'm taking a long time to get my points here, but we're trying to build
 the fundamental before we dive in really deep, so we **_understand the why of each
 thing_**.
+
+<!--{{{ chapter-2-1.gif-->
 </br>
 
 ![chapter-2-1.gif](./images/gif/chapter-2.1.gif "Module introduction")
 </br>
+<!--}}}-->
 
 We're building this foundation, by _first_ **_understanding the Big-O_**, which
 we did in the previous section; and then **_learning how to solve these
@@ -100,27 +103,29 @@ trade-off.
 <!--{{{ 2 ## What Are Companies Looking For -->
 ## What Are Companies Looking For
 
+<!--{{{ chapter-2-1.png-->
 </br>
 
 ![chapter-2-1.png](./images/chapter-2-1.png "What are companies looking for")
 </br>
+<!--}}}-->
 
 Most people tend to think it just coding skill but as you can see here, there's
 actually _four_ things that they're looking for.
 
-`[1]` **_Analytic Skills_**, that is how can you think through a problem and analyze
+- `[1]` **_Analytic Skills_**, that is how can you think through a problem and analyze
 things, and when you're coding during an interview they want to hear your
 thought process and how you go from not knowing the answer to solving the
 problem.
 
-`[2]` They're also looking at **_coding skill_**, which is do you code well? Is your
+- `[2]` They're also looking at **_coding skill_**, which is do you code well? Is your
 code clean well? Organized? Readable?.
 
-`[3]` they also want to obviously know their **_technical skills or technical
+- `[3]` they also want to obviously know their **_technical skills or technical
 knowledge_**, that is **_do you know the fundamentals_**?. Did you just memorize
 things, or do you understand the _pros_ and _cons_ of different solution.
 
-`[4]` Finally your **_communication skills_**. Does your personality match the
+- `[4]` Finally your **_communication skills_**. Does your personality match the
 company's personality? Can you communicate well with others? With the team most
 likely. You won't be working by yourself, you're working with others teams, with
 bosses, with managers; and they want to know whether you're the type person
@@ -164,10 +169,12 @@ Again, don't worry we're going to practice this muscle throughout.
 <!--{{{ 3 ## What We Need For Coding Interview -->
 ## What We Need For Coding Interview
 
+<!--{{{ chapter-2-2.png-->
 </br>
 
 ![chapter-2-2.png](./images/chapter-2-2.png "What we need for coding interview")
 </br>
+<!--}}}-->
 
 In order to solve coding problems, we need to _learn these data structure_ and
 _these algorithm_. It doesn't look at bad does it? Here's the big secret, there
@@ -199,10 +206,13 @@ problems with them? And same with algorithms, and we combine it with our [cheat
 sheet](./interview-cheatsheet.pdf) where we compare our code that is `[1]`
 readable, that is `[2]` memory efficient and time efficient using Big-O between
 these two, that's all interviews are, that's all coding interviews ask for.
+
+<!--{{{ chapter-2-3.png-->
 </br>
 
 ![chapter-2-3.png](./images/chapter-2-3.png "Technical interview diagram")
 </br>
+<!--}}}-->
 
 If we go back to [our outline of the
 course](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview) we're

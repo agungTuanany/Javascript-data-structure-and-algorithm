@@ -38,10 +38,13 @@ are they?
 
 Also you may wondering, what does the name hash table mean? Where did this name
 come from? Well let's look at an example,
+
+<!--{{{ chapter-5-1.gif-->
 </br>
 
 ![chapter-5-1.gif](./images/gif/chapter-5-1.gif "Hash tables example")
 </br>
+<!--}}}-->
 
 Imagine you're going grocery shopping, and you have an object here, basket
 (`basket.grapes`) and you want to add grapes as the property of the baskets
@@ -146,10 +149,12 @@ arrays?.
 
 ### Hash Tables
 
+<!--{{{ chapter-5-1.png-->
 </br>
 
 ![chapter-5-1.png](./images/chapter-5-1.png "Hash Collision")
 </br>
+<!--}}}-->
 
 Looking at hash functions you can start to think about what actions they perform
 and how fast it can be done? When it comes to `[1]` **_inserting_** something in
@@ -164,6 +169,7 @@ everything is just nice and simple. `[4]` with **_searching_**, it's give us
 Big-O `O(`1`)`, if we want to find something in our basket like _apples_ that
 easy to, we use hash function.
 
+<!--{{{ let user = {-->
 ```javascript
 let user = {
     age: 54,
@@ -196,6 +202,7 @@ user.scream()                   // O(1)
 // result:
 // aahh!
 ```
+<!--}}}-->
 
 If we go to our playground, in JavaScript I can create an object `let user
 = {}`, and this _user_ will have property of age, `age: 54`, let say we have the
@@ -224,10 +231,13 @@ Let me talk to you one of the **main problem with hash tables**,  I link to
 [hash table
 animation](https://www.cs.usfca.edu/~galles/visualization/OpenHash.html), so you
 can play around with it later.
+
+<!--{{{ chapter-5-2.gif-->
 </br>
 
 ![chapter-5-2.gif](./images/gif/chapter-5-2.gif "Hash tables animation")
 </br/>
+<!--}}}-->
 
 I have a little animation here, where we have _12 memory spaces_. Remember, our
 computer has limited space, and when we create an object or hash table, the
@@ -250,10 +260,13 @@ it does something funny here. Let's keep adding here and see what happens, I'll
 What we just noticed here, it's something called **_Collision_**.
 
 ### Hash collision user
+
+<!--{{{ chapter-5-2.png-->
 </br>
 
 ![chapter-5-2.png](./images/chapter-5-2.png "Hash Collision")
 </br>
+<!--}}}-->
 
 The **_Collision_** looks something like above. We have the **_keys_**, let's
 say we inserting the **_name_**, the **_phone number_**  of a user; and we
@@ -275,10 +288,13 @@ limited memory we always going to have this collision**.
 
 So, there is a possibility if we go back to our example. I start a new hashes
 visualization,
+
+<!--{{{ chapter-5-3.gif-->
 </br>
 
 ![chapter-5-3.gif](./images/gif/chapter-5-3.gif "Hash Collision")
 </br>
+<!--}}}-->
 
 If we constantly just keep adding to the same memory space, which slows down our
 ability to access or insert information, because now if I want to check what's
@@ -319,11 +335,13 @@ Let's keep going, expand our knowledge of hash tables at next chapter.
 Hash tables are implemented differently in different languages, but most of the
 time, the **_key_** and the **_value_** can be any type of data structure.
 
+<!--{{{ scream : function() {-->
 ```javascript
 scream : function() {
     console.log("aahh!")
 }
 ```
+<!--}}}-->
 
 We saw above that we can have a **_function_** as a value, we can ha another
 object  as a value.
@@ -391,6 +409,7 @@ It's time for us to implement our own hash table, but let's do a bit of an
 exercise, and this maybe difficult, so don't get upset if you're not able to
 finish it. As extra challenge, I have created a template for you,
 
+<!--{{{ class hashtable {-->
 ```javascript
 class hashtable {
     constructor(size) {
@@ -413,6 +432,7 @@ myHashTable.set("grapes", 10000);
 
 myHashTable.get("grapes")
 ```
+<!--}}}-->
 
 A new `HashTable` that we're going to create. Yes I know JavaScript already has
 objects and we can just simply create one like we've seen before. This
@@ -456,6 +476,7 @@ familiar with JavaScript, this may be hard but give it try.
 
 ### Exercise Answer
 
+<!--{{{ class HashTable {-->
 ```javascript
 // Task:
 // Create set() and get() methods to store key value pair, and retrieve a value with hashing.
@@ -528,6 +549,7 @@ console.log("")
 
 myHashTable.get("papaya")
 ```
+<!--}}}-->
 
 OK, let's chunks the code.
 
@@ -556,6 +578,7 @@ about. That's where the underscore is coming from.
 
 Let's talk a little bit about what `_hash()` function does. If I enter
 
+<!--{{{ _hash(key) {-->
 ```javascript
 _hash(key) {
     let hash = 0;
@@ -578,6 +601,7 @@ _hash("grapes")
 // ===> 48
 // ===> 23
 ```
+<!--}}}-->
 
 First, create a new variable that is `let hash = 0` and then this `key` as
 parameter are we're going to grab the length of grapes so that is `6` characters
@@ -607,6 +631,7 @@ through this code if you really want to.
 
 Final result `set()` method.
 
+<!--{{{ set(key, value) {-->
 ```JavaScript
 set(key, value) {
 
@@ -627,6 +652,7 @@ const myHashTable = new HashTable(2);
 
 myHashTable.set("grapes", 10000)
 ```
+<!--}}}-->
 
 #### Chunked `set()` method
 
@@ -639,6 +665,7 @@ in this `address` space, that is created by our `_hash()` function, and we give
 it the key of _grapes_. Remember our little animation, we're sending the
 _grapes_ to into that magic little box hat has the hash function.
 
+<!--{{{ set(key, value) {-->
 ```javascript
 set(key, value) {
 
@@ -657,6 +684,7 @@ const myHashTable = new HashTable(2);
 
 myHashTable.set("grapes", 10000)        // result: undefined.
 ```
+<!--}}}-->
 
 From there, we simply say if `this.data[address]`, if it doesn't exist, and
 there's noting there, because _remember in a hash table we can have collision_,
@@ -676,6 +704,7 @@ plus `26` that's `50`.
 But, what happen if `this.data[address]` is already exists? If I change the
 `HashTable()` let's say `2` memory space.
 
+<!--{{{ myHashTable = new HashTable(2);-->
 ```javascript
 myHashTable = new HashTable(2);
 
@@ -683,9 +712,11 @@ myHashTable.set("grapes", 10000)
 //result:
 // [ <1 empty items>, [ [ 'grapes', 10000  ]  ] ]
 ```
+<!--}}}-->
 
 If I change this around, Check out what happens to my hash table.
 
+<!--{{{ myHashTable = new HashTable(2);-->
 ```javascript
 myHashTable = new HashTable(2);
 
@@ -693,6 +724,7 @@ myHashTable.set("grapes2", 10000)
 //result:
 // [ <1 empty items>, [ [ 'grapes2', 10000  ]  ] ]
 ```
+<!--}}}-->
 
 Great, it just **deleted my previous entry**. We **have collision**, but we're
 not doing anything about it; And we've just deleted our data. That could been
@@ -702,6 +734,7 @@ So in order to solve that, we simply say, because we're checking here (`if
 (!this.data[address])`) if there is nothing in that `address` space do
 `this.data[address].push()`. Otherwise simply add on to that array.
 
+<!--{{{ set(key, value) {-->
 ```javascript
 set(key, value) {
 
@@ -724,6 +757,7 @@ const myHashTable = new HashTable(2);
 
 myHashTable.set("grapes", 10000)        // result: [ <1 empty items>, [ [ 'grapes', 10000  ] ] ]
 ```
+<!--}}}-->
 
 Run the same command in `else` block, but we can make more nicer and cleaner way
 of doing this. Is to actually just take out the `else` block, because regardless
@@ -733,6 +767,7 @@ set add to the data.
 All we do just remove the `this.data[address].push([key, value])` on `if` block,
 and wipe the `else` statement.
 
+<!--{{{ set(key, value) {-->
 ```javascript
 set(key, value) {
 
@@ -752,6 +787,8 @@ const myHashTable = new HashTable(2);
 myHashTable.set("grapes", 10000)        // result: [ <1 empty item>, [ [ 'grapes', 10000  ] ] ]
 myHashTable.set("apple", 56)            // result: [ <1 empty item>, [ [ 'grapes', 10000  ], [ 'orange', 2500 ] ] ]
 ```
+<!--}}}-->
+
 Just we know what's happening here, let's add `return this.data`, and we add
 `apple, 56`, if I run this you see what happen here. If you look closely, we
 have `<1 empty item>`, and then an array that contains inside of it, the first
@@ -762,6 +799,7 @@ Very cool, that's not too bad.
 
 ### Create get() method
 
+<!--{{{ get(key) {-->
 ```javascript
 get(key) {
     const address = this._hash(key);
@@ -781,6 +819,7 @@ get(key) {
     return undefined;
 }; // O(1) if there's collision it become O(n)
 ```
+<!--}}}-->
 
 #### Chunked `get()` method
 
@@ -795,6 +834,7 @@ remember, that we store this information in a _bucket_, so we have `grapes
 10000`, how do we grab that? We know where to get from, we have the `address`
 but we need to loop over and grab `[grapes, 10000]` or `[appels, 56]`.
 
+<!--{{{ get(key) {-->
 ```javascript
 get(key) {
     let address = this._hash(key);
@@ -803,6 +843,7 @@ get(key) {
     console.log(currentBucket)          // [ [ 'grapes', 10000  ], [ 'orange', 2500 ] ]
 }
 ```
+<!--}}}-->
 
 We create a variable saying `currentBucket` that was just be
 `this.data[address]`, so we don't repeat our self, and we have reference to this
@@ -814,6 +855,7 @@ We're grabbing all the information, but all we want to do is have `10000` being
 returned, that how hash tables work, or the `get()` hash function works. Well
 all we need to do is to say,
 
+<!--{{{ if (currentBucket.length) {-->
 ```javascript
 if (currentBucket.length) {
     // ...
@@ -821,6 +863,7 @@ if (currentBucket.length) {
 }
 return undefined;
 ```
+<!--}}}-->
 
 If `currentBucket.length` has something in it, in that case we are going to do
 something, otherwise we're going just return `undefined`, because there's
@@ -831,15 +874,18 @@ we're not interested in it.
 As a matter of fact, we actually don't even need the `.length` here, because
 remember initially it's just going to be an empty array with undefined.
 
+<!--{{{ constructor(size) {-->
 ```javascript
 constructor(size) {
     this.data = new Array(size);
 };
 ```
+<!--}}}-->
 
 And we add an array to each slot or shelf's, whenever we set something, and it's
 an empty address.
 
+<!--{{{ set(key, value) {-->
 ```javascript
 set(key, value) {
 
@@ -851,9 +897,11 @@ set(key, value) {
     };
 };
 ```
+<!--}}}-->
 
 So, we can just leave it like this,
 
+<!--{{{ if (currentBucket) {-->
 ```javascript
 if (currentBucket) {
     for (let i = 0; i < currentBucket.length; i++) {
@@ -868,6 +916,7 @@ if (currentBucket) {
 
 return undefined:
 ```
+<!--}}}-->
 
 Because if it's undefined it'll skip over and return undefined.
 
@@ -920,6 +969,7 @@ chapter.
 
 Final result `keys()` method.
 
+<!--{{{ keys() {-->
 ```javascript
 keys() {
     const keysArray = [];
@@ -953,6 +1003,7 @@ myHashTable.keys("apples");
 // result: [3]
 // [ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2  ]  ]
 ```
+<!--}}}-->
 
 #### Chunked `keys()` method
 
@@ -984,6 +1035,7 @@ If there is something in that memory space, in that case we can just say
 at is `["apples", 56]` if I do `[i][0]` here, and we return after all the loop
 `return keysArray`. If I run this, I get
 
+<!--{{{ keys() {-->
 ```javascript
 keys() {
     const keysArray = [];
@@ -998,17 +1050,20 @@ keys() {
     return keysArray;
 };
 ```
+<!--}}}-->
 
 I get `[ [ 'grapes', 10000  ], [ 'apples', 56  ], [ 'oranges', 2 ] ]`; But
 I just wanted `[ 'grapes', 'apples', 'oranges' ]`. To see what's going on here,
 let's logging `this.data[i]`; Which is what we're doing while we pushing.
 
+<!--{{{ // result: [2]-->
 ```javascript
 // result: [2]
  [ [ 'grapes', 10000  ]  ]
  [ [ 'apples', 56  ]  ]
  [ [ 'oranges', 2  ]  ]
 ```
+<!--}}}-->
 
 We see that we get **array within the array**.  Because remember, we have one
 massive array in each time we create a new shelf's space, we have to have a new
@@ -1061,10 +1116,12 @@ our talk of hash tables by comparing them to arrays.
 <!--{{{ 6 ## Hash Tables VS Arrays -->
 ## Hash Tables VS Arrays
 
+<!--{{{ chapter-5-3.png-->
 </br>
 
 ![chapter-5-3.png](./images/chapter-5-3.png "Hash tables vs Arrays")
 </br>
+<!--}}}-->
 
 Why hash tables? Hash tables are great when you want quick access to certain
 values. Remember that searching (`search O(n)`) through an **array** for `n` item
@@ -1104,6 +1161,7 @@ hash tables in their answers. I'll see you on that one.
 It's time for an exciting interview question question; and this question comes
 straight form Google.
 
+<!--{{{ //Google Question-->
 ```JavaScript
 //Google Question
 //Given an array = [2,5,1,2,3,5,1,2,4]:         // [1]
@@ -1115,6 +1173,7 @@ straight form Google.
 //Given an array = [2,3,4,5]:                   // [3]
 //It should return undefined
 ```
+<!--}}}-->
 
 Given an array let's say look like above, Tell me the first recurring
 characters?. What does that mean? Well if we look at this array `[1]`, I want
@@ -1133,6 +1192,7 @@ community members, and I'll see you in the solution chapter.
 
 ### Exercise Answer - Naive Approach
 
+<!--{{{ // Naive approach with array-->
 ```javascript
 const givenArray = [2,5,1,2,3,5,1,2,4]
 const givenArray2 = [2,1,1,2,3,5,1,2,4]
@@ -1160,6 +1220,7 @@ function firstRecurringCharacter(input) {
 
 firstRecurringCharacter(givenArray);
 ```
+<!--}}}-->
 
 So, I'm going to loop through the first item of `givenArray`, which is `[2]`,
 I keep it in variable `i`, then the `[5]` as the second item in variable `i`,
@@ -1200,6 +1261,7 @@ be `O(n^2)`.
 
 So, how we can solve this using the hash tables.
 
+<!--{{{ function firstRecurringCharacter2(input) {-->
 ```javascript
 const givenArray = [2,5,1,2,3,5,1,2,4]
 const givenArray2 = [2,1,1,2,3,5,1,2,4]
@@ -1246,8 +1308,8 @@ firstRecurringCharacter2(givenArray);
 // { '1': 2, '2': 0, '5': 1  }
 
 // Result [C]:
-
 ```
+<!--}}}-->
 
 Let's use a hash table, or an object to do something interesting. That is, to
 add these `givenArray`, as we iterate one by one, so loop through all the items,
@@ -1282,6 +1344,7 @@ At the end of `for-loop` I just console logging `[C]` it I get nothing, instead
 I get `5`. What happen?, Well if we console log `[A]` at what `if` statement
 giving us (`map[input[i]]`), I get,
 
+<!--{{{ console.log(hashMap[input[i]])-->
 ```javascript
 console.log(hashMap[input[i]])
 
@@ -1292,6 +1355,7 @@ console.log(hashMap[input[i]])
 // undefined
 // 1
 ```
+<!--}}}-->
 
 What does mean? Well, remember we're looping through the log `[A]`, and we are
 saying hey does `[2]` at index one exist? Does `input[0]` which is `[2]` exist
@@ -1315,11 +1379,13 @@ So, what we need to do, is to make sure that we specify we want
 you to `retrun input[i]`. Now if we run, we get back result `2` not `5`. If we
 logging at bottom `[B]`, so we can see the actual iteration that's happening,
 
+<!--{{{ { '2': 0  }-->
 ```javascript
 { '2': 0  }
 { '2': 0, '5': 1  }
 { '1': 2, '2': 0, '5': 1  }
 ```
+<!--}}}-->
 
 We see that, it adds `2` at index of `0`; then `2` at index of `0` with `5` at
 index of `1`, so on and so forth, until it stops after the third loop, because
@@ -1378,6 +1444,7 @@ you have time, and a bit of a challenge is to convert the first version function
 into something that matches the answer to detect `5 5`. How would you go about
 doing that? You most likely going to have to do something interesting in here,
 
+<!--{{{ if (input[i] === input[j]) {-->
 ```javascript
 // ...
     if (input[i] === input[j]) {
@@ -1385,7 +1452,7 @@ doing that? You most likely going to have to do something interesting in here,
     }
 // ...
 ```
-
+<!--}}}-->
 Good luck with that.
 
 **[⬆ back to top](#table-of-contents)**
@@ -1396,10 +1463,12 @@ Good luck with that.
 <!--{{{ 8 ## Hash Tables Review -->
 ## Hash Tables Review
 
+<!--{{{ chapter-5-4.png-->
 </br>
 
 ![chapter-5-4.png](./images/chapter-5-4.png "Hash tables review")
 </br>
+<!--}}}-->
 
 Another data structure down, hash tables by now you should absolutely love then,
 because well they're very useful, they're used everywhere. The funny thing is,
@@ -1428,10 +1497,13 @@ table.
 Looking at the Big-O [cheatsheet](bigocheatsheet.com/), we can see that hash
 tables has _search_, _insertion_, _deletion_ of `O(1)`, but in worst case due to
 collision there are some `O(n)` operation that could happen.
+
+<!--{{{ chapter-5-5.png-->
 </br>
 
 ![chapter-5-5.png](./images/chapter-5-5.png "Hash tables review")
 </br>
+<!--}}}-->
 
 If we go to
 [mindmap](https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link),
@@ -1492,4 +1564,3 @@ see you in the next chapter.
 </br>
 </br>
 <!--}}}-->
-

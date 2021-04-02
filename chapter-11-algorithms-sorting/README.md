@@ -38,6 +38,7 @@ use the builtin _sort method_ in my own language.
 Well, here's the thing, Sorting is not  a big deal when it comes to small input
 data, you'd be right; you can do something like this,
 
+<!--{{{ const letters = ["a", "d", "z", "e", "r", "b"];-->
 ```javascript
 const letters = ["a", "d", "z", "e", "r", "b"];
 
@@ -46,6 +47,7 @@ letters.sort();
 // Result
 ["a", "b", "d", "e", "r", "z"]
 ```
+<!--}}}-->
 
 We've an array of `letters`, and this array simply has `["a", "d", "z", "e", "r",
 "b" ]`; and if somebody asked to sort this, well we can just use something like
@@ -59,10 +61,12 @@ fast computers; it's starts costing companies a lot of money when we have to
 perform operations on larger and larger _data sets_; that's when things becomes
 a little bit crazy and expensive.
 
+<!--{{{ chapter-11-1.png-->
 </br>
 
 ![chapter-11-1.png](./images/chapter-11-1.png "Sorting introduction")
 </br>
+<!--}}}-->
 
 For example, Google has a ton of Websites that are indexed. What if they need to
 sort those Websites? In a way, perhaps _sorting a news article_ based on the
@@ -156,6 +160,7 @@ data correctly_**.
 
 Let me demonstrate this with JavaScript,
 
+<!--{{{ const letters = ["a", "d", "z", "e", "r", "b"];-->
 ```javascript
 const letters = ["a", "d", "z", "e", "r", "b"];
 const basket = [2, 65, 34, 2, 1, 7, 8];
@@ -170,6 +175,7 @@ basktet.sort();
   65, 7, 8
 ]
 ```
+<!--}}}-->
 
 Let's say we have another array here, and this array will call it `basket`; and
 this `basket` will have, instead of `letters`, it will have some _numbers_ `[2,
@@ -190,6 +196,7 @@ _sort method_ works.
 does something along the lines of, if he gets to `65` and then it's going to
 grab the character code in the first index;
 
+<!--{{{ "65".cahrCodeAt(0);-->
 ```javascript
 "65".cahrCodeAt(0);
 "2".charCodeAt(0);
@@ -202,14 +209,17 @@ grab the character code in the first index;
 51
 55
 ```
+<!--}}}-->
 
 So, we can use the method `charCodeAt()` and give it `0`; it's going to measure
 the character code at `65`, if I run this I get `54`.
 
+<!--{{{ chapter-11-3.png-->
 </br>
 
 ![chapter-11-3.png](./images/chapter-11-3.png "unicode table")
 </br>
+<!--}}}-->
 
 Now, `54` is Unicode, and if I go to
 [unicode-table](https://unicode-table.com/en/), this whole characters are
@@ -241,6 +251,7 @@ to talk about later on in this chapters.
 But, to finish off this section about the weirdness of Sorting, let me show you
 one more example.
 
+<!--{{{ const spanish = ["unico", "árbol", "cosas", "fútbol"];-->
 ```javascript
 const spanish = ["unico", "árbol", "cosas", "fútbol"];
 
@@ -249,6 +260,7 @@ spanish.sort();
 // Result
 [ 'cosas', 'fútbol', 'unico', 'árbol' ]
 ```
+<!--}}}-->
 
 Let's say I have an array of Spanish word here; and we want to sort these
 `spanish` what do you think would be happen? `[ 'cosas', 'fútbol', 'unico',
@@ -257,6 +269,7 @@ Let's say I have an array of Spanish word here; and we want to sort these
 Again, because of Unicode characters the letter `á` with the _accent_ on it; is
 not the actual `a` that would come before something like `c`.
 
+<!--{{{ spanish.sort(function(a, b) {-->
 ```javascript
 spanish.sort(function(a, b) {
     return a.localeCompare(b);
@@ -266,6 +279,7 @@ spanish.sort(function(a, b) {
 [ 'árbol', 'cosas', 'fútbol', 'unico' ]
 
 ```
+<!--}}}-->
 
  So, in this case, to solve this problem, we would have to do something along
 the lines of creating function inside of `sort()`; that takes `a` and `b` as
@@ -289,6 +303,7 @@ _objects_, and _items in object_ using `sort()` method.
 
 In order to sort `basket` properly, we'd have to do something like,
 
+<!--{{{ const basket = [2, 65, 34, 2, 1, 7, 8];-->
 ```javascript
 const basket = [2, 65, 34, 2, 1, 7, 8];
 
@@ -299,6 +314,7 @@ baskter.sort(function (a, b) {
 // Result
 [ 1,  2,  2, 7, 8, 34, 65 ]
 ```
+<!--}}}-->
 
 Where we have a function inside of the `sort()` method, that will take `a` and
 `b`, which is first and second item; and we'll simply say return `a - b`. If I
@@ -315,10 +331,12 @@ used in Computer Science in next lecture. I'll see you in that one.
 <!--{{{ 3 ## Bubble Sort -->
 ## Bubble Sort
 
+<!--{{{ chapter-11-1.gif-->
 </br>
 
 ![chapter-11-1.gif](./images/gif/chapter-11-1.gif "Bubble sort list")
 </br>
+<!--}}}-->
 
 Let's start off with the very first item on our list. Bubble sort is part of
 these first three Sorting algorithms. Here that are called **_Elementary
@@ -332,10 +350,12 @@ efficient than the first ones.
 But, to build that Lego block, let's start off with Bubble Sort. How does Bubble
 Sort work?
 
+<!--{{{ chapter-11-4.png-->
 </br>
 
 ![chapter-11-4.png](./images/chapter-11-4.png "How to sort with Bubble sort")
 </br>
+<!--}}}-->
 
 Well, let me ask you question, if I gave you a list and I ask to sort it in your
 head; imagining that you had blocks of above letters, how would you move them
@@ -344,10 +364,12 @@ Bubble Sort might be the one of the first thing that comes into mind;s it the
 Bubble Sort comes from the idea of _Bubbling Up_ the largest value using
 _Multiple Pass_; let's see what I mean by that.
 
+<!--{{{ chapter-11-2.gif-->
 </br>
 
 ![chapter-11-2.gif](./images/gif/chapter-11-2.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 We look at `6` and `5`, and say is `6` is larger than `5`?; and then we look at
 `6` and `3`, and say is `6` larger than `3`? Let swap them out; and then `6` and
@@ -357,39 +379,49 @@ We look at `6` and `5`, and say is `6` is larger than `5`?; and then we look at
 Let's move onto next one, `8` and `7`, `8` is larger than `7`, let's sort them
 out; and `8` and `2`, swap them out; `8` and `4`,swap them out.
 
+<!--{{{ chapter-11-3.gif-->
 </br>
 
 ![chapter-11-3.gif](./images/gif/chapter-11-3.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 We Bubble Up the highest number and then we go from beginning. `5` and `3`; `5`
 and `1`, we Bubble Up the largest number.
 
+<!--{{{ chapter-11-4.gif-->
 </br>
 
 ![chapter-11-4.gif](./images/gif/chapter-11-4.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 So, that `7` comes next;
 
+<!--{{{ chapter-11-5.gif-->
 </br>
 
 ![chapter-11-5.gif](./images/gif/chapter-11-5.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 Then we keep going and going, until `6` coming next.
 
+<!--{{{ chapter-11-6.gif-->
 </br>
 
 ![chapter-11-6.gif](./images/gif/chapter-11-6.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 Then we keep `looping` until we Bubble Up the highest number, one by one.
 
+<!--{{{ chapter-11-7.gif-->
 </br>
 
 ![chapter-11-7.gif](./images/gif/chapter-11-7.gif "Bubble sort example")
 </br>
+<!--}}}-->
 
 Until we have a sorted list.
 
@@ -407,10 +439,12 @@ algorithm.
 What do you think the **Time Complexity** and **Space Complexity** of this
 algorithm is?  The answer, we can use Big-O cheat-sheet.
 
+<!--{{{ chapter-11-5.png-->
 </br>
 
 ![chapter-11-5.png](./images/chapter-11-5.png "Bubble Sort Time and Space Complexity")
 </br>
+<!--}}}-->
 
 If we look at Bubble Sort, we see that the cases we're most interested in is,
 the **_Average_**, and the **_worst case_**. We see that it's `O(n^2)`; with the
@@ -434,6 +468,7 @@ your code matches up with me mine in the next lecture.
 
 Let's code our own Bubble Sort Algorithm.
 
+<!--{{{ function bubbleSort(array) {-->
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
@@ -456,6 +491,7 @@ function bubbleSort(array) {
 // Result
 [ 0,  1,  2,  4,  5, 6, 44, 63, 87, 99, 283 ]
 ```
+<!--}}}-->
 
 I'm creating a function called `bubbleSort()` that's going to taken an `array`
 as parameter; and I have an array in variable called `numbers`. Ideally when we
@@ -516,10 +552,12 @@ more to go.
 <!--{{{ 5 ## Selection Sort -->
 ## Selection Sort
 
+<!--{{{ chapter-11-6.png-->
 </br>
 
 ![chapter-11-6.png](./images/chapter-11-6.png "Selection Sort")
 </br>
+<!--}}}-->
 
 Let's talk about selection Algorithm; and it's called **Selection Sort**.
 _Selection Sort_ is again one of the simpler possible ways to Sort the _list_
@@ -528,10 +566,12 @@ element**; and then swapping that element for the one in the first position_.
 
 Let's me show you with this animation here,
 
+<!--{{{ chapter-11-8.gif-->
 </br>
 
 ![chapter-11-8.gif](./images/gif/chapter-11-8.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
 We start with the first item and the second item. The **red** here _signifies
 that it's the **smallest item** that it's seen_; and then the **blue** is
@@ -546,51 +586,67 @@ becomes smallest item; and we just finished the list.
 
 So now, we move `0` to the first index in our list. We swap it put.
 
+<!--{{{ chapter-11-9.gif-->
 </br>
 
 ![chapter-11-9.gif](./images/gif/chapter-11-9.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
 Then we keep going back to the beginning finding the smallest item, which is
 `1`; and then placing `1` in the second item.
 
+<!--{{{ chapter-11-10.gif-->
 </br>
 
 ![chapter-11-10.gif](./images/gif/chapter-11-10.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
+<!--{{{ chapter-11-11.gif-->
 </br>
 
 ![chapter-11-11.gif](./images/gif/chapter-11-11.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
+<!--{{{ chapter-11-12.gif-->
 </br>
 
 ![chapter-11-12.gif](./images/gif/chapter-11-12.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
+<!--{{{ chapter-11-13.gif-->
 </br>
 
 ![chapter-11-13.gif](./images/gif/chapter-11-13.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
+<!--{{{ chapter-11-14.gif-->
 </br>
 
 ![chapter-11-14.gif](./images/gif/chapter-11-14.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
+<!--{{{ chapter-11-15.gif-->
 </br>
 
 ![chapter-11-15.gif](./images/gif/chapter-11-15.gif "Selection Sort animation")
 </br>
+<!--}}}-->
 
 Then we keep going and repeating the process until we found the smallest item,
 place it next in the list, until we have our list completely sorted.
 
+<!--{{{ chapter-11-7.png-->
 </br>
 
 ![chapter-11-7.png](./images/chapter-11-7.png "Selection Sort Time Complexity")
 </br>
+<!--}}}-->
 
 As you can see Selection Sort, we're still going to see a Time Complexity of
 `O(n^2)`, if we look back at the Time Complexity chart, we see then Selection
@@ -601,6 +657,7 @@ besides the input.
 Now, using the animation that you just saw, you can implement your own
 Selection Sort. I'm going to leave the starter code for you as an exercise.
 
+<!--{{{ function selectionSort(array) {-->
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
@@ -611,6 +668,7 @@ selectionSort(numbers);
 
 console.log(numbers);
 ```
+<!--}}}-->
 
 Using what you know from the Bubble Sort, and what you just saw for Selection
 Sort animation. How you can use that information to Sort the list using
@@ -624,6 +682,7 @@ algorithm; and I'll show you the solution in the next lecture.
 <!--{{{ 6 ## exercise selection sort -->
 ## exercise selection sort
 
+<!--{{{ function selectionSort(array) {-->
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
@@ -651,6 +710,7 @@ console.log(numbers);
 // Result
 [ 0,  1,  2,  4,  5, 6, 44, 63, 87, 99, 283 ]
 ```
+<!--}}}-->
 
 I've left for you the solution for the Selection Sort; now, I'm not going to be
 going one by one to each Sorting algorithm, because it does take a lot of time.
@@ -714,10 +774,12 @@ linear time when the list is almost sorted.
 
 Let's see how it's work,
 
+<!--{{{ chapter-11-16.gif-->
 </br>
 
 ![chapter-11-16.gif](./images/gif/chapter-11-16.gif "Insertion Sort animation")
 </br>
+<!--}}}-->
 
 We have a list and we look at `6`; we look at the first sign and just leave it
 where it is. We now look at the next item, `5`; and because `5` is less than `6`
@@ -745,6 +807,7 @@ into later on with our exercises. But can you do this type of Sorting in code?
 
 See if you can implement your own Insertion Sort.
 
+<!--{{{ function insertionSort(array) {-->
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
@@ -786,6 +849,7 @@ function insertionSort(array) {
 insertionSort(numbers)
 console.log(numbers)
 ```
+<!--}}}-->
 
 Just like it happened in the animation. We first `loop` over the `array`; and if
 the _item we're `looping`_ for is **less than** the _first item_ in the `array`;
@@ -802,10 +866,12 @@ have our list sorted.
 
 I'll once again leave this function here for you to play around with.
 
+<!--{{{ chapter-11-8.png-->
 </br>
 
 ![chapter-11-8.png](./images/chapter-11-8.png "Insertion Sort Time Complexity")
 </br>
+<!--}}}-->
 
 I want to talk about Big-O complexity of Insertion Sort. There are times where
 Insertion Sort can work really really well. The **best case** scenario for
@@ -832,10 +898,12 @@ Let's move on on to the next Sorting algorithm.
 
 ### O(n log n)
 
+<!--{{{ chapter-11-17.gif-->
 </br>
 
 ![chapter-11-17.gif](./images/gif/chapter-11-17.gif 'O(n log n)')
 </br>
+<!--}}}-->
 
 Up until this point, we talked about Sorting algorithm, Bubble Sort, Insertion
 Sort, Selection Sort that we called **elementary Sort**; they are OK, but they
@@ -846,10 +914,12 @@ We're going to encounter our last Big-O in our list `O(n log n)`. Now in order
 to understand what `O(n log n)` means, we have to talk about next sorting
 algorithm, **_Merge Sort_** and **_Quick Sort_**.
 
+<!--{{{ chapter-11-9.png-->
 </br>
 
 ![chapter-11-9.png](./images/chapter-11-9.png "Divide and Conquer")
 </br>
+<!--}}}-->
 
 Unlike Bubble Sort, Insertion Sort and Selection Sort; they use the technique
 that we've heard of before. _Divide and Conquer_. We learned about this when we
@@ -867,10 +937,12 @@ We're going to see how this actually works. But I want to remind you, that any
 time we see something like Divide and Conquer, it usually gives you a `O(log n)`
 advantages.
 
+<!--{{{ chapter-11-10.png-->
 </br>
 
 ![chapter-11-10.png](./images/chapter-11-10.png "Big-O Complexity Chart")
 </br>
+<!--}}}-->
 
 As you can see above diagram, it is the last piece of the puzzle.That actually
 improves is better than `O(n^2)`.
@@ -884,20 +956,24 @@ In order to understand what `0(n log n)` means, we have to start off with
 looking at Merge Sort.  Let's have look at how it works, and then I'm going to
 explain what the benefits are.
 
+<!--{{{ chapter-11-18.gif-->
 </br>
 
 ![chapter-11-18.gif](./images/gif/chapter-11-18.gif "Merge Sort animation")
 </br>
+<!--}}}-->
 
 We have the same list as before. We're going to take this list and actually
 divide it in half; and then we're going to divide each of these subset into half
 again; and again we're going to divide those sub-list into half again until we
 have one item.
 
+<!--{{{ chapter-11-19.gif-->
 </br>
 
 ![chapter-11-19.gif](./images/gif/chapter-11-19.gif "Merge Sort animation")
 </br>
+<!--}}}-->
 
 Once we have that divide up, we're going to take the first item and second item,
 and say "hey which one should I put first?" Let's put `5` firs, and then `6`
@@ -912,28 +988,34 @@ We then comparing `8` and `7`; `7` comes before `8`.
 
 Then we comparing `2` and `4`; `2` before `4`.
 
+<!--{{{ chapter-11-20.gif-->
 </br>
 
 ![chapter-11-20.gif](./images/gif/chapter-11-20.gif 'Merge Sort animation')
 </br>
+<!--}}}-->
 
 Now, we again combine those list in **Reverse Tree**. Saying `5` and `1`, which
 one come first? `1` come first; and then let's compare `5` and `3`; `3` comes
 first; then `5` and `6`.
 
+<!--{{{ chapter-11-21.gif-->
 </br>
 
 ![chapter-11-21.gif](./images/gif/chapter-11-21.gif "Merge Sort animation")
 </br>
+<!--}}}-->
 
 Then we look on the right side, we say, `7` and `2`; `2` comes before `7`; and
 then what about `4`? `4` comes before `7`; and because we know that `7` and `8`
 are already Sorted, we just place `7` and `8` right next to each other.
 
+<!--{{{ chapter-11-22.gif-->
 </br>
 
 ![chapter-11-22.gif](./images/gif/chapter-11-22.gif "Merge Sort animation")
 </br>
+<!--}}}-->
 
 Finally, we combine these last two lists into our root node to combine the list
 and make it sorted.
@@ -979,10 +1061,12 @@ sometimes be important, depending on the type of data.
 
 Let's have a look at it's own Big-O.
 
+<!--{{{ chapter-11-11.png-->
 </br>
 
 ![chapter-11-11.png](./images/chapter-11-11.png "Merge Sort Time and Space Complexity")
 </br>
+<!--}}}-->
 
 We see that Merge Sort has `O(n log(n))`, and with Space Complexity `O(n)`.
 Unlike Bubble Sort, Insertion Sort, and Selection Sort we have a bigger Space
@@ -995,6 +1079,7 @@ sorting algorithm a lot faster.  Now, how do we implement Merge Sort?
 
 I have here for you an exercise,
 
+<!--{{{ function mergeSort(array) {-->
 ```javascript
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
@@ -1019,6 +1104,7 @@ function merge(left, right) {
 const answer = mergeSort(numbers);
 console.log(answer);
 ```
+<!--}}}-->
 
 I want you warn you this is really difficult. Merge Sort is really hard to
 implement, and wrap your mind around. If you don't feel comfortable with
@@ -1055,6 +1141,7 @@ I'll see you in the solution chapter.
 
 ### Merge Sort Solution
 
+<!--{{{ function mergeSort(array) {-->
 ```javascript
 function mergeSort(array) {
 
@@ -1103,6 +1190,7 @@ function merge(left, right) {
 const answer = mergeSort(numbers);
 console.log(answer);
 ```
+<!--}}}-->
 
 I have the answer for you here, and I'm not going to code along, because well
 this is one of those pieces of code that me just writing in and typing it in
@@ -1118,6 +1206,7 @@ the `left` hand-side, and `right` hand-side.
 
 So, that if console log here, and I click run, we see the result
 
+<!--{{{ left [ 99, 44, 6, 2, 1 ]-->
 ```javascript
 left [ 99, 44, 6, 2, 1 ]
 right [ 5, 63, 87, 283, 4, 0 ]
@@ -1149,6 +1238,8 @@ right [ 4, 0 ]
 left [ 4 ]
 right [ 0 ]
 ```
+<!--}}}-->
+
 We see that the first time around, we're just splitting the item right down the
 middle, where we have `[99, 44, 6, 2, 1]` in the `left` hand-side; we have `[5,
 63, 87, 283, 4, 0]` in the `right` hand-side.
@@ -1182,15 +1273,16 @@ increment.
 Otherwise, if the **left-item** is higher than the **right-item**, we do the
 opposite; and the right-item goes into our `result`.
 
+
 Remember, this `merge()` function is doing what we saw in the animation, where
 splitting the function down in the first part of the function; and then, in the
 **merge** we're going to take the left and right compare it and place it into
 the `result` array; and then go to the next, and keep doing this over and over;
 and creating our `result` array.
 
-
 If I console log in `merge()` function, we can see exactly what we're doing.
 
+<!--{{{ [ 99 ] [ 44 ]-->
 ```javascript
 [ 99 ] [ 44 ]
 [ 2 ] [ 1 ]
@@ -1207,6 +1299,7 @@ If I console log in `merge()` function, we can see exactly what we're doing.
 [ 5, 63, 87 ] [ 0, 4, 283 ]
 [ 1, 2, 6, 44, 99 ] [ 0, 4, 5, 63, 87, 283 ]
 ```
+<!--}}}-->
 
 We have `[99] [44]` and then `[2] [1]`.
 
@@ -1250,10 +1343,12 @@ technique_ until they are sorted.
 
 Let me show you the animation of Quick Sort,
 
+<!--{{{ chapter-11-23.gif-->
 </br>
 
 ![chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
 </br>
+<!--}}}-->
 
 Quick Sort works like this, and if you're looking at this diagram, you're
 completely confused as to what is happening. This describes Quick Sort fairly
@@ -1261,10 +1356,12 @@ well, it's pretty complex to understand.
 
 Let' me show you a better demonstration.
 
+<!--{{{ chapter-11-12.png-->
 </br>
 
 ![chapter-11-12.png](./images/chapter-11-12.png "Quick Sort example")
 </br>
+<!--}}}-->
 
 I have a little diagram here, let's say we have a list that look like this, we
 have `3, 7, 8, 5, 2, 1, 9, 5, 4`. What we do here is, we pick a **random
@@ -1320,10 +1417,12 @@ of the pivot is the same.
 Let's got to main concepts. Quick Sort is really really useful; and between
 Quick Sort and Merge Sort, I would say that the most used Sorting algorithms.
 
+<!--{{{ chapter-11-11.png-->
 </br>
 
 ![chapter-11-11.png](./images/chapter-11-11.png "Quick Sort Time and Space Complexity")
 </br>
+<!--}}}-->
 
 You'll notice here **_two things_**,
 
@@ -1445,10 +1544,12 @@ Good Question, let's talk about in the next lecture.
 <!--{{{ 11 ## Radix Sort and Counting Sort -->
 ## Radix Sort and Counting Sort
 
+<!--{{{ chapter-11-23.gif-->
 </br>
 
 [chapter-11-23.gif](./images/gif/chapter-11-23.gif "Quick Sort animation")
 </br>
+<!--}}}-->
 
 We have talked about these five shorting algorithms, and by now you should know
 that Merge Sort and Quick Sort, although they're harder to implement, are the
@@ -1479,18 +1580,22 @@ kept doing that, every number got compared to each other.
 that numbers and data is stored on our computers, in `0` and `1`; and take
 advantage of that value to Sort thing.
 
+<!--{{{ chapter-11-13.png-->
 </br>
 
 ![chapter-11-13.png](./images/chapter-11-13.png "Non Comparison Sort")
 </br>
+<!--}}}-->
 
 This can get pretty complex, as you can see above paper, just looking at the
 diagrams, and for example Radix Sort here, how we store numbers in `0` and `1`.
 
+<!--{{{ chapter-11-14.png-->
 </br>
 
 ![chapter-11-14.png](./images/chapter-11-14.png "Radix Sort example")
 </br>
+<!--}}}-->
 
 We can use this knowledge to actually Sort some things.
 
@@ -1511,10 +1616,12 @@ is they can Sort any type of data. Things like Counting Sort and Radix Sort, is
 only useful for fixed length integers. They are able to beat the speed of `O(n
 log(n))`.
 
+<!--{{{ chapter-11-11.png-->
 </br>
 
 ![chapter-11-11.png](./images/chapter-11-11.png "Array Sorting Algorithms comparison diagram")
 </br>
+<!--}}}-->
 
 As you can see above diagram, Bucket Sort, Radix Sort, Counting Sort, in their
 average cases have `O(n+k)`, `0(nk)`. What `k` and `n` means, is beyond the
@@ -1550,6 +1657,7 @@ where we need to make decisions on which Sorting algorithms to use.
 
 So, to prepare you for that, I have a couple question,
 
+<!--{{{ //#1 - Sort 10 schools around your house by distance:-->
 ```javascript
 //#1 - Sort 10 schools around your house by distance:
 A: Quick Sort. the distance is a number, I can use Merge or Quick Sort
@@ -1576,6 +1684,7 @@ A: Merge Sort
 //#8 - You want to teach sorting for the first time
 A: Buble Sort
 ```
+<!--}}}-->
 
 The question are number above, and I want you to answer each question each
 question, if this was asked to you by your employer or boss, or maybe an

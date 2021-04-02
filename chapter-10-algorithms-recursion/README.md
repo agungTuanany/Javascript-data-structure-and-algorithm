@@ -41,10 +41,12 @@ data types like we did when we use the class keyword to create Stacks, Queues,
 Binary Search Trees. Algorithms allow us to use these data structures to perform
 actions on that data.
 
+<!--{{{ chapter-10-1.png-->
 </br>
 
 ![chapter-10-1.png](./images/chapter-10-1.png "Introduction to algorithms")
 </br>
+<!--}}}-->
 
 Remember this right, **Data Structure and Algorithms create Programs**. In this
 course we're going to talk about the most common interview algorithms, so that
@@ -53,10 +55,12 @@ focus on the want that matter, especially for interviews; but also the ones that
 matter most in you career; specifically we're going to go over these topics,
 when it comes to algorithms.
 
+<!--{{{ chapter-10-2.png-->
 </br>
 
 ![chapter-10-2.png](./images/chapter-10-2.png "Introduction to algorithms")
 </br>
+<!--}}}-->
 
 Now, whey are these algorithms so common in interviews, and especially in big
 companies; Well, you can get away with not knowing these topics for a long time
@@ -116,11 +120,13 @@ itself, simply it's a function that refers to itself inside of the function.
 Alright there's no way you get that right? That's probably the most confusing
 definition ever.
 
+<!--{{{ function inception() {-->
 ```javascript
 function inception() {
     inception();
 };
 ```
+<!--}}}-->
 
 Again, let me show you a different example; If I open the console on browser, a
 recursive function is a functions that refers to itself. So i can create a
@@ -139,6 +145,7 @@ that this concepts us going to be used in _searching_ and _sorting_  algorithms
 that we're going to be talking about; for example, _traversing a Tree_, if you
 think about it, are simply same tasks that we do over and over again.
 
+<!--{{{ function traverse(node) {-->
 ```javascript
 function traverse(node) {
     const tree = { value: node.value };
@@ -150,6 +157,7 @@ function traverse(node) {
         return tree;
 };
 ```
+<!--}}}-->
 
 Remember when we build our own Tree data structure, our Binary Search Tree, and
 I gave you a little function at the end called `traverse()` that allowed us to
@@ -192,6 +200,7 @@ man is drowned.
 
 What just happened here? This called Stack Overflow. Let's go back to some code.
 
+<!--{{{ function inception() {-->
 ```javascript
 function inception() {
     inception()
@@ -200,6 +209,7 @@ function inception() {
 // Result:
 // Uncaught RangeError: Maximum call stack size exceeded
 ```
+<!--}}}-->
 
 Remember the function `inception()` that we created, I run this function and
 simply I'll get an error. I get an error saying "Maximum call stack size
@@ -214,12 +224,14 @@ call stack size, you've got stop what you're doing".
 Now, this is called stack overflow, why is that? Let's dive deeper into this
 topic.
 
+<!--{{{ function inception() {-->
 ```javascript
 function inception() {
     debugger;
     inception();
 }
 ```
+<!--}}}-->
 
 This time, I'm going to add a keyword called `debugger` that the browser is
 going to detect and pause the function when it sees this word `debugger`. So,
@@ -291,6 +303,7 @@ So, how can we add this feature to telling the function, "Hey, quit it, you're
 being ridiculous right now, you need to stop.". Well, we can do something like
 this,
 
+<!--{{{ function inception() {-->
 ```javascript
 let counter = 0;
 
@@ -307,6 +320,7 @@ inception();
 // Result
 // => Undefined
 ```
+<!--}}}-->
 
 We can create a `counter`; and we'll say, this counter is `0`; and we can add a
 _conditional statement_, will say that `if` the counter is greater that `3`, in
@@ -320,6 +334,7 @@ So, if I run this function right now, what do you think will happen? I get
 
 Is that what you expected? Just to show you something,
 
+<!--{{{ function inception() {-->
 ```javascript
 let counter = 0;
 
@@ -349,6 +364,7 @@ RangeError: Maximum call stack size exceeded
     at inception2 ()
     at inception2 ()
 ```
+<!--}}}-->
 
 If I comment above code out and we just do this `inception()` where we just keep
 inception and perhaps do a `console.log()` here, saying `"hello?"` and I click
@@ -364,6 +380,7 @@ But, if we go back to what we have before, well our function clearly has ended,
 it hasn't done Stack Overflow and at one point it's ended, because increment the
 counter.
 
+<!--{{{ function inception() {-->
 ```javascript
 let counter = 0;
 
@@ -383,6 +400,7 @@ function inception() {
 // 3
 // 4
 ```
+<!--}}}-->
 
 So, let me `console.log(counter)`, if I click run I get `0, 1, 2, 3, 4`; when it
 gets to `4`, `counter > 3` we `return "done!"`; but why there's no `"done!"` in
@@ -390,6 +408,7 @@ result? This is a great illustration of how recursion works.
 
 Let try this small function into Web-browser console,
 
+<!--{{{ function inception() {-->
 ```javascript
 let counter = 0;
 
@@ -406,6 +425,7 @@ function inception() {
 
 inception();
 ```
+<!--}}}-->
 
 This time around I'm going to add the `debugger` keyword, so that we can
 debug our code and go step by step through it. Let's run our `inception()` in
@@ -448,6 +468,7 @@ Stack, the return value is undefined, and that's why we get.
 Now, why is that? Well, if we go back to our functions, what you just saw was us
 essentially doing calling `inception()`, we called inception 4 times.
 
+<!--{{{ inception(inception(inception(inception())))-->
 ```javascript
 inception(inception(inception(inception())))
 |         |         |         |
@@ -456,11 +477,12 @@ inception(inception(inception(inception())))
 |         |-- 2rd
 |-- 1rd
 ```
+<!--}}}-->
 
 Within the `4th` call, we said return `"done!"`. So the `4th` inception function
 turns into done,
 
-
+<!--{{{ inception(inception(inception("done!")))-->
 ```javascript
 inception(inception(inception("done!")))
 |         |         |         |
@@ -469,6 +491,7 @@ inception(inception(inception("done!")))
 |         |-- 2rd
 |-- 1rd
 ```
+<!--}}}-->
 
 Then we go the `3rd` function. Now, the problem with this, and I know this
 little bit confusing, is that once we returned, once we popped off the Stack, and
@@ -483,6 +506,7 @@ There is usually a **_base case_** and you always want to make sure, you return;
 So, that the value you want gets bubbled up all the way to top. In our case, all
 we need to do is, say `return inception()`
 
+<!--{{{ function inception() {-->
 ```javascript
 let counter = 0;
 
@@ -504,6 +528,7 @@ function inception() {
 // 4
 // => "done!"
 ```
+<!--}}}-->
 
 With this way, the `3rd` inception function knows to return whatever
 its result was, which was `"done!"` in the `4th` function, which again is
@@ -552,10 +577,12 @@ were return to turn both cases.
 So this recursive function `findFactorialRecursive()` is going to return an
 answer, but what is a factorial?
 
+<!--{{{ chapter-10-3.png-->
 </br>
 
 ![chapter-10-3.png](./images/chapter-10-3.png "What is factorial")
 </br>
+<!--}}}-->
 
 A good way to think about factorial, is this notation `5!`, five exclamation
 mark. Factorial simply means multiply `5 * 4 * 3 * 2 * 1`, you keep going down
@@ -567,10 +594,12 @@ function and we have two cases that can happen, we have the **_base case_** to
 stop, or **_recursive case_** and so on and so forth; we keep going and keep
 going until we hit `1`.
 
+<!--{{{ chapter-10-1.gif-->
 </br>
 
 ![chapter-10-1.gif](./images/gif/chapter-10-1.gif "What is factorial")
 </br>
+<!--}}}-->
 
 So, I want to build a function that does this for us. I'm going to write the
 function `factorial(5)`, and it's going to run through this. But remember, our
@@ -606,6 +635,7 @@ findFactorialIterative(5);
 Well, we can create a variable,
 
 
+<!--{{{ function findFactorialIterative(number) {-->
 ```javascript
 function findFactorialIterative(number) {
     let answer = 1;
@@ -625,6 +655,7 @@ findFactorialIterative(2)
 // Result
 // 2
 ```
+<!--}}}-->
 
 Let's say `answer` and for now this answer will be `1`. All we're going to do is
 do a `for-loop`; will say `let i = 2;`, in our case to simplify things we start
@@ -658,6 +689,7 @@ right answer for `5!` factorial.
 
 #### Recursive Approach
 
+<!--{{{ function findFactorialRecursive(number) {-->
 ```javascript
 function findFactorialRecursive(number) {
 
@@ -672,6 +704,7 @@ findFactorialRecursive(5);
 // Result
 // 120
 ```
+<!--}}}-->
 
 What about the Recursive approach? In the recursive version, we'll just do a
 simple check saying if `number === 2`, and we can do other check as well, but
@@ -721,9 +754,11 @@ we have another one coming up. I'll see you in the next one.
 You can't talk about Recursion without talking about the Fibonacci sequence.
 What is the Fibonacci sequence? Well it's this
 
+<!--{{{ // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...-->
 ```javascript
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
 ```
+<!--}}}-->
 
 If you notice, the pattern is that we're always adding the first two items
 equals the next number. So `0 + 1` is equal `1`; `1 + 1` is equal `2`; `1 + 2`
@@ -751,6 +786,7 @@ this case the _recursive approach_ is actually a lot simpler to think about.
 
 #### Recursive Approach
 
+<!--{{{ function fibonacciRecursive(n) {-->
 ```javascript
 function fibonacciRecursive(n) {
     if (n < 2) {
@@ -761,6 +797,7 @@ function fibonacciRecursive(n) {
 
 fibonacciRecursive(3)
 ```
+<!--}}}-->
 
 All we would do with our Recursive function s to say, well the base case is
 going to say number for `(n)` is going to equal to `2` if that's the case,
@@ -789,10 +826,12 @@ Nice and simple. Well, I don't know about simple. You really have to get
 comfortable with this before you truly understand what's happening. But, I have
 a little diagram here to help you.
 
+<!--{{{ chapter-10-4.png-->
 </br>
 
 ![chapter-10-4.png](./images/chapter-10-4.png "Fibonacci diagram")
 </br>
+<!--}}}-->
 
 All we've done is simply this. If I added `7` here, our recursive function is
 going to get one less then `7`, and two less then `7`; and then within those
@@ -809,6 +848,7 @@ look like.
 
 #### Iterative Approach
 
+<!--{{{ function fibonacciIterative(n) {-->
 ```javascript
 function fibonacciIterative(n) {
     let arr = [0, 1];
@@ -822,6 +862,7 @@ function fibonacciIterative(n) {
 
 fibonacciIterative(3)
 ```
+<!--}}}-->
 
 We'll create an array, and there's many ways of doing this, this is my preferred
 way, and this array is going to have to the initial items of the sequence,
@@ -912,10 +953,12 @@ Recursion over something iterative?**
 <!--{{{ 7 ## Recursive vs Iterative -->
 ## Recursive vs Iterative
 
+<!--{{{ chapter-10-5.png-->
 </br>
 
 ![chapter-10-5.png](./images/chapter-10-5.png "Recursive vs Iterative")
 </br>
+<!--}}}-->
 
 There is a theorem that states anything that can be implemented recursively can
 be implemented iteratively. That is, you can go your whole life without
@@ -942,10 +985,12 @@ code. I'm little bit biased, because although, recursion is a powerful
 technique, in my opinion it's not always the best approach.  So, you need to
 make sure, because of it;s main drawback.
 
+<!--{{{ chapter-10-2.gif-->
 </br>
 
 ![chapter-10-2.gif](./images/gif/chapter-10-2.gif "pros and cons recursion")
 </br>
+<!--}}}-->
 
 
 That is, although recursion can keep your code DRY, and make your code more
@@ -994,10 +1039,12 @@ and Depth Force Search (DFS), Recursion is really really useful, and better than
 _iterative approaches_, and we're _sorting through **items**_. There's also
 cases that will see that Recursion is preferred.
 
+<!--{{{ chapter-10-6.png-->
 </br>
 
 ![chapter-10-6.png](./images/chapter-10-6.png "When to use recursion")
 </br>
+<!--}}}-->
 
 When it comes to Recursion, these are the rules that I like to follow every time
 we're using a Tree or converting something into Tree consider Recursion; and
@@ -1032,6 +1079,7 @@ As we know, the one thing that recursion can do, that looping can't; is that the
 can make tasks super super easy, such as these types of problems (in term of
 readability and coding).
 
+<!--{{{ function traverse(node) {-->
 ```javascript
 // Write down Traverse function with Recursion
 
@@ -1039,6 +1087,7 @@ function traverse(node) {
     // code here ...
 };
 ```
+<!--}}}-->
 
 As a matter a fact, I encourage you to write your own Traverse function, that we
 use in our Tree data structure. This is something that we're going to get to
@@ -1069,20 +1118,24 @@ When we talk about Recursion and Computer Science we're talking about a function
 that calls itself. This type of technique is really good at some problems,
 because of its ability to maintain **_state_** a different level of recursion.
 
+<!--{{{ chapter-10-3.gif-->
 </br>
 
 ![chapter-10-3.gif](./images/gif/chapter-10-3.gif "Recursion review")
 </br>
+<!--}}}-->
 
 Just like our coachmen watching TV here, Recursion can be thought of as a but of
 glass that gets filled up with _recursive calls_ of functions; and then we start
 popping from the top until the very last function get popped off, and return a
 value.
 
+<!--{{{ chapter-10-4.gif-->
 </br>
 
 ![chapter-10-4.gif](./images/gif/chapter-10-4.gif "Recursion review")
 </br>
+<!--}}}-->
 
 One thing that w want to be careful of with Recursion, was this idea of Stack
 Overflow, this added _Memory Space_ as we keep calling the same function over
@@ -1092,10 +1145,12 @@ The Rule of thumb that we learned is, that we should _use Recursion_ when it
 makes code more _readable_; but sometimes it can be less efficient than
 iterative (looping) solution; so we have to be careful.
 
+<!--{{{ chapter-10-5.png-->
 </br>
 
 ![chapter-10-5.png](./images/chapter-10-5.png "Recursion review")
 </br>
+<!--}}}-->
 
 We also learned the rule, that anything you do with Recursion can be done
 iteratively; and in interviews you'll get asked the question of the pros and
@@ -1108,10 +1163,12 @@ with it, because _Recursion and Space Complexity are not friends_.
 But, when it comes to some problems like Sorting and Tree Traversal, you'll see
 that we're going to have to use Recursive solutions to make things simpler.
 
+<!--{{{ chapter-10-7.png-->
 </br>
 
 ![chapter-10-7.png](./images/chapter-10-7.png "Recursion review")
 </br>
+<!--}}}-->
 
 Specifically, when we talk about these upcoming topics, we're going to be using
 Recursion. So, get ready for it. Merge Sort, Quick Sort, Tree Traversal, Graph
